@@ -322,10 +322,10 @@ function App() {
                   
                   {/* Third Column - Navigation Options - Aligned to the right */}
                   <div className="flex justify-end space-x-6">
-                    <a href="#" className="text-white hover:text-white flex items-center" onClick={(e) => { e.preventDefault(); navigateToAbout(); }}>
+                    <button className="text-white hover:text-white flex items-center bg-transparent border-none cursor-pointer" onClick={navigateToAbout}>
                       <i className="ri-information-line regular-nav-icon"></i>
                       <span>About</span>
-                    </a>
+                    </button>
                     <a href="mailto:ajaymanath96@gmail.com" className="text-white hover:text-white flex items-center">
                       <i className="ri-mail-line regular-nav-icon"></i>
                       <span>Contact</span>
@@ -543,15 +543,14 @@ function App() {
                         <span key={i} className="badge badge-tool">{skill}</span>
                       ))}
                     </div>
-                    <motion.a 
-                      href="#" 
-                      className="text-white inline-flex items-center"
+                    <motion.button 
+                      className="text-white inline-flex items-center bg-transparent border-none cursor-pointer"
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
                       <span>Read more</span>
                       <i className="ri-arrow-right-line ml-1"></i>
-                    </motion.a>
+                    </motion.button>
                   </div>
               </div>
             </motion.div>
