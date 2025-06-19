@@ -7,39 +7,78 @@ import './App.css';
 
 function About() {
   const [showInfo, setShowInfo] = useState(false);
-  const [typedText, setTypedText] = useState('');
   const [showStory, setShowStory] = useState(false);
-  
-  const storyText = "I'm Ajay, an AI-powered product designer transforming how teams create digital experiences. I bridge design and development, creating meaningful digital products with specialized AI workflows. My strength lies in rapid prototyping with Cursor AI, enabling teams to test real interactions earlier and reduce development cycles. With dual expertise across design and engineering, I collaborate seamlessly to create cohesive products with smoother implementation.";
-  
+  const [typedText, setTypedText] = useState('');
+  const [isOnline, setIsOnline] = useState(true);
+
+  const storyText = "I'm Ajay, an **AI-powered product designer** transforming how teams create digital experiences. I bridge **design and development**, creating meaningful digital experiences with specialized **AI workflows**.\n\nMy strength lies in **rapid prototyping** with **Cursor AI**—teams can test real interactions earlier, dramatically reducing **development cycles**. With **dual expertise** across design and engineering, I collaborate seamlessly to create cohesive products with smoother implementation.\n\nI blend **traditional UX principles** with **cutting-edge AI** to accelerate decision-making and bring ideas to life faster than ever before.";
+
+  // Simulate online/offline status with random changes
   useEffect(() => {
-    if (showInfo && !showStory) {
-      const timer = setTimeout(() => {
-        setShowStory(true);
-      }, 1500); // Start story after card animation completes
-      return () => clearTimeout(timer);
-    }
-  }, [showInfo, showStory]);
-  
+    const interval = setInterval(() => {
+      setIsOnline(Math.random() > 0.3); // 70% chance of being online
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Typing animation effect
   useEffect(() => {
     if (showStory) {
       let index = 0;
-      const typingInterval = setInterval(() => {
+      const timer = setInterval(() => {
         if (index < storyText.length) {
           setTypedText(storyText.slice(0, index + 1));
           index++;
         } else {
-          clearInterval(typingInterval);
+          clearInterval(timer);
         }
-      }, 30); // Typing speed
+      }, 30); // Adjust speed here (lower = faster)
       
-      return () => clearInterval(typingInterval);
+      return () => clearInterval(timer);
     }
   }, [showStory, storyText]);
 
+  const handleImageClick = () => {
+    setShowInfo(!showInfo);
+    if (!showInfo) {
+      // Show story after a delay when info section appears
+      setTimeout(() => setShowStory(true), 800);
+    } else {
+      setShowStory(false);
+      setTypedText('');
+    }
+  };
+
+  // Function to format text with bold and gradient highlights
+  const formatText = (text: string) => {
+    // Split by **bold** markers
+    const parts = text.split(/(\*\*[^*]+\*\*)/g);
+    
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        const boldText = part.slice(2, -2);
+        return (
+          <span
+            key={index}
+            className="font-semibold"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(192,192,192,0.8) 50%, rgba(169,169,169,0.7) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            {boldText}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <div className="min-h-screen bg-custom-dark text-white flex flex-col">
-      {/* Header with back button */}
+      {/* Header with back button - removed margin-top */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-custom-dark py-4 site-header">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
@@ -53,7 +92,7 @@ function About() {
         </div>
       </header>
 
-      {/* Spacer to prevent content from being hidden under fixed header */}
+      {/* Spacer to prevent content from being hidden under fixed header - reduced back to original */}
       <div className="h-[80px]"></div>
 
       {/* Main content */}
@@ -135,16 +174,16 @@ function About() {
           </svg>
         </div>
         
-        <div className="text-center relative z-10">
+        <div className="text-center relative z-10 flex flex-col items-center">
           {/* Profile image container with integrated info section */}
           <motion.div 
             className="relative inline-block cursor-pointer image-container"
             whileHover={{ scale: 1.05 }}
-            onClick={() => setShowInfo(!showInfo)}
+            onClick={handleImageClick}
             style={{ boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)' }}
           >
             {/* Light grey border around entire container */}
-            <div className="border border-gray-300 border-opacity-20 inline-block">
+            <div className="border border-gray-300 border-opacity-20 inline-block p-1">
               <div className="overflow-hidden">
                 <motion.img 
                   src={fullImg} 
@@ -154,11 +193,11 @@ function About() {
                   transition={{ duration: 0.5 }}
                 />
                 
-                {/* Info section that extends directly from image */}
+                {/* Info section that extends directly from image - NO GAP */}
                 <AnimatePresence>
                   {showInfo && (
                     <motion.div 
-                      className="info-section bg-black px-6 py-4"
+                      className="info-section bg-black px-6 py-4 -mt-1"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -198,7 +237,7 @@ function About() {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.4 }}
                       >
-                        {/* Left side - Position with green indicator */}
+                        {/* Left side - Position with animated indicator */}
                         <motion.div 
                           className="flex items-center"
                           initial={{ x: 20, opacity: 0 }}
@@ -206,24 +245,19 @@ function About() {
                           transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
                         >
                           <motion.span 
-                            className="w-2 h-2 bg-green-400 rounded-full mr-3"
+                            className={`w-2 h-2 rounded-full mr-3 ${isOnline ? 'bg-green-400' : 'bg-red-400'}`}
                             animate={{ 
-                              boxShadow: [
-                                "0 0 0 0 rgba(34, 197, 94, 0.7)",
-                                "0 0 0 4px rgba(34, 197, 94, 0)",
-                                "0 0 0 0 rgba(34, 197, 94, 0)"
-                              ]
+                              scale: isOnline ? [1, 1.2, 1] : [1, 0.8, 1],
+                              boxShadow: isOnline 
+                                ? ['0 0 0 0 rgba(34, 197, 94, 0.7)', '0 0 0 4px rgba(34, 197, 94, 0)', '0 0 0 0 rgba(34, 197, 94, 0)']
+                                : ['0 0 0 0 rgba(239, 68, 68, 0.7)', '0 0 0 4px rgba(239, 68, 68, 0)', '0 0 0 0 rgba(239, 68, 68, 0)']
                             }}
-                            transition={{ 
-                              duration: 2,
-                              repeat: Infinity,
-                              repeatType: "loop"
-                            }}
+                            transition={{ duration: 2, repeat: Infinity }}
                           ></motion.span>
                           <p className="text-sm text-white">Product Designer</p>
                         </motion.div>
                         
-                        {/* Right side - 3 Social media icons */}
+                        {/* Right side - Only 3 social media icons */}
                         <motion.div 
                           className="flex items-center space-x-5"
                           initial={{ x: -20, opacity: 0 }}
@@ -268,51 +302,53 @@ function About() {
               </div>
             </div>
           </motion.div>
-          
-          {/* Story Section with Typing Animation */}
+
+          {/* Story Section */}
           <AnimatePresence>
             {showStory && (
               <motion.div
-                className="mt-12 max-w-2xl mx-auto"
+                className="mt-12 max-w-2xl mx-auto px-6 mb-16"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <motion.div
-                  className="relative p-8 rounded-lg"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255,255,255,0.1)'
-                  }}
+                  className="relative"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
                 >
-                  {/* Subtle gradient overlay */}
+                  {/* Gradient background for the story */}
                   <div 
-                    className="absolute inset-0 rounded-lg opacity-30"
+                    className="absolute inset-0 rounded-lg"
                     style={{
-                      background: 'linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.02) 100%)'
+                      background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(255,255,255,0.05)'
                     }}
                   ></div>
                   
-                  <div className="relative z-10">
-                    <motion.div
+                  <div className="relative p-8">
+                    <motion.div 
                       className="text-lg leading-relaxed"
                       style={{
-                        background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.5) 100%)',
-                        backgroundClip: 'text',
+                        background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
-                        fontWeight: '400',
+                        backgroundClip: 'text',
+                        fontFamily: 'Inter, system-ui, sans-serif',
+                        fontWeight: '300',
+                        letterSpacing: '0.02em',
                         lineHeight: '1.8'
                       }}
                     >
-                      {typedText}
+                      {formatText(typedText)}
                       {typedText.length < storyText.length && (
                         <motion.span
                           className="inline-block w-0.5 h-6 bg-white ml-1"
                           animate={{ opacity: [1, 0] }}
-                          transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+                          transition={{ duration: 0.8, repeat: Infinity }}
                         />
                       )}
                     </motion.div>
@@ -324,8 +360,8 @@ function About() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-custom-dark text-white py-6">
+      {/* Footer with increased margin-top */}
+      <footer className="bg-custom-dark text-white py-6 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-sm text-white opacity-60">
             © {new Date().getFullYear()} AJAY MANATH. All rights reserved.

@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -34,5 +41,313 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Set background color */
+.bg-custom-dark {
+  background-color: #191919 !important;
+}
+
+/* Header styles */
+.site-header {
+  /* margin-top removed */
+}
+
+/* Remove underline effect from all hover states */
+a:hover {
+  text-decoration: none !important;
+}
+
+/* Icon tilt effect on hover */
+a:hover i {
+  transform: rotate(-10deg);
+  transition: transform 0.3s ease;
+}
+
+/* Main navigation icons (45px) */
+.main-nav-icon {
+  font-size: 45px !important;
+  width: 45px !important;
+  height: 45px !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Regular sized icons for top navigation and footer */
+.regular-nav-icon {
+  font-size: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 0.5rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* Selected tab styles */
+.selected-tab {
+  color: white !important;
+  opacity: 1 !important;
+}
+
+/* Inactive tab styles */
+.inactive-tab {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+/* Tab content sections */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Blog post styles */
+.blog-post {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.blog-post:last-child {
+  border-bottom: none;
+}
+
+/* Search bar styles */
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  margin-right: 8px;
+}
+
+.search-input {
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+  padding: 8px 12px;
+  color: #191919;
+  font-size: 14px;
+}
+
+.search-input::placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: white;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Make all images square/edgy with no border radius */
+img {
+  border-radius: 0 !important;
+}
+
+/* Black and white image filter */
+.bw-image {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+.bw-image:hover {
+  filter: grayscale(80%);
+}
+
+/* Clean image container with no overlays */
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container::before,
+.image-container::after {
+  content: none !important;
+}
+
+/* SVG Pattern Animation */
+@keyframes pulse {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pattern-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.pulse-animation {
+  animation: pulse 4s infinite ease-in-out;
+}
+
+.float-animation {
+  animation: float 8s infinite ease-in-out;
+}
+
+.rotate-animation {
+  animation: rotate 30s infinite linear;
+  transform-origin: center;
+}
+
+/* Header transition */
+.header-transition {
+  transition: all 0.3s ease;
+}
+
+/* Animation styles */
+.fade-in {
+  opacity: 0;
+}
+
+.stagger-item {
+  opacity: 0;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hover-card {
+  transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hover-scale img {
+  transition: transform 0.5s ease;
+}
+
+.hover-scale:hover img {
+  transform: scale(1.05);
+}
+
+/* Badge styles */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.badge-ai {
+  background-color: rgba(99, 102, 241, 0.2);
+}
+
+.badge-design {
+  background-color: rgba(236, 72, 153, 0.2);
+}
+
+.badge-tool {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+/* Square indicator */
+.square-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  margin: 0 8px;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073;
+  }
+  to {
+    box-shadow: 0 0 10px #fff, 0 0 15px #ff4da6, 0 0 20px #ff4da6, 0 0 25px #ff4da6;
+  }
+}
+
+/* Info section styles */
+.info-section {
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Skill meter */
+.skill-meter {
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.skill-level {
+  height: 100%;
+  background-color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .main-nav-icon {
+    font-size: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+  }
+  
+  .nav-label {
+    font-size: 12px;
+  }
+  
+  .search-container {
+    max-width: 100%;
+    margin-bottom: 1rem;
   }
 }

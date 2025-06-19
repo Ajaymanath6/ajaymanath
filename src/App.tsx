@@ -196,10 +196,8 @@ function App() {
     { name: "Playground", icon: "ri-gamepad-fill", href: "#playground" }
   ];
 
-  // Social media links
+  // Social media links - removed Dribbble and Behance
   const socialLinks = [
-    { name: 'Dribbble', icon: 'ri-dribbble-line' },
-    { name: 'Behance', icon: 'ri-behance-line' },
     { name: 'GitHub', icon: 'ri-github-line' },
     { name: 'LinkedIn', icon: 'ri-linkedin-line' },
     { name: 'Instagram', icon: 'ri-instagram-line' }
@@ -282,7 +280,7 @@ function App() {
         <AnimatePresence>
           {!scrolled && (
             <motion.div 
-              className="bg-custom-dark py-4"
+              className="bg-custom-dark py-6"
               initial={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
@@ -299,7 +297,8 @@ function App() {
                       transition={{ duration: 0.3 }}
                     />
                     <div>
-                      <p className="text-sm text-white opacity-80">An AI product designer who...</p>
+                      <p className="text-sm text-white opacity-80">Profile</p>
+                      <p className="text-sm text-white opacity-80 mb-1">An AI product designer who...</p>
                     <div className="h-8">
                       <AnimatePresence mode="wait">
                         <motion.p 
@@ -327,7 +326,7 @@ function App() {
                       <i className="ri-information-line regular-nav-icon"></i>
                       <span>About</span>
                     </a>
-                    <a href="#contact" className="text-white hover:text-white flex items-center">
+                    <a href="mailto:ajaymanath96@gmail.com" className="text-white hover:text-white flex items-center">
                       <i className="ri-mail-line regular-nav-icon"></i>
                       <span>Contact</span>
                     </a>
@@ -338,10 +337,10 @@ function App() {
           )}
         </AnimatePresence>
 
-        {/* Bottom Section - Always visible with min-height 80px */}
-        <div className="bg-custom-dark py-3 shadow-md">
+        {/* Bottom Section - Always visible with increased min-height */}
+        <div className="bg-custom-dark py-4 shadow-md">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between items-center min-h-[80px]">
+            <div className="flex flex-col md:flex-row justify-between items-center min-h-[88px]">
               {/* Left Side - Search */}
               <div className="w-full md:w-1/3 mb-4 md:mb-0">
                 <div className="search-container">
@@ -380,8 +379,8 @@ function App() {
         </div>
       </div>
 
-      {/* Spacer to prevent content from being hidden under fixed header */}
-      <div className={`${scrolled ? 'h-[80px]' : 'h-[160px]'} transition-all duration-300`}></div>
+      {/* Spacer to prevent content from being hidden under fixed header - adjusted heights */}
+      <div className={`${scrolled ? 'h-[88px]' : 'h-[176px]'} transition-all duration-300`}></div>
 
       {/* Main Content - Tab Content */}
       <motion.div 
