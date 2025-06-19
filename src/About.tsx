@@ -11,7 +11,7 @@ function About() {
   const [typedText, setTypedText] = useState('');
   const [isOnline, setIsOnline] = useState(true);
 
-  const storyText = "I'm Ajay, an **AI-powered product designer** transforming how teams create digital experiences. I bridge **design and development**, creating meaningful digital experiences with specialized **AI workflows**.\n\nMy strength lies in **rapid prototyping** with **Cursor AI**—teams can test real interactions earlier, dramatically reducing **development cycles**. With **dual expertise** across design and engineering, I collaborate seamlessly to create cohesive products with smoother implementation.\n\nI blend **traditional UX principles** with **cutting-edge AI** to accelerate decision-making and bring ideas to life faster than ever before.";
+  const storyText = "I'm Ajay, an **AI-powered product designer** who bridges **design and development**. I specialize in **rapid prototyping** with **Cursor AI**, helping teams test interactions earlier and reduce development cycles. I blend **traditional UX principles** with **cutting-edge AI** to accelerate decision-making and bring ideas to life faster.";
 
   // Simulate online/offline status with random changes
   useEffect(() => {
@@ -78,22 +78,18 @@ function About() {
 
   return (
     <div className="min-h-screen bg-custom-dark text-white flex flex-col">
-      {/* Header with back button - removed margin-top */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-custom-dark py-4 site-header">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <motion.div whileHover={{ x: -5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-              <Link to="/" className="text-white flex items-center">
-                <i className="ri-arrow-left-line mr-2"></i>
-                <span>Back to Portfolio</span>
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </header>
+      {/* Header with back button - now floating without background */}
+      <div className="fixed top-4 left-4 z-50">
+        <motion.div whileHover={{ x: -5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+          <Link to="/" className="text-white flex items-center bg-black bg-opacity-50 px-4 py-2 rounded-lg backdrop-blur-sm">
+            <i className="ri-arrow-left-line mr-2"></i>
+            <span>Back to Portfolio</span>
+          </Link>
+        </motion.div>
+      </div>
 
-      {/* Spacer to prevent content from being hidden under fixed header - reduced back to original */}
-      <div className="h-[80px]"></div>
+      {/* Reduced spacer since header is now floating */}
+      <div className="h-[40px]"></div>
 
       {/* Main content */}
       <main className="flex-grow flex items-center justify-center relative">
@@ -188,7 +184,7 @@ function About() {
                 <motion.img 
                   src={fullImg} 
                   alt="Ajay Manath" 
-                  className="w-80 h-80 object-cover bw-image block"
+                  className="w-72 h-72 object-cover bw-image block"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 />
@@ -202,7 +198,7 @@ function About() {
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      style={{ width: '320px' }}
+                      style={{ width: '288px' }}
                     >
                       {/* Name - Left aligned */}
                       <motion.div 
@@ -307,7 +303,7 @@ function About() {
           <AnimatePresence>
             {showStory && (
               <motion.div
-                className="mt-12 max-w-2xl mx-auto px-6 mb-16"
+                className="mt-12 max-w-5xl mx-auto px-6 mb-16"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
@@ -331,7 +327,7 @@ function About() {
                   
                   <div className="relative p-8">
                     <motion.div 
-                      className="text-lg leading-relaxed"
+                      className="text-base leading-relaxed"
                       style={{
                         background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%)',
                         WebkitBackgroundClip: 'text',
@@ -340,13 +336,13 @@ function About() {
                         fontFamily: 'Inter, system-ui, sans-serif',
                         fontWeight: '300',
                         letterSpacing: '0.02em',
-                        lineHeight: '1.8'
+                        lineHeight: '1.6'
                       }}
                     >
                       {formatText(typedText)}
                       {typedText.length < storyText.length && (
                         <motion.span
-                          className="inline-block w-0.5 h-6 bg-white ml-1"
+                          className="inline-block w-0.5 h-5 bg-white ml-1"
                           animate={{ opacity: [1, 0] }}
                           transition={{ duration: 0.8, repeat: Infinity }}
                         />

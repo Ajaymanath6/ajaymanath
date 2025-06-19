@@ -297,7 +297,6 @@ function App() {
                       transition={{ duration: 0.3 }}
                     />
                     <div>
-                      <p className="text-sm text-white opacity-80">Profile</p>
                       <p className="text-sm text-white opacity-80 mb-1">An AI product designer who...</p>
                     <div className="h-8">
                       <AnimatePresence mode="wait">
@@ -384,7 +383,7 @@ function App() {
 
       {/* Main Content - Tab Content */}
       <motion.div 
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-8"
         animate={controls}
         initial="hidden"
       >
@@ -580,7 +579,7 @@ function App() {
                     alt={project.title} 
                     className="w-full h-full object-cover"
                   />
-      </div>
+                </div>
                 
                 {/* Project Title and Description */}
                 <div className="p-4">
