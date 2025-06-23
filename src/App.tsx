@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import 'remixicon/fonts/remixicon.css';
 import './App.css';
 import faceImg from './face.png';
+import { Link } from 'react-router-dom';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +23,7 @@ function App() {
     "blends human creativity with AI tools"
   ];
 
-  // Sample design project data - showing only first 3 for one row
+  // Sample design project data - now showing only 4 cards
   const cardData = [
     {
       id: 1,
@@ -31,7 +32,8 @@ function App() {
       image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       title: "Mobile App Redesign",
       subtitle: "UX/UI for fitness tracking platform",
-      tags: ["AI-Powered", "UX/UI", "Mobile"]
+      tags: ["AI-Powered", "UX/UI", "Mobile"],
+      link: null
     },
     {
       id: 2,
@@ -40,7 +42,8 @@ function App() {
       image: "https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       title: "Brand Identity System",
       subtitle: "Visual language for tech startup",
-      tags: ["Branding", "AI Tools", "Design System"]
+      tags: ["Branding", "AI Tools", "Design System"],
+      link: "https://mandal-ai-9c42ef.gitlab.io/home"
     },
     {
       id: 3,
@@ -49,7 +52,8 @@ function App() {
       image: "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       title: "E-commerce Website",
       subtitle: "User-centered shopping experience",
-      tags: ["E-commerce", "AI-Powered", "Web Design"]
+      tags: ["E-commerce", "AI-Powered", "Web Design"],
+      link: "https://prevalent-5474cf.gitlab.io/"
     },
     {
       id: 4,
@@ -58,25 +62,8 @@ function App() {
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       title: "AI Content Generator",
       subtitle: "Automated copywriting assistant",
-      tags: ["AI", "NLP", "Content Creation"]
-    },
-    {
-      id: 5,
-      number: "05",
-      date: "OCT 2023",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      title: "Developer Dashboard",
-      subtitle: "Analytics platform for engineering teams",
-      tags: ["Data Viz", "AI Analytics", "Dashboard"]
-    },
-    {
-      id: 6,
-      number: "06",
-      date: "NOV 2023",
-      image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      title: "Team Collaboration Tool",
-      subtitle: "AI-powered project management",
-      tags: ["Collaboration", "AI", "Productivity"]
+      tags: ["AI", "NLP", "Content Creation"],
+      link: "https://dronegrid-976b17.gitlab.io/"
     }
   ];
 
@@ -267,9 +254,11 @@ function App() {
     }
   };
 
-  // Navigate to About page
-  const navigateToAbout = () => {
-    navigate('/about');
+  // Click handler for external links
+  const handleCardClick = (link?: string | null) => {
+    if (link) {
+      window.open(link, '_blank');
+    }
   };
 
   return (
@@ -321,14 +310,23 @@ function App() {
                   
                   {/* Third Column - Navigation Options - Aligned to the right */}
                   <div className="flex justify-end space-x-6">
-                    <button className="text-white hover:text-white flex items-center bg-transparent border-none cursor-pointer" onClick={navigateToAbout}>
-                      <i className="ri-information-line regular-nav-icon"></i>
-                      <span>About</span>
-                    </button>
-                    <a href="mailto:ajaymanath96@gmail.com" className="text-white hover:text-white flex items-center">
-                      <i className="ri-mail-line regular-nav-icon"></i>
-                      <span>Contact</span>
-                    </a>
+                    <div className="flex items-center space-x-2 md:space-x-4">
+                      <motion.div
+                        whileHover={{ x: -5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        <Link to="/about" className="text-white hover:text-gray-300 transition-colors">
+                          About
+                        </Link>
+                      </motion.div>
+                      <motion.a
+                        href="mailto:ajaymanath96@gmail.com"
+                        className="text-white hover:text-gray-300 transition-colors"
+                        whileHover={{ rotate: 10 }}
+                      >
+                        <i className="ri-mail-line text-xl md:text-2xl"></i>
+                      </motion.a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -402,51 +400,169 @@ function App() {
 
         {/* AI Prototype Tab Content */}
         <div className={`tab-content ${activeTab === "AI Prototype" ? "active" : ""}`}>
-            <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          <motion.div 
+            className="space-y-4"
             variants={staggerContainer}
             initial="hidden"
             animate={activeTab === "AI Prototype" ? "visible" : "hidden"}
-            >
-            {cardData.map((card, index) => (
+          >
+            {/* First Row: Large (700px) + Small (500px) */}
+            <div className="flex flex-col lg:flex-row gap-2 justify-center items-start">
+              {/* Card 1 - Large with 90% image height */}
               <motion.div 
-                key={card.id}
-                className="bg-custom-dark rounded-lg overflow-hidden hover-card"
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[0].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-[550px] flex flex-col`}
                 variants={fadeInUp}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: 0 }}
+                onClick={() => handleCardClick(cardData[0].link)}
               >
                 {/* Card Header with Badge and Date */}
                 <div className="p-4 flex justify-between items-center">
-                <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
-                  #{card.number}
+                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
+                    #{cardData[0].number}
+                  </div>
+                  <div className="text-white opacity-80 text-sm flex items-center">
+                    <i className="ri-calendar-line mr-1"></i>
+                    {cardData[0].date}
+                  </div>
                 </div>
-                <div className="text-white opacity-80 text-sm flex items-center">
-                  <i className="ri-calendar-line mr-1"></i>
-                  {card.date}
-                </div>
-                </div>
-              
-              {/* Card Image */}
-                <div className="overflow-hidden hover-scale">
+                
+                {/* Card Image - 90% of remaining height */}
+                <div className="overflow-hidden hover-scale flex-grow" style={{ height: '90%' }}>
                   <img 
-                  src={card.image} 
-                  alt={card.title} 
-                  className="w-full aspect-square object-cover"
-                />
-              </div>
-              
-              {/* Card Title and Subtitle */}
-              <div className="p-4">
-                <h3 className="text-lg font-bold text-white">{card.title}</h3>
-                  <p className="text-white opacity-80 mt-1 mb-3">{card.subtitle}</p>
-                  <div className="flex flex-wrap">
-                    {card.tags.map((tag, i) => (
-                      <span key={i} className="badge badge-ai">{tag}</span>
-                    ))}
+                    src={cardData[0].image} 
+                    alt={cardData[0].title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Card Title and Expandable Content - 10% of remaining height */}
+                <div className="p-4" style={{ height: '10%', minHeight: '60px' }}>
+                  <h3 className="text-xl font-bold text-white mb-1">{cardData[0].title}</h3>
+                  
+                  {/* Subtitle shown on hover */}
+                  <div className="overflow-hidden transition-all duration-300 max-h-0 hover:max-h-12">
+                    <p className="text-white opacity-80 text-sm line-clamp-1">{cardData[0].subtitle}</p>
                   </div>
                 </div>
               </motion.div>
-            ))}
+
+              {/* Card 2 - Small with 65% image height */}
+              <motion.div 
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[1].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-[550px] flex flex-col`}
+                variants={fadeInUp}
+                transition={{ delay: 0.1 }}
+                onClick={() => handleCardClick(cardData[1].link)}
+              >
+                {/* Card Header with Badge and Date */}
+                <div className="p-4 flex justify-between items-center">
+                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
+                    #{cardData[1].number}
+                  </div>
+                  <div className="text-white opacity-80 text-sm flex items-center">
+                    <i className="ri-calendar-line mr-1"></i>
+                    {cardData[1].date}
+                  </div>
+                </div>
+                
+                {/* Card Image - 65% of remaining height */}
+                <div className="overflow-hidden hover-scale" style={{ height: '65%' }}>
+                  <img 
+                    src={cardData[1].image} 
+                    alt={cardData[1].title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Card Title and Expandable Content - 35% of remaining height */}
+                <div className="p-4 flex-grow" style={{ height: '35%' }}>
+                  <h3 className="text-lg font-bold text-white mb-1">{cardData[1].title}</h3>
+                  
+                  {/* Subtitle shown on hover */}
+                  <div className="overflow-hidden transition-all duration-300 max-h-0 hover:max-h-16">
+                    <p className="text-white opacity-80 text-sm">{cardData[1].subtitle}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Second Row: Large (700px) + Small (500px) */}
+            <div className="flex flex-col lg:flex-row gap-2 justify-center items-start">
+              {/* Card 3 - Large with 90% image height */}
+              <motion.div 
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[2].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-[550px] flex flex-col`}
+                variants={fadeInUp}
+                transition={{ delay: 0.2 }}
+                onClick={() => handleCardClick(cardData[2].link)}
+              >
+                {/* Card Header with Badge and Date */}
+                <div className="p-4 flex justify-between items-center">
+                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
+                    #{cardData[2].number}
+                  </div>
+                  <div className="text-white opacity-80 text-sm flex items-center">
+                    <i className="ri-calendar-line mr-1"></i>
+                    {cardData[2].date}
+                  </div>
+                </div>
+                
+                {/* Card Image - 90% of remaining height */}
+                <div className="overflow-hidden hover-scale flex-grow" style={{ height: '90%' }}>
+                  <img 
+                    src={cardData[2].image} 
+                    alt={cardData[2].title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Card Title and Expandable Content - 10% of remaining height */}
+                <div className="p-4" style={{ height: '10%', minHeight: '60px' }}>
+                  <h3 className="text-xl font-bold text-white mb-1">{cardData[2].title}</h3>
+                  
+                  {/* Subtitle shown on hover */}
+                  <div className="overflow-hidden transition-all duration-300 max-h-0 hover:max-h-12">
+                    <p className="text-white opacity-80 text-sm line-clamp-1">{cardData[2].subtitle}</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Card 4 - Small with 65% image height */}
+              <motion.div 
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[3].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-[550px] flex flex-col`}
+                variants={fadeInUp}
+                transition={{ delay: 0.3 }}
+                onClick={() => handleCardClick(cardData[3].link)}
+              >
+                {/* Card Header with Badge and Date */}
+                <div className="p-4 flex justify-between items-center">
+                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
+                    #{cardData[3].number}
+                  </div>
+                  <div className="text-white opacity-80 text-sm flex items-center">
+                    <i className="ri-calendar-line mr-1"></i>
+                    {cardData[3].date}
+                  </div>
+                </div>
+                
+                {/* Card Image - 65% of remaining height */}
+                <div className="overflow-hidden hover-scale" style={{ height: '65%' }}>
+                  <img 
+                    src={cardData[3].image} 
+                    alt={cardData[3].title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Card Title and Expandable Content - 35% of remaining height */}
+                <div className="p-4 flex-grow" style={{ height: '35%' }}>
+                  <h3 className="text-lg font-bold text-white mb-1">{cardData[3].title}</h3>
+                  
+                  {/* Subtitle shown on hover */}
+                  <div className="overflow-hidden transition-all duration-300 max-h-0 hover:max-h-16">
+                    <p className="text-white opacity-80 text-sm">{cardData[3].subtitle}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
 

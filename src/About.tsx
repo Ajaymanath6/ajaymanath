@@ -271,7 +271,7 @@ function About() {
                             <i className="ri-github-fill text-lg"></i>
                           </motion.a>
                           <motion.a 
-                            href="https://linkedin.com" 
+                            href="https://www.linkedin.com/in/ajaym96" 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="text-white hover:text-gray-300 transition-colors"
