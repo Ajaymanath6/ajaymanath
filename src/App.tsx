@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useAnimation, Variants } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import 'remixicon/fonts/remixicon.css';
 import './App.css';
 import faceImg from './face.png';
@@ -11,7 +10,6 @@ function App() {
   const [textIndex, setTextIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("AI Prototype");
   const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
   
   // Animation controls
   const controls = useAnimation();
@@ -316,7 +314,7 @@ function App() {
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                       >
                         <Link to="/about" className="text-white hover:text-gray-300 transition-colors">
-                          About
+                      About
                         </Link>
                       </motion.div>
                       <motion.a
@@ -409,13 +407,13 @@ function App() {
             {/* First Row: Large (700px) + Small (500px) */}
             <div className="flex flex-col lg:flex-row gap-2 justify-center items-start">
               {/* Card 1 - Large with 90% image height */}
-              <motion.div 
+            <motion.div 
                 className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[0].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-[550px] flex flex-col`}
                 variants={fadeInUp}
                 transition={{ delay: 0 }}
                 onClick={() => handleCardClick(cardData[0].link)}
-              >
-                {/* Card Header with Badge and Date */}
+            >
+              {/* Card Header with Badge and Date */}
                 <div className="p-4 flex justify-between items-center">
                   <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
                     #{cardData[0].number}
@@ -455,7 +453,7 @@ function App() {
               >
                 {/* Card Header with Badge and Date */}
                 <div className="p-4 flex justify-between items-center">
-                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
+                <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
                     #{cardData[1].number}
                   </div>
                   <div className="text-white opacity-80 text-sm flex items-center">
@@ -498,9 +496,9 @@ function App() {
                 <div className="p-4 flex justify-between items-center">
                   <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
                     #{cardData[2].number}
-                  </div>
-                  <div className="text-white opacity-80 text-sm flex items-center">
-                    <i className="ri-calendar-line mr-1"></i>
+                </div>
+                <div className="text-white opacity-80 text-sm flex items-center">
+                  <i className="ri-calendar-line mr-1"></i>
                     {cardData[2].date}
                   </div>
                 </div>
@@ -524,7 +522,7 @@ function App() {
                   </div>
                 </div>
               </motion.div>
-
+              
               {/* Card 4 - Small with 65% image height */}
               <motion.div 
                 className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[3].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-[550px] flex flex-col`}
@@ -587,11 +585,11 @@ function App() {
                     src={design.image} 
                     alt={design.title} 
                     className="w-full h-full object-cover"
-                  />
-                </div>
-                
+                />
+              </div>
+              
                 {/* Design Title */}
-                <div className="p-4">
+              <div className="p-4">
                   <h3 className="text-lg font-bold text-white">{design.title}</h3>
                   <p className="text-white opacity-80 mt-2 mb-3">
                     <i className="ri-line-chart-line mr-2"></i>
@@ -695,7 +693,7 @@ function App() {
                     alt={project.title} 
                     className="w-full h-full object-cover"
                   />
-                </div>
+      </div>
                 
                 {/* Project Title and Description */}
                 <div className="p-4">
