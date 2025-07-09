@@ -28,10 +28,10 @@ function App() {
       number: "01",
       date: "APR 2023",
       image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      title: "Mobile App Redesign",
-      subtitle: "UX/UI for fitness tracking platform",
+      title: "Synapse Learn",
+      subtitle: "AI-powered collaborative platform bridging research disciplines and fostering innovative solutions",
       tags: ["AI-Powered", "UX/UI", "Mobile"],
-      link: null
+      link: "https://mandal-ai-9c42ef.gitlab.io/home"
     },
     {
       id: 2,
@@ -41,7 +41,7 @@ function App() {
       title: "Brand Identity System",
       subtitle: "Visual language for tech startup",
       tags: ["Branding", "AI Tools", "Design System"],
-      link: "https://mandal-ai-9c42ef.gitlab.io/home"
+      link: "https://dronegrid-976b17.gitlab.io/"
     },
     {
       id: 3,
@@ -61,7 +61,7 @@ function App() {
       title: "AI Content Generator",
       subtitle: "Automated copywriting assistant",
       tags: ["AI", "NLP", "Content Creation"],
-      link: "https://dronegrid-976b17.gitlab.io/"
+      link: "https://customer-f4fcaf.gitlab.io/"
     }
   ];
 
@@ -105,30 +105,43 @@ function App() {
   const blogPosts = [
     {
       id: 1,
-      title: "The Future of AI in Design",
-      excerpt: "Exploring how artificial intelligence is changing the landscape of design and creativity.",
+      title: "AI Prototype with Your Custom Design System",
+      excerpt: "Maintaining UI consistency when using AI prototyping tools with Figma and Cursor.",
       date: "May 15, 2023",
       readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      skills: ["AI Integration", "Design Strategy", "Future Trends"]
+      image: "/AI-Prototyping.png",
+      skills: ["AI Integration", "Design Systems", "Figma MCP"],
+      link: "/article/ai-prototype-design-system"
     },
     {
       id: 2,
-      title: "Designing for Accessibility: Best Practices",
-      excerpt: "How to ensure your designs are inclusive and accessible to all users.",
-      date: "April 22, 2023",
-      readTime: "7 min read",
-      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      skills: ["Accessibility", "Inclusive Design", "WCAG Guidelines"]
+      title: "Automated Testing for Design System Consistency",
+      excerpt: "How to automate testing for design system compliance and fix inconsistencies.",
+      date: "June 22, 2023",
+      readTime: "6 min read",
+      image: "/autofix.png",
+      skills: ["Automated Testing", "Design Systems", "CI/CD Integration"],
+      link: "/article/automated-design-system-testing"
     },
     {
       id: 3,
-      title: "Color Theory in UI Design",
-      excerpt: "Understanding how color choices impact user experience and brand perception.",
-      date: "March 10, 2023",
-      readTime: "4 min read",
-      image: "https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      skills: ["Color Theory", "Visual Design", "Brand Identity"]
+      title: "AI Prototype with Your Custom Design System [VIDEO]",
+      excerpt: "Video tutorial coming soon! Step-by-step guide on maintaining UI consistency when using AI prototyping tools.",
+      date: "June 10, 2023",
+      readTime: "15 min video",
+      image: "/AI-Prototyping.png",
+      skills: ["AI Integration", "Design Systems", "Figma MCP"],
+      isComingSoon: true
+    },
+    {
+      id: 4,
+      title: "Automated Testing for Design System Consistency [VIDEO]",
+      excerpt: "Video tutorial coming soon! Detailed walkthrough on automating design system compliance testing.",
+      date: "July 5, 2023",
+      readTime: "12 min video",
+      image: "/autofix.png",
+      skills: ["Automated Testing", "Design Systems", "CI/CD Integration"],
+      isComingSoon: true
     }
   ];
 
@@ -313,17 +326,18 @@ function App() {
                         whileHover={{ x: -5 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                       >
-                        <Link to="/about" className="text-white hover:text-gray-300 transition-colors">
-                      About
+                        <a href="mailto:ajaymanath96@gmail.com" className="text-white hover:text-gray-300 transition-colors flex items-center">
+                          <i className="ri-mail-fill mr-1"></i> Contact
+                        </a>
+                      </motion.div>
+                      <motion.div
+                        whileHover={{ x: -5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        <Link to="/about" className="text-white hover:text-gray-300 transition-colors flex items-center">
+                          <i className="ri-user-fill mr-1"></i> About
                         </Link>
                       </motion.div>
-                      <motion.a
-                        href="mailto:ajaymanath96@gmail.com"
-                        className="text-white hover:text-gray-300 transition-colors"
-                        whileHover={{ rotate: 10 }}
-                      >
-                        <i className="ri-mail-line text-xl md:text-2xl"></i>
-                      </motion.a>
                     </div>
                   </div>
                 </div>
@@ -424,8 +438,8 @@ function App() {
                   </div>
                 </div>
                 
-                {/* Card Image - 90% of remaining height */}
-                <div className="overflow-hidden hover-scale flex-grow" style={{ height: '90%' }}>
+                {/* Card Image - 80% of remaining height */}
+                <div className="overflow-hidden hover-scale flex-grow" style={{ height: '80%' }}>
                   <img 
                     src={cardData[0].image} 
                     alt={cardData[0].title} 
@@ -433,13 +447,13 @@ function App() {
                   />
                 </div>
                 
-                {/* Card Title and Expandable Content - 10% of remaining height */}
-                <div className="p-4" style={{ height: '10%', minHeight: '60px' }}>
+                                  {/* Card Title and Expandable Content - 20% of remaining height */}
+                <div className="p-4" style={{ height: '20%', minHeight: '70px' }}>
                   <h3 className="text-xl font-bold text-white mb-1">{cardData[0].title}</h3>
                   
                   {/* Subtitle shown on hover */}
-                  <div className="overflow-hidden transition-all duration-300 max-h-0 hover:max-h-12">
-                    <p className="text-white opacity-80 text-sm line-clamp-1">{cardData[0].subtitle}</p>
+                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                    <p className="text-white opacity-80 text-sm">{cardData[0].subtitle}</p>
                   </div>
                 </div>
               </motion.div>
@@ -476,7 +490,7 @@ function App() {
                   <h3 className="text-lg font-bold text-white mb-1">{cardData[1].title}</h3>
                   
                   {/* Subtitle shown on hover */}
-                  <div className="overflow-hidden transition-all duration-300 max-h-0 hover:max-h-16">
+                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
                     <p className="text-white opacity-80 text-sm">{cardData[1].subtitle}</p>
                   </div>
                 </div>
@@ -503,8 +517,8 @@ function App() {
                   </div>
                 </div>
                 
-                {/* Card Image - 90% of remaining height */}
-                <div className="overflow-hidden hover-scale flex-grow" style={{ height: '90%' }}>
+                {/* Card Image - 80% of remaining height */}
+                <div className="overflow-hidden hover-scale flex-grow" style={{ height: '80%' }}>
                   <img 
                     src={cardData[2].image} 
                     alt={cardData[2].title} 
@@ -512,13 +526,13 @@ function App() {
                   />
                 </div>
                 
-                {/* Card Title and Expandable Content - 10% of remaining height */}
-                <div className="p-4" style={{ height: '10%', minHeight: '60px' }}>
+                {/* Card Title and Expandable Content - 20% of remaining height */}
+                <div className="p-4" style={{ height: '20%', minHeight: '70px' }}>
                   <h3 className="text-xl font-bold text-white mb-1">{cardData[2].title}</h3>
                   
                   {/* Subtitle shown on hover */}
-                  <div className="overflow-hidden transition-all duration-300 max-h-0 hover:max-h-12">
-                    <p className="text-white opacity-80 text-sm line-clamp-1">{cardData[2].subtitle}</p>
+                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                    <p className="text-white opacity-80 text-sm">{cardData[2].subtitle}</p>
                   </div>
                 </div>
               </motion.div>
@@ -555,7 +569,7 @@ function App() {
                   <h3 className="text-lg font-bold text-white mb-1">{cardData[3].title}</h3>
                   
                   {/* Subtitle shown on hover */}
-                  <div className="overflow-hidden transition-all duration-300 max-h-0 hover:max-h-16">
+                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
                     <p className="text-white opacity-80 text-sm">{cardData[3].subtitle}</p>
                   </div>
                 </div>
@@ -634,11 +648,21 @@ function App() {
                   {/* Blog Image */}
                   <div className="md:w-1/3">
                     <div className="overflow-hidden hover-scale">
-                      <img 
-                        src={post.image} 
-                        alt={post.title} 
-                        className="w-full h-64 object-cover"
-                      />
+                      <div className="relative">
+                        <img 
+                          src={post.image} 
+                          alt={post.title} 
+                          className={`w-full h-64 object-cover ${post.isComingSoon ? 'filter blur-sm' : ''}`}
+                        />
+                        {post.isComingSoon && (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="bg-black bg-opacity-70 text-white px-4 py-2 rounded-md flex items-center">
+                              <i className="ri-video-line mr-2 text-xl"></i>
+                              <span>Video Tutorial</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                   
@@ -656,14 +680,36 @@ function App() {
                         <span key={i} className="badge badge-tool">{skill}</span>
                       ))}
                     </div>
-                    <motion.button 
-                      className="text-white inline-flex items-center bg-transparent border-none cursor-pointer"
-                      whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      <span>Read more</span>
-                      <i className="ri-arrow-right-line ml-1"></i>
-                    </motion.button>
+                    {post.isComingSoon ? (
+                      <motion.div
+                        className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-md inline-flex items-center"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        <i className="ri-video-line mr-1"></i>
+                        <span>Coming Soon</span>
+                      </motion.div>
+                    ) : post.link ? (
+                      <Link to={post.link}>
+                        <motion.button 
+                          className="text-white inline-flex items-center bg-transparent border-none cursor-pointer"
+                          whileHover={{ x: 5 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        >
+                          <span>Read more</span>
+                          <i className="ri-arrow-right-line ml-1"></i>
+                        </motion.button>
+                      </Link>
+                    ) : (
+                      <motion.button 
+                        className="text-white inline-flex items-center bg-transparent border-none cursor-pointer"
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        <span>Read more</span>
+                        <i className="ri-arrow-right-line ml-1"></i>
+                      </motion.button>
+                    )}
                   </div>
               </div>
             </motion.div>

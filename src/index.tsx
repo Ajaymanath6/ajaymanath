@@ -4,6 +4,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import About from './About';
+import ArticlePage from './ArticlePage';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -15,6 +16,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
+        <Route path="/article/:articleId" element={<ArticlePage />} />
       </Routes>
     </Router>
   </React.StrictMode>

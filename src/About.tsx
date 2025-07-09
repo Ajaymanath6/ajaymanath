@@ -176,7 +176,6 @@ function About() {
             className="relative inline-block cursor-pointer image-container"
             whileHover={{ scale: 1.05 }}
             onClick={handleImageClick}
-            style={{ boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)' }}
           >
             {/* Light grey border around entire container */}
             <div className="border border-gray-300 border-opacity-20 inline-block p-1">

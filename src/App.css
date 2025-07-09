@@ -258,7 +258,11 @@ img {
 
 .hover-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hover-card:hover .hover-subtitle {
+  max-height: 60px;
+  opacity: 1;
 }
 
 .hover-scale img {
