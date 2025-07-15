@@ -63,6 +63,12 @@ a:hover {
 a:hover i {
   transform: rotate(-10deg);
   transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+/* Ensure all Remix icons are visible */
+i[class^="ri-"], i[class*=" ri-"] {
+  display: inline-block;
 }
 
 /* Main navigation icons (45px) */
@@ -353,5 +359,49 @@ img {
   .search-container {
     max-width: 100%;
     margin-bottom: 1rem;
+  }
+}
+
+/* Process page styles */
+.process-step {
+  position: relative;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.process-step:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.process-icon-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.process-step:hover .process-icon-container {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.process-details {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border-left: 2px solid rgba(20, 184, 166, 0.6);
+}
+
+@media (max-width: 768px) {
+  .process-icon-container {
+    width: 80px;
+    height: 80px;
   }
 }

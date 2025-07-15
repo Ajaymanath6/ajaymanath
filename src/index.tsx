@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import About from './About';
 import ArticlePage from './ArticlePage';
+import Process from './Process';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -17,6 +18,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
         <Route path="/article/:articleId" element={<ArticlePage />} />
+        <Route path="/process" element={<Process />} />
       </Routes>
     </Router>
   </React.StrictMode>

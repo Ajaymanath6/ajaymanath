@@ -252,7 +252,7 @@ function About() {
                           <p className="text-sm text-white">Product Designer</p>
                         </motion.div>
                         
-                        {/* Right side - Only 3 social media icons */}
+                        {/* Right side - Social media icons + Process */}
                         <motion.div 
                           className="flex items-center space-x-5"
                           initial={{ x: -20, opacity: 0 }}
@@ -289,6 +289,15 @@ function About() {
                           >
                             <i className="ri-instagram-fill text-lg"></i>
                           </motion.a>
+                          <motion.div
+                            className="text-white hover:text-gray-300 transition-colors cursor-pointer"
+                            whileHover={{ scale: 1.2 }}
+                            whileTap={{ scale: 0.9 }}
+                          >
+                            <Link to="/process" className="text-white hover:text-gray-300 transition-colors">
+                              <span className="text-xl">→</span>
+                            </Link>
+                          </motion.div>
                         </motion.div>
                       </motion.div>
                     </motion.div>

@@ -3,13 +3,14 @@ import { motion, AnimatePresence, useAnimation, Variants } from 'framer-motion';
 import 'remixicon/fonts/remixicon.css';
 import './App.css';
 import faceImg from './face.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("AI Prototype");
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
   
   // Animation controls
   const controls = useAnimation();
@@ -105,43 +106,30 @@ function App() {
   const blogPosts = [
     {
       id: 1,
-      title: "AI Prototype with Your Custom Design System",
-      excerpt: "Maintaining UI consistency when using AI prototyping tools with Figma and Cursor.",
+      title: "The Future of AI in Design",
+      excerpt: "Exploring how artificial intelligence is changing the landscape of design and creativity.",
       date: "May 15, 2023",
       readTime: "5 min read",
-      image: "/AI-Prototyping.png",
-      skills: ["AI Integration", "Design Systems", "Figma MCP"],
-      link: "/article/ai-prototype-design-system"
+      image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      skills: ["AI Integration", "Design Strategy", "Future Trends"]
     },
     {
       id: 2,
-      title: "Automated Testing for Design System Consistency",
-      excerpt: "How to automate testing for design system compliance and fix inconsistencies.",
-      date: "June 22, 2023",
-      readTime: "6 min read",
-      image: "/autofix.png",
-      skills: ["Automated Testing", "Design Systems", "CI/CD Integration"],
-      link: "/article/automated-design-system-testing"
+      title: "Designing for Accessibility: Best Practices",
+      excerpt: "How to ensure your designs are inclusive and accessible to all users.",
+      date: "April 22, 2023",
+      readTime: "7 min read",
+      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      skills: ["Accessibility", "Inclusive Design", "WCAG Guidelines"]
     },
     {
       id: 3,
-      title: "AI Prototype with Your Custom Design System [VIDEO]",
-      excerpt: "Video tutorial coming soon! Step-by-step guide on maintaining UI consistency when using AI prototyping tools.",
-      date: "June 10, 2023",
-      readTime: "15 min video",
-      image: "/AI-Prototyping.png",
-      skills: ["AI Integration", "Design Systems", "Figma MCP"],
-      isComingSoon: true
-    },
-    {
-      id: 4,
-      title: "Automated Testing for Design System Consistency [VIDEO]",
-      excerpt: "Video tutorial coming soon! Detailed walkthrough on automating design system compliance testing.",
-      date: "July 5, 2023",
-      readTime: "12 min video",
-      image: "/autofix.png",
-      skills: ["Automated Testing", "Design Systems", "CI/CD Integration"],
-      isComingSoon: true
+      title: "Color Theory in UI Design",
+      excerpt: "Understanding how color choices impact user experience and brand perception.",
+      date: "March 10, 2023",
+      readTime: "4 min read",
+      image: "https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      skills: ["Color Theory", "Visual Design", "Brand Identity"]
     }
   ];
 
@@ -186,12 +174,13 @@ function App() {
     }
   };
 
-  // Navigation options with icons - removed Design Work
+  // Navigation options with icons
   const navOptions = [
-    { name: "AI Prototype", icon: "ri-sparkling-fill", href: "#ai-prototype" },
-    { name: "Figma", icon: "ri-figma-fill", href: "#figma" },
-    { name: "DesignInk", icon: "ri-git-repository-fill", href: "#designink" },
-    { name: "Playground", icon: "ri-gamepad-fill", href: "#playground" }
+    { name: "AI Prototype", icon: "ri-sparkling-fill", href: "#ai-prototype", isPage: false },
+    { name: "Figma", icon: "ri-figma-fill", href: "#figma", isPage: false },
+    { name: "DesignInk", icon: "ri-git-repository-fill", href: "#designink", isPage: false },
+    { name: "Playground", icon: "ri-gamepad-fill", href: "#playground", isPage: false },
+    { name: "Process", icon: "ri-flow-chart", href: "/process", isPage: true }
   ];
 
   // Social media links - removed Dribbble and Behance
@@ -269,6 +258,17 @@ function App() {
   const handleCardClick = (link?: string | null) => {
     if (link) {
       window.open(link, '_blank');
+    }
+  };
+
+  // Function to handle tab changes or navigation
+  const handleNavigation = (item: any, e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    if (item.isPage) {
+      navigate(item.href);
+    } else {
+      handleTabChange(item.name);
     }
   };
 
@@ -371,10 +371,7 @@ function App() {
                     key={item.name}
                     href={item.href}
                     className={`text-white hover:text-white text-sm font-medium flex items-center justify-center mb-2 md:mb-0 ${activeTab === item.name ? "selected-tab" : "inactive-tab"}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleTabChange(item.name);
-                    }}
+                    onClick={(e) => handleNavigation(item, e)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -648,21 +645,11 @@ function App() {
                   {/* Blog Image */}
                   <div className="md:w-1/3">
                     <div className="overflow-hidden hover-scale">
-                      <div className="relative">
-                        <img 
-                          src={post.image} 
-                          alt={post.title} 
-                          className={`w-full h-64 object-cover ${post.isComingSoon ? 'filter blur-sm' : ''}`}
-                        />
-                        {post.isComingSoon && (
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="bg-black bg-opacity-70 text-white px-4 py-2 rounded-md flex items-center">
-                              <i className="ri-video-line mr-2 text-xl"></i>
-                              <span>Video Tutorial</span>
-                            </div>
-                          </div>
-                        )}
-                      </div>
+                      <img 
+                        src={post.image} 
+                        alt={post.title} 
+                        className="w-full h-64 object-cover"
+                      />
                     </div>
                   </div>
                   
@@ -680,36 +667,14 @@ function App() {
                         <span key={i} className="badge badge-tool">{skill}</span>
                       ))}
                     </div>
-                    {post.isComingSoon ? (
-                      <motion.div
-                        className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-md inline-flex items-center"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      >
-                        <i className="ri-video-line mr-1"></i>
-                        <span>Coming Soon</span>
-                      </motion.div>
-                    ) : post.link ? (
-                      <Link to={post.link}>
-                        <motion.button 
-                          className="text-white inline-flex items-center bg-transparent border-none cursor-pointer"
-                          whileHover={{ x: 5 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        >
-                          <span>Read more</span>
-                          <i className="ri-arrow-right-line ml-1"></i>
-                        </motion.button>
-                      </Link>
-                    ) : (
-                      <motion.button 
-                        className="text-white inline-flex items-center bg-transparent border-none cursor-pointer"
-                        whileHover={{ x: 5 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      >
-                        <span>Read more</span>
-                        <i className="ri-arrow-right-line ml-1"></i>
-                      </motion.button>
-                    )}
+                    <motion.button 
+                      className="text-white inline-flex items-center bg-transparent border-none cursor-pointer"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
+                      <span>Read more</span>
+                      <i className="ri-arrow-right-line ml-1"></i>
+                    </motion.button>
                   </div>
               </div>
             </motion.div>
