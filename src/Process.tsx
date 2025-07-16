@@ -262,7 +262,7 @@ function Process() {
                         textShadow: "0 0 10px rgba(255, 255, 255, 0.5)"
                       }}>4. Prototype at Speed</h3>
                       <p className="text-white opacity-90 mb-3 sm:mb-4 text-sm sm:text-base">
-                        I use Figma to create <strong>full functional prototypes with custom design systems</strong>, enabling faster validation of flows, A/B testing, and rapid iteration with clients. Cursor AI dramatically accelerates development, turning designs into working code in days, not weeks.
+                        I use Figma to create <strong>custom design system components</strong>, then import them to Cursor to build layouts and pages. This MCP workflow eliminates Figma's limitations with large files, enables integration of animation libraries and charts, and produces <strong>real working prototypes</strong> instead of static mockups. The result is faster iteration with unlimited variants and true browser-based testing.
                       </p>
                       <div className="flex items-center mb-2 text-sm sm:text-base">
                         <i className="ri-speed-up-line mr-3 text-lg sm:text-xl text-teal-400"></i>
@@ -270,7 +270,7 @@ function Process() {
                       </div>
                       <div className="flex items-center text-sm sm:text-base">
                         <i className="ri-code-box-line mr-3 text-lg sm:text-xl text-teal-400"></i>
-                        <p>Working code instead of <strong>simulated interactions</strong></p>
+                        <p><Link to="/article/prototyping-with-custom-design-systems" className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-teal-500 hover:from-teal-500 hover:to-green-300 transition-all duration-300">Working code</Link> instead of <strong>simulated interactions</strong></p>
                       </div>
                     </div>
                   </div>
@@ -306,7 +306,7 @@ function Process() {
                       </div>
                       <div className="flex items-center text-sm sm:text-base">
                         <i className="ri-loop-left-line mr-3 text-lg sm:text-xl text-teal-400"></i>
-                        <p><strong>Automated testing</strong> ensures design system compliance across implementations</p>
+                        <p><Link to="/article/automating-design-system-testing" className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-teal-500 hover:from-teal-500 hover:to-green-300 transition-all duration-300"><strong>Automated testing</strong></Link> ensures design system compliance across implementations</p>
                       </div>
                     </div>
                   </div>

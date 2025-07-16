@@ -124,7 +124,10 @@ const MobileMenu = ({ isOpen, onClose, navOptions, activeTab, handleNavigation }
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <i className={`${item.icon} main-nav-icon mr-3`}></i>
+                  <div className="relative">
+                    <i className={`${item.icon} main-nav-icon mr-3`}></i>
+                    {item.badge && <span className="new-badge">{item.badge}</span>}
+                  </div>
                   <span>{item.name}</span>
                 </motion.a>
               </motion.div>
@@ -286,30 +289,58 @@ function App() {
   const blogPosts = [
     {
       id: 1,
-      title: "The Future of AI in Design",
-      excerpt: "Exploring how artificial intelligence is changing the landscape of design and creativity.",
+      title: "Prototyping with Custom Design Systems Without Losing Consistency",
+      excerpt: "How to overcome Figma's limitations by creating a seamless workflow between Figma components and Cursor for building real, interactive prototypes.",
       date: "May 15, 2023",
-      readTime: "5 min read",
-      image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      skills: ["AI Integration", "Design Strategy", "Future Trends"]
+      readTime: "6 min read",
+      image: "AI-Prototyping.png",
+      skills: ["Figma", "Cursor", "Design Systems"],
+      type: "article",
+      link: "/article/prototyping-with-custom-design-systems"
     },
     {
       id: 2,
-      title: "Designing for Accessibility: Best Practices",
-      excerpt: "How to ensure your designs are inclusive and accessible to all users.",
+      title: "Automating Design System Implementation and Testing",
+      excerpt: "A revolutionary approach to validating design system implementation using Cypress tests and JSON specifications to ensure visual consistency.",
       date: "April 22, 2023",
       readTime: "7 min read",
-      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      skills: ["Accessibility", "Inclusive Design", "WCAG Guidelines"]
+      image: "autofix.png",
+      skills: ["Cypress", "JSON", "Automation"],
+      type: "article",
+      link: "/article/automating-design-system-testing"
     },
     {
       id: 3,
-      title: "Color Theory in UI Design",
-      excerpt: "Understanding how color choices impact user experience and brand perception.",
-      date: "March 10, 2023",
-      readTime: "4 min read",
+      title: "The Future of Design: When AI Makes Interfaces Optional",
+      excerpt: "Exploring how AI is transforming interfaces from necessity to preference, and how 'UI on Intent' will reshape how we interact with technology.",
+      date: "June 15, 2023",
+      readTime: "6 min read",
+      image: "future.png",
+      skills: ["AI", "Future of UI", "Voice Interfaces"],
+      type: "article",
+      link: "/article/future-of-design-ai-interfaces"
+    },
+    {
+      id: 4,
+      title: "Video Tutorial: Figma to Cursor Workflow",
+      excerpt: "Step-by-step guide showing how to import Figma components to Cursor and create interactive prototypes that maintain design consistency.",
+      date: "Coming Soon",
+      readTime: "15 min video",
+      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      skills: ["Video Tutorial", "Figma", "Cursor"],
+      type: "video",
+      link: "#"
+    },
+    {
+      id: 5,
+      title: "Video Tutorial: Automated Design System Testing",
+      excerpt: "Learn how to set up Cypress tests to automatically validate your design system implementation and generate reports with auto-fix commands.",
+      date: "Coming Soon",
+      readTime: "18 min video",
       image: "https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      skills: ["Color Theory", "Visual Design", "Brand Identity"]
+      skills: ["Video Tutorial", "Cypress", "Testing"],
+      type: "video",
+      link: "#"
     }
   ];
 
@@ -358,7 +389,7 @@ function App() {
   const navOptions = [
     { name: "AI Prototype", icon: "ri-sparkling-fill", href: "#ai-prototype", isPage: false },
     { name: "Figma", icon: "ri-figma-fill", href: "#figma", isPage: false },
-    { name: "DesignInk", icon: "ri-git-repository-fill", href: "#designink", isPage: false },
+    { name: "DesignInk", icon: "ri-git-repository-fill", href: "#designink", isPage: false, badge: "NEW" },
     { name: "Playground", icon: "ri-gamepad-fill", href: "#playground", isPage: false },
     { name: "Process", icon: "ri-flow-chart", href: "/process", isPage: true }
   ];
@@ -595,7 +626,10 @@ function App() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <i className={`${item.icon} main-nav-icon`}></i>
+                    <div className="relative">
+                      <i className={`${item.icon} main-nav-icon`}></i>
+                      {item.badge && <span className="new-badge">{item.badge}</span>}
+                    </div>
                     <span className="nav-label mt-1 sm:mt-0 sm:ml-3">{item.name}</span>
                   </motion.a>
                 ))}
@@ -879,6 +913,9 @@ function App() {
                       <span>{post.date}</span>
                       <span className="mx-2">•</span>
                       <span>{post.readTime}</span>
+                      {post.type === "video" && (
+                        <span className="ml-2 bg-red-500 text-white px-2 py-0.5 rounded text-xs">VIDEO</span>
+                      )}
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">{post.title}</h3>
                     <p className="text-white opacity-80 mb-3 sm:mb-4 text-sm sm:text-base">{post.excerpt}</p>
@@ -891,9 +928,10 @@ function App() {
                       className="text-white inline-flex items-center bg-transparent border-none cursor-pointer text-sm sm:text-base"
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      onClick={() => post.type === "article" ? navigate(post.link) : null}
                     >
-                      <span>Read more</span>
-                      <i className="ri-arrow-right-line ml-1"></i>
+                      <span>{post.type === "video" ? "Coming Soon" : "Read more"}</span>
+                      <i className={`${post.type === "video" ? "ri-time-line" : "ri-arrow-right-line"} ml-1`}></i>
                     </motion.button>
                   </div>
                 </div>

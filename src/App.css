@@ -305,6 +305,26 @@ img {
   background-color: rgba(16, 185, 129, 0.2);
 }
 
+/* New badge with flashing animation */
+.new-badge {
+  position: absolute;
+  top: -8px;
+  right: -15px;
+  background-color: #FF4D4D;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 10px;
+  animation: flash 1.5s infinite;
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
 /* Square indicator */
 .square-indicator {
   display: inline-block;

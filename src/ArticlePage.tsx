@@ -58,10 +58,10 @@ type Article = {
 
 // Article data with detailed content
 const articles: Record<string, Article> = {
-  "automated-design-system-testing": {
-    title: "Automated Testing for Design System Consistency",
-    date: "June 22, 2023",
-    readTime: "6 min read",
+  "automating-design-system-testing": {
+    title: "Automating Design System Implementation and Testing",
+    date: "April 22, 2023",
+    readTime: "7 min read",
     author: "Ajay Manath",
     heroImage: "/autofix.png",
     content: [
@@ -380,10 +380,10 @@ async function autoFixComponents(testResults) {
       }
     ]
   },
-  "ai-prototype-design-system": {
-    title: "AI Prototype with Your Custom Design System",
+  "prototyping-with-custom-design-systems": {
+    title: "Prototyping with Custom Design Systems Without Losing Consistency",
     date: "May 15, 2023",
-    readTime: "5 min read",
+    readTime: "6 min read",
     author: "Ajay Manath",
     heroImage: "/AI-Prototyping.png",
     content: [
@@ -566,6 +566,138 @@ async function autoFixComponents(testResults) {
         url: "https://www.smashingmagazine.com/2019/11/design-tokens-design-systems/"
       }
     ]
+  },
+  "future-of-design-ai-interfaces": {
+    title: "The Future of Design: When AI Makes Interfaces Optional",
+    date: "June 15, 2023",
+    readTime: "6 min read",
+    author: "Ajay Manath",
+    heroImage: "/AI-Prototyping.png",
+    content: [
+      {
+        type: "paragraph",
+        text: "We stand at a fascinating inflection point in the history of human-computer interaction. As AI continues its exponential advancement, we're witnessing the early signs of a profound shift: traditional user interfaces—the screens, buttons, and visual elements we've spent decades perfecting—may soon become optional rather than necessary."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "From Necessity to Preference"
+      },
+      {
+        type: "paragraph",
+        text: "For decades, interfaces have been the essential bridge between humans and technology. We've evolved from command lines to graphical interfaces to touch screens, each iteration making technology more accessible. But what happens when the most natural interface becomes simply speaking your intent?"
+      },
+      {
+        type: "paragraph",
+        text: "As AI becomes increasingly capable of understanding natural language, context, and human intent, the traditional interface is transforming from a necessity to a preference—something that enhances rather than enables our interaction with technology."
+      },
+      {
+        type: "quote",
+        text: '"The best interface might soon be no interface at all."'
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The Rise of Intent-Based UI"
+      },
+      {
+        type: "paragraph",
+        text: "What I find most compelling is the emergence of what I call 'UI on Intent'—interfaces that materialize only when needed, shaped by the specific task at hand. Imagine opening an app and finding not a predetermined layout of buttons and navigation elements, but a conversational AI that listens to your needs."
+      },
+      {
+        type: "paragraph",
+        text: "Say 'Show me new products from Myntra,' and the AI generates a browsing interface tailored to that request. Follow up with 'What's my bill for these items?' and the interface transforms into a checkout flow. The UI appears contextually, based on your expressed intent, rather than forcing you to navigate through a predetermined structure."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Voice as the Ultimate Interface"
+      },
+      {
+        type: "paragraph",
+        text: "Voice—our most fundamental mode of communication—is becoming the universal interface. When AI can reliably understand not just our words but our meaning, our desires, and even our emotions, the need for visual interfaces diminishes."
+      },
+      {
+        type: "paragraph",
+        text: "This doesn't mean interfaces will disappear entirely. Rather, they'll become more fluid, appearing when they add value and receding when voice or other modalities serve better. The best AI assistants will know when to show rather than tell, and when to tell rather than show."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The Trust Barrier"
+      },
+      {
+        type: "paragraph",
+        text: "One significant hurdle remains: trust. Users don't yet fully trust conversational AI interfaces for critical tasks. We still want to see our options laid out, verify our selections, and confirm our actions visually. This is why I believe traditional interfaces will remain as a 'good to have' rather than vanishing entirely."
+      },
+      {
+        type: "paragraph",
+        text: "As trust grows, however, our reliance on visual confirmation will diminish. Just as we now trust navigation apps to guide us without questioning every turn, we'll eventually trust AI to handle tasks with minimal visual oversight."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Designing for the Intent Era"
+      },
+      {
+        type: "paragraph",
+        text: "For designers, this shift demands a fundamental rethinking of our craft. We're moving from designing static interfaces to designing dynamic systems that can generate appropriate interfaces in response to user intent."
+      },
+      {
+        type: "list",
+        items: [
+          "Focus on conversation flows rather than screen flows",
+          "Design component systems that can be assembled dynamically",
+          "Create rules for when and how interfaces should appear",
+          "Build trust through transparency and appropriate feedback"
+        ]
+      },
+      {
+        type: "paragraph",
+        text: "The designer's role evolves from crafting specific screens to creating the rules by which interfaces manifest—a meta-design approach that requires both technical understanding and deep empathy for user needs."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Excitement and Trepidation"
+      },
+      {
+        type: "paragraph",
+        text: "This future fills me with both excitement and a touch of fear. Excitement because we're approaching a world where technology truly adapts to humans rather than forcing humans to adapt to it. Fear because we're entering uncharted territory where the rules of good design are yet to be written."
+      },
+      {
+        type: "paragraph",
+        text: "We're transcending into spaces once confined to science fiction, where computers understand us as naturally as humans do. The question isn't whether this future will arrive, but how we'll shape it to enhance rather than diminish the human experience."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Conclusion: Designing Our Way Forward"
+      },
+      {
+        type: "paragraph",
+        text: "As designers, our mission remains unchanged even as our medium evolves: to create experiences that empower users, respect their agency, and bring joy. In a world where interfaces become optional, our focus shifts from the visual to the experiential—ensuring that technology serves human needs seamlessly, whether through screens or simply through conversation."
+      },
+      {
+        type: "paragraph",
+        text: "The future of design isn't about better buttons or more elegant layouts. It's about creating systems that understand human intent so deeply that the interface itself becomes transparent—present when needed, invisible when not, but always in service of human goals."
+      },
+      {
+        type: "paragraph",
+        text: "This is the world we're designing for. And while the path forward isn't entirely clear, I've never been more excited to explore it."
+      }
+    ],
+    skills: ["AI", "Future of UI", "Voice Interfaces"],
+    relatedLinks: [
+      {
+        title: "The Disappearing Computer",
+        url: "https://www.wired.com/story/the-end-of-the-computer-mouse/"
+      },
+      {
+        title: "Voice User Interface Design",
+        url: "https://www.interaction-design.org/literature/topics/voice-user-interfaces"
+      }
+    ]
   }
 };
 
@@ -617,8 +749,8 @@ function ArticlePage() {
         {/* Article title and metadata */}
         <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-white">{article.title}</h1>
-            <div className="flex flex-wrap items-center text-sm sm:text-base text-white opacity-80">
+            <h1 className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 text-white">{article.title}</h1>
+            <div className="flex flex-wrap items-center text-xs sm:text-sm text-white opacity-80">
               <span>{article.date}</span>
               <span className="mx-2">•</span>
               <span>{article.readTime}</span>
@@ -676,7 +808,7 @@ function ArticlePage() {
                 return (
                   <div key={index} className="mb-6 overflow-x-auto">
                     <pre className="bg-gray-900 p-3 sm:p-4 rounded-md text-xs sm:text-sm">
-                      <code className="text-gray-300">
+                      <code className="text-gray-300 whitespace-pre-wrap break-words sm:whitespace-pre overflow-x-auto">
                         {block.code}
                       </code>
                     </pre>
@@ -726,7 +858,7 @@ function ArticlePage() {
             <div className="mt-4 sm:mt-0 sm:ml-6 text-center sm:text-left">
               <h3 className="text-lg sm:text-xl font-bold">Ajay Manath</h3>
               <p className="text-sm sm:text-base opacity-80 mt-1 mb-3">AI Product Designer</p>
-              <p className="text-sm opacity-70">
+              <p className="text-sm opacity-70 max-w-md mx-auto sm:mx-0">
                 Specializes in blending traditional UX principles with AI-driven prototyping tools to create innovative, user-centered digital experiences.
               </p>
             </div>
@@ -741,9 +873,9 @@ function ArticlePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-custom-dark rounded-lg overflow-hidden hover-card">
               <div className="p-4">
-                <h3 className="text-base sm:text-lg font-bold mb-1">Maintaining Design System Consistency with AI Tools</h3>
-                <p className="text-sm opacity-70 mb-3">May 10, 2023 • 5 min read</p>
-                <Link to="#" className="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+                <h3 className="text-base sm:text-lg font-bold mb-1">The Future of Design: When AI Makes Interfaces Optional</h3>
+                <p className="text-sm opacity-70 mb-3">June 15, 2023 • 6 min read</p>
+                <Link to="/article/future-of-design-ai-interfaces" className="text-blue-400 hover:text-blue-300 text-sm flex items-center">
                   <span>Read article</span>
                   <i className="ri-arrow-right-line ml-1"></i>
                 </Link>
@@ -751,11 +883,11 @@ function ArticlePage() {
             </div>
             <div className="bg-custom-dark rounded-lg overflow-hidden hover-card">
               <div className="p-4">
-                <h3 className="text-base sm:text-lg font-bold mb-1">Building a Scalable Component Library</h3>
-                <p className="text-sm opacity-70 mb-3">April 5, 2023 • 8 min read</p>
+                <h3 className="text-base sm:text-lg font-bold mb-1">UI on Intent: The Conversational Future</h3>
+                <p className="text-sm opacity-70 mb-3">July 8, 2023 • 8 min read</p>
                 <Link to="#" className="text-blue-400 hover:text-blue-300 text-sm flex items-center">
-                  <span>Read article</span>
-                  <i className="ri-arrow-right-line ml-1"></i>
+                  <span>Stay tuned</span>
+                  <i className="ri-time-line ml-1"></i>
                 </Link>
               </div>
             </div>
