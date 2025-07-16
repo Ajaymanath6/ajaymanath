@@ -7,6 +7,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .App-logo {
@@ -403,5 +404,185 @@ img {
   .process-icon-container {
     width: 80px;
     height: 80px;
+  }
+}
+
+/* Mobile responsiveness enhancements */
+@media (max-width: 768px) {
+  .main-nav-icon {
+    font-size: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .nav-label {
+    font-size: 12px !important;
+  }
+  
+  /* Hide search container in mobile view */
+  .search-container {
+    display: none !important;
+  }
+  
+  /* Style for mobile contact and about links */
+  .flex.items-center.space-x-2 {
+    margin-left: auto;
+  }
+  
+  /* Improved mobile card layouts */
+  .hover-card {
+    height: auto !important;
+    min-height: 450px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Better spacing for header elements */
+  .fixed-header-content {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  /* Adjust header spacing */
+  .site-header {
+    min-height: auto !important;
+  }
+  
+  /* Better image handling */
+  .responsive-image {
+    height: auto !important;
+    min-height: 200px !important;
+  }
+  
+  /* Footer spacing */
+  footer .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  /* Better spacing for blog posts */
+  .blog-post {
+    padding-bottom: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* Fix tab navigation on mobile */
+  .mobile-tab-navigation {
+    overflow-x: auto;
+    justify-content: flex-start !important;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .mobile-tab-navigation::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Additional mobile styles for smaller phones */
+@media (max-width: 480px) {
+  .main-nav-icon {
+    font-size: 28px !important;
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  /* Reduce content padding */
+  .content-container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  /* Adjust header height */
+  .h-[176px] {
+    height: 150px !important;
+  }
+  
+  .h-[88px] {
+    height: 70px !important;
+  }
+  
+  /* Smaller headings */
+  h2.text-3xl {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(25, 25, 25, 0.98);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.mobile-menu-item {
+  margin: 1rem 0;
+  font-size: 1.25rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Make sticky header more compatible with mobile */
+@media (max-width: 480px) {
+  .sticky-header {
+    backdrop-filter: blur(10px);
+    background-color: rgba(25, 25, 25, 0.9);
+  }
+  
+  .mobile-menu-button {
+    display: block !important;
+  }
+  
+  .desktop-navigation {
+    display: none !important;
+  }
+}
+
+/* Additional fixes for mobile layout */
+@media (max-width: 768px) {
+  .responsive-flex-col {
+    flex-direction: column !important;
+  }
+  
+  .responsive-w-full {
+    width: 100% !important;
+  }
+  
+  .responsive-text-center {
+    text-align: center !important;
+  }
+  
+  .responsive-px-small {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  /* Ensure all image containers maintain proper ratios */
+  .responsive-image-container {
+    height: auto !important;
+    min-height: 200px;
   }
 }

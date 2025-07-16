@@ -10,7 +10,7 @@ function Process() {
       {/* Header with back button */}
       <div className="fixed top-4 left-4 z-50">
         <motion.div whileHover={{ x: -5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-          <Link to="/" className="text-white flex items-center bg-black bg-opacity-50 px-4 py-2 rounded-lg backdrop-blur-sm">
+          <Link to="/" className="text-white flex items-center bg-black bg-opacity-50 px-3 sm:px-4 py-2 rounded-lg backdrop-blur-sm text-sm sm:text-base">
             <i className="ri-arrow-left-line mr-2"></i>
             <span>Back to Portfolio</span>
           </Link>
@@ -21,7 +21,7 @@ function Process() {
       <div className="h-[40px]"></div>
 
       {/* Main content */}
-      <main className="flex-grow flex flex-col items-center justify-start relative px-4 py-16">
+      <main className="flex-grow flex flex-col items-center justify-start relative px-3 sm:px-4 py-8 sm:py-16">
         {/* Spider Web Background - same as in About.tsx */}
         <div className="pattern-container" style={{ mixBlendMode: 'normal', opacity: 0.6, backgroundColor: 'rgba(20, 20, 20, 0.7)' }}>
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -92,15 +92,15 @@ function Process() {
         </div>
 
         {/* Process Content */}
-        <div className="relative z-10 max-w-5xl mx-auto">
+        <div className="relative z-10 max-w-5xl mx-auto w-full">
           {/* Title */}
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl font-bold mb-2" 
+            <h1 className="text-3xl sm:text-4xl font-bold mb-2" 
               style={{
                 background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(192,192,192,0.8) 100%)',
                 WebkitBackgroundClip: 'text',
@@ -116,22 +116,22 @@ function Process() {
 
           {/* Process content */}
           <motion.div 
-            className="grid gap-10"
+            className="grid gap-8 sm:gap-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             {/* Process description */}
-            <div className="text-center text-lg text-white opacity-90">
-              <div className="mb-12">
-                <h2 className="text-3xl font-bold mb-8 text-center">AI-Augmented Design Thinking</h2>
-                <p className="text-lg mb-8 text-left">
+            <div className="text-white opacity-90">
+              <div className="mb-8 sm:mb-12">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">AI-Augmented Design Thinking</h2>
+                <p className="text-base sm:text-lg mb-6 sm:mb-8 text-left">
                   My design methodology maintains the <strong>traditional design process</strong> while enhancing it with cutting-edge <strong>AI tools</strong>. This blend creates a workflow that <strong>accelerates innovation</strong> while preserving essential <strong>human-centered principles</strong>.
                 </p>
               </div>
 
               {/* Process Steps */}
-              <div className="space-y-16">
+              <div className="space-y-12 sm:space-y-16">
                 {/* Step 1: Empathize */}
                 <motion.div 
                   className="process-step"
@@ -140,28 +140,28 @@ function Process() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center">
                     <div className="md:w-1/3">
                       <div className="process-icon-container">
-                        <i className="ri-emotion-line text-4xl"></i>
+                        <i className="ri-emotion-line text-3xl sm:text-4xl"></i>
                       </div>
                     </div>
                     <div className="md:w-2/3 text-left">
-                      <h3 className="text-2xl font-bold mb-4" style={{
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{
                         background: "linear-gradient(90deg, rgba(255,255,255,1), rgba(220,220,220,0.9))", 
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         textShadow: "0 0 10px rgba(255, 255, 255, 0.5)"
                       }}>1. Empathize with AI</h3>
-                      <p className="text-white opacity-90 mb-4">
+                      <p className="text-white opacity-90 mb-3 sm:mb-4 text-sm sm:text-base">
                         I follow traditional <strong>user research methods</strong> but accelerate insights using AI. Claude and Gemini help analyze <strong>interview data</strong>, identify patterns, and create personas in hours instead of weeks.
                       </p>
-                      <div className="flex items-center mb-2">
-                        <i className="ri-user-voice-line mr-3 text-xl text-teal-400"></i>
+                      <div className="flex items-center mb-2 text-sm sm:text-base">
+                        <i className="ri-user-voice-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>AI-powered data synthesis with <strong>human validation</strong></p>
                       </div>
-                      <div className="flex items-center">
-                        <i className="ri-heart-pulse-line mr-3 text-xl text-teal-400"></i>
+                      <div className="flex items-center text-sm sm:text-base">
+                        <i className="ri-heart-pulse-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>Deeper empathy through combined human-AI understanding</p>
                       </div>
                     </div>
@@ -176,28 +176,28 @@ function Process() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center">
                     <div className="md:w-1/3">
                       <div className="process-icon-container">
-                        <i className="ri-focus-3-line text-4xl"></i>
+                        <i className="ri-focus-3-line text-3xl sm:text-4xl"></i>
                       </div>
                     </div>
                     <div className="md:w-2/3 text-left">
-                      <h3 className="text-2xl font-bold mb-4" style={{
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{
                         background: "linear-gradient(90deg, rgba(255,255,255,1), rgba(220,220,220,0.9))", 
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         textShadow: "0 0 10px rgba(255, 255, 255, 0.5)"
                       }}>2. Define with Precision</h3>
-                      <p className="text-white opacity-90 mb-4">
+                      <p className="text-white opacity-90 mb-3 sm:mb-4 text-sm sm:text-base">
                         I maintain the critical step of <strong>problem framing</strong>, using AI to create more comprehensive PRDs that identify <strong>edge cases</strong> traditional approaches might miss.
                       </p>
-                      <div className="flex items-center mb-2">
-                        <i className="ri-file-list-3-line mr-3 text-xl text-teal-400"></i>
+                      <div className="flex items-center mb-2 text-sm sm:text-base">
+                        <i className="ri-file-list-3-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>Transform <strong>vague requirements</strong> into clear problem statements</p>
                       </div>
-                      <div className="flex items-center">
-                        <i className="ri-question-answer-line mr-3 text-xl text-teal-400"></i>
+                      <div className="flex items-center text-sm sm:text-base">
+                        <i className="ri-question-answer-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>AI-enhanced <strong>"How Might We"</strong> statements that invite innovation</p>
                       </div>
                     </div>
@@ -212,28 +212,28 @@ function Process() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center">
                     <div className="md:w-1/3">
                       <div className="process-icon-container">
-                        <i className="ri-lightbulb-flash-line text-4xl"></i>
+                        <i className="ri-lightbulb-flash-line text-3xl sm:text-4xl"></i>
                       </div>
                     </div>
                     <div className="md:w-2/3 text-left">
-                      <h3 className="text-2xl font-bold mb-4" style={{
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{
                         background: "linear-gradient(90deg, rgba(255,255,255,1), rgba(220,220,220,0.9))", 
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         textShadow: "0 0 10px rgba(255, 255, 255, 0.5)"
                       }}>3. Ideate & Amplify</h3>
-                      <p className="text-white opacity-90 mb-4">
+                      <p className="text-white opacity-90 mb-3 sm:mb-4 text-sm sm:text-base">
                         Using <strong>traditional ideation techniques</strong> supercharged with Cursor AI to explore <strong>divergent thinking</strong> paths in parallel, combining human creativity with machine efficiency.
                       </p>
-                      <div className="flex items-center mb-2">
-                        <i className="ri-spectrum-line mr-3 text-xl text-teal-400"></i>
+                      <div className="flex items-center mb-2 text-sm sm:text-base">
+                        <i className="ri-spectrum-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>Balance <strong>AI-generated concepts</strong> with human creative vision</p>
                       </div>
-                      <div className="flex items-center">
-                        <i className="ri-braces-line mr-3 text-xl text-teal-400"></i>
+                      <div className="flex items-center text-sm sm:text-base">
+                        <i className="ri-braces-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>Solutions that are <strong>technically sound</strong> and emotionally resonant</p>
                       </div>
                     </div>
@@ -248,40 +248,29 @@ function Process() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center">
                     <div className="md:w-1/3">
                       <div className="process-icon-container">
-                        <i className="ri-code-box-line text-4xl"></i>
+                        <i className="ri-artboard-line text-3xl sm:text-4xl"></i>
                       </div>
                     </div>
                     <div className="md:w-2/3 text-left">
-                      <h3 className="text-2xl font-bold mb-4" style={{
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{
                         background: "linear-gradient(90deg, rgba(255,255,255,1), rgba(220,220,220,0.9))", 
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         textShadow: "0 0 10px rgba(255, 255, 255, 0.5)"
-                      }}>4. Prototype at Lightning Speed</h3>
-                      <p className="text-white opacity-90 mb-4">
-                        Bringing together <strong>design principles</strong> and technical execution with Figma MCP and Cursor to create <strong>working prototypes</strong> faster than traditional methods.
+                      }}>4. Prototype at Speed</h3>
+                      <p className="text-white opacity-90 mb-3 sm:mb-4 text-sm sm:text-base">
+                        I use Figma to create <strong>full functional prototypes with custom design systems</strong>, enabling faster validation of flows, A/B testing, and rapid iteration with clients. Cursor AI dramatically accelerates development, turning designs into working code in days, not weeks.
                       </p>
-                      <div className="flex items-center mb-2">
-                        <i className="ri-stack-line mr-3 text-xl text-teal-400"></i>
-                        <p>Components with <strong>properties stored in JSON</strong> for seamless translation</p>
+                      <div className="flex items-center mb-2 text-sm sm:text-base">
+                        <i className="ri-speed-up-line mr-3 text-lg sm:text-xl text-teal-400"></i>
+                        <p><strong>10X faster</strong> prototype development cycle</p>
                       </div>
-                      <div className="flex items-center mb-4">
-                        <i className="ri-speed-line mr-3 text-xl text-teal-400"></i>
-                        <p><strong>Rapid iteration</strong> for accelerated feedback cycles</p>
-                      </div>
-                      <div className="mt-2">
-                        <Link to="/articles/cursor-mcp-workflow" className="cursor-mcp-link flex items-center" style={{
-                          background: "linear-gradient(90deg, #4ade80, #22d3ee)", 
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                          textShadow: "0 0 15px rgba(74, 222, 128, 0.4)"
-                        }}>
-                          <span>Learn more about my Cursor MCP workflow</span>
-                          <i className="ri-arrow-right-line ml-2"></i>
-                        </Link>
+                      <div className="flex items-center text-sm sm:text-base">
+                        <i className="ri-code-box-line mr-3 text-lg sm:text-xl text-teal-400"></i>
+                        <p>Working code instead of <strong>simulated interactions</strong></p>
                       </div>
                     </div>
                   </div>
@@ -295,46 +284,35 @@ function Process() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center">
                     <div className="md:w-1/3">
                       <div className="process-icon-container">
-                        <i className="ri-test-tube-line text-4xl"></i>
+                        <i className="ri-test-tube-line text-3xl sm:text-4xl"></i>
                       </div>
                     </div>
                     <div className="md:w-2/3 text-left">
-                      <h3 className="text-2xl font-bold mb-4" style={{
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{
                         background: "linear-gradient(90deg, rgba(255,255,255,1), rgba(220,220,220,0.9))", 
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         textShadow: "0 0 10px rgba(255, 255, 255, 0.5)"
-                      }}>5. Test with Real Users & Data</h3>
-                      <p className="text-white opacity-90 mb-4">
-                        Maintaining <strong>traditional user testing</strong> while adding <strong>automated Cypress tests</strong> to validate consistency and collect quantitative metrics alongside qualitative insights.
+                      }}>5. Test & Iterate</h3>
+                      <p className="text-white opacity-90 mb-3 sm:mb-4 text-sm sm:text-base">
+                        I've created a specialized workflow using <strong>Cypress tests</strong> to automate design system implementation validation. This system checks components against JSON-defined specifications, identifies missing classes, and generates reports with auto-fix commands, ensuring visual consistency across all implementations.
                       </p>
-                      <div className="flex items-center mb-2">
-                        <i className="ri-checkbox-multiple-line mr-3 text-xl text-teal-400"></i>
-                        <p><strong>Component validation</strong> against JSON schemas with auto-fixing capabilities</p>
+                      <div className="flex items-center mb-2 text-sm sm:text-base">
+                        <i className="ri-file-code-line mr-3 text-lg sm:text-xl text-teal-400"></i>
+                        <p><strong>JSON files</strong> maintain component consistency and prevent LLM hallucinations</p>
                       </div>
-                      <div className="flex items-center mb-4">
-                        <i className="ri-dashboard-line mr-3 text-xl text-teal-400"></i>
-                        <p>Dual approach ensures both <strong>usability</strong> and technical excellence</p>
-                      </div>
-                      <div className="mt-2">
-                        <Link to="/articles/cypress-testing" className="cypress-testing-link flex items-center" style={{
-                          background: "linear-gradient(90deg, #4ade80, #22d3ee)", 
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                          textShadow: "0 0 15px rgba(74, 222, 128, 0.4)"
-                        }}>
-                          <span>Explore my Cypress testing approach</span>
-                          <i className="ri-arrow-right-line ml-2"></i>
-                        </Link>
+                      <div className="flex items-center text-sm sm:text-base">
+                        <i className="ri-loop-left-line mr-3 text-lg sm:text-xl text-teal-400"></i>
+                        <p><strong>Automated testing</strong> ensures design system compliance across implementations</p>
                       </div>
                     </div>
                   </div>
                 </motion.div>
 
-                {/* Step 6: Implementation & Iteration */}
+                {/* Final Outcome */}
                 <motion.div 
                   className="process-step"
                   initial={{ opacity: 0, y: 50 }}
@@ -342,79 +320,53 @@ function Process() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center">
                     <div className="md:w-1/3">
                       <div className="process-icon-container">
-                        <i className="ri-loop-left-line text-4xl"></i>
+                        <i className="ri-rocket-line text-3xl sm:text-4xl"></i>
                       </div>
                     </div>
                     <div className="md:w-2/3 text-left">
-                      <h3 className="text-2xl font-bold mb-4" style={{
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{
                         background: "linear-gradient(90deg, rgba(255,255,255,1), rgba(220,220,220,0.9))", 
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         textShadow: "0 0 10px rgba(255, 255, 255, 0.5)"
-                      }}>6. Implementation & Continuous Iteration</h3>
-                      <p className="text-white opacity-90 mb-4">
-                        Extending beyond traditional design cycles with <strong>GitLab deployments</strong> and <strong>continuous integration</strong> for seamless iteration based on ongoing user feedback.
+                      }}>The End Result</h3>
+                      <p className="text-white opacity-90 mb-3 sm:mb-4 text-sm sm:text-base">
+                        My AI-augmented design process delivers <strong>better products faster</strong> without sacrificing quality. By enhancing traditional workflows with AI tools, I maintain design consistency while dramatically accelerating development cycles, resulting in products that are both innovative and user-centered.
                       </p>
-                      <div className="flex items-center mb-2">
-                        <i className="ri-git-merge-line mr-3 text-xl text-teal-400"></i>
-                        <p>Fully functional, <strong>production-ready prototypes</strong> for stakeholders</p>
+                      <div className="flex items-center mb-2 text-sm sm:text-base">
+                        <i className="ri-time-line mr-3 text-lg sm:text-xl text-teal-400"></i>
+                        <p><strong>40-60% reduction</strong> in design-to-development time</p>
                       </div>
-                      <div className="flex items-center">
-                        <i className="ri-refresh-line mr-3 text-xl text-teal-400"></i>
-                        <p>Design as a <strong>continuous improvement cycle</strong>, not a single phase</p>
+                      <div className="flex items-center text-sm sm:text-base">
+                        <i className="ri-heart-3-line mr-3 text-lg sm:text-xl text-teal-400"></i>
+                        <p><strong>Increased satisfaction</strong> from both users and stakeholders</p>
                       </div>
                     </div>
                   </div>
                 </motion.div>
               </div>
-
-              {/* Conclusion */}
+            </div>
+            
+            {/* Back to portfolio button at the bottom */}
+            <div className="flex justify-center mt-8 sm:mt-12">
               <motion.div 
-                className="mt-20"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="inline-block"
               >
-                <div className="p-8 rounded-lg" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                  <h3 className="text-2xl font-bold mb-6 text-center" style={{
-                    background: "linear-gradient(90deg, rgba(255,255,255,1), rgba(220,220,220,0.9))", 
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    textShadow: "0 0 10px rgba(255, 255, 255, 0.5)"
-                  }}>The Perfect Blend: Human Creativity & AI Efficiency</h3>
-                  <div className="flex items-center justify-center mb-6">
-                    <i className="ri-ai-generate mr-3 text-3xl text-teal-400"></i>
-                    <i className="ri-add-line mx-3 text-xl"></i>
-                    <i className="ri-user-heart-line ml-3 text-3xl text-purple-400"></i>
-                  </div>
-                  <p className="text-lg opacity-90">
-                    My approach respects <strong>established design methodologies</strong> while strategically applying AI to enhance—not replace—the human elements. This creates a workflow that produces more <strong>innovative, thoroughly-tested solutions</strong> in less time.
-                  </p>
-                  <div className="mt-8 flex justify-center">
-                    <Link to="/" className="px-6 py-3 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg flex items-center transition-all">
-                      <span>See the results in my portfolio</span>
-                      <i className="ri-arrow-right-line ml-2"></i>
-                    </Link>
-                  </div>
-                </div>
+                <Link to="/" className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white text-sm sm:text-base px-6 py-3 rounded-lg flex items-center transition-all duration-300">
+                  <i className="ri-arrow-left-line mr-2"></i>
+                  <span>Return to Portfolio</span>
+                </Link>
               </motion.div>
             </div>
           </motion.div>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-custom-dark text-white py-6 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-sm text-white opacity-60">
-            © {new Date().getFullYear()} AJAY MANATH. All rights reserved.
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

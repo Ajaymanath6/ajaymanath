@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import App, { MobileContextProvider } from './App';
 import About from './About';
 import ArticlePage from './ArticlePage';
 import Process from './Process';
@@ -13,14 +13,16 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/article/:articleId" element={<ArticlePage />} />
-        <Route path="/process" element={<Process />} />
-      </Routes>
-    </Router>
+    <MobileContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/article/:articleId" element={<ArticlePage />} />
+          <Route path="/process" element={<Process />} />
+        </Routes>
+      </Router>
+    </MobileContextProvider>
   </React.StrictMode>
 );
 

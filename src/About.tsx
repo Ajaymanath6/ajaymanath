@@ -81,7 +81,7 @@ function About() {
       {/* Header with back button - now floating without background */}
       <div className="fixed top-4 left-4 z-50">
         <motion.div whileHover={{ x: -5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-          <Link to="/" className="text-white flex items-center bg-black bg-opacity-50 px-4 py-2 rounded-lg backdrop-blur-sm">
+          <Link to="/" className="text-white flex items-center bg-black bg-opacity-50 px-3 px-sm-4 py-2 rounded-lg backdrop-blur-sm text-sm sm:text-base">
             <i className="ri-arrow-left-line mr-2"></i>
             <span>Back to Portfolio</span>
           </Link>
@@ -92,10 +92,12 @@ function About() {
       <div className="h-[40px]"></div>
 
       {/* Main content */}
-      <main className="flex-grow flex items-center justify-center relative">
+      <main className="flex-grow flex items-center justify-center relative px-4">
         {/* Spider Web Background */}
         <div className="pattern-container" style={{ mixBlendMode: 'normal', opacity: 0.6, backgroundColor: 'rgba(20, 20, 20, 0.7)' }}>
+          {/* SVG content remains unchanged */}
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            {/* Existing SVG content */}
             <defs>
               {/* Gradient for web strands */}
               <linearGradient id="webGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -183,7 +185,7 @@ function About() {
                 <motion.img 
                   src={fullImg} 
                   alt="Ajay Manath" 
-                  className="w-72 h-72 object-cover bw-image block"
+                  className="w-64 h-64 sm:w-72 sm:h-72 object-cover bw-image block"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 />
@@ -192,12 +194,12 @@ function About() {
                 <AnimatePresence>
                   {showInfo && (
                     <motion.div 
-                      className="info-section bg-black px-6 py-4 -mt-1"
+                      className="info-section bg-black px-4 sm:px-6 py-4 -mt-1"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      style={{ width: '288px' }}
+                      style={{ width: '100%' }}
                     >
                       {/* Name - Left aligned */}
                       <motion.div 
@@ -206,12 +208,12 @@ function About() {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.2 }}
                       >
-                        <h2 className="text-2xl font-bold text-white">AJAY L MANATH</h2>
+                        <h2 className="text-xl sm:text-2xl font-bold text-white">AJAY L MANATH</h2>
                       </motion.div>
                       
                       {/* Gradient border below name */}
                       <motion.div 
-                        className="my-3"
+                        className="my-2 sm:my-3"
                         initial={{ width: 0 }}
                         animate={{ width: '100%' }}
                         transition={{ delay: 0.3, duration: 0.5 }}
@@ -240,7 +242,7 @@ function About() {
                           transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
                         >
                           <motion.span 
-                            className={`w-2 h-2 rounded-full mr-3 ${isOnline ? 'bg-green-400' : 'bg-red-400'}`}
+                            className={`w-2 h-2 rounded-full mr-2 sm:mr-3 ${isOnline ? 'bg-green-400' : 'bg-red-400'}`}
                             animate={{ 
                               scale: isOnline ? [1, 1.2, 1] : [1, 0.8, 1],
                               boxShadow: isOnline 
@@ -248,57 +250,37 @@ function About() {
                                 : ['0 0 0 0 rgba(239, 68, 68, 0.7)', '0 0 0 4px rgba(239, 68, 68, 0)', '0 0 0 0 rgba(239, 68, 68, 0)']
                             }}
                             transition={{ duration: 2, repeat: Infinity }}
-                          ></motion.span>
-                          <p className="text-sm text-white">Product Designer</p>
+                          />
+                          <span className="text-xs sm:text-sm text-white opacity-80">{isOnline ? 'Available for hire' : 'Currently busy'}</span>
                         </motion.div>
                         
-                        {/* Right side - Social media icons + Process */}
-                        <motion.div 
-                          className="flex items-center space-x-5"
-                          initial={{ x: -20, opacity: 0 }}
-                          animate={{ x: 0, opacity: 1 }}
-                          transition={{ delay: 0.6, type: "spring", stiffness: 100 }}
-                        >
+                        {/* Right side - Social icons */}
+                        <div className="flex space-x-2 sm:space-x-3">
                           <motion.a 
                             href="https://github.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-white hover:text-gray-300 transition-colors"
-                            whileHover={{ scale: 1.2, rotate: 5 }}
-                            whileTap={{ scale: 0.9 }}
+                            className="text-white opacity-80 hover:opacity-100 transition-opacity"
+                            whileHover={{ y: -2 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
                           >
-                            <i className="ri-github-fill text-lg"></i>
+                            <i className="ri-github-line text-sm sm:text-base"></i>
                           </motion.a>
                           <motion.a 
-                            href="https://www.linkedin.com/in/ajaym96" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-white hover:text-gray-300 transition-colors"
-                            whileHover={{ scale: 1.2, rotate: -5 }}
-                            whileTap={{ scale: 0.9 }}
+                            href="https://linkedin.com" 
+                            className="text-white opacity-80 hover:opacity-100 transition-opacity"
+                            whileHover={{ y: -2 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
                           >
-                            <i className="ri-linkedin-fill text-lg"></i>
+                            <i className="ri-linkedin-line text-sm sm:text-base"></i>
                           </motion.a>
                           <motion.a 
-                            href="https://instagram.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-white hover:text-gray-300 transition-colors"
-                            whileHover={{ scale: 1.2, rotate: 5 }}
-                            whileTap={{ scale: 0.9 }}
+                            href="https://twitter.com" 
+                            className="text-white opacity-80 hover:opacity-100 transition-opacity"
+                            whileHover={{ y: -2 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
                           >
-                            <i className="ri-instagram-fill text-lg"></i>
+                            <i className="ri-twitter-x-line text-sm sm:text-base"></i>
                           </motion.a>
-                          <motion.div
-                            className="text-white hover:text-gray-300 transition-colors cursor-pointer"
-                            whileHover={{ scale: 1.2 }}
-                            whileTap={{ scale: 0.9 }}
-                          >
-                            <Link to="/process" className="text-white hover:text-gray-300 transition-colors">
-                              <span className="text-xl">→</span>
-                            </Link>
-                          </motion.div>
-                        </motion.div>
+                        </div>
                       </motion.div>
                     </motion.div>
                   )}
@@ -306,58 +288,49 @@ function About() {
               </div>
             </div>
           </motion.div>
-
-          {/* Story Section */}
+          
+          {/* Story text below image - maximizing readability with max-width */}
           <AnimatePresence>
             {showStory && (
-              <motion.div
-                className="mt-12 max-w-5xl mx-auto px-6 mb-16"
-                initial={{ opacity: 0, y: 30 }}
+              <motion.div 
+                className="mt-8 relative"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
               >
-                <motion.div
-                  className="relative"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.4 }}
+                <div 
+                  className="max-w-sm sm:max-w-md lg:max-w-lg mx-auto text-white opacity-90 text-left text-sm sm:text-base leading-relaxed"
                 >
-                  {/* Gradient background for the story */}
-                  <div 
-                    className="absolute inset-0 rounded-lg"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
-                      backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(255,255,255,0.05)'
-                    }}
-                  ></div>
-                  
-                  <div className="relative p-8">
-                    <motion.div 
-                      className="text-base leading-relaxed"
-                      style={{
-                        background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                        fontFamily: 'Inter, system-ui, sans-serif',
-                        fontWeight: '300',
-                        letterSpacing: '0.02em',
-                        lineHeight: '1.6'
-                      }}
-                    >
-                      {formatText(typedText)}
-                      {typedText.length < storyText.length && (
-                        <motion.span
-                          className="inline-block w-0.5 h-5 bg-white ml-1"
-                          animate={{ opacity: [1, 0] }}
-                          transition={{ duration: 0.8, repeat: Infinity }}
-                        />
-                      )}
-                    </motion.div>
-                  </div>
-                </motion.div>
+                  <p>{formatText(typedText)}</p>
+                  <span className="inline-block w-1 h-5 bg-white opacity-80 ml-1 animate-pulse"></span>
+                </div>
+                
+                <div className="mt-6 sm:mt-8 flex justify-center">
+                  <motion.button 
+                    className="text-white text-xs sm:text-sm bg-transparent border border-white border-opacity-20 rounded-full px-4 py-2 flex items-center"
+                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <i className="ri-add-line mr-2"></i>
+                    <span>See Full Resume</span>
+                  </motion.button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          
+          {/* Click instruction - only shown when story is not visible */}
+          <AnimatePresence>
+            {!showInfo && (
+              <motion.div 
+                className="mt-4 text-white opacity-70 text-xs sm:text-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <i className="ri-cursor-line mr-1"></i> Click on image to show details
               </motion.div>
             )}
           </AnimatePresence>

@@ -4,8 +4,60 @@ import { Link, useParams } from 'react-router-dom';
 import 'remixicon/fonts/remixicon.css';
 import './App.css';
 
+// Define proper types for content blocks
+type ParagraphBlock = {
+  type: 'paragraph';
+  text: string;
+};
+
+type HeadingBlock = {
+  type: 'heading';
+  level: number;
+  text: string;
+};
+
+type ListBlock = {
+  type: 'list';
+  items: string[];
+};
+
+type CodeBlock = {
+  type: 'code';
+  language: string;
+  code: string;
+};
+
+type QuoteBlock = {
+  type: 'quote';
+  text: string;
+};
+
+type ImageBlock = {
+  type: 'image';
+  src: string;
+  alt?: string;
+  caption?: string;
+};
+
+type ContentBlock = ParagraphBlock | HeadingBlock | ListBlock | CodeBlock | QuoteBlock | ImageBlock;
+
+// Define article type
+type Article = {
+  title: string;
+  date: string;
+  readTime: string;
+  author: string;
+  heroImage: string;
+  content: ContentBlock[];
+  skills?: string[];
+  relatedLinks?: Array<{
+    title: string;
+    url: string;
+  }>;
+};
+
 // Article data with detailed content
-const articles = {
+const articles: Record<string, Article> = {
   "automated-design-system-testing": {
     title: "Automated Testing for Design System Consistency",
     date: "June 22, 2023",
@@ -518,145 +570,205 @@ async function autoFixComponents(testResults) {
 };
 
 function ArticlePage() {
-  const { articleId } = useParams();
-  const article = articles[articleId as keyof typeof articles];
+  const { articleId } = useParams<{ articleId: string }>();
   
+  // Find the article that matches the URL parameter
+  const article = articleId ? articles[articleId] : undefined;
+  
+  // If no matching article is found, show a "not found" message
   if (!article) {
     return (
       <div className="min-h-screen bg-custom-dark text-white flex flex-col items-center justify-center">
-        <h1 className="text-3xl mb-4">Article not found</h1>
-        <Link to="/" className="text-white hover:text-gray-300 transition-colors">
-          Return to homepage
+        <h1 className="text-2xl sm:text-3xl font-bold mb-4">Article Not Found</h1>
+        <p className="mb-6">The article you're looking for doesn't exist or has been moved.</p>
+        <Link to="/" className="text-blue-400 hover:text-blue-300 flex items-center">
+          <i className="ri-arrow-left-line mr-2"></i>
+          Return to Portfolio
         </Link>
       </div>
     );
   }
-
+  
+  // Render the article
   return (
-    <div className="min-h-screen bg-custom-dark text-white">
+    <div className="min-h-screen bg-custom-dark text-white flex flex-col">
       {/* Header with back button */}
       <div className="fixed top-4 left-4 z-50">
         <motion.div whileHover={{ x: -5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-          <Link to="/" className="text-white flex items-center bg-black bg-opacity-50 px-4 py-2 rounded-lg backdrop-blur-sm">
+          <Link to="/" className="text-white flex items-center bg-black bg-opacity-50 px-3 sm:px-4 py-2 rounded-lg backdrop-blur-sm text-sm sm:text-base">
             <i className="ri-arrow-left-line mr-2"></i>
             <span>Back to Portfolio</span>
           </Link>
         </motion.div>
       </div>
 
-      {/* Article Hero */}
-      <div className="relative h-[50vh] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <img 
-            src={article.heroImage} 
-            alt={article.title} 
-            className="w-full h-full object-cover"
-            style={{ filter: 'brightness(0.4)' }}
-          />
-        </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="mb-4 flex items-center justify-center space-x-2 text-sm text-white opacity-80">
-            <span>{article.date}</span>
-            <span className="mx-2">•</span>
-            <span>{article.readTime}</span>
-            <span className="mx-2">•</span>
-            <span>By {article.author}</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-8">{article.title}</h1>
-          <div className="flex flex-wrap justify-center">
-            {article.skills.map((skill, index) => (
-              <span key={index} className="badge badge-tool m-1">{skill}</span>
-            ))}
+      {/* Hero Image with overlay and title */}
+      <div className="relative h-64 sm:h-80 md:h-96 w-full">
+        {/* Hero Image */}
+        <img 
+          src={article.heroImage} 
+          alt={article.title} 
+          className="w-full h-full object-cover"
+        />
+        
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-80"></div>
+        
+        {/* Article title and metadata */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-white">{article.title}</h1>
+            <div className="flex flex-wrap items-center text-sm sm:text-base text-white opacity-80">
+              <span>{article.date}</span>
+              <span className="mx-2">•</span>
+              <span>{article.readTime}</span>
+              <span className="mx-2">•</span>
+              <span>By {article.author}</span>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Article Content */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        {article.content.map((block, index) => {
-          if (block.type === "paragraph") {
-            return (
-              <p key={index} className="text-white opacity-90 my-6 leading-relaxed text-lg">
-                {block.text}
+      
+      {/* Article content */}
+      <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12 w-full">
+        <div className="prose prose-sm sm:prose lg:prose-lg prose-invert max-w-none">
+          {article.content.map((block, index) => {
+            // Render content based on block type
+            switch (block.type) {
+              case "paragraph":
+                return (
+                  <p key={index} className="mb-4 text-sm sm:text-base opacity-90">
+                    {block.text}
+                  </p>
+                );
+              
+              case "heading":
+                if (block.level === 2) {
+                  return (
+                    <h2 key={index} className="text-xl sm:text-2xl font-bold mt-8 mb-4">
+                      {block.text}
+                    </h2>
+                  );
+                } else if (block.level === 3) {
+                  return (
+                    <h3 key={index} className="text-lg sm:text-xl font-bold mt-6 mb-3">
+                      {block.text}
+                    </h3>
+                  );
+                } else {
+                  return (
+                    <h4 key={index} className="font-bold">
+                      {block.text}
+                    </h4>
+                  );
+                }
+              
+              case "list":
+                return (
+                  <ul key={index} className="list-disc pl-5 mb-4 space-y-1">
+                    {block.items.map((item, i) => (
+                      <li key={i} className="opacity-90 text-sm sm:text-base">{item}</li>
+                    ))}
+                  </ul>
+                );
+              
+              case "code":
+                return (
+                  <div key={index} className="mb-6 overflow-x-auto">
+                    <pre className="bg-gray-900 p-3 sm:p-4 rounded-md text-xs sm:text-sm">
+                      <code className="text-gray-300">
+                        {block.code}
+                      </code>
+                    </pre>
+                    <div className="text-xs mt-1 opacity-70 text-right">{block.language}</div>
+                  </div>
+                );
+              
+              case "quote":
+                return (
+                  <blockquote key={index} className="border-l-4 border-blue-500 pl-4 italic my-6 text-sm sm:text-base">
+                    {block.text}
+                  </blockquote>
+                );
+              
+              case "image":
+                return (
+                  <figure key={index} className="my-6">
+                    <img 
+                      src={block.src} 
+                      alt={block.alt || ""} 
+                      className="w-full rounded-md"
+                    />
+                    {block.caption && (
+                      <figcaption className="text-center mt-2 text-sm opacity-70">
+                        {block.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                );
+              
+              default:
+                return null;
+            }
+          })}
+        </div>
+      </div>
+      
+      {/* Author bio */}
+      <div className="max-w-4xl mx-auto px-4 py-8 w-full">
+        <div className="border-t border-gray-700 pt-6">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start">
+            <img 
+              src="/me.jpg" 
+              alt="Ajay Manath" 
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover"
+            />
+            <div className="mt-4 sm:mt-0 sm:ml-6 text-center sm:text-left">
+              <h3 className="text-lg sm:text-xl font-bold">Ajay Manath</h3>
+              <p className="text-sm sm:text-base opacity-80 mt-1 mb-3">AI Product Designer</p>
+              <p className="text-sm opacity-70">
+                Specializes in blending traditional UX principles with AI-driven prototyping tools to create innovative, user-centered digital experiences.
               </p>
-            );
-          }
-          
-          if (block.type === "heading" && block.level === 2) {
-            return (
-              <h2 key={index} className="text-2xl font-bold text-white mt-12 mb-6">
-                {block.text}
-              </h2>
-            );
-          }
-          
-          if (block.type === "heading" && block.level === 3) {
-            return (
-              <h3 key={index} className="text-xl font-bold text-white mt-8 mb-4">
-                {block.text}
-              </h3>
-            );
-          }
-          
-          if (block.type === "list" && block.items) {
-            return (
-              <ul key={index} className="list-disc list-inside my-6 space-y-2">
-                {block.items.map((item, i) => (
-                  <li key={i} className="text-white opacity-90 leading-relaxed text-lg ml-4">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            );
-          }
-          
-          if (block.type === "quote") {
-            return (
-              <blockquote key={index} className="border-l-4 border-white pl-6 italic my-8 text-white opacity-90 text-xl">
-                {block.text}
-              </blockquote>
-            );
-          }
-          
-          if (block.type === "code") {
-            return (
-              <pre key={index} className="bg-gray-800 p-6 rounded-lg my-8 overflow-x-auto">
-                <code className="text-sm text-white">
-                  {block.code}
-                </code>
-              </pre>
-            );
-          }
-          
-          return null;
-        })}
-
-        {/* Related Links */}
-        <div className="mt-16 border-t border-gray-800 pt-8">
-          <h3 className="text-xl font-bold mb-6">Related Resources</h3>
-          <div className="space-y-4">
-            {article.relatedLinks.map((link, index) => (
-              <a 
-                key={index} 
-                href={link.url} 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block p-4 border border-gray-800 rounded-lg hover:bg-gray-800 transition-colors"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-white">{link.title}</span>
-                  <i className="ri-external-link-line"></i>
-                </div>
-              </a>
-            ))}
+            </div>
           </div>
         </div>
       </div>
-
+      
+      {/* Related articles - simplified for mobile */}
+      <div className="bg-black bg-opacity-30 py-8 sm:py-12 mt-4">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-xl sm:text-2xl font-bold mb-6">Related Articles</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="bg-custom-dark rounded-lg overflow-hidden hover-card">
+              <div className="p-4">
+                <h3 className="text-base sm:text-lg font-bold mb-1">Maintaining Design System Consistency with AI Tools</h3>
+                <p className="text-sm opacity-70 mb-3">May 10, 2023 • 5 min read</p>
+                <Link to="#" className="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+                  <span>Read article</span>
+                  <i className="ri-arrow-right-line ml-1"></i>
+                </Link>
+              </div>
+            </div>
+            <div className="bg-custom-dark rounded-lg overflow-hidden hover-card">
+              <div className="p-4">
+                <h3 className="text-base sm:text-lg font-bold mb-1">Building a Scalable Component Library</h3>
+                <p className="text-sm opacity-70 mb-3">April 5, 2023 • 8 min read</p>
+                <Link to="#" className="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+                  <span>Read article</span>
+                  <i className="ri-arrow-right-line ml-1"></i>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       {/* Footer */}
-      <footer className="bg-custom-dark text-white py-8 border-t border-gray-800">
-        <div className="max-w-4xl mx-auto px-6 text-center text-sm opacity-60">
-          © {new Date().getFullYear()} AJAY MANATH. All rights reserved.
+      <footer className="bg-custom-dark text-white py-6 mt-auto">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center text-xs sm:text-sm text-white opacity-60">
+            © {new Date().getFullYear()} AJAY MANATH. All rights reserved.
+          </div>
         </div>
       </footer>
     </div>

@@ -1,15 +1,195 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 import { motion, AnimatePresence, useAnimation, Variants } from 'framer-motion';
 import 'remixicon/fonts/remixicon.css';
 import './App.css';
 import faceImg from './face.png';
 import { Link, useNavigate } from 'react-router-dom';
 
+// Create a context for mobile detection
+type MobileContextType = {
+  isMobile: boolean;
+};
+
+const MobileContext = createContext<MobileContextType>({ isMobile: false });
+
+export const useMobile = () => useContext(MobileContext);
+
+// MobileProvider component
+const MobileProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially
+    checkMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  return (
+    <MobileContext.Provider value={{ isMobile }}>
+      {children}
+    </MobileContext.Provider>
+  );
+};
+
+// Export a separate MobileProvider for use in index.tsx
+export const MobileContextProvider = MobileProvider;
+
+// MobileMenu component for small screens
+const MobileMenu = ({ isOpen, onClose, navOptions, activeTab, handleNavigation }: { 
+  isOpen: boolean, 
+  onClose: () => void, 
+  navOptions: any[],
+  activeTab: string,
+  handleNavigation: (item: any, e: React.MouseEvent) => void
+}) => {
+  const menuVariants = {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.2,
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+      }
+    }),
+    exit: { opacity: 0, y: -20 }
+  };
+
+  const socialLinks = [
+    { name: 'GitHub', icon: 'ri-github-line' },
+    { name: 'LinkedIn', icon: 'ri-linkedin-line' },
+    { name: 'Instagram', icon: 'ri-instagram-line' }
+  ];
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="mobile-menu-overlay"
+          variants={menuVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          <button className="mobile-menu-close" onClick={onClose}>
+            <i className="ri-close-line"></i>
+          </button>
+          
+          <div className="flex flex-col items-center justify-center">
+            {navOptions.map((item, i) => (
+              <motion.div
+                key={item.name}
+                className="mobile-menu-item"
+                custom={i}
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <motion.a
+                  href={item.href}
+                  className={`text-white text-lg font-medium flex items-center mb-6 ${activeTab === item.name ? "selected-tab" : "inactive-tab"}`}
+                  onClick={(e) => {
+                    handleNavigation(item, e);
+                    onClose();
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <i className={`${item.icon} main-nav-icon mr-3`}></i>
+                  <span>{item.name}</span>
+                </motion.a>
+              </motion.div>
+            ))}
+            
+            <motion.div
+              className="mobile-menu-item mt-8 pt-4 border-t border-white border-opacity-20"
+              custom={navOptions.length}
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <div className="flex space-x-6 mt-2">
+                {socialLinks.map((social, i) => (
+                  <motion.a
+                    key={social.name}
+                    href={`https://${social.name.toLowerCase()}.com`}
+                    className="text-white opacity-80 hover:opacity-100"
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <i className={`${social.icon} text-2xl`}></i>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+            
+            <motion.div
+              className="mobile-menu-item"
+              custom={navOptions.length + 1}
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <div className="flex mt-6 space-x-4">
+                <motion.div whileTap={{ scale: 0.95 }}>
+                  <Link to="/about" className="text-white bg-white bg-opacity-10 px-4 py-2 rounded-full flex items-center" onClick={onClose}>
+                    <i className="ri-user-line mr-2"></i>
+                    <span>About</span>
+                  </Link>
+                </motion.div>
+                <motion.div whileTap={{ scale: 0.95 }}>
+                  <a href="mailto:ajaymanath96@gmail.com" className="text-white bg-white bg-opacity-10 px-4 py-2 rounded-full flex items-center">
+                    <i className="ri-mail-line mr-2"></i>
+                    <span>Contact</span>
+                  </a>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("AI Prototype");
   const [searchQuery, setSearchQuery] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isMobile } = useMobile(); // Use the mobile context
   const navigate = useNavigate();
   
   // Animation controls
@@ -28,9 +208,9 @@ function App() {
       id: 1,
       number: "01",
       date: "APR 2023",
-      image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      title: "Synapse Learn",
-      subtitle: "AI-powered collaborative platform bridging research disciplines and fostering innovative solutions",
+      image: "Synapse.png",
+      title: "Master Any Subject with SynapseLearn",
+      subtitle: "Our AI-powered platform transforms how you study, making learning more effective and enjoyable",
       tags: ["AI-Powered", "UX/UI", "Mobile"],
       link: "https://mandal-ai-9c42ef.gitlab.io/home"
     },
@@ -38,9 +218,9 @@ function App() {
       id: 2,
       number: "02",
       date: "JUN 2023",
-      image: "https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      title: "Brand Identity System",
-      subtitle: "Visual language for tech startup",
+      image: "Drone.png",
+      title: "DroneGrid: Revolutionizing Urban Security",
+      subtitle: "Deploy autonomous drone security that's 3x more effective and 60% more cost-efficient than traditional surveillance",
       tags: ["Branding", "AI Tools", "Design System"],
       link: "https://dronegrid-976b17.gitlab.io/"
     },
@@ -48,9 +228,9 @@ function App() {
       id: 3,
       number: "03",
       date: "AUG 2023",
-      image: "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      title: "E-commerce Website",
-      subtitle: "User-centered shopping experience",
+      image: "Sahayak.png",
+      title: "Your AI Teaching Partner for Multi-Grade Classrooms",
+      subtitle: "AI assistant helping India's teachers save time and deliver personalized education in local languages",
       tags: ["E-commerce", "AI-Powered", "Web Design"],
       link: "https://prevalent-5474cf.gitlab.io/"
     },
@@ -58,9 +238,9 @@ function App() {
       id: 4,
       number: "04",
       date: "SEP 2023",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      title: "AI Content Generator",
-      subtitle: "Automated copywriting assistant",
+      image: "Cyber.png",
+      title: "Cyber Risk Intelligence Dashboard",
+      subtitle: "Real-time threat monitoring and AI-powered risk assessment for enterprise security teams",
       tags: ["AI", "NLP", "Content Creation"],
       link: "https://customer-f4fcaf.gitlab.io/"
     }
@@ -70,26 +250,26 @@ function App() {
   const figmaDesigns = [
     {
       id: 1,
-      title: "Finance Dashboard",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      title: "Enterprise Design System",
+      image: "Design System.png",
       link: "#",
-      metrics: "Improved user efficiency by 45%",
+      metrics: "A comprehensive design system with Figma documentation, components, and structure for multiple projects",
       tools: ["Auto Layout", "Variables", "Interactive Components"]
     },
     {
       id: 2,
-      title: "Social Media App",
-      image: "https://images.unsplash.com/photo-1565728744382-61accd4aa148?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      title: "Sahayak Teaching Assistant",
+      image: "Sahayak.png",
       link: "#",
-      metrics: "Increased engagement by 32%",
+      metrics: "AI-powered teaching assistant designed for multi-language education in Indian classrooms",
       tools: ["Component Properties", "Variants", "Prototyping"]
     },
     {
       id: 3,
-      title: "E-commerce Website",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      title: "Cyber Security Dashboard",
+      image: "Cyber.png",
       link: "#",
-      metrics: "Conversion rate improved by 28%",
+      metrics: "Enterprise security monitoring interface with real-time threat visualization",
       tools: ["Design System", "Auto Layout", "Smart Animate"]
     },
     {
@@ -274,67 +454,78 @@ function App() {
 
   return (
     <div className="min-h-screen bg-custom-dark text-white">
+      {/* Mobile Menu */}
+      <MobileMenu 
+        isOpen={mobileMenuOpen} 
+        onClose={() => setMobileMenuOpen(false)}
+        navOptions={navOptions}
+        activeTab={activeTab}
+        handleNavigation={handleNavigation}
+      />
+
       {/* Fixed Header - Always visible at the top */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-custom-dark header-transition site-header">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-custom-dark header-transition site-header sticky-header">
         {/* Top Section - Only visible when not scrolled */}
         <AnimatePresence>
           {!scrolled && (
             <motion.div 
-              className="bg-custom-dark py-6"
+              className="bg-custom-dark py-4 sm:py-6"
               initial={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+              <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 fixed-header-content">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-4 items-center">
                   {/* First Column - Animated Text with Profile Image */}
                   <div className="text-left flex items-center">
                     <motion.img 
                       src={faceImg} 
                       alt="Profile" 
-                      className="w-12 h-12 rounded-full object-cover mr-4"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-2 sm:mr-4"
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
                     />
                     <div>
-                      <p className="text-sm text-white opacity-80 mb-1">An AI product designer who...</p>
-                    <div className="h-8">
-                      <AnimatePresence mode="wait">
-                        <motion.p 
-                          key={textIndex}
-                          className="font-bold text-lg text-white"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -20 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          {rotatingTexts[textIndex]}
-                        </motion.p>
-                      </AnimatePresence>
+                      <p className="text-xs sm:text-sm text-white opacity-80 mb-0 sm:mb-1">An AI product designer who...</p>
+                      <div className="h-6 sm:h-8">
+                        <AnimatePresence mode="wait">
+                          <motion.p 
+                            key={textIndex}
+                            className="font-bold text-sm sm:text-lg text-white"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.5 }}
+                          >
+                            {rotatingTexts[textIndex]}
+                          </motion.p>
+                        </AnimatePresence>
                       </div>
                     </div>
                   </div>
                   
                   {/* Second Column - Empty */}
-                  <div className="flex justify-center">
+                  <div className="hidden md:flex justify-center">
                   </div>
                   
                   {/* Third Column - Navigation Options - Aligned to the right */}
-                  <div className="flex justify-end space-x-6">
+                  <div className="flex justify-end space-x-3 sm:space-x-6 mt-1 md:mt-0">
                     <div className="flex items-center space-x-2 md:space-x-4">
                       <motion.div
                         whileHover={{ x: -5 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className={isMobile ? "hidden" : ""}
                       >
-                        <a href="mailto:ajaymanath96@gmail.com" className="text-white hover:text-gray-300 transition-colors flex items-center">
+                        <a href="mailto:ajaymanath96@gmail.com" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm sm:text-base">
                           <i className="ri-mail-fill mr-1"></i> Contact
                         </a>
                       </motion.div>
                       <motion.div
                         whileHover={{ x: -5 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className={isMobile ? "hidden" : ""}
                       >
-                        <Link to="/about" className="text-white hover:text-gray-300 transition-colors flex items-center">
+                        <Link to="/about" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm sm:text-base">
                           <i className="ri-user-fill mr-1"></i> About
                         </Link>
                       </motion.div>
@@ -347,36 +538,65 @@ function App() {
         </AnimatePresence>
 
         {/* Bottom Section - Always visible with increased min-height */}
-        <div className="bg-custom-dark py-4 shadow-md">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between items-center min-h-[88px]">
-              {/* Left Side - Search */}
-              <div className="w-full md:w-1/3 mb-4 md:mb-0">
-                <div className="search-container">
-                  <i className="ri-search-eye-fill main-nav-icon search-icon"></i>
-                  <input
-                    type="text"
-                    placeholder="Projects, Skills, Technologies"
-                    className="search-input"
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                  />
-                </div>
+        <div className="bg-custom-dark py-2 sm:py-4 shadow-md">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 fixed-header-content">
+            <div className="flex flex-col md:flex-row justify-between items-center min-h-[60px] sm:min-h-[88px]">
+              {/* Left Side - Search and Mobile Menu Button */}
+              <div className="w-full md:w-1/3 mb-2 md:mb-0 flex items-center">
+                <motion.button
+                  className={`mr-3 ${isMobile ? 'block' : 'hidden'}`}
+                  onClick={() => setMobileMenuOpen(true)}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <i className="ri-menu-line text-2xl"></i>
+                </motion.button>
+              
+                {!isMobile && (
+                  <div className="search-container">
+                    <i className="ri-search-eye-fill main-nav-icon search-icon"></i>
+                    <input
+                      type="text"
+                      placeholder="Projects, Skills, Technologies"
+                      className="search-input"
+                      value={searchQuery}
+                      onChange={handleSearchChange}
+                    />
+                  </div>
+                )}
+
+                {isMobile && (
+                  <div className="flex items-center space-x-2">
+                    <motion.div
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <a href="mailto:ajaymanath96@gmail.com" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm">
+                        <i className="ri-mail-fill mr-1"></i> Contact
+                      </a>
+                    </motion.div>
+                    <motion.div
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link to="/about" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm">
+                        <i className="ri-user-fill mr-1"></i> About
+                      </Link>
+                    </motion.div>
+                  </div>
+                )}
               </div>
 
               {/* Right Side - Navigation Options with Icons (horizontal layout) */}
-              <div className="flex flex-wrap justify-center space-x-4 md:space-x-12">
+              <div className={`flex flex-wrap justify-center space-x-2 md:space-x-12 mobile-tab-navigation ${isMobile ? 'hidden' : 'flex'}`}>
                 {navOptions.map((item) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className={`text-white hover:text-white text-sm font-medium flex items-center justify-center mb-2 md:mb-0 ${activeTab === item.name ? "selected-tab" : "inactive-tab"}`}
+                    className={`text-white hover:text-white text-xs sm:text-sm font-medium flex flex-col sm:flex-row items-center justify-center mb-1 sm:mb-2 md:mb-0 ${activeTab === item.name ? "selected-tab" : "inactive-tab"}`}
                     onClick={(e) => handleNavigation(item, e)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <i className={`${item.icon} main-nav-icon`}></i>
-                    <span className="ml-3 nav-label">{item.name}</span>
+                    <span className="nav-label mt-1 sm:mt-0 sm:ml-3">{item.name}</span>
                   </motion.a>
                 ))}
               </div>
@@ -386,20 +606,20 @@ function App() {
       </div>
 
       {/* Spacer to prevent content from being hidden under fixed header - adjusted heights */}
-      <div className={`${scrolled ? 'h-[88px]' : 'h-[176px]'} transition-all duration-300`}></div>
+      <div className={`${scrolled ? 'h-[70px] sm:h-[88px]' : 'h-[130px] sm:h-[176px]'} transition-all duration-300`}></div>
 
       {/* Main Content - Tab Content */}
       <motion.div 
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-8"
+        className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-12 mt-4 sm:mt-8 content-container"
         animate={controls}
         initial="hidden"
       >
         <motion.div 
-          className="mb-12"
+          className="mb-6 sm:mb-12"
           variants={fadeInUp}
         >
-          <h2 className="text-3xl font-bold mb-4">{getPageTitle()}</h2>
-          <p className="text-lg text-white opacity-80">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">{getPageTitle()}</h2>
+          <p className="text-base sm:text-lg text-white opacity-80">
             {activeTab === "AI Prototype" && "Exploring the intersection of artificial intelligence and design"}
             {activeTab === "Figma" && "Interactive prototypes and design systems created in Figma"}
             {activeTab === "DesignInk" && "Thoughts, insights and tutorials on design and product management"}
@@ -418,25 +638,25 @@ function App() {
             {/* First Row: Large (700px) + Small (500px) */}
             <div className="flex flex-col lg:flex-row gap-2 justify-center items-start">
               {/* Card 1 - Large with 90% image height */}
-            <motion.div 
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[0].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-[550px] flex flex-col`}
+              <motion.div 
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[0].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-auto sm:h-[550px] flex flex-col`}
                 variants={fadeInUp}
                 transition={{ delay: 0 }}
                 onClick={() => handleCardClick(cardData[0].link)}
-            >
-              {/* Card Header with Badge and Date */}
-                <div className="p-4 flex justify-between items-center">
-                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
+              >
+                {/* Card Header with Badge and Date */}
+                <div className="p-2 sm:p-4 flex justify-between items-center">
+                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
                     #{cardData[0].number}
                   </div>
-                  <div className="text-white opacity-80 text-sm flex items-center">
+                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
                     <i className="ri-calendar-line mr-1"></i>
                     {cardData[0].date}
                   </div>
                 </div>
                 
                 {/* Card Image - 80% of remaining height */}
-                <div className="overflow-hidden hover-scale flex-grow" style={{ height: '80%' }}>
+                <div className="overflow-hidden hover-scale flex-grow responsive-image" style={{ height: '80%' }}>
                   <img 
                     src={cardData[0].image} 
                     alt={cardData[0].title} 
@@ -444,37 +664,37 @@ function App() {
                   />
                 </div>
                 
-                                  {/* Card Title and Expandable Content - 20% of remaining height */}
-                <div className="p-4" style={{ height: '20%', minHeight: '70px' }}>
-                  <h3 className="text-xl font-bold text-white mb-1">{cardData[0].title}</h3>
+                {/* Card Title and Expandable Content - 20% of remaining height */}
+                <div className="p-2 sm:p-4" style={{ height: '20%', minHeight: '70px' }}>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{cardData[0].title}</h3>
                   
                   {/* Subtitle shown on hover */}
                   <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p className="text-white opacity-80 text-sm">{cardData[0].subtitle}</p>
+                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[0].subtitle}</p>
                   </div>
                 </div>
               </motion.div>
 
               {/* Card 2 - Small with 65% image height */}
               <motion.div 
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[1].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-[550px] flex flex-col`}
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[1].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-auto sm:h-[550px] flex flex-col`}
                 variants={fadeInUp}
                 transition={{ delay: 0.1 }}
                 onClick={() => handleCardClick(cardData[1].link)}
               >
                 {/* Card Header with Badge and Date */}
-                <div className="p-4 flex justify-between items-center">
-                <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
+                <div className="p-2 sm:p-4 flex justify-between items-center">
+                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
                     #{cardData[1].number}
                   </div>
-                  <div className="text-white opacity-80 text-sm flex items-center">
+                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
                     <i className="ri-calendar-line mr-1"></i>
                     {cardData[1].date}
                   </div>
                 </div>
                 
                 {/* Card Image - 65% of remaining height */}
-                <div className="overflow-hidden hover-scale" style={{ height: '65%' }}>
+                <div className="overflow-hidden hover-scale responsive-image" style={{ height: '65%' }}>
                   <img 
                     src={cardData[1].image} 
                     alt={cardData[1].title} 
@@ -483,12 +703,12 @@ function App() {
                 </div>
                 
                 {/* Card Title and Expandable Content - 35% of remaining height */}
-                <div className="p-4 flex-grow" style={{ height: '35%' }}>
-                  <h3 className="text-lg font-bold text-white mb-1">{cardData[1].title}</h3>
+                <div className="p-2 sm:p-4 flex-grow" style={{ height: '35%' }}>
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-1">{cardData[1].title}</h3>
                   
                   {/* Subtitle shown on hover */}
                   <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p className="text-white opacity-80 text-sm">{cardData[1].subtitle}</p>
+                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[1].subtitle}</p>
                   </div>
                 </div>
               </motion.div>
@@ -498,24 +718,24 @@ function App() {
             <div className="flex flex-col lg:flex-row gap-2 justify-center items-start">
               {/* Card 3 - Large with 90% image height */}
               <motion.div 
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[2].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-[550px] flex flex-col`}
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[2].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-auto sm:h-[550px] flex flex-col`}
                 variants={fadeInUp}
                 transition={{ delay: 0.2 }}
                 onClick={() => handleCardClick(cardData[2].link)}
               >
                 {/* Card Header with Badge and Date */}
-                <div className="p-4 flex justify-between items-center">
-                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
+                <div className="p-2 sm:p-4 flex justify-between items-center">
+                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
                     #{cardData[2].number}
-                </div>
-                <div className="text-white opacity-80 text-sm flex items-center">
-                  <i className="ri-calendar-line mr-1"></i>
+                  </div>
+                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
+                    <i className="ri-calendar-line mr-1"></i>
                     {cardData[2].date}
                   </div>
                 </div>
                 
                 {/* Card Image - 80% of remaining height */}
-                <div className="overflow-hidden hover-scale flex-grow" style={{ height: '80%' }}>
+                <div className="overflow-hidden hover-scale flex-grow responsive-image" style={{ height: '80%' }}>
                   <img 
                     src={cardData[2].image} 
                     alt={cardData[2].title} 
@@ -524,36 +744,36 @@ function App() {
                 </div>
                 
                 {/* Card Title and Expandable Content - 20% of remaining height */}
-                <div className="p-4" style={{ height: '20%', minHeight: '70px' }}>
-                  <h3 className="text-xl font-bold text-white mb-1">{cardData[2].title}</h3>
+                <div className="p-2 sm:p-4" style={{ height: '20%', minHeight: '70px' }}>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{cardData[2].title}</h3>
                   
                   {/* Subtitle shown on hover */}
                   <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p className="text-white opacity-80 text-sm">{cardData[2].subtitle}</p>
+                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[2].subtitle}</p>
                   </div>
                 </div>
               </motion.div>
               
               {/* Card 4 - Small with 65% image height */}
               <motion.div 
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[3].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-[550px] flex flex-col`}
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[3].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-auto sm:h-[550px] flex flex-col`}
                 variants={fadeInUp}
                 transition={{ delay: 0.3 }}
                 onClick={() => handleCardClick(cardData[3].link)}
               >
                 {/* Card Header with Badge and Date */}
-                <div className="p-4 flex justify-between items-center">
-                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-sm font-bold">
+                <div className="p-2 sm:p-4 flex justify-between items-center">
+                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
                     #{cardData[3].number}
                   </div>
-                  <div className="text-white opacity-80 text-sm flex items-center">
+                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
                     <i className="ri-calendar-line mr-1"></i>
                     {cardData[3].date}
                   </div>
                 </div>
                 
                 {/* Card Image - 65% of remaining height */}
-                <div className="overflow-hidden hover-scale" style={{ height: '65%' }}>
+                <div className="overflow-hidden hover-scale responsive-image" style={{ height: '65%' }}>
                   <img 
                     src={cardData[3].image} 
                     alt={cardData[3].title} 
@@ -562,12 +782,12 @@ function App() {
                 </div>
                 
                 {/* Card Title and Expandable Content - 35% of remaining height */}
-                <div className="p-4 flex-grow" style={{ height: '35%' }}>
-                  <h3 className="text-lg font-bold text-white mb-1">{cardData[3].title}</h3>
+                <div className="p-2 sm:p-4 flex-grow" style={{ height: '35%' }}>
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-1">{cardData[3].title}</h3>
                   
                   {/* Subtitle shown on hover */}
                   <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p className="text-white opacity-80 text-sm">{cardData[3].subtitle}</p>
+                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[3].subtitle}</p>
                   </div>
                 </div>
               </motion.div>
@@ -578,7 +798,7 @@ function App() {
         {/* Figma Tab Content */}
         <div className={`tab-content ${activeTab === "Figma" ? "active" : ""}`}>
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8"
             variants={staggerContainer}
             initial="hidden"
             animate={activeTab === "Figma" ? "visible" : "hidden"}
@@ -591,29 +811,29 @@ function App() {
                 transition={{ delay: index * 0.1 }}
               >
                 {/* Design Image */}
-                <div className="overflow-hidden h-64 hover-scale">
+                <div className="overflow-hidden h-48 sm:h-64 hover-scale responsive-image">
                   <img 
                     src={design.image} 
                     alt={design.title} 
                     className="w-full h-full object-cover"
-                />
-              </div>
+                  />
+                </div>
               
                 {/* Design Title */}
-              <div className="p-4">
-                  <h3 className="text-lg font-bold text-white">{design.title}</h3>
-                  <p className="text-white opacity-80 mt-2 mb-3">
+                <div className="p-3 sm:p-4">
+                  <h3 className="text-base sm:text-lg font-bold text-white">{design.title}</h3>
+                  <p className="text-white opacity-80 mt-1 sm:mt-2 mb-2 sm:mb-3 text-sm sm:text-base">
                     <i className="ri-line-chart-line mr-2"></i>
                     {design.metrics}
                   </p>
-                  <div className="flex flex-wrap mb-3">
+                  <div className="flex flex-wrap mb-2 sm:mb-3">
                     {design.tools.map((tool, i) => (
-                      <span key={i} className="badge badge-design">{tool}</span>
+                      <span key={i} className="badge badge-design text-xs sm:text-sm">{tool}</span>
                     ))}
                   </div>
                   <motion.a 
                     href={design.link} 
-                    className="text-white opacity-80 mt-2 inline-flex items-center"
+                    className="text-white opacity-80 mt-1 sm:mt-2 inline-flex items-center text-sm sm:text-base"
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
@@ -629,7 +849,7 @@ function App() {
         {/* DesignInk Tab Content (formerly Blog) */}
         <div className={`tab-content ${activeTab === "DesignInk" ? "active" : ""}`}>
           <motion.div 
-            className="space-y-12"
+            className="space-y-6 sm:space-y-12"
             variants={staggerContainer}
             initial="hidden"
             animate={activeTab === "DesignInk" ? "visible" : "hidden"}
@@ -641,34 +861,34 @@ function App() {
                 variants={fadeInUp}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="flex flex-col md:flex-row gap-8">
+                <div className="flex flex-col md:flex-row gap-4 sm:gap-8">
                   {/* Blog Image */}
                   <div className="md:w-1/3">
-                    <div className="overflow-hidden hover-scale">
+                    <div className="overflow-hidden hover-scale responsive-image">
                       <img 
                         src={post.image} 
                         alt={post.title} 
-                        className="w-full h-64 object-cover"
+                        className="w-full h-48 sm:h-64 object-cover"
                       />
                     </div>
                   </div>
                   
                   {/* Blog Content */}
                   <div className="md:w-2/3">
-                    <div className="flex items-center text-sm text-white opacity-60 mb-2">
+                    <div className="flex items-center text-xs sm:text-sm text-white opacity-60 mb-1 sm:mb-2">
                       <span>{post.date}</span>
                       <span className="mx-2">•</span>
                       <span>{post.readTime}</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-3">{post.title}</h3>
-                    <p className="text-white opacity-80 mb-4">{post.excerpt}</p>
-                    <div className="flex flex-wrap mb-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">{post.title}</h3>
+                    <p className="text-white opacity-80 mb-3 sm:mb-4 text-sm sm:text-base">{post.excerpt}</p>
+                    <div className="flex flex-wrap mb-3 sm:mb-4">
                       {post.skills.map((skill, i) => (
-                        <span key={i} className="badge badge-tool">{skill}</span>
+                        <span key={i} className="badge badge-tool text-xs sm:text-sm">{skill}</span>
                       ))}
                     </div>
                     <motion.button 
-                      className="text-white inline-flex items-center bg-transparent border-none cursor-pointer"
+                      className="text-white inline-flex items-center bg-transparent border-none cursor-pointer text-sm sm:text-base"
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
@@ -676,16 +896,16 @@ function App() {
                       <i className="ri-arrow-right-line ml-1"></i>
                     </motion.button>
                   </div>
-              </div>
-            </motion.div>
-          ))}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
 
         {/* Playground Tab Content (formerly Fun) */}
         <div className={`tab-content ${activeTab === "Playground" ? "active" : ""}`}>
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8"
             variants={staggerContainer}
             initial="hidden"
             animate={activeTab === "Playground" ? "visible" : "hidden"}
@@ -698,21 +918,21 @@ function App() {
                 transition={{ delay: index * 0.1 }}
               >
                 {/* Project Image */}
-                <div className="overflow-hidden h-64 hover-scale">
+                <div className="overflow-hidden h-48 sm:h-64 hover-scale responsive-image">
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     className="w-full h-full object-cover"
                   />
-      </div>
+                </div>
                 
                 {/* Project Title and Description */}
-                <div className="p-4">
-                  <h3 className="text-lg font-bold text-white">{project.title}</h3>
-                  <p className="text-white opacity-80 mt-1 mb-3">{project.description}</p>
+                <div className="p-3 sm:p-4">
+                  <h3 className="text-base sm:text-lg font-bold text-white">{project.title}</h3>
+                  <p className="text-white opacity-80 mt-1 sm:mt-1 mb-2 sm:mb-3 text-sm sm:text-base">{project.description}</p>
                   <div className="flex flex-wrap">
                     {project.tech.map((tech, i) => (
-                      <span key={i} className="badge badge-ai">{tech}</span>
+                      <span key={i} className="badge badge-ai text-xs sm:text-sm">{tech}</span>
                     ))}
                   </div>
                 </div>
@@ -723,12 +943,12 @@ function App() {
       </motion.div>
 
       {/* Footer */}
-      <footer className="bg-custom-dark text-white py-12 mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
+      <footer className="bg-custom-dark text-white py-6 sm:py-12 mt-6 sm:mt-12">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center footer-content">
+            <div className="mb-4 md:mb-0">
               <motion.span 
-                className="text-xl font-bold"
+                className="text-lg sm:text-xl font-bold"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -736,12 +956,12 @@ function App() {
                 AJAY MANATH
               </motion.span>
             </div>
-            <div className="flex flex-wrap justify-center space-x-4 md:space-x-6">
+            <div className="flex flex-wrap justify-center space-x-3 sm:space-x-4 md:space-x-6">
               {socialLinks.map((social, index) => (
                 <motion.a 
                   key={social.name}
                   href={`https://${social.name.toLowerCase()}.com`}
-                  className="text-white opacity-80 hover:text-white hover:opacity-100 flex items-center mb-2"
+                  className="text-white opacity-80 hover:text-white hover:opacity-100 flex items-center mb-2 text-sm sm:text-base"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
@@ -754,7 +974,7 @@ function App() {
               ))}
             </div>
           </div>
-          <div className="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-white opacity-60">
+          <div className="mt-6 sm:mt-8 border-t border-gray-700 pt-4 sm:pt-8 text-center text-xs sm:text-sm text-white opacity-60">
             © {new Date().getFullYear()} AJAY MANATH. All rights reserved.
           </div>
         </div>
@@ -763,4 +983,5 @@ function App() {
   );
 }
 
+// Export the App component directly
 export default App;
