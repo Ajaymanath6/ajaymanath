@@ -6,6 +6,9 @@ import App, { MobileContextProvider } from './App';
 import About from './About';
 import ArticlePage from './ArticlePage';
 import Process from './Process';
+import SynapseLearnProcess from './SynapseLearnProcess';
+import SahayakProcess from './SahayakProcess';
+import CyberSecurityProcess from './CyberSecurityProcess';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -14,14 +17,17 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <MobileContextProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/article/:articleId" element={<ArticlePage />} />
-          <Route path="/process" element={<Process />} />
-        </Routes>
-      </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/article/:articleId" element={<ArticlePage />} />
+        <Route path="/process" element={<Process />} />
+        <Route path="/process/synapselearn" element={<SynapseLearnProcess />} />
+        <Route path="/process/sahayak" element={<SahayakProcess />} />
+        <Route path="/process/cybersecurity" element={<CyberSecurityProcess />} />
+      </Routes>
+    </Router>
     </MobileContextProvider>
   </React.StrictMode>
 );

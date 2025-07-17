@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useAnimation, Variants } from 'framer-motion';
 import 'remixicon/fonts/remixicon.css';
 import './App.css';
 import faceImg from './face.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Routes, Route } from 'react-router-dom';
 
 // Create a context for mobile detection
 type MobileContextType = {
@@ -215,7 +215,7 @@ function App() {
       title: "Master Any Subject with SynapseLearn",
       subtitle: "Our AI-powered platform transforms how you study, making learning more effective and enjoyable",
       tags: ["AI-Powered", "UX/UI", "Mobile"],
-      link: "https://mandal-ai-9c42ef.gitlab.io/home"
+      link: "https://mandal-ai-9c42ef.gitlab.io/"
     },
     {
       id: 2,
@@ -235,7 +235,7 @@ function App() {
       title: "Your AI Teaching Partner for Multi-Grade Classrooms",
       subtitle: "AI assistant helping India's teachers save time and deliver personalized education in local languages",
       tags: ["E-commerce", "AI-Powered", "Web Design"],
-      link: "https://prevalent-5474cf.gitlab.io/"
+      link: "https://sahayak-b85697.gitlab.io/home"
     },
     {
       id: 4,
@@ -245,7 +245,7 @@ function App() {
       title: "Cyber Risk Intelligence Dashboard",
       subtitle: "Real-time threat monitoring and AI-powered risk assessment for enterprise security teams",
       tags: ["AI", "NLP", "Content Creation"],
-      link: "https://customer-f4fcaf.gitlab.io/"
+      link: "https://prevalent-5474cf.gitlab.io/"
     }
   ];
 
@@ -255,7 +255,7 @@ function App() {
       id: 1,
       title: "Enterprise Design System",
       image: "Design System.png",
-      link: "#",
+      link: "/process",
       metrics: "A comprehensive design system with Figma documentation, components, and structure for multiple projects",
       tools: ["Auto Layout", "Variables", "Interactive Components"]
     },
@@ -263,7 +263,7 @@ function App() {
       id: 2,
       title: "Sahayak Teaching Assistant",
       image: "Sahayak.png",
-      link: "#",
+      link: "/process/sahayak",
       metrics: "AI-powered teaching assistant designed for multi-language education in Indian classrooms",
       tools: ["Component Properties", "Variants", "Prototyping"]
     },
@@ -271,17 +271,17 @@ function App() {
       id: 3,
       title: "Cyber Security Dashboard",
       image: "Cyber.png",
-      link: "#",
+      link: "/process/cybersecurity",
       metrics: "Enterprise security monitoring interface with real-time threat visualization",
       tools: ["Design System", "Auto Layout", "Smart Animate"]
     },
     {
       id: 4,
-      title: "Travel App UI Kit",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      link: "#",
-      metrics: "Downloaded 2,500+ times",
-      tools: ["Component Library", "Variants", "Styles"]
+      title: "Master Any Subject with SynapseLearn",
+      image: "Synapse.png",
+      link: "/process/synapselearn",
+      metrics: "Our AI-powered platform transforms how you study, making learning more effective and enjoyable",
+      tools: ["Component Library", "Variants", "Prototyping"]
     }
   ];
 
@@ -389,7 +389,7 @@ function App() {
   const navOptions = [
     { name: "AI Prototype", icon: "ri-sparkling-fill", href: "#ai-prototype", isPage: false },
     { name: "Figma", icon: "ri-figma-fill", href: "#figma", isPage: false },
-    { name: "DesignInk", icon: "ri-git-repository-fill", href: "#designink", isPage: false, badge: "NEW" },
+    { name: "DesignInk", icon: "ri-git-repository-fill", href: "#designink", isPage: false },
     { name: "Playground", icon: "ri-gamepad-fill", href: "#playground", isPage: false },
     { name: "Process", icon: "ri-flow-chart", href: "/process", isPage: true }
   ];
@@ -465,10 +465,16 @@ function App() {
     }
   };
 
-  // Click handler for external links
+  // Click handler for links (both internal and external)
   const handleCardClick = (link?: string | null) => {
     if (link) {
-      window.open(link, '_blank');
+      if (link.startsWith('/')) {
+        // Internal navigation
+        navigate(link);
+      } else {
+        // External link
+        window.open(link, '_blank');
+      }
     }
   };
 
@@ -519,18 +525,18 @@ function App() {
                     <div>
                       <p className="text-xs sm:text-sm text-white opacity-80 mb-0 sm:mb-1">An AI product designer who...</p>
                       <div className="h-6 sm:h-8">
-                        <AnimatePresence mode="wait">
-                          <motion.p 
-                            key={textIndex}
+                      <AnimatePresence mode="wait">
+                        <motion.p 
+                          key={textIndex}
                             className="font-bold text-sm sm:text-lg text-white"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.5 }}
-                          >
-                            {rotatingTexts[textIndex]}
-                          </motion.p>
-                        </AnimatePresence>
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          {rotatingTexts[textIndex]}
+                        </motion.p>
+                      </AnimatePresence>
                       </div>
                     </div>
                   </div>
@@ -572,8 +578,8 @@ function App() {
         <div className="bg-custom-dark py-2 sm:py-4 shadow-md">
           <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 fixed-header-content">
             <div className="flex flex-col md:flex-row justify-between items-center min-h-[60px] sm:min-h-[88px]">
-              {/* Left Side - Search and Mobile Menu Button */}
-              <div className="w-full md:w-1/3 mb-2 md:mb-0 flex items-center">
+              {/* Left Side - Mobile Menu Button and Navigation Options */}
+              <div className="w-full md:w-3/4 mb-2 md:mb-0 flex items-center">
                 <motion.button
                   className={`mr-3 ${isMobile ? 'block' : 'hidden'}`}
                   onClick={() => setMobileMenuOpen(true)}
@@ -582,19 +588,25 @@ function App() {
                   <i className="ri-menu-line text-2xl"></i>
                 </motion.button>
               
-                {!isMobile && (
-                  <div className="search-container">
-                    <i className="ri-search-eye-fill main-nav-icon search-icon"></i>
-                    <input
-                      type="text"
-                      placeholder="Projects, Skills, Technologies"
-                      className="search-input"
-                      value={searchQuery}
-                      onChange={handleSearchChange}
-                    />
-                  </div>
-                )}
-
+                {/* Navigation Options with Icons (horizontal layout) */}
+                <div className={`flex flex-wrap justify-start space-x-6 md:space-x-8 mobile-tab-navigation ${isMobile ? 'hidden' : 'flex'}`}>
+                  {navOptions.map((item) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      className={`text-white hover:text-white text-xs sm:text-sm font-medium flex items-center justify-center ${activeTab === item.name ? "selected-tab" : "inactive-tab"}`}
+                      onClick={(e) => handleNavigation(item, e)}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <div className="relative">
+                        <i className={`${item.icon} main-nav-icon mr-2`}></i>
+                      </div>
+                      <span className="nav-label">{item.name}</span>
+                    </motion.a>
+                  ))}
+                </div>
+                
                 {isMobile && (
                   <div className="flex items-center space-x-2">
                     <motion.div
@@ -615,24 +627,8 @@ function App() {
                 )}
               </div>
 
-              {/* Right Side - Navigation Options with Icons (horizontal layout) */}
-              <div className={`flex flex-wrap justify-center space-x-2 md:space-x-12 mobile-tab-navigation ${isMobile ? 'hidden' : 'flex'}`}>
-                {navOptions.map((item) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    className={`text-white hover:text-white text-xs sm:text-sm font-medium flex flex-col sm:flex-row items-center justify-center mb-1 sm:mb-2 md:mb-0 ${activeTab === item.name ? "selected-tab" : "inactive-tab"}`}
-                    onClick={(e) => handleNavigation(item, e)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <div className="relative">
-                      <i className={`${item.icon} main-nav-icon`}></i>
-                      {item.badge && <span className="new-badge">{item.badge}</span>}
-                    </div>
-                    <span className="nav-label mt-1 sm:mt-0 sm:ml-3">{item.name}</span>
-                  </motion.a>
-                ))}
+              {/* Right Side - Empty space */}
+              <div className="w-full md:w-1/4 flex justify-end">
               </div>
             </div>
           </div>
@@ -672,13 +668,13 @@ function App() {
             {/* First Row: Large (700px) + Small (500px) */}
             <div className="flex flex-col lg:flex-row gap-2 justify-center items-start">
               {/* Card 1 - Large with 90% image height */}
-              <motion.div 
+            <motion.div 
                 className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[0].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-auto sm:h-[550px] flex flex-col`}
                 variants={fadeInUp}
                 transition={{ delay: 0 }}
                 onClick={() => handleCardClick(cardData[0].link)}
-              >
-                {/* Card Header with Badge and Date */}
+            >
+              {/* Card Header with Badge and Date */}
                 <div className="p-2 sm:p-4 flex justify-between items-center">
                   <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
                     #{cardData[0].number}
@@ -698,7 +694,7 @@ function App() {
                   />
                 </div>
                 
-                {/* Card Title and Expandable Content - 20% of remaining height */}
+                                  {/* Card Title and Expandable Content - 20% of remaining height */}
                 <div className="p-2 sm:p-4" style={{ height: '20%', minHeight: '70px' }}>
                   <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{cardData[0].title}</h3>
                   
@@ -761,9 +757,9 @@ function App() {
                 <div className="p-2 sm:p-4 flex justify-between items-center">
                   <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
                     #{cardData[2].number}
-                  </div>
+                </div>
                   <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
-                    <i className="ri-calendar-line mr-1"></i>
+                  <i className="ri-calendar-line mr-1"></i>
                     {cardData[2].date}
                   </div>
                 </div>
@@ -840,9 +836,10 @@ function App() {
             {figmaDesigns.map((design, index) => (
               <motion.div 
                 key={design.id}
-                className="bg-custom-dark rounded-lg overflow-hidden hover-card"
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${design.link ? 'cursor-pointer' : ''}`}
                 variants={fadeInUp}
                 transition={{ delay: index * 0.1 }}
+                onClick={() => handleCardClick(design.link)}
               >
                 {/* Design Image */}
                 <div className="overflow-hidden h-48 sm:h-64 hover-scale responsive-image">
@@ -850,8 +847,8 @@ function App() {
                     src={design.image} 
                     alt={design.title} 
                     className="w-full h-full object-cover"
-                  />
-                </div>
+                />
+              </div>
               
                 {/* Design Title */}
                 <div className="p-3 sm:p-4">
@@ -865,15 +862,15 @@ function App() {
                       <span key={i} className="badge badge-design text-xs sm:text-sm">{tool}</span>
                     ))}
                   </div>
-                  <motion.a 
-                    href={design.link} 
-                    className="text-white opacity-80 mt-1 sm:mt-2 inline-flex items-center text-sm sm:text-base"
+                  <motion.div 
+                    onClick={() => handleCardClick(design.link)} 
+                    className="text-white opacity-80 mt-1 sm:mt-2 inline-flex items-center text-sm sm:text-base cursor-pointer"
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    <span>View in Figma</span>
-                    <i className="ri-external-link-line ml-1"></i>
-                  </motion.a>
+                    <span>{design.link.startsWith('/') ? 'View Process' : 'View in Figma'}</span>
+                    <i className={`${design.link.startsWith('/') ? 'ri-arrow-right-line' : 'ri-external-link-line'} ml-1`}></i>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
@@ -934,48 +931,28 @@ function App() {
                       <i className={`${post.type === "video" ? "ri-time-line" : "ri-arrow-right-line"} ml-1`}></i>
                     </motion.button>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
+          ))}
           </motion.div>
         </div>
 
         {/* Playground Tab Content (formerly Fun) */}
         <div className={`tab-content ${activeTab === "Playground" ? "active" : ""}`}>
           <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8"
+            className="flex items-center justify-center h-64"
             variants={staggerContainer}
             initial="hidden"
             animate={activeTab === "Playground" ? "visible" : "hidden"}
           >
-            {funProjects.map((project, index) => (
-              <motion.div 
-                key={project.id}
-                className="bg-custom-dark rounded-lg overflow-hidden hover-card"
-                variants={fadeInUp}
-                transition={{ delay: index * 0.1 }}
-              >
-                {/* Project Image */}
-                <div className="overflow-hidden h-48 sm:h-64 hover-scale responsive-image">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Project Title and Description */}
-                <div className="p-3 sm:p-4">
-                  <h3 className="text-base sm:text-lg font-bold text-white">{project.title}</h3>
-                  <p className="text-white opacity-80 mt-1 sm:mt-1 mb-2 sm:mb-3 text-sm sm:text-base">{project.description}</p>
-                  <div className="flex flex-wrap">
-                    {project.tech.map((tech, i) => (
-                      <span key={i} className="badge badge-ai text-xs sm:text-sm">{tech}</span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            <motion.div 
+              className="text-center p-8 bg-black bg-opacity-30 rounded-lg"
+              variants={fadeInUp}
+            >
+              <i className="ri-tools-line text-4xl mb-4 text-gray-400"></i>
+              <h3 className="text-2xl font-bold mb-2">Coming Soon</h3>
+              <p className="text-white opacity-80">New playground projects are currently under development.</p>
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>

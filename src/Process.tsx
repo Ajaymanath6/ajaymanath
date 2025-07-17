@@ -159,7 +159,7 @@ function Process() {
                       <div className="flex items-center mb-2 text-sm sm:text-base">
                         <i className="ri-user-voice-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>AI-powered data synthesis with <strong>human validation</strong></p>
-                      </div>
+                          </div>
                       <div className="flex items-center text-sm sm:text-base">
                         <i className="ri-heart-pulse-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>Deeper empathy through combined human-AI understanding</p>
@@ -195,7 +195,7 @@ function Process() {
                       <div className="flex items-center mb-2 text-sm sm:text-base">
                         <i className="ri-file-list-3-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>Transform <strong>vague requirements</strong> into clear problem statements</p>
-                      </div>
+                          </div>
                       <div className="flex items-center text-sm sm:text-base">
                         <i className="ri-question-answer-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>AI-enhanced <strong>"How Might We"</strong> statements that invite innovation</p>
@@ -231,7 +231,7 @@ function Process() {
                       <div className="flex items-center mb-2 text-sm sm:text-base">
                         <i className="ri-spectrum-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>Balance <strong>AI-generated concepts</strong> with human creative vision</p>
-                      </div>
+                          </div>
                       <div className="flex items-center text-sm sm:text-base">
                         <i className="ri-braces-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p>Solutions that are <strong>technically sound</strong> and emotionally resonant</p>
@@ -339,7 +339,7 @@ function Process() {
                       <div className="flex items-center mb-2 text-sm sm:text-base">
                         <i className="ri-time-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p><strong>40-60% reduction</strong> in design-to-development time</p>
-                      </div>
+                          </div>
                       <div className="flex items-center text-sm sm:text-base">
                         <i className="ri-heart-3-line mr-3 text-lg sm:text-xl text-teal-400"></i>
                         <p><strong>Increased satisfaction</strong> from both users and stakeholders</p>
@@ -348,8 +348,8 @@ function Process() {
                   </div>
                 </motion.div>
               </div>
-            </div>
-            
+              </div>
+
             {/* Back to portfolio button at the bottom */}
             <div className="flex justify-center mt-8 sm:mt-12">
               <motion.div 
@@ -361,7 +361,7 @@ function Process() {
                 <Link to="/" className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white text-sm sm:text-base px-6 py-3 rounded-lg flex items-center transition-all duration-300">
                   <i className="ri-arrow-left-line mr-2"></i>
                   <span>Return to Portfolio</span>
-                </Link>
+                    </Link>
               </motion.div>
             </div>
           </motion.div>

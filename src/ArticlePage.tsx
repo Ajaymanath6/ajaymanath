@@ -720,7 +720,7 @@ function ArticlePage() {
       </div>
     );
   }
-  
+
   // Render the article
   return (
     <div className="min-h-screen bg-custom-dark text-white flex flex-col">
@@ -737,10 +737,10 @@ function ArticlePage() {
       {/* Hero Image with overlay and title */}
       <div className="relative h-64 sm:h-80 md:h-96 w-full">
         {/* Hero Image */}
-        <img 
-          src={article.heroImage} 
-          alt={article.title} 
-          className="w-full h-full object-cover"
+          <img 
+            src={article.heroImage} 
+            alt={article.title} 
+            className="w-full h-full object-cover"
         />
         
         {/* Dark overlay */}
@@ -751,42 +751,42 @@ function ArticlePage() {
           <div className="max-w-4xl mx-auto">
             <h1 className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 text-white">{article.title}</h1>
             <div className="flex flex-wrap items-center text-xs sm:text-sm text-white opacity-80">
-              <span>{article.date}</span>
-              <span className="mx-2">•</span>
-              <span>{article.readTime}</span>
-              <span className="mx-2">•</span>
-              <span>By {article.author}</span>
-            </div>
+            <span>{article.date}</span>
+            <span className="mx-2">•</span>
+            <span>{article.readTime}</span>
+            <span className="mx-2">•</span>
+            <span>By {article.author}</span>
+          </div>
           </div>
         </div>
       </div>
-      
+
       {/* Article content */}
       <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12 w-full">
         <div className="prose prose-sm sm:prose lg:prose-lg prose-invert max-w-none">
-          {article.content.map((block, index) => {
+        {article.content.map((block, index) => {
             // Render content based on block type
             switch (block.type) {
               case "paragraph":
-                return (
+            return (
                   <p key={index} className="mb-4 text-sm sm:text-base opacity-90">
-                    {block.text}
-                  </p>
-                );
-              
+                {block.text}
+              </p>
+            );
+          
               case "heading":
                 if (block.level === 2) {
-                  return (
+            return (
                     <h2 key={index} className="text-xl sm:text-2xl font-bold mt-8 mb-4">
-                      {block.text}
-                    </h2>
-                  );
+                {block.text}
+              </h2>
+            );
                 } else if (block.level === 3) {
-                  return (
+            return (
                     <h3 key={index} className="text-lg sm:text-xl font-bold mt-6 mb-3">
-                      {block.text}
-                    </h3>
-                  );
+                {block.text}
+              </h3>
+            );
                 } else {
                   return (
                     <h4 key={index} className="font-bold">
@@ -796,13 +796,13 @@ function ArticlePage() {
                 }
               
               case "list":
-                return (
+            return (
                   <ul key={index} className="list-disc pl-5 mb-4 space-y-1">
-                    {block.items.map((item, i) => (
+                {block.items.map((item, i) => (
                       <li key={i} className="opacity-90 text-sm sm:text-base">{item}</li>
-                    ))}
-                  </ul>
-                );
+                ))}
+              </ul>
+            );
               
               case "code":
                 return (
@@ -817,14 +817,14 @@ function ArticlePage() {
                 );
               
               case "quote":
-                return (
+            return (
                   <blockquote key={index} className="border-l-4 border-blue-500 pl-4 italic my-6 text-sm sm:text-base">
-                    {block.text}
-                  </blockquote>
-                );
-              
+                {block.text}
+              </blockquote>
+            );
+          
               case "image":
-                return (
+            return (
                   <figure key={index} className="my-6">
                     <img 
                       src={block.src} 
@@ -837,15 +837,15 @@ function ArticlePage() {
                       </figcaption>
                     )}
                   </figure>
-                );
+            );
               
               default:
-                return null;
+          return null;
             }
-          })}
+        })}
         </div>
       </div>
-      
+
       {/* Author bio */}
       <div className="max-w-4xl mx-auto px-4 py-8 w-full">
         <div className="border-t border-gray-700 pt-6">
@@ -890,16 +890,16 @@ function ArticlePage() {
                   <i className="ri-time-line ml-1"></i>
                 </Link>
               </div>
-            </div>
+                </div>
           </div>
         </div>
       </div>
-      
+
       {/* Footer */}
       <footer className="bg-custom-dark text-white py-6 mt-auto">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center text-xs sm:text-sm text-white opacity-60">
-            © {new Date().getFullYear()} AJAY MANATH. All rights reserved.
+          © {new Date().getFullYear()} AJAY MANATH. All rights reserved.
           </div>
         </div>
       </footer>
