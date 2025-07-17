@@ -175,7 +175,7 @@ function About() {
         <div className="text-center relative z-10 flex flex-col items-center">
           {/* Profile image container with integrated info section */}
           <motion.div 
-            className="relative inline-block cursor-pointer image-container"
+            className="relative inline-block cursor-pointer image-container mt-12 sm:mt-16"
             whileHover={{ scale: 1.05 }}
             onClick={handleImageClick}
           >

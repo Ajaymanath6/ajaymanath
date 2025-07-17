@@ -94,17 +94,17 @@ const MobileMenu = ({ isOpen, onClose, navOptions, activeTab, handleNavigation }
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="mobile-menu-overlay"
+          className="mobile-menu-overlay fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
           variants={menuVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
-          <button className="mobile-menu-close" onClick={onClose}>
-            <i className="ri-close-line"></i>
+          <button className="mobile-menu-close absolute top-4 right-4" onClick={onClose}>
+            <i className="ri-close-line text-2xl"></i>
           </button>
           
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center h-full">
             {navOptions.map((item, i) => (
               <motion.div
                 key={item.name}
@@ -548,36 +548,38 @@ function App() {
           <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 fixed-header-content">
             <div className="flex flex-col md:flex-row justify-between items-center min-h-[60px] sm:min-h-[88px]">
               {/* Left Side - Mobile Menu Button and Navigation Options */}
-              <div className="w-full md:w-3/4 mb-2 md:mb-0 flex items-center">
-                <motion.button
-                  className={`mr-3 ${isMobile ? 'block' : 'hidden'}`}
-                  onClick={() => setMobileMenuOpen(true)}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <i className="ri-menu-line text-2xl"></i>
-                </motion.button>
-              
-                {/* Navigation Options with Icons (horizontal layout) */}
-                <div className={`flex flex-wrap justify-start space-x-6 md:space-x-8 mobile-tab-navigation ${isMobile ? 'hidden' : 'flex'}`}>
-                  {navOptions.map((item) => (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      className={`text-white hover:text-white text-xs sm:text-sm font-medium flex items-center justify-center ${activeTab === item.name ? "selected-tab" : "inactive-tab"}`}
-                      onClick={(e) => handleNavigation(item, e)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <div className="relative">
-                        <i className={`${item.icon} main-nav-icon mr-2`}></i>
-                      </div>
-                      <span className="nav-label">{item.name}</span>
-                    </motion.a>
-                  ))}
+              <div className="w-full md:w-3/4 mb-2 md:mb-0 flex items-center justify-between">
+                <div className="flex items-center">
+                  <motion.button
+                    className={`mr-3 ${isMobile ? 'block' : 'hidden'}`}
+                    onClick={() => setMobileMenuOpen(true)}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <i className="ri-menu-line text-2xl"></i>
+                  </motion.button>
+                
+                  {/* Navigation Options with Icons (horizontal layout) */}
+                  <div className={`flex flex-wrap justify-start space-x-6 md:space-x-8 mobile-tab-navigation ${isMobile ? 'hidden' : 'flex'}`}>
+                    {navOptions.map((item) => (
+                      <motion.a
+                        key={item.name}
+                        href={item.href}
+                        className={`text-white hover:text-white text-xs sm:text-sm font-medium flex items-center justify-center ${activeTab === item.name ? "selected-tab" : "inactive-tab"}`}
+                        onClick={(e) => handleNavigation(item, e)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <div className="relative">
+                          <i className={`${item.icon} main-nav-icon mr-2`}></i>
+                        </div>
+                        <span className="nav-label">{item.name}</span>
+                      </motion.a>
+                    ))}
+                  </div>
                 </div>
                 
                 {isMobile && (
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-3 mobile-header-links">
                     <motion.div
                       whileTap={{ scale: 0.95 }}
                     >
