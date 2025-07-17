@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useAnimation, Variants } from 'framer-motion';
 import 'remixicon/fonts/remixicon.css';
 import './App.css';
 import faceImg from './face.png';
-import { Link, useNavigate, Routes, Route } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Create a context for mobile detection
 type MobileContextType = {
@@ -190,7 +190,6 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("AI Prototype");
-  const [searchQuery, setSearchQuery] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isMobile } = useMobile(); // Use the mobile context
   const navigate = useNavigate();
@@ -344,31 +343,6 @@ function App() {
     }
   ];
 
-  // Fun projects with added technologies
-  const funProjects = [
-    {
-      id: 1,
-      title: "Interactive Art Installation",
-      description: "A digital art project that responds to viewer movements",
-      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      tech: ["Three.js", "Motion Sensors", "AI Image Generation"]
-    },
-    {
-      id: 2,
-      title: "Generative Art Experiments",
-      description: "Code-based art created through algorithmic processes",
-      image: "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      tech: ["p5.js", "TensorFlow", "WebGL"]
-    },
-    {
-      id: 3,
-      title: "3D Character Modeling",
-      description: "Creative character designs for animation and games",
-      image: "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      tech: ["Blender", "Substance Painter", "Unity"]
-    }
-  ];
-
   // Animation variants
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -442,11 +416,6 @@ function App() {
         transition: { duration: 0.5 }
       });
     });
-  };
-
-  // Function to handle search input
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
   };
 
   // Get page title based on active tab
