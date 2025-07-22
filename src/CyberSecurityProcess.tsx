@@ -581,6 +581,59 @@ function CyberSecurityProcess() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Additional Design Showcase */}
+            <motion.div
+              className="mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-center">Design Showcase</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                {/* First Additional Image */}
+                <motion.div
+                  className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3 sm:p-4"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 sm:p-4 flex flex-col">
+                    <div className="flex items-center justify-center">
+                      <img 
+                        src="cyba1.png" 
+                        alt="AI Security Expert Interface Design" 
+                        className="max-w-full h-auto rounded"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Second Additional Image */}
+                <motion.div
+                  className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3 sm:p-4"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 sm:p-4 flex flex-col">
+                    <div className="flex items-center justify-center">
+                      <img 
+                        src="cyba2.png" 
+                        alt="Cybersecurity Actions and Recommendations" 
+                        className="max-w-full h-auto rounded"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {/* Feature 1 */}
