@@ -363,7 +363,7 @@ function App() {
   const navOptions = [
     { name: "AI Prototype", icon: "ri-sparkling-fill", href: "#ai-prototype", isPage: false },
     { name: "Figma", icon: "ri-figma-fill", href: "#figma", isPage: false },
-    { name: "DesignInk", icon: "ri-git-repository-fill", href: "#designink", isPage: false },
+    { name: "Articles & Tutorials", icon: "ri-article-line", href: "#articles", isPage: false },
     { name: "Playground", icon: "ri-gamepad-fill", href: "#playground", isPage: false },
     { name: "Process", icon: "ri-flow-chart", href: "/process", isPage: true }
   ];
@@ -425,7 +425,7 @@ function App() {
         return "AI-Powered Design Projects";
       case "Figma":
         return "Design and Process";
-      case "DesignInk":
+      case "Articles & Tutorials":
         return "Design & Product Management Articles";
       case "Playground":
         return "Creative Experiments";
@@ -623,7 +623,7 @@ function App() {
           <p className="text-base sm:text-lg text-white opacity-80">
             {activeTab === "AI Prototype" && "Exploring the intersection of artificial intelligence and design"}
             {activeTab === "Figma" && "Comprehensive design processes and interactive prototypes showcasing end-to-end UX workflows"}
-            {activeTab === "DesignInk" && "Thoughts, insights and tutorials on design and product management"}
+                          {activeTab === "Articles & Tutorials" && "Thoughts, insights and tutorials on design and product management"}
             {activeTab === "Playground" && "Personal projects and creative experiments"}
           </p>
         </motion.div>
@@ -848,13 +848,13 @@ function App() {
           </motion.div>
         </div>
 
-        {/* DesignInk Tab Content (formerly Blog) */}
-        <div className={`tab-content ${activeTab === "DesignInk" ? "active" : ""}`}>
+        {/* Articles & Tutorials Tab Content */}
+        <div className={`tab-content ${activeTab === "Articles & Tutorials" ? "active" : ""}`}>
           <motion.div 
             className="space-y-6 sm:space-y-12"
             variants={staggerContainer}
             initial="hidden"
-            animate={activeTab === "DesignInk" ? "visible" : "hidden"}
+            animate={activeTab === "Articles & Tutorials" ? "visible" : "hidden"}
           >
             {blogPosts.map((post, index) => (
               <motion.div 

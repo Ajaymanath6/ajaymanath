@@ -414,14 +414,14 @@ function CyberSecurityProcess() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
-                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3"
+                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-2 sm:p-3"
                     >
-                      <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 flex flex-col">
+                      <div className="bg-black bg-opacity-30 h-full w-full rounded p-2 sm:p-3 flex flex-col">
                         <div className="flex-1 flex items-center justify-center">
                           <img 
                             src="prevalantai.png" 
                             alt="Prevalent AI Cybersecurity Dashboard Prototype" 
-                            className="w-full h-auto rounded"
+                            className="max-w-full h-auto rounded"
                           />
                         </div>
                       </div>
@@ -553,10 +553,10 @@ function CyberSecurityProcess() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {/* First Solution Image */}
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-4">
-                  <div className="bg-black bg-opacity-30 h-full w-full rounded p-4 flex flex-col">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3 sm:p-4">
+                  <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 sm:p-4 flex flex-col">
                     <div className="flex items-center justify-center">
                       <img 
                         src="prevalantai.png" 
@@ -568,8 +568,8 @@ function CyberSecurityProcess() {
                 </div>
                 
                 {/* Second Solution Image */}
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-4">
-                  <div className="bg-black bg-opacity-30 h-full w-full rounded p-4 flex flex-col">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3 sm:p-4">
+                  <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 sm:p-4 flex flex-col">
                     <div className="flex items-center justify-center">
                       <img 
                         src="prevalantai1.png" 

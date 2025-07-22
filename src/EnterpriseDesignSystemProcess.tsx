@@ -315,18 +315,17 @@ function EnterpriseDesignSystemProcess() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
-                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3"
-                    >
-                      <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 flex flex-col">
-                        <div className="flex-1 flex items-center justify-center">
-                          <img 
-                            src="Foundation List.png" 
-                            alt="Design System Foundation" 
-                            className="max-w-full h-auto rounded"
-                          />
+                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-2 sm:p-3">
+                        <div className="bg-black bg-opacity-30 h-full w-full rounded p-2 sm:p-3 flex flex-col">
+                          <div className="flex-1 flex items-center justify-center">
+                            <img 
+                              src="Foundation List.png" 
+                              alt="Design System Foundation" 
+                              className="max-w-full h-auto rounded"
+                            />
+                          </div>
                         </div>
-                      </div>
-                    </motion.div>
+                      </motion.div>
                   </div>
                 </div>
 
@@ -338,9 +337,9 @@ function EnterpriseDesignSystemProcess() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
-                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3"
+                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-2 sm:p-3"
                     >
-                      <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 flex flex-col">
+                      <div className="bg-black bg-opacity-30 h-full w-full rounded p-2 sm:p-3 flex flex-col">
                         <div className="flex-1 flex items-center justify-center">
                           <img 
                             src="Component List (1).png" 
