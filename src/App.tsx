@@ -254,7 +254,7 @@ function App() {
       id: 1,
       title: "Enterprise Design System",
       image: "Design System.png",
-      link: "/process",
+      link: "/process/enterprise-design-system",
       metrics: "A comprehensive design system with Figma documentation, components, and structure for multiple projects",
       tools: ["Auto Layout", "Variables", "Interactive Components"]
     },
@@ -424,7 +424,7 @@ function App() {
       case "AI Prototype":
         return "AI-Powered Design Projects";
       case "Figma":
-        return "Figma Designs & Prototypes";
+        return "Design and Process";
       case "DesignInk":
         return "Design & Product Management Articles";
       case "Playground":
@@ -622,7 +622,7 @@ function App() {
           <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">{getPageTitle()}</h2>
           <p className="text-base sm:text-lg text-white opacity-80">
             {activeTab === "AI Prototype" && "Exploring the intersection of artificial intelligence and design"}
-            {activeTab === "Figma" && "Interactive prototypes and design systems created in Figma"}
+            {activeTab === "Figma" && "Comprehensive design processes and interactive prototypes showcasing end-to-end UX workflows"}
             {activeTab === "DesignInk" && "Thoughts, insights and tutorials on design and product management"}
             {activeTab === "Playground" && "Personal projects and creative experiments"}
           </p>

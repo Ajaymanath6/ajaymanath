@@ -360,114 +360,20 @@ function SahayakProcess() {
                   </div>
                 </div>
                 
-                {/* Step 4: PROTOTYPE */}
+                {/* Step 5: PROTOTYPE */}
                 <div className="flex flex-col md:flex-row items-center">
-                  <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0 order-1 md:order-1 md:text-right">
-                     {/* Wireframe prototype */}
-                     <motion.div
-                       initial={{ opacity: 0, x: -50 }}
-                       whileInView={{ opacity: 1, x: 0 }}
-                       viewport={{ once: true }}
-                       transition={{ duration: 0.6 }}
-                       className="bg-gradient-to-br from-gray-800 to-gray-900 h-60 rounded-lg overflow-hidden mb-4 p-3"
-                     >
-                       <div className="bg-black bg-opacity-30 h-full w-full rounded p-2 flex flex-col">
-                         {/* Top navbar */}
-                         <div className="h-8 bg-gray-700 bg-opacity-40 rounded-t flex items-center px-2 mb-2">
-                           <div className="h-4 w-4 rounded-full bg-teal-600 mr-2"></div>
-                           <div className="h-2 w-20 bg-gray-500 rounded-full"></div>
-                           <div className="ml-auto flex space-x-2">
-                             <div className="h-2 w-12 bg-gray-500 rounded-full"></div>
-                             <div className="h-2 w-12 bg-gray-500 rounded-full"></div>
-                           </div>
-                         </div>
-                         
-                         {/* Content area */}
-                         <div className="flex-1 flex">
-                           {/* Sidebar */}
-                           <div className="w-1/4 bg-gray-700 bg-opacity-30 rounded-bl p-2 flex flex-col space-y-2">
-                             <div className="h-2 w-full bg-gray-500 rounded-full"></div>
-                             <div className="h-2 w-4/5 bg-teal-500 bg-opacity-50 rounded-full"></div>
-                             <div className="h-2 w-full bg-gray-500 rounded-full"></div>
-                             <div className="h-2 w-4/5 bg-gray-500 rounded-full"></div>
-                           </div>
-                           
-                           {/* Main content */}
-                           <div className="w-3/4 p-2 flex flex-col space-y-3">
-                             {/* Upload section */}
-                             <div className="bg-gray-700 bg-opacity-20 p-2 rounded flex items-center justify-center border border-dashed border-gray-500 h-1/3">
-                               <div className="flex flex-col items-center">
-                                 <div className="h-6 w-6 rounded-full bg-gray-600 mb-1 flex items-center justify-center">
-                                   <div className="h-3 w-3 bg-teal-500 rounded-sm"></div>
-                                 </div>
-                                 <div className="h-1.5 w-16 bg-gray-500 rounded-full"></div>
-                               </div>
-                             </div>
-                             
-                             {/* Language selector */}
-                             <div className="bg-gray-700 bg-opacity-20 p-2 rounded h-2/3 flex flex-col">
-                               <div className="h-2 w-1/2 bg-gray-500 rounded-full mb-2"></div>
-                               <div className="grid grid-cols-3 gap-2 mb-auto">
-                                 <div className="bg-gray-800 bg-opacity-70 p-1.5 rounded">
-                                   <div className="h-1.5 w-full bg-gray-500 rounded-full mb-1"></div>
-                                   <div className="h-1.5 w-4/5 bg-gray-500 rounded-full"></div>
-                                 </div>
-                                 <div className="bg-gray-800 bg-opacity-70 p-1.5 rounded">
-                                   <div className="h-1.5 w-full bg-gray-500 rounded-full mb-1"></div>
-                                   <div className="h-1.5 w-3/5 bg-gray-500 rounded-full"></div>
-                                 </div>
-                                 <div className="bg-teal-800 bg-opacity-40 p-1.5 rounded border border-teal-500">
-                                   <div className="h-1.5 w-full bg-teal-500 bg-opacity-50 rounded-full mb-1"></div>
-                                   <div className="h-1.5 w-3/5 bg-teal-500 bg-opacity-50 rounded-full"></div>
-                                 </div>
-                               </div>
-                               <div className="h-6 w-20 bg-teal-600 bg-opacity-70 rounded mx-auto mt-2"></div>
-                             </div>
-                           </div>
-                         </div>
-                       </div>
-                     </motion.div>
-                    
-                    <div className="flex space-x-2">
-                      <div className="p-2 bg-black bg-opacity-30 rounded-lg flex-1 text-center">
-                        <span className="text-xs opacity-70">Low-fi</span>
-                        <div className="w-full h-1 bg-gray-700 rounded-full mt-1">
-                          <div className="w-full h-1 bg-green-500 rounded-full"></div>
-                        </div>
-                      </div>
-                      <div className="p-2 bg-black bg-opacity-30 rounded-lg flex-1 text-center">
-                        <span className="text-xs opacity-70">Mid-fi</span>
-                        <div className="w-full h-1 bg-gray-700 rounded-full mt-1">
-                          <div className="w-full h-1 bg-green-500 rounded-full"></div>
-                        </div>
-                      </div>
-                      <div className="p-2 bg-black bg-opacity-30 rounded-lg flex-1 text-center">
-                        <span className="text-xs opacity-70">Hi-fi</span>
-                        <div className="w-full h-1 bg-gray-700 rounded-full mt-1">
-                          <div className="w-3/4 h-1 bg-green-500 rounded-full"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="md:w-0 relative flex justify-center order-0 md:order-2">
-                    <div className="hidden md:flex h-12 w-12 rounded-full bg-green-400 text-black items-center justify-center z-10">
-                      <i className="ri-artboard-line text-xl"></i>
-                    </div>
-                  </div>
-                  
-                  <div className="md:w-1/2 md:pl-12 order-2 md:order-3">
+                  <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
                     <motion.div 
-                      initial={{ opacity: 0, x: 50 }}
+                      initial={{ opacity: 0, x: -50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
                     >
-                      <span className="text-green-400 text-sm font-bold tracking-wider">PHASE 04</span>
+                      <span className="text-purple-400 text-sm font-bold tracking-wider">PHASE 04</span>
                       <h3 className="text-2xl font-bold mb-4">Prototype</h3>
-                      <div className="p-4 bg-black bg-opacity-30 rounded-lg">
+                      <div className="p-4 bg-black bg-opacity-30 rounded-lg mb-4">
                         <h4 className="font-bold mb-2 flex items-center">
-                          <i className="ri-artboard-line text-green-400 mr-2"></i>
+                          <i className="ri-artboard-line text-purple-400 mr-2"></i>
                           Prototype Evolution
                         </h4>
                         <table className="w-full text-xs">
@@ -486,12 +392,37 @@ function SahayakProcess() {
                             </tr>
                           </tbody>
                         </table>
-                        
-                        <div className="mt-3 p-2 bg-black bg-opacity-40 rounded border border-green-900">
-                          <p className="text-xs opacity-90">
-                            <i className="ri-group-line text-green-400 mr-1"></i>
-                            <strong>Teacher Co-Design:</strong> 5 teachers participated in prototype refinement
-                          </p>
+                      </div>
+                      
+                      <div className="p-3 bg-black bg-opacity-40 rounded border border-purple-900">
+                        <p className="text-xs italic opacity-90">
+                          <strong>Teacher Co-Design:</strong> 5 teachers participated in prototype refinement
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                  
+                  <div className="md:w-0 relative flex justify-center">
+                    <div className="hidden md:flex h-12 w-12 rounded-full bg-purple-400 text-black items-center justify-center z-10">
+                      <i className="ri-layout-line text-xl"></i>
+                    </div>
+                  </div>
+                  
+                  <div className="md:w-1/2 md:pl-12">
+                    <motion.div 
+                      initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3"
+                    >
+                      <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 flex flex-col">
+                        <div className="flex-1 flex items-center justify-center">
+                          <img 
+                            src="saha2.png" 
+                            alt="Sahayak Teaching Assistant Prototype" 
+                            className="w-full h-auto rounded"
+                          />
                         </div>
                       </div>
                     </motion.div>
@@ -614,154 +545,6 @@ function SahayakProcess() {
           >
             <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">The Solution</h2>
             
-            {/* Final Design Mockup */}
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg h-80 overflow-hidden mb-8 p-4">
-              <div className="bg-black bg-opacity-30 h-full w-full rounded flex flex-col">
-                {/* Top navigation bar */}
-                <div className="h-12 bg-gradient-to-r from-teal-900 to-blue-900 rounded-t flex items-center px-4">
-                  <div className="flex items-center">
-                    <div className="h-7 w-7 rounded-full bg-teal-500 flex items-center justify-center">
-                      <div className="h-4 w-4 bg-white rounded-sm"></div>
-                    </div>
-                    <div className="ml-2 h-2.5 w-24 bg-white rounded-full"></div>
-                  </div>
-                  <div className="ml-auto flex space-x-6">
-                    <div className="h-2.5 w-12 bg-gray-300 rounded-full"></div>
-                    <div className="h-2.5 w-12 bg-gray-300 rounded-full"></div>
-                    <div className="h-2.5 w-12 bg-gray-300 rounded-full"></div>
-                    <div className="h-6 w-6 rounded-full bg-teal-500 flex items-center justify-center">
-                      <div className="h-3 w-3 rounded-full bg-white"></div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Main content */}
-                <div className="flex-1 flex p-4 gap-4">
-                  {/* Left sidebar */}
-                  <div className="w-1/4 flex flex-col space-y-3">
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-blue-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-translate text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-teal-600 bg-opacity-20 border border-teal-500 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-teal-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-file-list-3-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-purple-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-image-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-amber-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-calendar-todo-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Main content area - worksheet creator */}
-                  <div className="w-3/4 flex flex-col space-y-4">
-                    <div className="flex justify-between items-center mb-1">
-                      <div>
-                        <div className="h-3 w-32 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-2 w-20 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                      <div className="flex space-x-2">
-                        <div className="h-6 w-20 bg-gray-700 rounded"></div>
-                        <div className="h-6 w-20 bg-teal-600 rounded flex items-center justify-center">
-                          <i className="ri-magic-line text-white text-xs"></i>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Image upload and worksheet preview */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-white bg-opacity-10 rounded p-3">
-                        <div className="h-2 w-16 bg-white bg-opacity-50 rounded-full mb-2"></div>
-                        <div className="bg-gray-800 h-36 rounded flex items-center justify-center">
-                          <div className="flex flex-col items-center">
-                            <div className="h-10 w-10 bg-teal-600 rounded-full mb-2 flex items-center justify-center">
-                              <i className="ri-image-add-line text-white"></i>
-                            </div>
-                            <div className="h-2 w-28 bg-gray-600 rounded-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-white bg-opacity-10 rounded p-3">
-                        <div className="flex justify-between mb-2">
-                          <div className="h-2 w-16 bg-white bg-opacity-50 rounded-full"></div>
-                          <div className="flex space-x-2">
-                            <div className="h-4 w-4 rounded-full bg-blue-500"></div>
-                            <div className="h-4 w-4 rounded-full bg-teal-500 ring-2 ring-white"></div>
-                            <div className="h-4 w-4 rounded-full bg-purple-500"></div>
-                          </div>
-                        </div>
-                        <div className="bg-gray-800 h-36 p-2 rounded overflow-hidden">
-                          <div className="h-2 w-full bg-gray-600 rounded-full mb-2"></div>
-                          <div className="h-2 w-5/6 bg-gray-600 rounded-full mb-2"></div>
-                          <div className="h-2 w-3/4 bg-gray-600 rounded-full mb-2"></div>
-                          <div className="h-2 w-full bg-gray-600 rounded-full mb-3"></div>
-                          
-                          <div className="flex items-center mb-2">
-                            <div className="h-3 w-3 rounded-full bg-teal-500 mr-2"></div>
-                            <div className="h-2 w-1/2 bg-teal-500 bg-opacity-30 rounded-full"></div>
-                          </div>
-                          <div className="h-2 w-5/6 bg-gray-600 rounded-full mb-2"></div>
-                          <div className="h-2 w-4/6 bg-gray-600 rounded-full mb-2"></div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Language selector */}
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex-1">
-                      <div className="flex justify-between items-center mb-3">
-                        <div className="h-2 w-24 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-6 w-6 bg-teal-600 rounded flex items-center justify-center">
-                          <i className="ri-arrow-down-s-line text-white text-xs"></i>
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-4 gap-3">
-                        <div className="bg-teal-600 bg-opacity-20 border border-teal-500 p-2 rounded-lg text-center">
-                          <div className="h-2 w-12 mx-auto bg-white rounded-full"></div>
-                        </div>
-                        <div className="bg-gray-700 bg-opacity-40 p-2 rounded-lg text-center">
-                          <div className="h-2 w-12 mx-auto bg-gray-500 rounded-full"></div>
-                        </div>
-                        <div className="bg-gray-700 bg-opacity-40 p-2 rounded-lg text-center">
-                          <div className="h-2 w-12 mx-auto bg-gray-500 rounded-full"></div>
-                        </div>
-                        <div className="bg-gray-700 bg-opacity-40 p-2 rounded-lg text-center">
-                          <div className="h-2 w-12 mx-auto bg-gray-500 rounded-full"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {/* Feature 1 */}
               <motion.div 
@@ -838,6 +621,27 @@ function SahayakProcess() {
                   Structure an entire week's activities for different grades in minutes, saving valuable planning time.
                 </p>
               </motion.div>
+            </div>
+          </motion.div>
+          
+          {/* Additional Solution Image */}
+          <motion.div
+            className="mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-4">
+              <div className="bg-black bg-opacity-30 h-full w-full rounded p-4 flex flex-col">
+                <div className="flex items-center justify-center">
+                  <img 
+                    src="shaha1.png" 
+                    alt="Sahayak Teaching Assistant Dashboard" 
+                    className="max-w-full h-auto rounded"
+                  />
+                </div>
+              </div>
             </div>
           </motion.div>
           

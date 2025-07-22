@@ -442,66 +442,24 @@ function SynapseLearnProcess() {
                 {/* Step 4: PROTOTYPE */}
                 <div className="flex flex-col md:flex-row items-center">
                   <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0 order-1 md:order-1 md:text-right">
-                                         {/* Wireframe prototype */}
-                     <motion.div
-                       initial={{ opacity: 0, x: -50 }}
-                       whileInView={{ opacity: 1, x: 0 }}
-                       viewport={{ once: true }}
-                       transition={{ duration: 0.6 }}
-                       className="bg-gradient-to-br from-gray-800 to-gray-900 h-60 rounded-lg overflow-hidden mb-4 p-3"
-                     >
-                       <div className="bg-black bg-opacity-30 h-full w-full rounded p-2 flex flex-col">
-                         {/* Top navbar */}
-                         <div className="h-8 bg-gray-700 bg-opacity-40 rounded-t flex items-center px-2 mb-2">
-                           <div className="h-4 w-4 rounded-full bg-teal-600 mr-2"></div>
-                           <div className="h-2 w-20 bg-gray-500 rounded-full"></div>
-                           <div className="ml-auto flex space-x-2">
-                             <div className="h-2 w-12 bg-gray-500 rounded-full"></div>
-                             <div className="h-2 w-12 bg-gray-500 rounded-full"></div>
-                           </div>
-                         </div>
-                         
-                         {/* Content area */}
-                         <div className="flex-1 flex">
-                           {/* Sidebar */}
-                           <div className="w-1/4 bg-gray-700 bg-opacity-30 rounded-bl p-2 flex flex-col space-y-2">
-                             <div className="h-2 w-full bg-gray-500 rounded-full"></div>
-                             <div className="h-2 w-4/5 bg-teal-500 bg-opacity-50 rounded-full"></div>
-                             <div className="h-2 w-full bg-gray-500 rounded-full"></div>
-                             <div className="h-2 w-4/5 bg-gray-500 rounded-full"></div>
-                           </div>
-                           
-                           {/* Main content */}
-                           <div className="w-3/4 p-2 flex flex-col space-y-3">
-                             {/* Upload section */}
-                             <div className="bg-gray-700 bg-opacity-20 p-2 rounded flex items-center justify-center border border-dashed border-gray-500 h-1/3">
-                               <div className="flex flex-col items-center">
-                                 <div className="h-6 w-6 rounded-full bg-gray-600 mb-1 flex items-center justify-center">
-                                   <div className="h-3 w-3 bg-teal-500 rounded-sm"></div>
-                                 </div>
-                                 <div className="h-1.5 w-16 bg-gray-500 rounded-full"></div>
-                               </div>
-                             </div>
-                             
-                             {/* Question generator */}
-                             <div className="bg-gray-700 bg-opacity-20 p-2 rounded h-2/3 flex flex-col">
-                               <div className="h-2 w-1/2 bg-gray-500 rounded-full mb-2"></div>
-                               <div className="grid grid-cols-2 gap-2 mb-auto">
-                                 <div className="bg-gray-800 bg-opacity-70 p-1.5 rounded">
-                                   <div className="h-1.5 w-full bg-gray-500 rounded-full mb-1"></div>
-                                   <div className="h-1.5 w-4/5 bg-gray-500 rounded-full"></div>
-                                 </div>
-                                 <div className="bg-gray-800 bg-opacity-70 p-1.5 rounded">
-                                   <div className="h-1.5 w-full bg-gray-500 rounded-full mb-1"></div>
-                                   <div className="h-1.5 w-3/5 bg-gray-500 rounded-full"></div>
-                                 </div>
-                               </div>
-                               <div className="h-6 w-20 bg-teal-600 bg-opacity-70 rounded mx-auto mt-2"></div>
-                             </div>
-                           </div>
-                         </div>
-                       </div>
-                     </motion.div>
+                    {/* Real prototype image */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3 mb-4"
+                    >
+                      <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 flex flex-col">
+                        <div className="flex-1 flex items-center justify-center">
+                          <img 
+                            src="synapse2.png" 
+                            alt="SynapseLearn Prototype" 
+                            className="max-w-full h-auto rounded"
+                          />
+                        </div>
+                      </div>
+                    </motion.div>
                     
                     <div className="flex space-x-2">
                       <div className="p-2 bg-black bg-opacity-30 rounded-lg flex-1 text-center">
@@ -689,158 +647,26 @@ function SynapseLearnProcess() {
           >
             <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">The Solution</h2>
             
-            {/* Final Design Mockup */}
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg h-80 overflow-hidden mb-8 p-4">
-              <div className="bg-black bg-opacity-30 h-full w-full rounded flex flex-col">
-                {/* Top navigation bar */}
-                <div className="h-12 bg-gradient-to-r from-teal-900 to-blue-900 rounded-t flex items-center px-4">
-                  <div className="flex items-center">
-                    <div className="h-7 w-7 rounded-full bg-teal-500 flex items-center justify-center">
-                      <div className="h-4 w-4 bg-white rounded-sm"></div>
-                    </div>
-                    <div className="ml-2 h-2.5 w-24 bg-white rounded-full"></div>
-                  </div>
-                  <div className="ml-auto flex space-x-6">
-                    <div className="h-2.5 w-12 bg-gray-300 rounded-full"></div>
-                    <div className="h-2.5 w-12 bg-gray-300 rounded-full"></div>
-                    <div className="h-2.5 w-12 bg-gray-300 rounded-full"></div>
-                    <div className="h-6 w-6 rounded-full bg-teal-500 flex items-center justify-center">
-                      <div className="h-3 w-3 rounded-full bg-white"></div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Main content */}
-                <div className="flex-1 flex p-4 gap-4">
-                  {/* Left sidebar */}
-                  <div className="w-1/4 flex flex-col space-y-3">
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-blue-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-book-open-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-teal-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-question-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-teal-600 bg-opacity-20 border border-teal-500 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-teal-500 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-line-chart-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-purple-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-trophy-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Main analytics area */}
-                  <div className="w-3/4 flex flex-col space-y-4">
-                    <div className="flex justify-between items-center mb-1">
-                      <div>
-                        <div className="h-3 w-32 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-2 w-20 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                      <div className="flex space-x-2">
-                        <div className="h-6 w-20 bg-gray-700 rounded"></div>
-                        <div className="h-6 w-6 bg-teal-600 rounded flex items-center justify-center">
-                          <i className="ri-filter-3-line text-white text-xs"></i>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Analytics grid */}
-                    <div className="grid grid-cols-3 gap-3">
-                      <div className="bg-white bg-opacity-10 rounded p-3">
-                        <div className="flex justify-between mb-2">
-                          <div className="h-2 w-12 bg-white bg-opacity-50 rounded-full"></div>
-                          <div className="h-6 w-6 rounded-full bg-teal-500 flex items-center justify-center">
-                            <i className="ri-time-line text-white text-xs"></i>
-                          </div>
-                        </div>
-                        <div className="h-4 w-16 bg-white bg-opacity-90 rounded-full mb-2"></div>
-                        <div className="h-1 bg-gray-600 rounded-full mt-2 w-full">
-                          <div className="h-1 bg-teal-500 rounded-full w-3/4"></div>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-white bg-opacity-10 rounded p-3">
-                        <div className="flex justify-between mb-2">
-                          <div className="h-2 w-12 bg-white bg-opacity-50 rounded-full"></div>
-                          <div className="h-6 w-6 rounded-full bg-blue-500 flex items-center justify-center">
-                            <i className="ri-question-answer-line text-white text-xs"></i>
-                          </div>
-                        </div>
-                        <div className="h-4 w-16 bg-white bg-opacity-90 rounded-full mb-2"></div>
-                        <div className="h-1 bg-gray-600 rounded-full mt-2 w-full">
-                          <div className="h-1 bg-blue-500 rounded-full w-1/2"></div>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-white bg-opacity-10 rounded p-3">
-                        <div className="flex justify-between mb-2">
-                          <div className="h-2 w-12 bg-white bg-opacity-50 rounded-full"></div>
-                          <div className="h-6 w-6 rounded-full bg-purple-500 flex items-center justify-center">
-                            <i className="ri-medal-line text-white text-xs"></i>
-                          </div>
-                        </div>
-                        <div className="h-4 w-16 bg-white bg-opacity-90 rounded-full mb-2"></div>
-                        <div className="h-1 bg-gray-600 rounded-full mt-2 w-full">
-                          <div className="h-1 bg-purple-500 rounded-full w-5/6"></div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Chart area */}
-                    <div className="bg-white bg-opacity-10 rounded p-4 flex-1 flex flex-col">
-                      <div className="h-2 w-24 bg-white bg-opacity-90 rounded-full mb-4"></div>
-                      <div className="flex-1 flex items-end">
-                        <div className="flex-1 h-3/4 flex items-end space-x-3">
-                          <div className="w-1/7 h-1/4 rounded-t bg-blue-500"></div>
-                          <div className="w-1/7 h-3/5 rounded-t bg-teal-500"></div>
-                          <div className="w-1/7 h-1/3 rounded-t bg-blue-500"></div>
-                          <div className="w-1/7 h-4/5 rounded-t bg-teal-500"></div>
-                          <div className="w-1/7 h-1/2 rounded-t bg-blue-500"></div>
-                          <div className="w-1/7 h-2/3 rounded-t bg-teal-500"></div>
-                          <div className="w-1/7 h-4/5 rounded-t bg-blue-500"></div>
-                        </div>
-                      </div>
-                      <div className="h-px w-full bg-gray-600 mt-2"></div>
-                      <div className="flex justify-between mt-2">
-                        <div className="h-1.5 w-4 bg-white bg-opacity-50 rounded-full"></div>
-                        <div className="h-1.5 w-4 bg-white bg-opacity-50 rounded-full"></div>
-                        <div className="h-1.5 w-4 bg-white bg-opacity-50 rounded-full"></div>
-                        <div className="h-1.5 w-4 bg-white bg-opacity-50 rounded-full"></div>
-                        <div className="h-1.5 w-4 bg-white bg-opacity-50 rounded-full"></div>
-                        <div className="h-1.5 w-4 bg-white bg-opacity-50 rounded-full"></div>
-                        <div className="h-1.5 w-4 bg-white bg-opacity-50 rounded-full"></div>
-                      </div>
-                    </div>
+            {/* Solution Image */}
+            <motion.div
+              className="mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-4">
+                <div className="bg-black bg-opacity-30 h-full w-full rounded p-4 flex flex-col">
+                  <div className="flex items-center justify-center">
+                    <img 
+                      src="synapse1.png" 
+                      alt="SynapseLearn Solution" 
+                      className="max-w-full h-auto rounded"
+                    />
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="bg-black bg-opacity-30 p-5 rounded-lg">

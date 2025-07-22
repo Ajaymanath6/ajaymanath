@@ -9,6 +9,7 @@ import Process from './Process';
 import SynapseLearnProcess from './SynapseLearnProcess';
 import SahayakProcess from './SahayakProcess';
 import CyberSecurityProcess from './CyberSecurityProcess';
+import EnterpriseDesignSystemProcess from './EnterpriseDesignSystemProcess';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -26,6 +27,7 @@ root.render(
         <Route path="/process/synapselearn" element={<SynapseLearnProcess />} />
         <Route path="/process/sahayak" element={<SahayakProcess />} />
         <Route path="/process/cybersecurity" element={<CyberSecurityProcess />} />
+        <Route path="/process/enterprise-design-system" element={<EnterpriseDesignSystemProcess />} />
       </Routes>
     </Router>
     </MobileContextProvider>

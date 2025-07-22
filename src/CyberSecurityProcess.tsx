@@ -362,136 +362,18 @@ function CyberSecurityProcess() {
                 
                 {/* Step 4: PROTOTYPE */}
                 <div className="flex flex-col md:flex-row items-center">
-                  <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0 order-1 md:order-1 md:text-right">
-                     {/* Wireframe prototype */}
-                     <motion.div
-                       initial={{ opacity: 0, x: -50 }}
-                       whileInView={{ opacity: 1, x: 0 }}
-                       viewport={{ once: true }}
-                       transition={{ duration: 0.6 }}
-                       className="bg-gradient-to-br from-gray-800 to-gray-900 h-60 rounded-lg overflow-hidden mb-4 p-3"
-                     >
-                       <div className="bg-black bg-opacity-30 h-full w-full rounded p-2 flex flex-col">
-                         {/* Top navbar */}
-                         <div className="h-8 bg-gray-700 bg-opacity-40 rounded-t flex items-center px-2 mb-2">
-                           <div className="h-4 w-4 rounded-full bg-blue-600 mr-2"></div>
-                           <div className="h-2 w-20 bg-gray-500 rounded-full"></div>
-                           <div className="ml-auto flex space-x-2">
-                             <div className="h-2 w-12 bg-gray-500 rounded-full"></div>
-                             <div className="h-2 w-12 bg-gray-500 rounded-full"></div>
-                           </div>
-                         </div>
-                         
-                         {/* Content area */}
-                         <div className="flex-1 flex">
-                           {/* Sidebar */}
-                           <div className="w-1/5 bg-gray-700 bg-opacity-30 rounded-bl p-2 flex flex-col space-y-2">
-                             <div className="h-2 w-full bg-gray-500 rounded-full"></div>
-                             <div className="h-2 w-4/5 bg-blue-500 bg-opacity-50 rounded-full"></div>
-                             <div className="h-2 w-full bg-gray-500 rounded-full"></div>
-                             <div className="h-2 w-4/5 bg-gray-500 rounded-full"></div>
-                           </div>
-                           
-                           {/* Main content */}
-                           <div className="w-4/5 p-2 flex flex-col space-y-3">
-                             {/* Dashboard header */}
-                             <div className="flex justify-between">
-                               <div>
-                                 <div className="h-2.5 w-28 bg-white bg-opacity-90 rounded-full"></div>
-                                 <div className="h-1.5 w-20 bg-gray-600 rounded-full mt-1"></div>
-                               </div>
-                               <div className="flex space-x-2">
-                                 <div className="h-6 w-6 rounded-full bg-gray-600"></div>
-                                 <div className="h-6 w-6 rounded-full bg-gray-600"></div>
-                               </div>
-                             </div>
-                             
-                             {/* Risk score section */}
-                             <div className="grid grid-cols-3 gap-2 mb-auto">
-                               <div className="bg-gray-800 bg-opacity-70 p-1.5 rounded col-span-1">
-                                 <div className="h-1.5 w-full bg-gray-500 rounded-full mb-1"></div>
-                                 <div className="flex items-center justify-center mt-2">
-                                   <div className="h-16 w-16 rounded-full bg-blue-900 bg-opacity-30 border-4 border-blue-500 flex items-center justify-center">
-                                     <div className="text-xs font-bold text-white">58</div>
-                                   </div>
-                                 </div>
-                               </div>
-                               <div className="bg-gray-800 bg-opacity-70 p-1.5 rounded col-span-2">
-                                 <div className="h-1.5 w-full bg-gray-500 rounded-full mb-1"></div>
-                                 <div className="h-24 w-full bg-gray-900 rounded p-2">
-                                   <div className="grid grid-cols-7 gap-px h-full items-end">
-                                     <div className="bg-blue-500 h-1/3 rounded-sm"></div>
-                                     <div className="bg-blue-500 h-1/2 rounded-sm"></div>
-                                     <div className="bg-blue-500 h-2/3 rounded-sm"></div>
-                                     <div className="bg-blue-500 h-1/2 rounded-sm"></div>
-                                     <div className="bg-red-500 h-4/5 rounded-sm"></div>
-                                     <div className="bg-green-500 h-3/5 rounded-sm"></div>
-                                     <div className="bg-green-500 h-2/5 rounded-sm"></div>
-                                   </div>
-                                 </div>
-                               </div>
-                             </div>
-                             
-                             {/* Bottom metrics */}
-                             <div className="grid grid-cols-3 gap-2">
-                               <div className="bg-gray-800 bg-opacity-40 p-1.5 rounded text-center">
-                                 <div className="h-1.5 w-1/2 mx-auto bg-gray-500 rounded-full mb-1"></div>
-                                 <div className="h-3 w-6 mx-auto bg-red-500 rounded-full"></div>
-                               </div>
-                               <div className="bg-gray-800 bg-opacity-40 p-1.5 rounded text-center">
-                                 <div className="h-1.5 w-1/2 mx-auto bg-gray-500 rounded-full mb-1"></div>
-                                 <div className="h-3 w-8 mx-auto bg-yellow-500 rounded-full"></div>
-                               </div>
-                               <div className="bg-gray-800 bg-opacity-40 p-1.5 rounded text-center">
-                                 <div className="h-1.5 w-1/2 mx-auto bg-gray-500 rounded-full mb-1"></div>
-                                 <div className="h-3 w-5 mx-auto bg-green-500 rounded-full"></div>
-                               </div>
-                             </div>
-                           </div>
-                         </div>
-                       </div>
-                     </motion.div>
-                    
-                    <div className="flex space-x-2">
-                      <div className="p-2 bg-black bg-opacity-30 rounded-lg flex-1 text-center">
-                        <span className="text-xs opacity-70">Low-fi</span>
-                        <div className="w-full h-1 bg-gray-700 rounded-full mt-1">
-                          <div className="w-full h-1 bg-green-500 rounded-full"></div>
-                        </div>
-                      </div>
-                      <div className="p-2 bg-black bg-opacity-30 rounded-lg flex-1 text-center">
-                        <span className="text-xs opacity-70">Mid-fi</span>
-                        <div className="w-full h-1 bg-gray-700 rounded-full mt-1">
-                          <div className="w-full h-1 bg-green-500 rounded-full"></div>
-                        </div>
-                      </div>
-                      <div className="p-2 bg-black bg-opacity-30 rounded-lg flex-1 text-center">
-                        <span className="text-xs opacity-70">Hi-fi</span>
-                        <div className="w-full h-1 bg-gray-700 rounded-full mt-1">
-                          <div className="w-4/5 h-1 bg-green-500 rounded-full"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="md:w-0 relative flex justify-center order-0 md:order-2">
-                    <div className="hidden md:flex h-12 w-12 rounded-full bg-green-400 text-black items-center justify-center z-10">
-                      <i className="ri-artboard-line text-xl"></i>
-                    </div>
-                  </div>
-                  
-                  <div className="md:w-1/2 md:pl-12 order-2 md:order-3">
+                  <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
                     <motion.div 
-                      initial={{ opacity: 0, x: 50 }}
+                      initial={{ opacity: 0, x: -50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
                     >
-                      <span className="text-green-400 text-sm font-bold tracking-wider">PHASE 04</span>
+                      <span className="text-blue-400 text-sm font-bold tracking-wider">PHASE 04</span>
                       <h3 className="text-2xl font-bold mb-4">Prototype</h3>
-                      <div className="p-4 bg-black bg-opacity-30 rounded-lg">
+                      <div className="p-4 bg-black bg-opacity-30 rounded-lg mb-4">
                         <h4 className="font-bold mb-2 flex items-center">
-                          <i className="ri-artboard-line text-green-400 mr-2"></i>
+                          <i className="ri-artboard-line text-blue-400 mr-2"></i>
                           Prototype Evolution
                         </h4>
                         <table className="w-full text-xs">
@@ -510,12 +392,37 @@ function CyberSecurityProcess() {
                             </tr>
                           </tbody>
                         </table>
-                        
-                        <div className="mt-3 p-2 bg-black bg-opacity-40 rounded border border-green-900">
-                          <p className="text-xs opacity-90">
-                            <i className="ri-user-settings-line text-green-400 mr-1"></i>
-                            <strong>User-Centered Design:</strong> 3 rounds of iterations with security professionals
-                          </p>
+                      </div>
+                      
+                      <div className="p-3 bg-black bg-opacity-40 rounded border border-blue-900">
+                        <p className="text-xs italic opacity-90">
+                          <strong>User-Centered Design:</strong> 3 rounds of iterations with security professionals
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                  
+                  <div className="md:w-0 relative flex justify-center">
+                    <div className="hidden md:flex h-12 w-12 rounded-full bg-blue-400 text-black items-center justify-center z-10">
+                      <i className="ri-shield-check-line text-xl"></i>
+                    </div>
+                  </div>
+                  
+                  <div className="md:w-1/2 md:pl-12">
+                    <motion.div 
+                      initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3"
+                    >
+                      <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 flex flex-col">
+                        <div className="flex-1 flex items-center justify-center">
+                          <img 
+                            src="prevalantai.png" 
+                            alt="Prevalent AI Cybersecurity Dashboard Prototype" 
+                            className="w-full h-auto rounded"
+                          />
                         </div>
                       </div>
                     </motion.div>
@@ -638,149 +545,42 @@ function CyberSecurityProcess() {
           >
             <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">The Solution</h2>
             
-            {/* Final Design Mockup */}
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg h-80 overflow-hidden mb-8 p-4">
-              <div className="bg-black bg-opacity-30 h-full w-full rounded flex flex-col">
-                {/* Top navigation bar */}
-                <div className="h-12 bg-gradient-to-r from-blue-900 to-indigo-900 rounded-t flex items-center px-4">
-                  <div className="flex items-center">
-                    <div className="h-7 w-7 rounded-full bg-blue-500 flex items-center justify-center">
-                      <div className="h-4 w-4 bg-white rounded-sm"></div>
-                    </div>
-                    <div className="ml-2 h-2.5 w-24 bg-white rounded-full"></div>
-                  </div>
-                  <div className="ml-auto flex space-x-6">
-                    <div className="h-2.5 w-12 bg-gray-300 rounded-full"></div>
-                    <div className="h-2.5 w-12 bg-gray-300 rounded-full"></div>
-                    <div className="h-2.5 w-12 bg-gray-300 rounded-full"></div>
-                    <div className="h-6 w-6 rounded-full bg-blue-500 flex items-center justify-center">
-                      <div className="h-3 w-3 rounded-full bg-white"></div>
+            {/* Solution Screenshots */}
+            <motion.div
+              className="mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* First Solution Image */}
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-4">
+                  <div className="bg-black bg-opacity-30 h-full w-full rounded p-4 flex flex-col">
+                    <div className="flex items-center justify-center">
+                      <img 
+                        src="prevalantai.png" 
+                        alt="Cybersecurity Dashboard" 
+                        className="max-w-full h-auto rounded"
+                      />
                     </div>
                   </div>
                 </div>
                 
-                {/* Main content */}
-                <div className="flex-1 flex p-4 gap-4">
-                  {/* Left sidebar */}
-                  <div className="w-1/4 flex flex-col space-y-3">
-                    <div className="bg-blue-600 bg-opacity-20 border border-blue-500 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-blue-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-dashboard-3-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-indigo-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-bubble-chart-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-purple-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-bar-chart-grouped-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex items-center">
-                      <div className="h-8 w-8 rounded-full bg-red-600 flex-shrink-0 flex items-center justify-center">
-                        <i className="ri-alert-line text-white text-sm"></i>
-                      </div>
-                      <div className="ml-2">
-                        <div className="h-2 w-16 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-1.5 w-12 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Main dashboard area */}
-                  <div className="w-3/4 flex flex-col space-y-4">
-                    <div className="flex justify-between items-center mb-1">
-                      <div>
-                        <div className="h-3 w-32 bg-white bg-opacity-90 rounded-full"></div>
-                        <div className="h-2 w-20 bg-white bg-opacity-50 rounded-full mt-1"></div>
-                      </div>
-                      <div className="flex space-x-2">
-                        <div className="h-6 w-20 bg-gray-700 rounded"></div>
-                        <div className="h-6 w-6 bg-blue-600 rounded flex items-center justify-center">
-                          <i className="ri-refresh-line text-white text-xs"></i>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Risk Score and Trend */}
-                    <div className="grid grid-cols-3 gap-4">
-                      <div className="bg-white bg-opacity-10 rounded p-3 col-span-1">
-                        <div className="h-2 w-16 bg-white bg-opacity-50 rounded-full mb-3"></div>
-                        <div className="flex items-center justify-center">
-                          <div className="h-24 w-24 rounded-full bg-blue-900 bg-opacity-30 border-4 border-blue-500 flex flex-col items-center justify-center">
-                            <div className="text-xl font-bold text-white">58</div>
-                            <div className="text-xs text-white opacity-70">of 100</div>
-                          </div>
-                        </div>
-                        <div className="mt-3 flex items-center justify-center">
-                          <div className="h-5 w-5 rounded-full bg-green-500 flex items-center justify-center mr-1">
-                            <i className="ri-arrow-up-line text-black text-xs"></i>
-                          </div>
-                          <div className="text-green-500 text-xs font-bold">IMPROVING</div>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-white bg-opacity-10 rounded p-3 col-span-2">
-                        <div className="h-2 w-24 bg-white bg-opacity-50 rounded-full mb-3"></div>
-                        <div className="h-36 bg-gray-900 bg-opacity-50 rounded p-2">
-                          <div className="h-full flex items-end space-x-3">
-                            <div className="w-1/12 h-3/5 rounded-t bg-red-500"></div>
-                            <div className="w-1/12 h-2/3 rounded-t bg-red-500"></div>
-                            <div className="w-1/12 h-3/4 rounded-t bg-red-500"></div>
-                            <div className="w-1/12 h-4/5 rounded-t bg-yellow-500"></div>
-                            <div className="w-1/12 h-3/5 rounded-t bg-yellow-500"></div>
-                            <div className="w-1/12 h-2/5 rounded-t bg-green-500"></div>
-                            <div className="w-1/12 h-2/5 rounded-t bg-green-500"></div>
-                            <div className="w-1/12 h-3/5 rounded-t bg-green-500"></div>
-                            <div className="w-1/12 h-2/5 rounded-t bg-green-500"></div>
-                            <div className="w-1/12 h-2/5 rounded-t bg-green-500"></div>
-                            <div className="w-1/12 h-3/5 rounded-t bg-green-500"></div>
-                            <div className="w-1/12 h-2/5 rounded-t bg-green-500"></div>
-                          </div>
-                          <div className="h-px w-full bg-gray-600 mt-2"></div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* AI Assistant */}
-                    <div className="bg-white bg-opacity-10 rounded p-3 flex-1">
-                      <div className="flex justify-between items-center mb-3">
-                        <div className="flex items-center">
-                          <div className="h-6 w-6 rounded-full bg-blue-600 mr-2 flex items-center justify-center">
-                            <i className="ri-ai-generate text-white text-xs"></i>
-                          </div>
-                          <div className="h-2 w-24 bg-white bg-opacity-90 rounded-full"></div>
-                        </div>
-                      </div>
-                      <div className="bg-gray-900 bg-opacity-50 p-2 rounded h-14 flex">
-                        <div className="h-full w-1 bg-blue-500 mr-2 rounded-full"></div>
-                        <div className="flex flex-col justify-center">
-                          <div className="h-2 w-64 bg-gray-500 rounded-full mb-2"></div>
-                          <div className="h-2 w-48 bg-gray-500 rounded-full"></div>
-                        </div>
-                      </div>
+                {/* Second Solution Image */}
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-4">
+                  <div className="bg-black bg-opacity-30 h-full w-full rounded p-4 flex flex-col">
+                    <div className="flex items-center justify-center">
+                      <img 
+                        src="prevalantai1.png" 
+                        alt="Advanced Threat Analytics" 
+                        className="max-w-full h-auto rounded"
+                      />
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {/* Feature 1 */}
