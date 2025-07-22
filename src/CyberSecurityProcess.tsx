@@ -10,7 +10,7 @@ function CyberSecurityProcess() {
       {/* Header with back button */}
       <div className="fixed top-4 left-4 z-50">
         <motion.div whileHover={{ x: -5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-          <Link to="/" className="text-white flex items-center bg-black bg-opacity-50 px-3 sm:px-4 py-2 rounded-lg backdrop-blur-sm text-sm sm:text-base">
+          <Link to="/?tab=Figma" className="text-white flex items-center bg-black bg-opacity-50 px-3 sm:px-4 py-2 rounded-lg backdrop-blur-sm text-sm sm:text-base">
             <i className="ri-arrow-left-line mr-2"></i>
             <span>Back to Portfolio</span>
           </Link>
@@ -748,7 +748,7 @@ function CyberSecurityProcess() {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               className="inline-block"
             >
-              <Link to="/" className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white text-sm sm:text-base px-6 py-3 rounded-lg flex items-center transition-all duration-300">
+              <Link to="/?tab=Figma" className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white text-sm sm:text-base px-6 py-3 rounded-lg flex items-center transition-all duration-300">
                 <i className="ri-arrow-left-line mr-2"></i>
                 <span>Return to Portfolio</span>
               </Link>

@@ -713,7 +713,7 @@ function ArticlePage() {
       <div className="min-h-screen bg-custom-dark text-white flex flex-col items-center justify-center">
         <h1 className="text-2xl sm:text-3xl font-bold mb-4">Article Not Found</h1>
         <p className="mb-6">The article you're looking for doesn't exist or has been moved.</p>
-        <Link to="/" className="text-blue-400 hover:text-blue-300 flex items-center">
+        <Link to="/?tab=Articles%20%26%20Tutorials" className="text-blue-400 hover:text-blue-300 flex items-center">
           <i className="ri-arrow-left-line mr-2"></i>
           Return to Portfolio
         </Link>
@@ -727,7 +727,7 @@ function ArticlePage() {
       {/* Header with back button */}
       <div className="fixed top-4 left-4 z-50">
         <motion.div whileHover={{ x: -5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-          <Link to="/" className="text-white flex items-center bg-black bg-opacity-50 px-3 sm:px-4 py-2 rounded-lg backdrop-blur-sm text-sm sm:text-base">
+          <Link to="/?tab=Articles%20%26%20Tutorials" className="text-white flex items-center bg-black bg-opacity-50 px-3 sm:px-4 py-2 rounded-lg backdrop-blur-sm text-sm sm:text-base">
             <i className="ri-arrow-left-line mr-2"></i>
             <span>Back to Portfolio</span>
           </Link>

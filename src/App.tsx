@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useAnimation, Variants } from 'framer-motion';
 import 'remixicon/fonts/remixicon.css';
 import './App.css';
 import faceImg from './face.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 // Create a context for mobile detection
 type MobileContextType = {
@@ -193,6 +193,7 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isMobile } = useMobile(); // Use the mobile context
   const navigate = useNavigate();
+  const location = useLocation();
   
   // Animation controls
   const controls = useAnimation();
@@ -204,7 +205,7 @@ function App() {
     "blends human creativity with AI tools"
   ];
 
-  // Sample design project data - now showing only 4 cards
+  // Sample design project data - now showing 6 cards
   const cardData = [
     {
       id: 1,
@@ -245,6 +246,26 @@ function App() {
       subtitle: "Real-time threat monitoring and AI-powered risk assessment for enterprise security teams",
       tags: ["AI", "NLP", "Content Creation"],
       link: "https://prevalent-5474cf.gitlab.io/"
+    },
+    {
+      id: 5,
+      number: "05",
+      date: "OCT 2023",
+      image: "Design System.png",
+      title: "Multiwebsite-Portfolio",
+      subtitle: "A multi-website portfolio experience. Explore multiple web identities in one seamless interface.",
+      tags: ["Portfolio", "Multi-site", "Experience"],
+      link: "https://multiportfolio-1343d4.gitlab.io/#/website2"
+    },
+    {
+      id: 6,
+      number: "06",
+      date: "NOV 2023",
+      image: "isalnd.png",
+      title: "Andaman Islands Experience",
+      subtitle: "Discover the pristine beauty of Andaman Islands through an immersive digital experience showcasing paradise destinations.",
+      tags: ["Tourism", "Experience", "Islands"],
+      link: "https://andman-isle-6ad31d.gitlab.io/"
     }
   ];
 
@@ -399,6 +420,20 @@ function App() {
       clearInterval(textInterval);
     };
   }, [rotatingTexts.length, controls]);
+
+  // Check for URL parameters to set active tab
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const tab = urlParams.get('tab');
+    if (tab) {
+      // Decode the URL parameter
+      const decodedTab = decodeURIComponent(tab);
+      const validTabs = ["AI Prototype", "Figma", "Articles & Tutorials", "Playground"];
+      if (validTabs.includes(decodedTab)) {
+        setActiveTab(decodedTab);
+      }
+    }
+  }, [location]);
 
   // Function to handle tab changes
   const handleTabChange = (tabName: string) => {
@@ -789,6 +824,85 @@ function App() {
                   {/* Subtitle shown on hover */}
                   <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
                     <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[3].subtitle}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Third Row: Large (700px) + Small (500px) */}
+            <div className="flex flex-col lg:flex-row gap-2 justify-center items-start">
+              {/* Card 5 - Large with 90% image height */}
+              <motion.div 
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[4].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-auto sm:h-[550px] flex flex-col`}
+                variants={fadeInUp}
+                transition={{ delay: 0.4 }}
+                onClick={() => handleCardClick(cardData[4].link)}
+              >
+                {/* Card Header with Badge and Date */}
+                <div className="p-2 sm:p-4 flex justify-between items-center">
+                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
+                    #{cardData[4].number}
+                </div>
+                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
+                  <i className="ri-calendar-line mr-1"></i>
+                    {cardData[4].date}
+                  </div>
+                </div>
+                
+                {/* Card Image - 80% of remaining height */}
+                <div className="overflow-hidden hover-scale flex-grow responsive-image" style={{ height: '80%' }}>
+                  <img 
+                    src={cardData[4].image} 
+                    alt={cardData[4].title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Card Title and Expandable Content - 20% of remaining height */}
+                <div className="p-2 sm:p-4" style={{ height: '20%', minHeight: '70px' }}>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{cardData[4].title}</h3>
+                  
+                  {/* Subtitle shown on hover */}
+                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[4].subtitle}</p>
+                  </div>
+                </div>
+              </motion.div>
+              
+              {/* Card 6 - Small with 65% image height */}
+              <motion.div 
+                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[5].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-auto sm:h-[550px] flex flex-col`}
+                variants={fadeInUp}
+                transition={{ delay: 0.5 }}
+                onClick={() => handleCardClick(cardData[5].link)}
+              >
+                {/* Card Header with Badge and Date */}
+                <div className="p-2 sm:p-4 flex justify-between items-center">
+                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
+                    #{cardData[5].number}
+                  </div>
+                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
+                    <i className="ri-calendar-line mr-1"></i>
+                    {cardData[5].date}
+                  </div>
+                </div>
+                
+                {/* Card Image - 65% of remaining height */}
+                <div className="overflow-hidden hover-scale responsive-image" style={{ height: '65%' }}>
+                  <img 
+                    src={cardData[5].image} 
+                    alt={cardData[5].title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Card Title and Expandable Content - 35% of remaining height */}
+                <div className="p-2 sm:p-4 flex-grow" style={{ height: '35%' }}>
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-1">{cardData[5].title}</h3>
+                  
+                  {/* Subtitle shown on hover */}
+                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[5].subtitle}</p>
                   </div>
                 </div>
               </motion.div>

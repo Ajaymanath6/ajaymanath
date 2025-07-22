@@ -10,7 +10,7 @@ function SynapseLearnProcess() {
       {/* Header with back button */}
       <div className="fixed top-4 left-4 z-50">
         <motion.div whileHover={{ x: -5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-          <Link to="/" className="text-white flex items-center bg-black bg-opacity-50 px-3 sm:px-4 py-2 rounded-lg backdrop-blur-sm text-sm sm:text-base">
+          <Link to="/?tab=Figma" className="text-white flex items-center bg-black bg-opacity-50 px-3 sm:px-4 py-2 rounded-lg backdrop-blur-sm text-sm sm:text-base">
             <i className="ri-arrow-left-line mr-2"></i>
             <span>Back to Portfolio</span>
           </Link>
@@ -714,6 +714,97 @@ function SynapseLearnProcess() {
               </div>
             </div>
           </motion.div>
+
+          {/* Design Showcase - Additional Views */}
+          <motion.div
+            className="mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 text-center">Design Showcase</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              {/* First Row - Two Images */}
+              <motion.div
+                className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3 sm:p-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 sm:p-4 flex flex-col">
+                  <div className="flex items-center justify-center">
+                    <img 
+                      src="synapsea.png" 
+                      alt="SynapseLearn Study Dashboard Interface" 
+                      className="max-w-full h-auto rounded"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3 sm:p-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 sm:p-4 flex flex-col">
+                  <div className="flex items-center justify-center">
+                    <img 
+                      src="synapseb.png" 
+                      alt="SynapseLearn Question Generation Interface" 
+                      className="max-w-full h-auto rounded"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Second Row - Two Images */}
+              <motion.div
+                className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3 sm:p-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 sm:p-4 flex flex-col">
+                  <div className="flex items-center justify-center">
+                    <img 
+                      src="synapsec.png" 
+                      alt="SynapseLearn Analytics and Progress Tracking" 
+                      className="max-w-full h-auto rounded"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden p-3 sm:p-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="bg-black bg-opacity-30 h-full w-full rounded p-3 sm:p-4 flex flex-col">
+                  <div className="flex items-center justify-center">
+                    <img 
+                      src="synapsed.png" 
+                      alt="SynapseLearn Gamification and Achievements" 
+                      className="max-w-full h-auto rounded"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
           
           {/* Impact */}
           <motion.div
@@ -775,7 +866,7 @@ function SynapseLearnProcess() {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               className="inline-block"
             >
-              <Link to="/" className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white text-sm sm:text-base px-6 py-3 rounded-lg flex items-center transition-all duration-300">
+              <Link to="/?tab=Figma" className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white text-sm sm:text-base px-6 py-3 rounded-lg flex items-center transition-all duration-300">
                 <i className="ri-arrow-left-line mr-2"></i>
                 <span>Return to Portfolio</span>
               </Link>
