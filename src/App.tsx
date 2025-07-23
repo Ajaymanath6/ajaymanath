@@ -392,7 +392,8 @@ function App() {
     { name: "Figma", icon: "ri-figma-fill", href: "#figma", isPage: false },
     { name: "Articles & Tutorials", icon: "ri-article-line", href: "#articles", isPage: false },
     { name: "Playground", icon: "ri-gamepad-fill", href: "#playground", isPage: false },
-    { name: "Process", icon: "ri-flow-chart", href: "/process", isPage: true }
+    { name: "Process", icon: "ri-flow-chart", href: "/process", isPage: true },
+    { name: "Experience", icon: "ri-briefcase-line", href: "/experience", isPage: true }
   ];
 
   // Social media links - removed Dribbble and Behance
@@ -609,12 +610,12 @@ function App() {
                   </motion.button>
                 
                   {/* Navigation Options with Icons (horizontal layout) */}
-                  <div className={`flex flex-wrap justify-start space-x-6 md:space-x-8 mobile-tab-navigation ${isMobile ? 'hidden' : 'flex'}`}>
+                  <div className={`flex justify-start space-x-4 md:space-x-6 mobile-tab-navigation ${isMobile ? 'hidden' : 'flex'}`}>
                     {navOptions.map((item) => (
                       <motion.a
                         key={item.name}
                         href={item.href}
-                        className={`text-white hover:text-white text-xs sm:text-sm font-medium flex items-center justify-center ${activeTab === item.name ? "selected-tab" : "inactive-tab"}`}
+                        className={`text-white hover:text-white text-xs font-medium flex items-center justify-center whitespace-nowrap ${activeTab === item.name ? "selected-tab" : "inactive-tab"}`}
                         onClick={(e) => handleNavigation(item, e)}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
