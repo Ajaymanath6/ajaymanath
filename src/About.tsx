@@ -307,14 +307,17 @@ function About() {
                 </div>
                   
                 <div className="mt-6 sm:mt-8 flex justify-center">
-                  <motion.button 
+                  <motion.a 
+                    href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-white text-xs sm:text-sm bg-transparent border border-white border-opacity-20 rounded-full px-4 py-2 flex items-center"
                     whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
                     whileTap={{ scale: 0.95 }}
                     >
-                    <i className="ri-add-line mr-2"></i>
+                    <i className="ri-download-line mr-2"></i>
                     <span>See Full Resume</span>
-                  </motion.button>
+                  </motion.a>
                   </div>
                 </motion.div>
             )}

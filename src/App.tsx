@@ -164,7 +164,7 @@ const MobileMenu = ({ isOpen, onClose, navOptions, activeTab, handleNavigation }
               animate="visible"
               exit="exit"
             >
-              <div className="flex mt-6 space-x-4">
+              <div className="flex flex-wrap justify-center mt-6 gap-3">
                 <motion.div whileTap={{ scale: 0.95 }}>
                   <Link to="/about" className="text-white bg-white bg-opacity-10 px-4 py-2 rounded-full flex items-center" onClick={onClose}>
                     <i className="ri-user-line mr-2"></i>
@@ -175,6 +175,12 @@ const MobileMenu = ({ isOpen, onClose, navOptions, activeTab, handleNavigation }
                   <a href="mailto:ajaymanath96@gmail.com" className="text-white bg-white bg-opacity-10 px-4 py-2 rounded-full flex items-center">
                     <i className="ri-mail-line mr-2"></i>
                     <span>Contact</span>
+                  </a>
+                </motion.div>
+                <motion.div whileTap={{ scale: 0.95 }}>
+                  <a href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="text-white bg-white bg-opacity-10 px-4 py-2 rounded-full flex items-center">
+                    <i className="ri-download-line mr-2"></i>
+                    <span>Resume</span>
                   </a>
                 </motion.div>
               </div>
@@ -570,6 +576,15 @@ function App() {
                           <i className="ri-user-fill mr-1"></i> About
                         </Link>
                       </motion.div>
+                      <motion.div
+                        whileHover={{ x: -5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className={isMobile ? "hidden" : ""}
+                      >
+                        <a href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm sm:text-base">
+                          <i className="ri-download-line mr-1"></i> Resume
+                        </a>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -628,6 +643,13 @@ function App() {
                       <Link to="/about" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm">
                         <i className="ri-user-fill mr-1"></i> About
                       </Link>
+                    </motion.div>
+                    <motion.div
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <a href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm">
+                        <i className="ri-download-line mr-1"></i> Resume
+                      </a>
                     </motion.div>
                   </div>
                 )}
