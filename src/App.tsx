@@ -3,7 +3,8 @@ import { motion, AnimatePresence, useAnimation, Variants } from 'framer-motion';
 import 'remixicon/fonts/remixicon.css';
 import './App.css';
 import faceImg from './face.png';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import fullImg from './full.jpg';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 // Create a context for mobile detection
 type MobileContextType = {
@@ -94,14 +95,15 @@ const MobileMenu = ({ isOpen, onClose, navOptions, activeTab, handleNavigation }
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="mobile-menu-overlay fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
+          className="mobile-menu-overlay fixed inset-0 z-[60] flex items-center justify-center"
+          style={{ backgroundColor: 'rgba(19, 19, 19, 0.98)' }}
           variants={menuVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
-          <button className="mobile-menu-close absolute top-4 right-4" onClick={onClose}>
-            <i className="ri-close-line text-2xl"></i>
+          <button className="mobile-menu-close absolute top-6 right-6 bg-white bg-opacity-10 rounded-full p-2 hover:bg-opacity-20 transition-all" onClick={onClose}>
+            <i className="ri-close-line text-xl text-white"></i>
           </button>
           
           <div className="flex flex-col items-center justify-center h-full">
@@ -156,35 +158,7 @@ const MobileMenu = ({ isOpen, onClose, navOptions, activeTab, handleNavigation }
               </div>
             </motion.div>
             
-            <motion.div
-              className="mobile-menu-item"
-              custom={navOptions.length + 1}
-              variants={itemVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              <div className="flex flex-wrap justify-center mt-6 gap-3">
-                <motion.div whileTap={{ scale: 0.95 }}>
-                  <Link to="/about" className="text-white bg-white bg-opacity-10 px-4 py-2 rounded-full flex items-center" onClick={onClose}>
-                    <i className="ri-user-line mr-2"></i>
-                    <span>About</span>
-                  </Link>
-                </motion.div>
-                <motion.div whileTap={{ scale: 0.95 }}>
-                  <a href="mailto:ajaymanath96@gmail.com" className="text-white bg-white bg-opacity-10 px-4 py-2 rounded-full flex items-center">
-                    <i className="ri-mail-line mr-2"></i>
-                    <span>Contact</span>
-                  </a>
-                </motion.div>
-                <motion.div whileTap={{ scale: 0.95 }}>
-                  <a href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="text-white bg-white bg-opacity-10 px-4 py-2 rounded-full flex items-center">
-                    <i className="ri-download-line mr-2"></i>
-                    <span>Resume</span>
-                  </a>
-                </motion.div>
-              </div>
-            </motion.div>
+
           </div>
         </motion.div>
       )}
@@ -193,10 +167,13 @@ const MobileMenu = ({ isOpen, onClose, navOptions, activeTab, handleNavigation }
 };
 
 function App() {
-  const [scrolled, setScrolled] = useState(false);
-  const [textIndex, setTextIndex] = useState(0);
-  const [activeTab, setActiveTab] = useState("AI Prototype");
+
+  const [activeTab, setActiveTab] = useState("Projects");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showInfo, setShowInfo] = useState(true);
+  const [showStory, setShowStory] = useState(true);
+  const [hoveredItems, setHoveredItems] = useState(false);
+  const [clickedCard, setClickedCard] = useState(false);
   const { isMobile } = useMobile(); // Use the mobile context
   const navigate = useNavigate();
   const location = useLocation();
@@ -204,79 +181,12 @@ function App() {
   // Animation controls
   const controls = useAnimation();
   
-  const rotatingTexts = [
-    "reduces design workflow time with AI",
-    "creates data-driven user experiences",
-    "builds AI-powered product solutions",
-    "blends human creativity with AI tools"
-  ];
+  const storyText = "I'm Ajay, a **multi-disciplinary product designer** based in India. Currently working with **AI-powered design workflows** to revolutionize how teams create and test digital products.\n\nI take pride in creating **thoughtful, user-centered products** that deliver meaningful business results. My expertise spans **project management**, **legal tech**, and **ed tech** domains.\n\nBefore my current focus, I worked across various industries helping clients from **education** and **technology** sectors to bring **disruptive digital products** to market and grow their design capabilities.";
 
-  // Sample design project data - now showing 6 cards
-  const cardData = [
-    {
-      id: 1,
-      number: "01",
-      date: "APR 2023",
-      image: "Synapse.png",
-      title: "Master Any Subject with SynapseLearn",
-      subtitle: "Our AI-powered platform transforms how you study, making learning more effective and enjoyable",
-      tags: ["AI-Powered", "UX/UI", "Mobile"],
-      link: "https://mandal-ai-9c42ef.gitlab.io/"
-    },
-    {
-      id: 2,
-      number: "02",
-      date: "JUN 2023",
-      image: "Drone.png",
-      title: "DroneGrid: Revolutionizing Urban Security",
-      subtitle: "Deploy autonomous drone security that's 3x more effective and 60% more cost-efficient than traditional surveillance",
-      tags: ["Branding", "AI Tools", "Design System"],
-      link: "https://dronegrid-976b17.gitlab.io/"
-    },
-    {
-      id: 3,
-      number: "03",
-      date: "AUG 2023",
-      image: "Sahayak.png",
-      title: "Your AI Teaching Partner for Multi-Grade Classrooms",
-      subtitle: "AI assistant helping India's teachers save time and deliver personalized education in local languages",
-      tags: ["E-commerce", "AI-Powered", "Web Design"],
-      link: "https://sahayak-b85697.gitlab.io/home"
-    },
-    {
-      id: 4,
-      number: "04",
-      date: "SEP 2023",
-      image: "Cyber.png",
-      title: "Cyber Risk Intelligence Dashboard",
-      subtitle: "Real-time threat monitoring and AI-powered risk assessment for enterprise security teams",
-      tags: ["AI", "NLP", "Content Creation"],
-      link: "https://prevalent-5474cf.gitlab.io/"
-    },
-    {
-      id: 5,
-      number: "05",
-      date: "OCT 2023",
-      image: "Design System.png",
-      title: "Multiwebsite-Portfolio",
-      subtitle: "A multi-website portfolio experience. Explore multiple web identities in one seamless interface.",
-      tags: ["Portfolio", "Multi-site", "Experience"],
-      link: "https://multiportfolio-1343d4.gitlab.io/#/website2"
-    },
-    {
-      id: 6,
-      number: "06",
-      date: "NOV 2023",
-      image: "isalnd.png",
-      title: "Andaman Islands Experience",
-      subtitle: "Discover the pristine beauty of Andaman Islands through an immersive digital experience showcasing paradise destinations.",
-      tags: ["Tourism", "Experience", "Islands"],
-      link: "https://andman-isle-6ad31d.gitlab.io/"
-    }
-  ];
 
-  // Sample Figma designs with added metrics
-  const figmaDesigns = [
+
+  // Design Process & Case Studies
+  const projectProcessCards = [
     {
       id: 1,
       title: "Enterprise Design System",
@@ -308,6 +218,30 @@ function App() {
       link: "/process/synapselearn",
       metrics: "Our AI-powered platform transforms how you study, making learning more effective and enjoyable",
       tools: ["Component Library", "Variants", "Prototyping"]
+    },
+    {
+      id: 5,
+      title: "Multiwebsite-Portfolio",
+      image: "Design System.png",
+      link: "https://multiportfolio-1343d4.gitlab.io/#/website2",
+      metrics: "A multi-website portfolio experience. Explore multiple web identities in one seamless interface.",
+      tools: ["Multi-site", "Portfolio", "Experience"]
+    },
+    {
+      id: 6,
+      title: "Andaman Islands Experience",
+      image: "isalnd.png",
+      link: "https://andman-isle-6ad31d.gitlab.io/",
+      metrics: "Discover the pristine beauty of Andaman Islands through an immersive digital experience showcasing paradise destinations.",
+      tools: ["Tourism", "Experience", "Islands"]
+    },
+    {
+      id: 7,
+      title: "Drone Aerial Photography",
+      image: "Drone.png",
+      link: "https://dronegrid-976b17.gitlab.io/",
+      metrics: "Professional drone photography and videography services capturing stunning aerial perspectives.",
+      tools: ["Aerial Photography", "Video", "Commercial"]
     }
   ];
 
@@ -388,10 +322,8 @@ function App() {
 
   // Navigation options with icons
   const navOptions = [
-    { name: "AI Prototype", icon: "ri-sparkling-fill", href: "#ai-prototype", isPage: false },
-    { name: "Figma", icon: "ri-figma-fill", href: "#figma", isPage: false },
+    { name: "Projects", icon: "ri-folder-line", href: "#projects", isPage: false },
     { name: "Articles & Tutorials", icon: "ri-article-line", href: "#articles", isPage: false },
-    { name: "Playground", icon: "ri-gamepad-fill", href: "#playground", isPage: false },
     { name: "Process", icon: "ri-flow-chart", href: "/process", isPage: true },
     { name: "Experience", icon: "ri-briefcase-line", href: "/experience", isPage: true }
   ];
@@ -404,29 +336,11 @@ function App() {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    const textInterval = setInterval(() => {
-      setTextIndex((prevIndex) => (prevIndex + 1) % rotatingTexts.length);
-    }, 2000);
-
-    window.addEventListener('scroll', handleScroll);
-    
     // Start animation when component mounts
     controls.start("visible");
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearInterval(textInterval);
-    };
-  }, [rotatingTexts.length, controls]);
+  }, [controls]);
+
+
 
   // Check for URL parameters to set active tab
   useEffect(() => {
@@ -435,7 +349,7 @@ function App() {
     if (tab) {
       // Decode the URL parameter
       const decodedTab = decodeURIComponent(tab);
-      const validTabs = ["AI Prototype", "Figma", "Articles & Tutorials", "Playground"];
+      const validTabs = ["Projects", "Articles & Tutorials"];
       if (validTabs.includes(decodedTab)) {
         setActiveTab(decodedTab);
       }
@@ -463,14 +377,10 @@ function App() {
   // Get page title based on active tab
   const getPageTitle = () => {
     switch(activeTab) {
-      case "AI Prototype":
-        return "AI-Powered Design Projects";
-      case "Figma":
-        return "Design and Process";
+      case "Projects":
+        return "Design Process & Case Studies";
       case "Articles & Tutorials":
         return "Design & Product Management Articles";
-      case "Playground":
-        return "Creative Experiments";
       default:
         return "Portfolio";
     }
@@ -500,8 +410,50 @@ function App() {
     }
   };
 
+  const handleImageClick = () => {
+    setClickedCard(!clickedCard);
+    if (!clickedCard) {
+      setShowInfo(true);
+      setTimeout(() => setShowStory(true), 800);
+    } else {
+      setShowStory(false);
+      setShowInfo(false);
+    }
+  };
+
+    // Function to format text with bold and lightning green highlights
+  const formatText = (text: string) => {
+    // Split by **bold** markers and \n for line breaks
+    const paragraphs = text.split('\n\n');
+    
+    return paragraphs.map((paragraph, paragraphIndex) => (
+      <p key={paragraphIndex} className={paragraphIndex > 0 ? 'mt-4' : ''}>
+        {paragraph.split(/(\*\*[^*]+\*\*)/g).map((part, index) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            const boldText = part.slice(2, -2);
+            return (
+              <span
+                key={index}
+                className="font-semibold"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(192,192,192,0.8) 50%, rgba(169,169,169,0.7) 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                {boldText}
+              </span>
+            );
+          }
+          return part;
+        })}
+      </p>
+    ));
+  };
+
   return (
-    <div className="min-h-screen bg-custom-dark text-white">
+    <div className="min-h-screen text-white relative" style={{ backgroundColor: '#131313' }}>
       {/* Mobile Menu */}
       <MobileMenu 
         isOpen={mobileMenuOpen} 
@@ -512,42 +464,30 @@ function App() {
       />
 
       {/* Fixed Header - Always visible at the top */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-custom-dark header-transition site-header sticky-header">
-        {/* Top Section - Only visible when not scrolled */}
-        <AnimatePresence>
-          {!scrolled && (
-            <motion.div 
-              className="bg-custom-dark py-4 sm:py-6"
-              initial={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-            >
+      <div className="fixed top-0 left-0 right-0 z-50 header-transition site-header sticky-header shadow-lg" style={{ backgroundColor: '#131313' }}>
+        {/* Top Section - Always visible */}
+        <div 
+          className="py-4 sm:py-6"
+          style={{ backgroundColor: '#131313' }}
+        >
               <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 fixed-header-content">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-4 items-center">
                   {/* First Column - Animated Text with Profile Image */}
                   <div className="text-left flex items-center">
-                    <motion.img 
-                      src={faceImg} 
-                      alt="Profile" 
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-2 sm:mr-4"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    />
+                    <motion.div className="p-1">
+                      <motion.img 
+                        src={faceImg} 
+                        alt="Profile" 
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-2 sm:mr-4"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.div>
                     <div>
-                      <p className="text-xs sm:text-sm text-white opacity-80 mb-0 sm:mb-1">An AI product designer who...</p>
                       <div className="h-6 sm:h-8">
-                      <AnimatePresence mode="wait">
-                        <motion.p 
-                          key={textIndex}
-                            className="font-bold text-sm sm:text-lg text-white"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -20 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          {rotatingTexts[textIndex]}
-                        </motion.p>
-                      </AnimatePresence>
+                        <p className="font-bold text-sm sm:text-lg text-white">
+                          Product Designer, India 🇮🇳
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -556,48 +496,26 @@ function App() {
                   <div className="hidden md:flex justify-center">
                   </div>
                   
-                  {/* Third Column - Navigation Options - Aligned to the right */}
-                  <div className="flex justify-end space-x-3 sm:space-x-6 mt-1 md:mt-0">
-                    <div className="flex items-center space-x-2 md:space-x-4">
-                      <motion.div
-                        whileHover={{ x: -5 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        className={isMobile ? "hidden" : ""}
-                      >
-                        <a href="mailto:ajaymanath96@gmail.com" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm sm:text-base">
-                          <i className="ri-mail-fill mr-1"></i> Contact
-                        </a>
-                      </motion.div>
-                      <motion.div
-                        whileHover={{ x: -5 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        className={isMobile ? "hidden" : ""}
-                      >
-                        <Link to="/about" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm sm:text-base">
-                          <i className="ri-user-fill mr-1"></i> About
-                        </Link>
-                      </motion.div>
-                      <motion.div
-                        whileHover={{ x: -5 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        className={isMobile ? "hidden" : ""}
-                      >
-                        <a href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm sm:text-base">
-                          <i className="ri-download-line mr-1"></i> Resume
-                        </a>
-                      </motion.div>
-                    </div>
+                  {/* Third Column - Contact Button */}
+                  <div className="flex justify-end">
+                    <motion.a 
+                      href="mailto:ajaymanath96@gmail.com"
+                      className="text-white text-xs sm:text-sm bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full px-3 sm:px-4 py-2 flex items-center hover:bg-opacity-20 transition-all"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <i className="ri-mail-line mr-1 sm:mr-2"></i>
+                      <span>Contact</span>
+                    </motion.a>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
 
-        {/* Bottom Section - Always visible with increased min-height */}
-        <div className="bg-custom-dark py-2 sm:py-4 shadow-md">
+        {/* Bottom Section - Navigation always visible */}
+        <div className="py-2 sm:py-3 mb-0" style={{ backgroundColor: '#131313' }}>
           <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 fixed-header-content">
-            <div className="flex flex-col md:flex-row justify-between items-center min-h-[60px] sm:min-h-[88px]">
+                          <div className="flex flex-col md:flex-row justify-between items-center min-h-[50px] sm:min-h-[70px]">
               {/* Left Side - Mobile Menu Button and Navigation Options */}
               <div className="w-full md:w-3/4 mb-2 md:mb-0 flex items-center justify-between">
                 <div className="flex items-center">
@@ -629,31 +547,7 @@ function App() {
                   </div>
                 </div>
                 
-                {isMobile && (
-                  <div className="flex items-center space-x-3 mobile-header-links">
-                    <motion.div
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <a href="mailto:ajaymanath96@gmail.com" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm">
-                        <i className="ri-mail-fill mr-1"></i> Contact
-                      </a>
-                    </motion.div>
-                    <motion.div
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Link to="/about" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm">
-                        <i className="ri-user-fill mr-1"></i> About
-                      </Link>
-                    </motion.div>
-                    <motion.div
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <a href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors flex items-center text-sm">
-                        <i className="ri-download-line mr-1"></i> Resume
-                      </a>
-                    </motion.div>
-                  </div>
-                )}
+
               </div>
 
               {/* Right Side - Empty space */}
@@ -664,12 +558,363 @@ function App() {
         </div>
       </div>
 
-      {/* Spacer to prevent content from being hidden under fixed header - adjusted heights */}
-      <div className={`${scrolled ? 'h-[70px] sm:h-[88px]' : 'h-[130px] sm:h-[176px]'} transition-all duration-300`}></div>
+      {/* Spacer to prevent content from being hidden under fixed header */}
+      <div className="h-[160px] sm:h-[180px]"></div>
 
-      {/* Main Content - Tab Content */}
+            {/* About Section - Hero with proper margin from fixed header */}
       <motion.div 
-        className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-12 mt-4 sm:mt-8 content-container"
+        className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 mt-8 sm:mt-12 content-container"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="text-center relative z-10 flex flex-col items-center">
+                             {/* Profile image container with integrated info section */}
+        <motion.div 
+             className="relative inline-block cursor-pointer image-container group"
+             whileHover={{ scale: 1.05 }}
+             onClick={handleImageClick}
+             onMouseEnter={() => setHoveredItems(true)}
+             onMouseLeave={() => !clickedCard && setHoveredItems(false)}
+           >
+            {/* Light grey border around entire container */}
+            <div className="border border-gray-300 border-opacity-20 inline-block p-1">
+              <div className="overflow-hidden">
+                <motion.img 
+                  src={fullImg} 
+                  alt="Ajay Manath" 
+                  className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-cover bw-image block"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                />
+                
+                {/* Info section that extends directly from image - NO GAP */}
+                <AnimatePresence>
+                  {showInfo && (
+                    <motion.div 
+                      className="info-section bg-black px-4 sm:px-6 py-4 -mt-1"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ width: '100%' }}
+                    >
+                      {/* Name - Left aligned */}
+                      <motion.div 
+                        className="text-left"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        <h2 className="text-xl sm:text-2xl font-bold text-white">AJAY L MANATH</h2>
+                      </motion.div>
+                      
+                      {/* Gradient border below name */}
+                      <motion.div 
+                        className="my-2 sm:my-3"
+                        initial={{ width: 0 }}
+                        animate={{ width: '100%' }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                      >
+                        <div 
+                          className="w-full"
+                          style={{ 
+                            height: '0.5px',
+                            background: 'linear-gradient(90deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%)'
+                          }}
+                        ></div>
+                      </motion.div>
+                      
+                      {/* Bottom section with position and social icons */}
+                      <motion.div 
+                        className="flex justify-between items-center"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                      >
+                                                 {/* Left side - Available status */}
+                         <motion.div 
+                           className="flex items-center"
+                           initial={{ x: 20, opacity: 0 }}
+                           animate={{ x: 0, opacity: 1 }}
+                           transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
+                         >
+                           <motion.span 
+                             className="w-2 h-2 rounded-full mr-2 sm:mr-3 bg-green-400"
+                             animate={{ 
+                               scale: [1, 1.2, 1],
+                               boxShadow: ['0 0 0 0 rgba(34, 197, 94, 0.7)', '0 0 0 4px rgba(34, 197, 94, 0)', '0 0 0 0 rgba(34, 197, 94, 0)']
+                             }}
+                             transition={{ duration: 2, repeat: Infinity }}
+                           />
+                           <span className="text-xs sm:text-sm text-white opacity-80">Available for hire</span>
+                         </motion.div>
+                        
+                        {/* Right side - Social icons */}
+                        <div className="flex space-x-2 sm:space-x-3">
+                          <motion.a 
+                            href="https://github.com" 
+                            className="text-white opacity-80 hover:opacity-100 transition-opacity"
+                            whileHover={{ y: -2 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          >
+                            <i className="ri-github-line text-sm sm:text-base"></i>
+                          </motion.a>
+                          <motion.a 
+                            href="https://linkedin.com" 
+                            className="text-white opacity-80 hover:opacity-100 transition-opacity"
+                            whileHover={{ y: -2 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          >
+                            <i className="ri-linkedin-line text-sm sm:text-base"></i>
+                          </motion.a>
+                          <motion.a 
+                            href="https://twitter.com" 
+                            className="text-white opacity-80 hover:opacity-100 transition-opacity"
+                            whileHover={{ y: -2 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          >
+                            <i className="ri-twitter-x-line text-sm sm:text-base"></i>
+                          </motion.a>
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                                 </AnimatePresence>
+               </div>
+             </div>
+             
+
+           </motion.div>
+
+                    {/* Hover Information Panels - Outside Image Box */}
+          <AnimatePresence>
+            {(hoveredItems || clickedCard) && (
+              <>
+                {/* Desktop Layout */}
+                <div className="hidden lg:block">
+                  {/* Tech Stack - Right Top */}
+                  <motion.div 
+                    className="absolute right-[-140px] top-8 pointer-events-none z-10"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="flex items-center">
+                      <svg width="100" height="2" className="mr-2">
+                        <line x1="0" y1="1" x2="100" y2="1" stroke="white" strokeWidth="1" strokeDasharray="4,4" opacity="0.6"/>
+                      </svg>
+                      <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl max-w-sm">
+                        <p className="text-white text-xs font-semibold mb-2">My Tech Stack</p>
+                        <div className="grid grid-cols-5 gap-1.5">
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-figma-fill mr-1 text-pink-400"></i>Figma
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-cursor-line mr-1 text-blue-400"></i>Cursor
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-reactjs-line mr-1 text-blue-400"></i>React
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-angularjs-line mr-1 text-red-400"></i>Angular
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-tailwind-css-fill mr-1 text-cyan-400"></i>Tailwind
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-html5-fill mr-1 text-orange-400"></i>HTML
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-css3-fill mr-1 text-blue-500"></i>CSS
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-kanban-view mr-1 text-blue-500"></i>Jira
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-star-line mr-1 text-purple-400"></i>Gemini
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                  
+                  {/* What I'm Known For - Right Bottom */}
+                  <motion.div 
+                    className="absolute right-[-140px] top-52 pointer-events-none z-10"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
+                    <div className="flex items-center">
+                      <svg width="100" height="2" className="mr-2">
+                        <line x1="0" y1="1" x2="100" y2="1" stroke="white" strokeWidth="1" strokeDasharray="4,4" opacity="0.6"/>
+                      </svg>
+                      <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
+                        <p className="text-white text-xs font-semibold mb-2">What I'm Known For</p>
+                        <p className="text-white text-xs mb-2 opacity-90">Speed up your design process by 3x with new AI workflows</p>
+                        <div className="flex flex-wrap gap-1">
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Product Design</span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Strategy</span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Frontend UI</span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Workflows</span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">User Research</span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                  
+                  {/* Experience - Left */}
+                  <motion.div 
+                    className="absolute left-[-100px] top-24 pointer-events-none z-10"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                  >
+                    <div className="flex items-center">
+                      <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 mr-2 shadow-xl">
+                        <p className="text-white text-xs font-semibold mb-1">Experience</p>
+                        <p className="text-white text-lg font-bold">Seasoned</p>
+                        <p className="text-white text-xs opacity-80">Product Designer</p>
+                      </div>
+                      <svg width="100" height="2">
+                        <line x1="0" y1="1" x2="100" y2="1" stroke="white" strokeWidth="1" strokeDasharray="4,4" opacity="0.6"/>
+                      </svg>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Mobile Layout - Stacked below image */}
+                <div className="block lg:hidden">
+                  <motion.div 
+                    className="absolute top-full left-0 right-0 mt-4 pointer-events-none z-10"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="space-y-3">
+                                             {/* Experience */}
+                       <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
+                         <p className="text-white text-xs font-semibold mb-1">Experience</p>
+                         <p className="text-white text-lg font-bold">Seasoned</p>
+                         <p className="text-white text-xs opacity-80">Product Designer</p>
+                       </div>
+                      
+                      {/* Tech Stack */}
+                      <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
+                        <p className="text-white text-xs font-semibold mb-2">My Tech Stack</p>
+                        <div className="grid grid-cols-5 gap-1.5">
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-figma-fill mr-1 text-pink-400"></i>Figma
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-cursor-line mr-1 text-blue-400"></i>Cursor
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-reactjs-line mr-1 text-blue-400"></i>React
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-angularjs-line mr-1 text-red-400"></i>Angular
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-tailwind-css-fill mr-1 text-cyan-400"></i>Tailwind
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-html5-fill mr-1 text-orange-400"></i>HTML
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-css3-fill mr-1 text-blue-500"></i>CSS
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-kanban-view mr-1 text-blue-500"></i>Jira
+                          </span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
+                            <i className="ri-star-line mr-1 text-purple-400"></i>Gemini
+                          </span>
+                        </div>
+                      </div>
+                      
+                      {/* What I'm Known For */}
+                      <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
+                        <p className="text-white text-xs font-semibold mb-2">What I'm Known For</p>
+                        <p className="text-white text-xs mb-2 opacity-90">Speed up your design process by 3x with new AI workflows</p>
+                        <div className="flex flex-wrap gap-1">
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Product Design</span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Strategy</span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Frontend UI</span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Workflows</span>
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">User Research</span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              </>
+            )}
+          </AnimatePresence>
+
+          {/* Story text below image */}
+          <AnimatePresence>
+            {showStory && (
+              <motion.div
+                className="mt-6 sm:mt-8 relative"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+              >
+                <div 
+                  className="max-w-sm sm:max-w-md lg:max-w-lg mx-auto text-white opacity-90 text-left text-sm sm:text-base leading-relaxed"
+                >
+                  <p>{formatText(storyText)}</p>
+                </div>
+                  
+                                 <div className="mt-4 sm:mt-6 flex justify-center space-x-4 max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
+                   <motion.a 
+                     href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="text-white text-xs sm:text-sm bg-transparent border border-white border-opacity-20 rounded-full px-4 py-2 flex items-center"
+                     whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
+                     whileTap={{ scale: 0.95 }}
+                     >
+                     <i className="ri-download-line mr-2"></i>
+                     <span>See Full Resume</span>
+                   </motion.a>
+                   
+                   <motion.a 
+                     href="mailto:ajaymanath96@gmail.com"
+                     className="text-white text-xs sm:text-sm bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full px-4 py-2 flex items-center"
+                     whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
+                     whileTap={{ scale: 0.95 }}
+                     >
+                     <i className="ri-mail-line mr-2"></i>
+                     <span>Contact</span>
+                   </motion.a>
+                   </div>
+                </motion.div>
+            )}
+          </AnimatePresence>
+          
+          {/* Hover instruction */}
+          <motion.div 
+            className="mt-4 text-white opacity-70 text-xs sm:text-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <span className="mr-1">👋</span> Hover on image to see detailed information
+          </motion.div>
+        </div>
+      </motion.div>
+
+            {/* Main Content - Tab Content with proper spacing from fixed header */}
+          <motion.div 
+        className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-12 mt-6 sm:mt-12 content-container"
         animate={controls}
         initial="hidden"
       >
@@ -679,309 +924,56 @@ function App() {
         >
           <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">{getPageTitle()}</h2>
           <p className="text-base sm:text-lg text-white opacity-80">
-            {activeTab === "AI Prototype" && "Exploring the intersection of artificial intelligence and design"}
-            {activeTab === "Figma" && "Comprehensive design processes and interactive prototypes showcasing end-to-end UX workflows"}
-                          {activeTab === "Articles & Tutorials" && "Thoughts, insights and tutorials on design and product management"}
-            {activeTab === "Playground" && "Personal projects and creative experiments"}
+            {activeTab === "Projects" && "Comprehensive design processes and interactive case studies showcasing end-to-end UX workflows"}
+            {activeTab === "Articles & Tutorials" && "Thoughts, insights and tutorials on design and product management"}
           </p>
         </motion.div>
 
-        {/* AI Prototype Tab Content */}
-        <div className={`tab-content ${activeTab === "AI Prototype" ? "active" : ""}`}>
+        {/* Projects Tab Content */}
+        <div className={`tab-content ${activeTab === "Projects" ? "active" : ""}`}>
           <motion.div 
-            className="space-y-4"
+            className="space-y-8"
             variants={staggerContainer}
             initial="hidden"
-            animate={activeTab === "AI Prototype" ? "visible" : "hidden"}
+            animate={activeTab === "Projects" ? "visible" : "hidden"}
           >
-            {/* First Row: Large (700px) + Small (500px) */}
-            <div className="flex flex-col lg:flex-row gap-2 justify-center items-start">
-              {/* Card 1 - Large with 90% image height */}
-            <motion.div 
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[0].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-auto sm:h-[550px] flex flex-col`}
-                variants={fadeInUp}
-                transition={{ delay: 0 }}
-                onClick={() => handleCardClick(cardData[0].link)}
-            >
-              {/* Card Header with Badge and Date */}
-                <div className="p-2 sm:p-4 flex justify-between items-center">
-                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
-                    #{cardData[0].number}
-                  </div>
-                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
-                    <i className="ri-calendar-line mr-1"></i>
-                    {cardData[0].date}
-                  </div>
-                </div>
-                
-                {/* Card Image - 80% of remaining height */}
-                <div className="overflow-hidden hover-scale flex-grow responsive-image" style={{ height: '80%' }}>
-                  <img 
-                    src={cardData[0].image} 
-                    alt={cardData[0].title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                                  {/* Card Title and Expandable Content - 20% of remaining height */}
-                <div className="p-2 sm:p-4" style={{ height: '20%', minHeight: '70px' }}>
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{cardData[0].title}</h3>
-                  
-                  {/* Subtitle shown on hover */}
-                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[0].subtitle}</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Card 2 - Small with 65% image height */}
-              <motion.div 
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[1].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-auto sm:h-[550px] flex flex-col`}
-                variants={fadeInUp}
-                transition={{ delay: 0.1 }}
-                onClick={() => handleCardClick(cardData[1].link)}
-              >
-                {/* Card Header with Badge and Date */}
-                <div className="p-2 sm:p-4 flex justify-between items-center">
-                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
-                    #{cardData[1].number}
-                  </div>
-                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
-                    <i className="ri-calendar-line mr-1"></i>
-                    {cardData[1].date}
-                  </div>
-                </div>
-                
-                {/* Card Image - 65% of remaining height */}
-                <div className="overflow-hidden hover-scale responsive-image" style={{ height: '65%' }}>
-                  <img 
-                    src={cardData[1].image} 
-                    alt={cardData[1].title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Card Title and Expandable Content - 35% of remaining height */}
-                <div className="p-2 sm:p-4 flex-grow" style={{ height: '35%' }}>
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-1">{cardData[1].title}</h3>
-                  
-                  {/* Subtitle shown on hover */}
-                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[1].subtitle}</p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Second Row: Large (700px) + Small (500px) */}
-            <div className="flex flex-col lg:flex-row gap-2 justify-center items-start">
-              {/* Card 3 - Large with 90% image height */}
-              <motion.div 
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[2].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-auto sm:h-[550px] flex flex-col`}
-                variants={fadeInUp}
-                transition={{ delay: 0.2 }}
-                onClick={() => handleCardClick(cardData[2].link)}
-              >
-                {/* Card Header with Badge and Date */}
-                <div className="p-2 sm:p-4 flex justify-between items-center">
-                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
-                    #{cardData[2].number}
-                </div>
-                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
-                  <i className="ri-calendar-line mr-1"></i>
-                    {cardData[2].date}
-                  </div>
-                </div>
-                
-                {/* Card Image - 80% of remaining height */}
-                <div className="overflow-hidden hover-scale flex-grow responsive-image" style={{ height: '80%' }}>
-                  <img 
-                    src={cardData[2].image} 
-                    alt={cardData[2].title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Card Title and Expandable Content - 20% of remaining height */}
-                <div className="p-2 sm:p-4" style={{ height: '20%', minHeight: '70px' }}>
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{cardData[2].title}</h3>
-                  
-                  {/* Subtitle shown on hover */}
-                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[2].subtitle}</p>
-                  </div>
-                </div>
-              </motion.div>
-              
-              {/* Card 4 - Small with 65% image height */}
-              <motion.div 
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[3].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-auto sm:h-[550px] flex flex-col`}
-                variants={fadeInUp}
-                transition={{ delay: 0.3 }}
-                onClick={() => handleCardClick(cardData[3].link)}
-              >
-                {/* Card Header with Badge and Date */}
-                <div className="p-2 sm:p-4 flex justify-between items-center">
-                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
-                    #{cardData[3].number}
-                  </div>
-                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
-                    <i className="ri-calendar-line mr-1"></i>
-                    {cardData[3].date}
-                  </div>
-                </div>
-                
-                {/* Card Image - 65% of remaining height */}
-                <div className="overflow-hidden hover-scale responsive-image" style={{ height: '65%' }}>
-                  <img 
-                    src={cardData[3].image} 
-                    alt={cardData[3].title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Card Title and Expandable Content - 35% of remaining height */}
-                <div className="p-2 sm:p-4 flex-grow" style={{ height: '35%' }}>
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-1">{cardData[3].title}</h3>
-                  
-                  {/* Subtitle shown on hover */}
-                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[3].subtitle}</p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Third Row: Large (700px) + Small (500px) */}
-            <div className="flex flex-col lg:flex-row gap-2 justify-center items-start">
-              {/* Card 5 - Large with 90% image height */}
-              <motion.div 
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[4].link ? 'cursor-pointer' : ''} w-full lg:w-[700px] max-w-[700px] h-auto sm:h-[550px] flex flex-col`}
-                variants={fadeInUp}
-                transition={{ delay: 0.4 }}
-                onClick={() => handleCardClick(cardData[4].link)}
-              >
-                {/* Card Header with Badge and Date */}
-                <div className="p-2 sm:p-4 flex justify-between items-center">
-                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
-                    #{cardData[4].number}
-                </div>
-                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
-                  <i className="ri-calendar-line mr-1"></i>
-                    {cardData[4].date}
-                  </div>
-                </div>
-                
-                {/* Card Image - 80% of remaining height */}
-                <div className="overflow-hidden hover-scale flex-grow responsive-image" style={{ height: '80%' }}>
-                  <img 
-                    src={cardData[4].image} 
-                    alt={cardData[4].title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Card Title and Expandable Content - 20% of remaining height */}
-                <div className="p-2 sm:p-4" style={{ height: '20%', minHeight: '70px' }}>
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{cardData[4].title}</h3>
-                  
-                  {/* Subtitle shown on hover */}
-                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[4].subtitle}</p>
-                  </div>
-                </div>
-              </motion.div>
-              
-              {/* Card 6 - Small with 65% image height */}
-              <motion.div 
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${cardData[5].link ? 'cursor-pointer' : ''} w-full lg:w-[500px] max-w-[500px] h-auto sm:h-[550px] flex flex-col`}
-                variants={fadeInUp}
-                transition={{ delay: 0.5 }}
-                onClick={() => handleCardClick(cardData[5].link)}
-              >
-                {/* Card Header with Badge and Date */}
-                <div className="p-2 sm:p-4 flex justify-between items-center">
-                  <div className="bg-custom-dark px-2 py-1 rounded text-white text-xs sm:text-sm font-bold">
-                    #{cardData[5].number}
-                  </div>
-                  <div className="text-white opacity-80 text-xs sm:text-sm flex items-center">
-                    <i className="ri-calendar-line mr-1"></i>
-                    {cardData[5].date}
-                  </div>
-                </div>
-                
-                {/* Card Image - 65% of remaining height */}
-                <div className="overflow-hidden hover-scale responsive-image" style={{ height: '65%' }}>
-                  <img 
-                    src={cardData[5].image} 
-                    alt={cardData[5].title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Card Title and Expandable Content - 35% of remaining height */}
-                <div className="p-2 sm:p-4 flex-grow" style={{ height: '35%' }}>
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-1">{cardData[5].title}</h3>
-                  
-                  {/* Subtitle shown on hover */}
-                  <div className="hover-subtitle overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p className="text-white opacity-80 text-xs sm:text-sm">{cardData[5].subtitle}</p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Figma Tab Content */}
-        <div className={`tab-content ${activeTab === "Figma" ? "active" : ""}`}>
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8"
-            variants={staggerContainer}
-            initial="hidden"
-            animate={activeTab === "Figma" ? "visible" : "hidden"}
-          >
-            {figmaDesigns.map((design, index) => (
-              <motion.div 
+            {/* Design Process & Case Studies - Only Section */}
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+                {projectProcessCards.map((design, index) => (
+                                <motion.div 
                 key={design.id}
-                className={`bg-custom-dark rounded-lg overflow-hidden hover-card ${design.link ? 'cursor-pointer' : ''}`}
+                    className={`rounded-lg overflow-hidden hover-card ${design.link ? 'cursor-pointer' : ''}`}
                 variants={fadeInUp}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => handleCardClick(design.link)}
               >
-                {/* Design Image */}
-                <div className="overflow-hidden h-48 sm:h-64 hover-scale responsive-image">
-                  <img 
-                    src={design.image} 
-                    alt={design.title} 
-                    className="w-full h-full object-cover"
-                />
-              </div>
-              
-                {/* Design Title */}
-                <div className="p-3 sm:p-4">
-                  <h3 className="text-base sm:text-lg font-bold text-white">{design.title}</h3>
-                  <p className="text-white opacity-80 mt-1 sm:mt-2 mb-2 sm:mb-3 text-sm sm:text-base">
-                    <i className="ri-line-chart-line mr-2"></i>
-                    {design.metrics}
-                  </p>
-                  <div className="flex flex-wrap mb-2 sm:mb-3">
-                    {design.tools.map((tool, i) => (
-                      <span key={i} className="badge badge-design text-xs sm:text-sm">{tool}</span>
-                    ))}
-                  </div>
-                  <motion.div 
-                    onClick={() => handleCardClick(design.link)} 
-                    className="text-white opacity-80 mt-1 sm:mt-2 inline-flex items-center text-sm sm:text-base cursor-pointer"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    <span>{design.link.startsWith('/') ? 'View Process' : 'View in Figma'}</span>
-                    <i className={`${design.link.startsWith('/') ? 'ri-arrow-right-line' : 'ri-external-link-line'} ml-1`}></i>
+                    {/* Design Image */}
+                    <div className="overflow-hidden h-48 sm:h-64 hover-scale responsive-image">
+                      <img 
+                        src={design.image} 
+                        alt={design.title} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    
+                    {/* Design Title */}
+                    <div className="p-3 sm:p-4">
+                      <h3 className="text-base sm:text-lg font-bold text-white">{design.title}</h3>
+                      <motion.div 
+                        onClick={() => handleCardClick(design.link)} 
+                        className="text-white opacity-80 inline-flex items-center text-sm sm:text-base cursor-pointer mt-2"
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        <span>{design.link.startsWith('/') ? 'View Process' : 'View Live Project'}</span>
+                        <i className={`${design.link.startsWith('/') ? 'ri-arrow-right-line' : 'ri-external-link-line'} ml-1`}></i>
+                      </motion.div>
+                    </div>
                   </motion.div>
-                </div>
-              </motion.div>
-            ))}
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
 
@@ -1044,29 +1036,10 @@ function App() {
           ))}
           </motion.div>
         </div>
-
-        {/* Playground Tab Content (formerly Fun) */}
-        <div className={`tab-content ${activeTab === "Playground" ? "active" : ""}`}>
-          <motion.div 
-            className="flex items-center justify-center h-64"
-            variants={staggerContainer}
-            initial="hidden"
-            animate={activeTab === "Playground" ? "visible" : "hidden"}
-          >
-            <motion.div 
-              className="text-center p-8 bg-black bg-opacity-30 rounded-lg"
-              variants={fadeInUp}
-            >
-              <i className="ri-tools-line text-4xl mb-4 text-gray-400"></i>
-              <h3 className="text-2xl font-bold mb-2">Coming Soon</h3>
-              <p className="text-white opacity-80">New playground projects are currently under development.</p>
-            </motion.div>
-          </motion.div>
-        </div>
       </motion.div>
 
-      {/* Footer */}
-      <footer className="bg-custom-dark text-white py-6 sm:py-12 mt-6 sm:mt-12">
+      {/* Footer with proper spacing */}
+      <footer className="text-white py-6 sm:py-12 mt-8 sm:mt-16" style={{ backgroundColor: '#131313' }}>
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center footer-content">
             <div className="mb-4 md:mb-0">

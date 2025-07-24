@@ -154,7 +154,6 @@ i[class^="ri-"], i[class*=" ri-"] {
 .search-input:focus {
   outline: none;
   border-color: white;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
 /* Make all images square/edgy with no border radius */
