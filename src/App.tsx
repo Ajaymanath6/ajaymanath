@@ -431,7 +431,7 @@ function App() {
         {paragraph.split(/(\*\*[^*]+\*\*)/g).map((part, index) => {
           if (part.startsWith('**') && part.endsWith('**')) {
             const boldText = part.slice(2, -2);
-            return (
+  return (
               <span
                 key={index}
                 className="font-semibold"
@@ -467,14 +467,15 @@ function App() {
       <div className="fixed top-0 left-0 right-0 z-50 header-transition site-header sticky-header shadow-lg" style={{ backgroundColor: '#131313' }}>
         {/* Top Section - Always visible */}
         <div 
-          className="py-4 sm:py-6"
+          className="py-1 md:py-2 lg:py-3"
           style={{ backgroundColor: '#131313' }}
-        >
+            >
               <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 fixed-header-content">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-4 items-center">
                   {/* First Column - Animated Text with Profile Image */}
-                  <div className="text-left flex items-center">
-                    <motion.div className="p-1">
+                  <div className="text-left flex items-center justify-between">
+                    <div className="flex items-center">
+                      <motion.div className="p-1">
                       <motion.img 
                         src={faceImg} 
                         alt="Profile" 
@@ -482,53 +483,57 @@ function App() {
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.3 }}
                       />
-                    </motion.div>
-                    <div>
-                      <div className="h-6 sm:h-8">
-                        <p className="font-bold text-sm sm:text-lg text-white">
-                          Product Designer, India 🇮🇳
-                        </p>
+                      </motion.div>
+                      <div>
+                        <div className="h-6 sm:h-8">
+                          <p className="font-bold text-sm sm:text-lg text-white">
+                            Product Designer, India 🇮🇳
+                          </p>
+                        </div>
                       </div>
                     </div>
+                    
+                    {/* Mobile Hamburger Menu - moved to same line */}
+                    <motion.button
+                      className="md:hidden text-white"
+                      onClick={() => setMobileMenuOpen(true)}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <i className="ri-menu-line text-2xl"></i>
+                    </motion.button>
                   </div>
                   
                   {/* Second Column - Empty */}
                   <div className="hidden md:flex justify-center">
                   </div>
                   
-                  {/* Third Column - Contact Button */}
-                  <div className="flex justify-end">
+                  {/* Third Column - Contact Button (desktop only) */}
+                  <div className="hidden md:flex justify-end">
+                    {/* Desktop Contact Button */}
                     <motion.a 
                       href="mailto:ajaymanath96@gmail.com"
-                      className="text-white text-xs sm:text-sm bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full px-3 sm:px-4 py-2 flex items-center hover:bg-opacity-20 transition-all"
+                      className="text-white text-xs sm:text-sm bg-white bg-opacity-10 border border-white border-opacity-20 rounded-full px-3 sm:px-4 py-2 items-center hover:bg-opacity-20 transition-all flex"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <i className="ri-mail-line mr-1 sm:mr-2"></i>
                       <span>Contact</span>
                     </motion.a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-        {/* Bottom Section - Navigation always visible */}
-        <div className="py-2 sm:py-3 mb-0" style={{ backgroundColor: '#131313' }}>
+        {/* Bottom Section - Navigation hidden on mobile */}
+        <div className="hidden md:block py-0 mb-0" style={{ backgroundColor: '#131313' }}>
           <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 fixed-header-content">
                           <div className="flex flex-col md:flex-row justify-between items-center min-h-[50px] sm:min-h-[70px]">
-              {/* Left Side - Mobile Menu Button and Navigation Options */}
+              {/* Left Side - Navigation Options */}
               <div className="w-full md:w-3/4 mb-2 md:mb-0 flex items-center justify-between">
                 <div className="flex items-center">
-                  <motion.button
-                    className={`mr-3 ${isMobile ? 'block' : 'hidden'}`}
-                    onClick={() => setMobileMenuOpen(true)}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <i className="ri-menu-line text-2xl"></i>
-                  </motion.button>
                 
                   {/* Navigation Options with Icons (horizontal layout) */}
-                  <div className={`flex justify-start space-x-4 md:space-x-6 mobile-tab-navigation ${isMobile ? 'hidden' : 'flex'}`}>
+                  <div className="flex justify-start space-x-4 md:space-x-6">
                     {navOptions.map((item) => (
                       <motion.a
                         key={item.name}
@@ -558,12 +563,12 @@ function App() {
         </div>
       </div>
 
-      {/* Spacer to prevent content from being hidden under fixed header */}
-      <div className="h-[160px] sm:h-[180px]"></div>
+      {/* Spacer adjusted for new header height */}
+      <div className="h-[100px] md:h-[160px] sm:h-[180px]"></div>
 
             {/* About Section - Hero with proper margin from fixed header */}
       <motion.div 
-        className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 mt-8 sm:mt-12 content-container"
+        className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 mt-2 md:mt-8 lg:mt-12 content-container"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -573,7 +578,7 @@ function App() {
         <motion.div 
              className="relative inline-block cursor-pointer image-container group"
              whileHover={{ scale: 1.05 }}
-             onClick={handleImageClick}
+             onClick={isMobile ? undefined : handleImageClick}
              onMouseEnter={() => setHoveredItems(true)}
              onMouseLeave={() => !clickedCard && setHoveredItems(false)}
            >
@@ -607,10 +612,10 @@ function App() {
                         transition={{ delay: 0.2 }}
                       >
                         <h2 className="text-xl sm:text-2xl font-bold text-white">AJAY L MANATH</h2>
-                      </motion.div>
-                      
+        </motion.div>
+
                       {/* Gradient border below name */}
-                      <motion.div 
+          <motion.div 
                         className="my-2 sm:my-3"
                         initial={{ width: 0 }}
                         animate={{ width: '100%' }}
@@ -626,7 +631,7 @@ function App() {
                       </motion.div>
                       
                       {/* Bottom section with position and social icons */}
-                      <motion.div 
+            <motion.div 
                         className="flex justify-between items-center"
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
@@ -676,191 +681,140 @@ function App() {
                           >
                             <i className="ri-twitter-x-line text-sm sm:text-base"></i>
                           </motion.a>
-                        </div>
+                  </div>
                       </motion.div>
                     </motion.div>
                   )}
                                  </AnimatePresence>
-               </div>
-             </div>
-             
+                  </div>
+                </div>
+                
 
            </motion.div>
 
                     {/* Hover Information Panels - Outside Image Box */}
           <AnimatePresence>
-            {(hoveredItems || clickedCard) && (
+            {(hoveredItems || clickedCard) && !isMobile && (
               <>
                 {/* Desktop Layout */}
-                <div className="hidden lg:block">
+                <div className="hidden xl:block">
+                  {/* What I Can Do For Your Company - Left */}
+                  <motion.div 
+                    className="absolute left-[-10px] 2xl:left-[-15px] top-16 pointer-events-none z-10"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                  >
+                    <div className="flex items-center">
+                      <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 mr-2 shadow-xl w-72">
+                        <p className="text-white text-xs font-semibold mb-2">What I Can Do For Your Company</p>
+                        <div className="space-y-1.5">
+                          <div className="flex items-center">
+                            <span className="text-green-400 mr-2 text-xs">•</span>
+                            <span className="text-white text-xs">Ship products 3x faster with AI workflows</span>
+                          </div>
+                          <div className="flex items-center">
+                            <span className="text-green-400 mr-2 text-xs">•</span>
+                            <span className="text-white text-xs">Bridge design-dev gap (I code too)</span>
+                          </div>
+                          <div className="flex items-center">
+                            <span className="text-green-400 mr-2 text-xs">•</span>
+                            <span className="text-white text-xs">Drive metrics as founding designer</span>
+                          </div>
+                          <div className="flex items-center">
+                            <span className="text-green-400 mr-2 text-xs">•</span>
+                            <span className="text-white text-xs">Build scalable systems from day one</span>
+                          </div>
+                        </div>
+                      </div>
+                      <svg width="8" height="2">
+                        <line x1="0" y1="1" x2="8" y2="1" stroke="white" strokeWidth="1" strokeDasharray="4,4" opacity="0.6"/>
+                      </svg>
+                    </div>
+                  </motion.div>
+
                   {/* Tech Stack - Right Top */}
                   <motion.div 
-                    className="absolute right-[-140px] top-8 pointer-events-none z-10"
+                    className="absolute right-[-10px] 2xl:right-[-15px] top-8 pointer-events-none z-10"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3 }}
                   >
                     <div className="flex items-center">
-                      <svg width="100" height="2" className="mr-2">
-                        <line x1="0" y1="1" x2="100" y2="1" stroke="white" strokeWidth="1" strokeDasharray="4,4" opacity="0.6"/>
+                      <svg width="8" height="2" className="mr-2">
+                        <line x1="0" y1="1" x2="8" y2="1" stroke="white" strokeWidth="1" strokeDasharray="4,4" opacity="0.6"/>
                       </svg>
                       <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl max-w-sm">
                         <p className="text-white text-xs font-semibold mb-2">My Tech Stack</p>
-                        <div className="grid grid-cols-5 gap-1.5">
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-figma-fill mr-1 text-pink-400"></i>Figma
+                        <div className="grid grid-cols-3 gap-1.5">
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                            <i className="ri-figma-fill mr-1"></i>Figma
                           </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-cursor-line mr-1 text-blue-400"></i>Cursor
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                            <i className="ri-cursor-line mr-1"></i>Cursor
                           </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-reactjs-line mr-1 text-blue-400"></i>React
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                            <i className="ri-reactjs-line mr-1"></i>React
                           </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-angularjs-line mr-1 text-red-400"></i>Angular
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                            <i className="ri-angularjs-line mr-1"></i>Angular
                           </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-tailwind-css-fill mr-1 text-cyan-400"></i>Tailwind
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                            <i className="ri-tailwind-css-fill mr-1"></i>Tailwind
                           </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-html5-fill mr-1 text-orange-400"></i>HTML
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                            <i className="ri-html5-fill mr-1"></i>HTML
                           </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-css3-fill mr-1 text-blue-500"></i>CSS
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                            <i className="ri-css3-fill mr-1"></i>CSS
                           </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-kanban-view mr-1 text-blue-500"></i>Jira
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                            <i className="ri-kanban-view mr-1"></i>Jira
                           </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-star-line mr-1 text-purple-400"></i>Gemini
+                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                            <i className="ri-star-line mr-1"></i>Gemini
                           </span>
                         </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                  
+                  </div>
+                </div>
+              </motion.div>
+
                   {/* What I'm Known For - Right Bottom */}
-                  <motion.div 
-                    className="absolute right-[-140px] top-52 pointer-events-none z-10"
+              <motion.div 
+                    className="absolute right-[-10px] 2xl:right-[-15px] top-52 pointer-events-none z-10"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3, delay: 0.1 }}
                   >
                     <div className="flex items-center">
-                      <svg width="100" height="2" className="mr-2">
-                        <line x1="0" y1="1" x2="100" y2="1" stroke="white" strokeWidth="1" strokeDasharray="4,4" opacity="0.6"/>
+                      <svg width="8" height="2" className="mr-2">
+                        <line x1="0" y1="1" x2="8" y2="1" stroke="white" strokeWidth="1" strokeDasharray="4,4" opacity="0.6"/>
                       </svg>
                       <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
                         <p className="text-white text-xs font-semibold mb-2">What I'm Known For</p>
                         <p className="text-white text-xs mb-2 opacity-90">Speed up your design process by 3x with new AI workflows</p>
-                        <div className="flex flex-wrap gap-1">
+                        <div className="grid grid-cols-2 gap-1.5">
                           <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Product Design</span>
                           <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Strategy</span>
                           <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Frontend UI</span>
                           <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Workflows</span>
                           <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">User Research</span>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                  
-                  {/* Experience - Left */}
-                  <motion.div 
-                    className="absolute left-[-100px] top-24 pointer-events-none z-10"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.3, delay: 0.2 }}
-                  >
-                    <div className="flex items-center">
-                      <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 mr-2 shadow-xl">
-                        <p className="text-white text-xs font-semibold mb-1">Experience</p>
-                        <p className="text-white text-lg font-bold">Seasoned</p>
-                        <p className="text-white text-xs opacity-80">Product Designer</p>
-                      </div>
-                      <svg width="100" height="2">
-                        <line x1="0" y1="1" x2="100" y2="1" stroke="white" strokeWidth="1" strokeDasharray="4,4" opacity="0.6"/>
-                      </svg>
-                    </div>
-                  </motion.div>
+                  </div>
+                  </div>
                 </div>
-
-                {/* Mobile Layout - Stacked below image */}
-                <div className="block lg:hidden">
-                  <motion.div 
-                    className="absolute top-full left-0 right-0 mt-4 pointer-events-none z-10"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="space-y-3">
-                                             {/* Experience */}
-                       <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
-                         <p className="text-white text-xs font-semibold mb-1">Experience</p>
-                         <p className="text-white text-lg font-bold">Seasoned</p>
-                         <p className="text-white text-xs opacity-80">Product Designer</p>
-                       </div>
-                      
-                      {/* Tech Stack */}
-                      <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
-                        <p className="text-white text-xs font-semibold mb-2">My Tech Stack</p>
-                        <div className="grid grid-cols-5 gap-1.5">
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-figma-fill mr-1 text-pink-400"></i>Figma
-                          </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-cursor-line mr-1 text-blue-400"></i>Cursor
-                          </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-reactjs-line mr-1 text-blue-400"></i>React
-                          </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-angularjs-line mr-1 text-red-400"></i>Angular
-                          </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-tailwind-css-fill mr-1 text-cyan-400"></i>Tailwind
-                          </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-html5-fill mr-1 text-orange-400"></i>HTML
-                          </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-css3-fill mr-1 text-blue-500"></i>CSS
-                          </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-kanban-view mr-1 text-blue-500"></i>Jira
-                          </span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border border-white border-opacity-20">
-                            <i className="ri-star-line mr-1 text-purple-400"></i>Gemini
-                          </span>
-                        </div>
-                      </div>
-                      
-                      {/* What I'm Known For */}
-                      <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
-                        <p className="text-white text-xs font-semibold mb-2">What I'm Known For</p>
-                        <p className="text-white text-xs mb-2 opacity-90">Speed up your design process by 3x with new AI workflows</p>
-                        <div className="flex flex-wrap gap-1">
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Product Design</span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Strategy</span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Frontend UI</span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Workflows</span>
-                          <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">User Research</span>
-                        </div>
-                      </div>
-                    </div>
                   </motion.div>
-                </div>
+            </div>
               </>
             )}
           </AnimatePresence>
-
-          {/* Story text below image */}
+              
+                    {/* Story text below image */}
           <AnimatePresence>
             {showStory && (
-              <motion.div
+              <motion.div 
                 className="mt-6 sm:mt-8 relative"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -871,18 +825,18 @@ function App() {
                   className="max-w-sm sm:max-w-md lg:max-w-lg mx-auto text-white opacity-90 text-left text-sm sm:text-base leading-relaxed"
                 >
                   <p>{formatText(storyText)}</p>
-                </div>
-                  
+                  </div>
+                
                                  <div className="mt-4 sm:mt-6 flex justify-center space-x-4 max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
                    <motion.a 
                      href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link"
                      target="_blank"
                      rel="noopener noreferrer"
-                     className="text-white text-xs sm:text-sm bg-transparent border border-white border-opacity-20 rounded-full px-4 py-2 flex items-center"
-                     whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
+                     className="text-black text-xs sm:text-sm bg-white border border-white rounded-full px-4 py-2 flex items-center hover:bg-gray-100 transition-all"
+                     whileHover={{ scale: 1.05 }}
                      whileTap={{ scale: 0.95 }}
                      >
-                     <i className="ri-download-line mr-2"></i>
+                     <i className="ri-download-line mr-2 text-black"></i>
                      <span>See Full Resume</span>
                    </motion.a>
                    
@@ -895,14 +849,89 @@ function App() {
                      <i className="ri-mail-line mr-2"></i>
                      <span>Contact</span>
                    </motion.a>
-                   </div>
-                </motion.div>
+                  </div>
+              </motion.div>
             )}
           </AnimatePresence>
           
-          {/* Hover instruction */}
+          {/* Mobile Default Elements - Always visible below About Me content */}
+          <div className="block xl:hidden mt-8">
+            <div className="max-w-sm sm:max-w-md mx-auto space-y-3">
+              {/* What I Can Do For Your Company */}
+              <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
+                <p className="text-white text-xs font-semibold mb-2">What I Can Do For Your Company</p>
+                <div className="space-y-1.5">
+                  <div className="flex items-center">
+                    <span className="text-green-400 mr-2 text-xs">•</span>
+                    <span className="text-white text-xs">Ship products 3x faster with AI workflows</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-green-400 mr-2 text-xs">•</span>
+                    <span className="text-white text-xs">Bridge design-dev gap (I code too)</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-green-400 mr-2 text-xs">•</span>
+                    <span className="text-white text-xs">Drive metrics as founding designer</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-green-400 mr-2 text-xs">•</span>
+                    <span className="text-white text-xs">Build scalable systems from day one</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tech Stack */}
+              <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
+                <p className="text-white text-xs font-semibold mb-2">My Tech Stack</p>
+                <div className="grid grid-cols-3 gap-1.5">
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                    <i className="ri-figma-fill mr-1"></i>Figma
+                  </span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                    <i className="ri-cursor-line mr-1"></i>Cursor
+                  </span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                    <i className="ri-reactjs-line mr-1"></i>React
+                  </span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                    <i className="ri-angularjs-line mr-1"></i>Angular
+                  </span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                    <i className="ri-tailwind-css-fill mr-1"></i>Tailwind
+                  </span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                    <i className="ri-html5-fill mr-1"></i>HTML
+                  </span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                    <i className="ri-css3-fill mr-1"></i>CSS
+                  </span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                    <i className="ri-kanban-view mr-1"></i>Jira
+                  </span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                    <i className="ri-star-line mr-1"></i>Gemini
+                  </span>
+                </div>
+              </div>
+                
+              {/* What I'm Known For */}
+              <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
+                <p className="text-white text-xs font-semibold mb-2">What I'm Known For</p>
+                <p className="text-white text-xs mb-2 opacity-90">Speed up your design process by 3x with new AI workflows</p>
+                <div className="grid grid-cols-2 gap-1.5">
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Product Design</span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Strategy</span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Frontend UI</span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Workflows</span>
+                  <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">User Research</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Hover instruction - Desktop only */}
           <motion.div 
-            className="mt-4 text-white opacity-70 text-xs sm:text-sm"
+            className="mt-4 text-white opacity-70 text-xs sm:text-sm hidden xl:block"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -941,37 +970,37 @@ function App() {
             <div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                 {projectProcessCards.map((design, index) => (
-                                <motion.div 
+              <motion.div 
                 key={design.id}
                     className={`rounded-lg overflow-hidden hover-card ${design.link ? 'cursor-pointer' : ''}`}
                 variants={fadeInUp}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => handleCardClick(design.link)}
               >
-                    {/* Design Image */}
-                    <div className="overflow-hidden h-48 sm:h-64 hover-scale responsive-image">
-                      <img 
-                        src={design.image} 
-                        alt={design.title} 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    
-                    {/* Design Title */}
-                    <div className="p-3 sm:p-4">
-                      <h3 className="text-base sm:text-lg font-bold text-white">{design.title}</h3>
-                      <motion.div 
-                        onClick={() => handleCardClick(design.link)} 
+                {/* Design Image */}
+                <div className="overflow-hidden h-48 sm:h-64 hover-scale responsive-image">
+                  <img 
+                    src={design.image} 
+                    alt={design.title} 
+                    className="w-full h-full object-cover"
+                />
+              </div>
+              
+                {/* Design Title */}
+                <div className="p-3 sm:p-4">
+                  <h3 className="text-base sm:text-lg font-bold text-white">{design.title}</h3>
+                  <motion.div 
+                    onClick={() => handleCardClick(design.link)} 
                         className="text-white opacity-80 inline-flex items-center text-sm sm:text-base cursor-pointer mt-2"
-                        whileHover={{ x: 5 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      >
+                    whileHover={{ x: 5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
                         <span>{design.link.startsWith('/') ? 'View Process' : 'View Live Project'}</span>
-                        <i className={`${design.link.startsWith('/') ? 'ri-arrow-right-line' : 'ri-external-link-line'} ml-1`}></i>
-                      </motion.div>
-                    </div>
+                    <i className={`${design.link.startsWith('/') ? 'ri-arrow-right-line' : 'ri-external-link-line'} ml-1`}></i>
                   </motion.div>
-                ))}
+                </div>
+              </motion.div>
+            ))}
               </div>
             </div>
           </motion.div>
@@ -1075,6 +1104,81 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Mobile Default Hover Elements - Always visible below About Me content */}
+      <div className="block xl:hidden mt-8">
+        <div className="max-w-sm sm:max-w-md mx-auto space-y-3">
+          {/* What I Can Do For Your Company */}
+          <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
+            <p className="text-white text-xs font-semibold mb-2">What I Can Do For Your Company</p>
+            <div className="space-y-1.5">
+              <div className="flex items-center">
+                <span className="text-green-400 mr-2 text-xs">•</span>
+                <span className="text-white text-xs">Ship products 3x faster with AI workflows</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-green-400 mr-2 text-xs">•</span>
+                <span className="text-white text-xs">Bridge design-dev gap (I code too)</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-green-400 mr-2 text-xs">•</span>
+                <span className="text-white text-xs">Drive metrics as founding designer</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-green-400 mr-2 text-xs">•</span>
+                <span className="text-white text-xs">Build scalable systems from day one</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Tech Stack */}
+          <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
+            <p className="text-white text-xs font-semibold mb-2">My Tech Stack</p>
+            <div className="grid grid-cols-3 gap-1.5">
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                <i className="ri-figma-fill mr-1"></i>Figma
+              </span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                <i className="ri-cursor-line mr-1"></i>Cursor
+              </span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                <i className="ri-reactjs-line mr-1"></i>React
+              </span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                <i className="ri-angularjs-line mr-1"></i>Angular
+              </span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                <i className="ri-tailwind-css-fill mr-1"></i>Tailwind
+              </span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                <i className="ri-html5-fill mr-1"></i>HTML
+              </span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                <i className="ri-css3-fill mr-1"></i>CSS
+              </span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                <i className="ri-kanban-view mr-1"></i>Jira
+              </span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full flex items-center justify-center border-2 border-white border-opacity-20 border-dashed">
+                <i className="ri-star-line mr-1"></i>Gemini
+              </span>
+            </div>
+          </div>
+            
+          {/* What I'm Known For */}
+          <div className="bg-black bg-opacity-90 backdrop-blur-sm rounded-lg p-3 border border-white border-opacity-20 shadow-xl">
+            <p className="text-white text-xs font-semibold mb-2">What I'm Known For</p>
+            <p className="text-white text-xs mb-2 opacity-90">Speed up your design process by 3x with new AI workflows</p>
+            <div className="grid grid-cols-2 gap-1.5">
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Product Design</span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Strategy</span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">Frontend UI</span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">AI Workflows</span>
+              <span className="bg-white bg-opacity-10 text-white text-xs px-2 py-1 rounded-full border-2 border-white border-opacity-20 border-dashed">User Research</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

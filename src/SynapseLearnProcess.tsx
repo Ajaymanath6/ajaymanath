@@ -95,7 +95,7 @@ function SynapseLearnProcess() {
               <span className="badge badge-tool text-xs sm:text-sm">Research</span>
               <span className="badge badge-tool text-xs sm:text-sm">Design</span>
               <span className="badge badge-tool text-xs sm:text-sm">Cursor</span>
-              <span className="badge badge-tool text-xs sm:text-sm">Figma MCP</span>
+              <span className="badge badge-tool text-xs sm:text-sm">Figma MCP (Model Context Protocol)</span>
               <span className="badge badge-tool text-xs sm:text-sm">ChatGPT</span>
               <span className="badge badge-tool text-xs sm:text-sm">Gemini</span>
               <span className="badge badge-tool text-xs sm:text-sm">Claude 3.7</span>
@@ -510,7 +510,7 @@ function SynapseLearnProcess() {
                               <td className="py-2 opacity-80">Initial wireframes and component design</td>
                             </tr>
                             <tr className="border-b border-gray-700">
-                              <td className="py-2"><strong>Figma MCP</strong></td>
+                              <td className="py-2"><strong>Figma MCP (Model Context Protocol)</strong></td>
                               <td className="py-2 opacity-80">Component design system development</td>
                             </tr>
                             <tr>

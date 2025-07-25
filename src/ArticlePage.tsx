@@ -415,7 +415,7 @@ async function autoFixComponents(testResults) {
       },
       {
         type: "paragraph",
-        text: "What if we could give AI tools a perfect understanding of our design system's DNA? This is where our method comes in, leveraging the power of Figma MCP (Maker's Community Plugins) and Cursor to ensure perfect consistency."
+        text: "What if we could give AI tools a perfect understanding of our design system's DNA? This is where our method comes in, leveraging the power of Figma MCP (Model Context Protocol) and Cursor to ensure perfect consistency."
       },
       {
         type: "heading",
@@ -429,7 +429,7 @@ async function autoFixComponents(testResults) {
       {
         type: "list",
         items: [
-          "Use a Figma MCP that extracts design tokens and properties to JSON",
+          "Use a Figma MCP (Model Context Protocol) that extracts design tokens and properties to JSON",
           "Manually copy component properties from Figma and ask an AI like Gemini or ChatGPT to structure them as JSON"
         ]
       },
@@ -458,7 +458,7 @@ async function autoFixComponents(testResults) {
       {
         type: "heading",
         level: 3,
-        text: "Step 2: Import Components via Figma MCP to Cursor"
+        text: "Step 2: Import Components via Figma MCP (Model Context Protocol) to Cursor"
       },
       {
         type: "paragraph",
@@ -467,7 +467,7 @@ async function autoFixComponents(testResults) {
       {
         type: "list",
         items: [
-          "Use a Figma MCP to export your component as code (React, Vue, etc.)",
+          "Use a Figma MCP (Model Context Protocol) to export your component as code (React, Vue, etc.)",
           "Import this component into your Cursor editor",
           "The component will come with its visual structure, but might not perfectly match your design system yet"
         ]
@@ -551,7 +551,7 @@ async function autoFixComponents(testResults) {
         text: "Ready to try this method with your design system? Start with a simple component and see how this workflow transforms your prototyping process while maintaining the consistency your users expect."
       }
     ],
-    skills: ["AI Integration", "Design Systems", "Figma MCP"],
+    skills: ["AI Integration", "Design Systems", "Figma MCP (Model Context Protocol)"],
     relatedLinks: [
       {
         title: "Figma Community Plugins",
