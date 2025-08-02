@@ -6,6 +6,15 @@ import faceImg from './face.png';
 import fullImg from './full.jpg';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+// Import content components for modal
+import Process from './Process';
+import Experience from './Experience';
+import EnterpriseDesignSystemProcess from './EnterpriseDesignSystemProcess';
+import SahayakProcess from './SahayakProcess';
+import CyberSecurityProcess from './CyberSecurityProcess';
+import SynapseLearnProcess from './SynapseLearnProcess';
+import ModalArticleContent from './ModalArticleComponent';
+
 // Create a context for mobile detection
 type MobileContextType = {
   isMobile: boolean;
@@ -43,6 +52,86 @@ const MobileProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =
 
 // Export a separate MobileProvider for use in index.tsx
 export const MobileContextProvider = MobileProvider;
+
+
+
+// Expandable Modal Component
+const ExpandableModal = ({ isOpen, onClose, contentType, contentData }: {
+  isOpen: boolean;
+  onClose: () => void;
+  contentType: string;
+  contentData?: any;
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const { scrollTop } = e.currentTarget;
+    if (scrollTop > 50 && !isExpanded) {
+      setIsExpanded(true);
+    }
+  };
+
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  const renderContent = () => {
+    switch (contentType) {
+      case '/process':
+        return <Process />;
+      case '/experience':
+        return <Experience />;
+      case '/process/enterprise-design-system':
+        return <EnterpriseDesignSystemProcess />;
+      case '/process/sahayak':
+        return <SahayakProcess />;
+      case '/process/cybersecurity':
+        return <CyberSecurityProcess />;
+      case '/process/synapselearn':
+        return <SynapseLearnProcess />;
+      case '/article/prototyping-with-custom-design-systems':
+      case '/article/automating-design-system-testing':
+      case '/article/future-of-design-ai-interfaces':
+        return <ModalArticleContent articlePath={contentType} />;
+      default:
+        return <div className="text-white p-4">Content not found</div>;
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        className="expandable-modal"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={handleBackdropClick}
+      >
+        <motion.div
+          className={`modal-content ${isExpanded ? 'expanded' : ''}`}
+          initial={{ y: '100%' }}
+          animate={{ y: 0 }}
+          exit={{ y: '100%' }}
+          transition={{ duration: 0.4, ease: 'easeInOut' }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button className="modal-close-btn" onClick={onClose}>
+            <i className="ri-close-line"></i>
+          </button>
+          
+          <div className="modal-scroll-container" onScroll={handleScroll}>
+            {renderContent()}
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
 
 // MobileMenu component for small screens
 const MobileMenu = ({ isOpen, onClose, navOptions, activeTab, handleNavigation }: { 
@@ -174,8 +263,11 @@ function App() {
   const [showStory, setShowStory] = useState(true);
   const [hoveredItems, setHoveredItems] = useState(false);
   const [clickedCard, setClickedCard] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState('');
+  const [modalData, setModalData] = useState(null);
   const { isMobile } = useMobile(); // Use the mobile context
-  const navigate = useNavigate();
+
   const location = useLocation();
   
   // Animation controls
@@ -387,11 +479,13 @@ function App() {
   };
 
   // Click handler for links (both internal and external)
-  const handleCardClick = (link?: string | null) => {
+  const handleCardClick = (link?: string | null, data?: any) => {
     if (link) {
       if (link.startsWith('/')) {
-        // Internal navigation
-        navigate(link);
+        // Internal navigation - open in modal
+        setModalContent(link);
+        setModalData(data);
+        setModalOpen(true);
       } else {
         // External link
         window.open(link, '_blank');
@@ -399,12 +493,21 @@ function App() {
     }
   };
 
+  // Close modal handler
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setModalContent('');
+    setModalData(null);
+  };
+
   // Function to handle tab changes or navigation
   const handleNavigation = (item: any, e: React.MouseEvent) => {
     e.preventDefault();
     
     if (item.isPage) {
-      navigate(item.href);
+      // Open in modal instead of navigation
+      setModalContent(item.href);
+      setModalOpen(true);
     } else {
       handleTabChange(item.name);
     }
@@ -972,41 +1075,52 @@ function App() {
             initial="hidden"
             animate={activeTab === "Projects" ? "visible" : "hidden"}
           >
-            {/* Design Process & Case Studies - Only Section */}
+            {/* Design Process & Case Studies - Artasaka Style */}
             <div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+              <div className="artasaka-grid">
                 {projectProcessCards.map((design, index) => (
-              <motion.div 
-                key={design.id}
-                    className={`rounded-lg overflow-hidden hover-card ${design.link ? 'cursor-pointer' : ''}`}
-                variants={fadeInUp}
-                transition={{ delay: index * 0.1 }}
-                onClick={() => handleCardClick(design.link)}
-              >
-                {/* Design Image */}
-                <div className="overflow-hidden h-48 sm:h-64 hover-scale responsive-image">
-                  <img 
-                    src={design.image} 
-                    alt={design.title} 
-                    className="w-full h-full object-cover"
-                />
-              </div>
-              
-                {/* Design Title */}
-                <div className="p-3 sm:p-4">
-                  <h3 className="text-base sm:text-lg font-bold text-white">{design.title}</h3>
                   <motion.div 
-                    onClick={() => handleCardClick(design.link)} 
-                        className="text-white opacity-80 inline-flex items-center text-sm sm:text-base cursor-pointer mt-2"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    key={design.id}
+                    className={`artasaka-card ${design.link ? 'cursor-pointer' : ''}`}
+                    variants={fadeInUp}
+                    transition={{ delay: index * 0.1 }}
+                    onClick={() => handleCardClick(design.link)}
                   >
+                    {/* Project Image */}
+                    <div className="artasaka-card-image">
+                      <img 
+                        src={design.image} 
+                        alt={design.title} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    
+                    {/* Card Content */}
+                    <div className="artasaka-card-content">
+                      <h3 className="artasaka-card-title">{design.title}</h3>
+                      <p className="artasaka-card-description">{design.metrics}</p>
+                      
+                      {/* Tools/Tags */}
+                      <div className="artasaka-card-tags">
+                        {design.tools.map((tool, toolIndex) => (
+                          <span key={toolIndex} className="artasaka-tag">
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      {/* Project Link */}
+                      <motion.div 
+                        className="artasaka-card-link"
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
                         <span>{design.link.startsWith('/') ? 'View Process' : 'View Live Project'}</span>
-                    <i className={`${design.link.startsWith('/') ? 'ri-arrow-right-line' : 'ri-external-link-line'} ml-1`}></i>
+                        <i className={`${design.link.startsWith('/') ? 'ri-arrow-right-line' : 'ri-external-link-line'} ml-2`}></i>
+                      </motion.div>
+                    </div>
                   </motion.div>
-                </div>
-              </motion.div>
-            ))}
+                ))}
               </div>
             </div>
           </motion.div>
@@ -1015,33 +1129,32 @@ function App() {
         {/* Articles & Tutorials Tab Content */}
         <div className={`tab-content ${activeTab === "Articles & Tutorials" ? "active" : ""}`}>
           <motion.div 
-            className="space-y-6 sm:space-y-12"
+            className="space-y-8"
             variants={staggerContainer}
             initial="hidden"
             animate={activeTab === "Articles & Tutorials" ? "visible" : "hidden"}
           >
-            {blogPosts.map((post, index) => (
-              <motion.div 
-                key={post.id}
-                className="blog-post"
-                variants={fadeInUp}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="flex flex-col md:flex-row gap-4 sm:gap-8">
-                  {/* Blog Image */}
-                  <div className="md:w-1/3">
-                    <div className="overflow-hidden hover-scale responsive-image">
-                      <img 
-                        src={post.image} 
-                        alt={post.title} 
-                        className="w-full h-48 sm:h-64 object-cover"
-                      />
-                    </div>
+            <div className="artasaka-grid">
+              {blogPosts.map((post, index) => (
+                <motion.div 
+                  key={post.id}
+                  className={`artasaka-card ${post.type === "article" ? 'cursor-pointer' : ''}`}
+                  variants={fadeInUp}
+                  transition={{ delay: index * 0.1 }}
+                  onClick={() => post.type === "article" ? handleCardClick(post.link, post) : null}
+                >
+                  {/* Article Image */}
+                  <div className="artasaka-card-image">
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   
-                  {/* Blog Content */}
-                  <div className="md:w-2/3">
-                    <div className="flex items-center text-xs sm:text-sm text-white opacity-60 mb-1 sm:mb-2">
+                  {/* Card Content */}
+                  <div className="artasaka-card-content">
+                    <div className="flex items-center text-xs text-white opacity-60 mb-2">
                       <span>{post.date}</span>
                       <span className="mx-2">•</span>
                       <span>{post.readTime}</span>
@@ -1049,26 +1162,30 @@ function App() {
                         <span className="ml-2 bg-red-500 text-white px-2 py-0.5 rounded text-xs">VIDEO</span>
                       )}
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">{post.title}</h3>
-                    <p className="text-white opacity-80 mb-3 sm:mb-4 text-sm sm:text-base">{post.excerpt}</p>
-                    <div className="flex flex-wrap mb-3 sm:mb-4">
+                    
+                    <h3 className="artasaka-card-title">{post.title}</h3>
+                    <p className="artasaka-card-description">{post.excerpt}</p>
+                    
+                    {/* Skills/Tags */}
+                    <div className="artasaka-card-tags">
                       {post.skills.map((skill, i) => (
-                        <span key={i} className="badge badge-tool text-xs sm:text-sm">{skill}</span>
+                        <span key={i} className="artasaka-tag">{skill}</span>
                       ))}
                     </div>
-                    <motion.button 
-                      className="text-white inline-flex items-center bg-transparent border-none cursor-pointer text-sm sm:text-base"
+                    
+                    {/* Article Link */}
+                    <motion.div 
+                      className="artasaka-card-link"
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      onClick={() => post.type === "article" ? navigate(post.link) : null}
                     >
-                      <span>{post.type === "video" ? "Coming Soon" : "Read more"}</span>
-                      <i className={`${post.type === "video" ? "ri-time-line" : "ri-arrow-right-line"} ml-1`}></i>
-                    </motion.button>
+                      <span>{post.type === "video" ? "Coming Soon" : "Read Article"}</span>
+                      <i className={`${post.type === "video" ? "ri-time-line" : "ri-arrow-right-line"} ml-2`}></i>
+                    </motion.div>
                   </div>
-              </div>
-            </motion.div>
-          ))}
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </motion.div>
@@ -1110,6 +1227,14 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Expandable Modal */}
+      <ExpandableModal
+        isOpen={modalOpen}
+        onClose={handleCloseModal}
+        contentType={modalContent}
+        contentData={modalData}
+      />
     </div>
   );
 }

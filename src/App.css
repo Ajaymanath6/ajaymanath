@@ -49,6 +49,231 @@ body {
   background-color: #191919 !important;
 }
 
+/* Artasaka-inspired Project Cards */
+.artasaka-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.artasaka-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.artasaka-card-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+
+.artasaka-card-content {
+  padding: 24px;
+  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.artasaka-card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.artasaka-card-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.artasaka-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.artasaka-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.artasaka-card-link {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.artasaka-card-link:hover {
+  color: white;
+}
+
+.artasaka-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .artasaka-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 0 24px;
+  }
+  
+  .artasaka-card {
+    max-width: 500px;
+  }
+  
+  .artasaka-card-image {
+    height: 320px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .artasaka-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 0;
+  }
+  
+  .artasaka-card {
+    max-width: 620px;
+    height: 702px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .artasaka-card-image {
+    height: 380px;
+  }
+}
+
+/* Apply consistent corner radius to all cards */
+.blog-post img,
+.hover-card,
+.responsive-image img,
+.rounded-lg {
+  border-radius: 20px !important;
+}
+
+.blog-post .overflow-hidden {
+  border-radius: 20px;
+}
+
+/* Expandable Modal Styles */
+.expandable-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 70;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  background: #131313;
+  width: 100%;
+  max-width: 100vw;
+  height: 50vh;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  position: relative;
+  transition: height 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content.expanded {
+  height: 100vh;
+  border-radius: 0;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 80;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  margin: 8px 8px 0 0;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.modal-close-btn i {
+  color: white;
+  font-size: 20px;
+}
+
+.modal-scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+.modal-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-scroll-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.modal-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.modal-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
 /* Header styles */
 .site-header {
   /* margin-top removed */

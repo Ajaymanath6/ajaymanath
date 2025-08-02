@@ -7,15 +7,7 @@ import './App.css';
 function CyberSecurityProcess() {
   return (
     <div className="min-h-screen bg-custom-dark text-white flex flex-col">
-      {/* Header with back button */}
-      <div className="fixed top-4 left-4 z-50">
-        <motion.div whileHover={{ x: -5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-          <Link to="/?tab=Projects" className="text-white flex items-center bg-black bg-opacity-50 px-3 sm:px-4 py-2 rounded-lg backdrop-blur-sm text-sm sm:text-base">
-            <i className="ri-arrow-left-line mr-2"></i>
-            <span>Back to Portfolio</span>
-          </Link>
-        </motion.div>
-      </div>
+
 
       {/* Reduced spacer */}
       <div className="h-[40px]"></div>
