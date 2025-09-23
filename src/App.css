@@ -112,6 +112,7 @@ body {
   object-fit: cover;
   border-radius: 0;
   overflow: hidden;
+  position: relative;
 }
 
 .artasaka-card-content {
@@ -495,15 +496,15 @@ img {
 }
 
 .pulse-animation {
-  animation: pulse 4s infinite ease-in-out;
+  /* animation disabled */
 }
 
 .float-animation {
-  animation: float 8s infinite ease-in-out;
+  /* animation disabled */
 }
 
 .rotate-animation {
-  animation: rotate 30s infinite linear;
+  /* animation disabled */
   transform-origin: center;
 }
 
@@ -668,18 +669,24 @@ img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .process-step:hover .process-icon-container {
-  background: rgba(255, 255, 255, 0.1);
+  background: #333333;
   transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.process-icon-container i {
+  color: #ffffff;
 }
 
 .process-details {

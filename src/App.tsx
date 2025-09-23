@@ -836,13 +836,21 @@ function App() {
                 transition={{ delay: index * 0.1 }}
                 onClick={() => handleCardClick(design.link)}
               >
-                              {/* Project Image - Full Height */}
-                              <div className="artasaka-card-image-full">
+                              {/* Project Image - Full Height with Title Overlay */}
+                              <div className="artasaka-card-image-full relative group overflow-hidden">
                                 <img 
                                   src={design.image} 
                                   alt={design.title} 
-                                  className="w-full h-full object-cover"
+                                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
+                                {/* Dark overlay that appears on hover */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                
+                                {/* Title that appears on hover */}
+                                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                  <h3 className="text-white text-xl font-bold leading-tight mb-2">{design.title}</h3>
+                                  <p className="text-gray-200 text-sm">{design.metrics}</p>
+                                </div>
                               </div>
               </motion.div>
             ))}
@@ -868,13 +876,21 @@ function App() {
                 transition={{ delay: index * 0.1 }}
                   onClick={() => post.type === "article" ? handleCardClick(post.link, post) : null}
                 >
-                            {/* Article Image - Full Height */}
-                            <div className="artasaka-card-image-full">
+                            {/* Article Image - Full Height with Title Overlay */}
+                            <div className="artasaka-card-image-full relative group overflow-hidden">
                               <img 
                                 src={post.image} 
                                 alt={post.title} 
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               />
+                              {/* Dark overlay that appears on hover */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              
+                              {/* Title that appears on hover */}
+                              <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 className="text-white text-xl font-bold leading-tight mb-2">{post.title}</h3>
+                                <p className="text-gray-200 text-sm">{post.readTime} • {post.date}</p>
+                              </div>
                             </div>
             </motion.div>
           ))}
