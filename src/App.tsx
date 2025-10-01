@@ -125,6 +125,24 @@ const ExpandableModal = ({ isOpen, onClose, contentType, contentData }: {
             </div>
           </div>
         );
+      case '/process/mandal-minds':
+        return (
+          <div className="text-black p-8 bg-white">
+            <h1 className="text-3xl font-bold mb-4">Mandal Minds: AI-Driven Hiring & Personalized Placement</h1>
+            <p className="text-lg text-gray-600 mb-6">Customizable AI interviews validate skills, connecting you directly with recruiters for your dream job.</p>
+            <div className="space-y-4">
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2">Key Features</h3>
+                <ul className="text-gray-600 space-y-1">
+                  <li>• AI-powered customizable interview system</li>
+                  <li>• Real-time skill validation and assessment</li>
+                  <li>• Direct recruiter matching and connection</li>
+                  <li>• Personalized job placement recommendations</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        );
       case '/article/prototyping-with-custom-design-systems':
       case '/article/automating-design-system-testing':
       case '/article/future-of-design-ai-interfaces':
@@ -371,6 +389,14 @@ function App() {
       link: "/process/feedback-collaboration",
       metrics: "Pin contextual comments directly on live websites for crystal-clear collaboration and accelerated team workflows.",
       tools: ["Collaboration Tools", "Live Website Comments", "Team Workflows"]
+    },
+    {
+      id: 9,
+      title: "Mandal Minds: AI-Driven Hiring & Personalized Placement",
+      image: "mandal.png",
+      link: "/process/mandal-minds",
+      metrics: "Customizable AI interviews validate skills, connecting you directly with recruiters for your dream job.",
+      tools: ["AI Interviews", "Skill Validation", "Recruiter Matching"]
     },
   ];
 
@@ -928,6 +954,23 @@ function App() {
                                         src="noathumb.svg" 
                                         alt="Noa Thumbnail" 
                                         className="w-full h-auto opacity-90"
+                                      />
+                                    </div>
+                                  </div>
+                                ) : design.id === 9 ? (
+                                  /* Custom backdrop for "Mandal Minds" card */
+                                  <div 
+                                    className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
+                                    style={{
+                                      background: `linear-gradient(to bottom, #EFEFFF, #FFE1F1, #FFF6F5)`
+                                    }}
+                                  >
+                                    {/* Mandal Logo at center */}
+                                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                      <img 
+                                        src="mandal.png" 
+                                        alt="Mandal Logo" 
+                                        className="h-24 w-auto opacity-90"
                                       />
                                     </div>
                                   </div>
