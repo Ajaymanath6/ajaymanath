@@ -89,6 +89,42 @@ const ExpandableModal = ({ isOpen, onClose, contentType, contentData }: {
         return <CyberSecurityProcess />;
       case '/process/synapselearn':
         return <SynapseLearnProcess />;
+      case '/process/litigation-intelligence':
+        return (
+          <div className="text-black p-8 bg-white">
+            <h1 className="text-3xl font-bold mb-4">Unified Litigation Intelligence Platform</h1>
+            <p className="text-lg text-gray-600 mb-6">Delivering AI-powered access to 2 billion court dockets, analytics, and insights for legal innovation.</p>
+            <div className="space-y-4">
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2">Key Features</h3>
+                <ul className="text-gray-600 space-y-1">
+                  <li>• AI-powered court document analysis</li>
+                  <li>• Real-time legal analytics dashboard</li>
+                  <li>• 2 billion court dockets database access</li>
+                  <li>• Predictive case outcome modeling</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        );
+      case '/process/feedback-collaboration':
+        return (
+          <div className="text-black p-8 bg-white">
+            <h1 className="text-3xl font-bold mb-4">End Feedback Chaos</h1>
+            <p className="text-lg text-gray-600 mb-6">Pin contextual comments directly on live websites for crystal-clear collaboration and accelerated team workflows.</p>
+            <div className="space-y-4">
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2">Key Features</h3>
+                <ul className="text-gray-600 space-y-1">
+                  <li>• Visual feedback directly on live websites</li>
+                  <li>• Real-time collaborative commenting system</li>
+                  <li>• Context-aware feedback collection</li>
+                  <li>• Streamlined team workflow integration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        );
       case '/article/prototyping-with-custom-design-systems':
       case '/article/automating-design-system-testing':
       case '/article/future-of-design-ai-interfaces':
@@ -319,6 +355,22 @@ function App() {
       link: "/process/component-library",
       metrics: "Comprehensive component library with automated documentation and version control",
       tools: ["Component Architecture", "Auto Documentation", "Version Control"]
+    },
+    {
+      id: 7,
+      title: "Unified Litigation Intelligence Platform",
+      image: "unicourtthumb.png",
+      link: "/process/litigation-intelligence",
+      metrics: "Delivering AI-powered access to 2 billion court dockets, analytics, and insights for legal innovation.",
+      tools: ["AI Analytics", "Legal Tech", "Data Intelligence"]
+    },
+    {
+      id: 8,
+      title: "End Feedback Chaos",
+      image: "noathumb.png",
+      link: "/process/feedback-collaboration",
+      metrics: "Pin contextual comments directly on live websites for crystal-clear collaboration and accelerated team workflows.",
+      tools: ["Collaboration Tools", "Live Website Comments", "Team Workflows"]
     },
   ];
 
@@ -838,11 +890,54 @@ function App() {
               >
                               {/* Project Image - Full Height with Title Overlay */}
                               <div className="artasaka-card-image-full relative group overflow-hidden">
-                                <img 
-                                  src={design.image} 
-                                  alt={design.title} 
-                                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
+                                {design.id === 7 ? (
+                                  /* Custom backdrop for "Unified Litigation Intelligence Platform" card */
+                                  <div 
+                                    className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
+                                    style={{
+                                      background: `
+                                        radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 60%, rgba(134,239,172,0.4) 80%, rgba(20,107,133,0.7) 90%, #146b85 100%),
+                                        linear-gradient(135deg, #146b85, #0f5f75)
+                                      `
+                                    }}
+                                  >
+                                    {/* Unicourt SVG Logo at center */}
+                                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                      <img 
+                                        src="unicourt.svg" 
+                                        alt="Unicourt Logo" 
+                                        className="h-24 w-auto opacity-90"
+                                      />
+                                    </div>
+                                  </div>
+                                ) : design.id === 8 ? (
+                                  /* Custom backdrop for "End Feedback Chaos" card */
+                                  <div 
+                                    className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
+                                    style={{
+                                      background: `
+                                        radial-gradient(ellipse 30% 100% at 0% 50%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                                        radial-gradient(ellipse 30% 100% at 100% 50%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                                        linear-gradient(to bottom, #10b981, #059669)
+                                      `
+                                    }}
+                                  >
+                                    {/* NOA Thumb SVG scaled to card width */}
+                                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4">
+                                      <img 
+                                        src="noathumb.svg" 
+                                        alt="Noa Thumbnail" 
+                                        className="w-full h-auto opacity-90"
+                                      />
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <img 
+                                    src={design.image} 
+                                    alt={design.title} 
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                  />
+                                )}
                                 {/* Dark overlay that appears on hover */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 
