@@ -89,7 +89,7 @@ const ExpandableModal = ({
         return <EnterpriseDesignSystemProcess />;
       case "/process/litigation-intelligence":
         return (
-          <div className="text-black p-8 bg-white max-w-7xl mx-auto">
+          <div className="text-black p-0 bg-white w-full">
             {/* Project Header - Two Column Layout */}
             <motion.div
               className="mb-8 sm:mb-12"
@@ -110,46 +110,24 @@ const ExpandableModal = ({
                         <h1 className="text-3xl sm:text-4xl font-bold mb-1 text-black">
                           Unified Litigation Intelligence Platform
                         </h1>
-                        <div className="bg-gray-800 px-3 py-1 rounded text-white text-sm font-bold">
-                          2023-2024
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="bg-green-100 text-green-800 px-3 py-1 rounded text-sm font-bold">
-                        Completed
                       </div>
                     </div>
                   </div>
 
                   {/* Description */}
                   <p className="text-base text-black opacity-80 leading-relaxed mb-6">
-                    UniCourt's platform is designed for the modern legal
-                    professional, empowering them to access and leverage
-                    critical litigation data seamlessly. As the solo UX
-                    designer, I led the evolution of our legacy platform into a
-                    new, data-heavy web app that delivers AI-powered access to 2
-                    billion court dockets, analytics, and insights for legal
-                    innovation.
+                    Delivering AI-powered access to 2 billion court dockets, analytics, and insights for legal innovation.
                   </p>
-
-                  {/* Action Buttons */}
-                  <div className="flex space-x-3">
-                    <button className="flex items-center bg-black hover:bg-gray-900 transition-colors text-white text-sm px-4 py-2 rounded-lg border border-gray-700">
-                      <i className="ri-external-link-line mr-2"></i>
-                      View Case Study
-                    </button>
-                  </div>
                 </div>
 
                 {/* Right Column - Scope of Work and Stack */}
                 <div className="flex flex-col">
-                  {/* Scope of Work */}
-                  <div className="mb-8">
+                  {/* Combined Scope of Work and Stack */}
+                  <div>
                     <h3 className="text-lg font-bold text-black mb-4">
                       Scope of work
                     </h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       <span className="bg-orange-100 text-orange-800 text-sm px-3 py-1 rounded-full">
                         UX Design
                       </span>
@@ -169,12 +147,8 @@ const ExpandableModal = ({
                         User Research
                       </span>
                     </div>
-                  </div>
 
-                  {/* Stack */}
-                  <div>
                     <h3 className="text-lg font-bold text-black mb-4">Stack</h3>
-
                     {/* Stack with Badge Style */}
                     <div className="flex flex-wrap gap-3">
                       <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
@@ -223,398 +197,210 @@ const ExpandableModal = ({
               </div>
             </motion.div>
 
-            {/* Introduction */}
-            <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4">Introduction</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <div>
-                  <p className="font-semibold mb-2">Product's Core Purpose:</p>
-                  <p>
-                    UniCourt's platform is designed for the modern legal
-                    professional, empowering them to access and leverage
-                    critical litigation data seamlessly.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">Key Feature/Context:</p>
-                  <p>
-                    Every lawyer, paralegal, and researcher in the firm can tap
-                    into a vast repository of court records and analytics,
-                    ensuring a smarter, data-driven approach to every case.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">My Role and Process:</p>
-                  <p>
-                    As the solo UX designer, I led the evolution of our legacy
-                    platform into a new, data-heavy web app. By partnering with
-                    product management and engaging directly with law firm
-                    executives, I designed a user experience that unlocked the
-                    full potential of our newly enriched litigation data.
-                  </p>
-                </div>
-              </div>
-            </section>
-
             {/* Overview */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4">Overview</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <div>
-                  <p className="font-semibold mb-2">The Action/Task:</p>
-                  <p>
-                    Design a webapp that allows legal professionals to perform a
-                    unified, AI-powered search across all case data, including
-                    dockets, documents, courts, judges, and attorneys.
-                  </p>
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px] mb-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="image1.png"
+                    alt="Unified Litigation Intelligence Platform Overview"
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
                 </div>
-                <div>
-                  <p className="font-semibold mb-2">Why build a Webapp?:</p>
-                  <p>
-                    Our users are legal professionals who navigate a massive,
-                    data-rich platform. A mobile-only experience is impractical
-                    for the deep, research-heavy workflows they undertake. They
-                    need to analyze complex information, download extensive
-                    legal documents, and manage subscriptions seamlessly. A
-                    robust web application is the only environment that provides
-                    the necessary power and screen real estate to fully leverage
-                    our AI-powered search and detailed analytics, moving beyond
-                    what our API clients can access alone.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">The goal:</p>
-                  <p>
-                    Design a webapp for legal professionals to conduct
-                    comprehensive, AI-powered research across dockets,
-                    documents, and key entities like courts and attorneys. This
-                    platform should facilitate deep analysis and document
-                    management while scoping for future integrations with legal
-                    practice management software and client data warehouses.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* Thinking Process */}
-            <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4">Thinking Process</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p className="font-semibold mb-2">Things to consider:</p>
-                <p className="mb-4">
-                  Before diving into the design, it was crucial to establish a
-                  strategic foundation. The goal wasn't just to build a webapp,
-                  but to create a scalable and future-proof platform. Key
-                  Considerations:
-                </p>
-                <div className="space-y-4 ml-4">
+              </motion.div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-gray-700 leading-relaxed">
+                {/* Left Column */}
+                <div className="space-y-6">
                   <div>
-                    <p className="font-semibold mb-2">
-                      Evolve, Don't Just Rebuild:
-                    </p>
+                    <h3 className="font-semibold mb-3 text-lg">Problem</h3>
                     <p>
-                      While we are moving towards a full rebrand, the existing
-                      legacy application contains valuable, battle-tested UI
-                      patterns and component structures. The first step was to
-                      audit these successful elements and adapt them, ensuring a
-                      degree of familiarity for existing users and a more
-                      efficient development process.
+                      Legal professionals struggle with fragmented data access.<br />
+                      Research workflows are slow and inefficient. Critical case insights remain hidden across multiple platforms.
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold mb-2">
-                      Build a New, Scalable Design System:
-                    </p>
+                    <h3 className="font-semibold mb-3 text-lg">Solution</h3>
                     <p>
-                      The core of the project was to create a completely new,
-                      scalable design system from the ground up. This system
-                      would not only serve the immediate needs of the webapp but
-                      was architected to support future expansion, such as
-                      integrating billing modules or other enterprise features.
+                      AI-powered litigation intelligence platform that unifies access to 2 billion court dockets,<br />
+                      enabling comprehensive research and data-driven legal strategies.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right Column */}
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding Challenges</h3>
+                    <p>
+                      Design a webapp that allows legal professionals to perform a unified, AI-powered search across all case data, including dockets, documents, courts, judges, and attorneys.
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold mb-2">
-                      Accelerate Handoff with AI Tools:
-                    </p>
+                    <h3 className="font-semibold mb-3 text-lg">Key Objectives</h3>
                     <p>
-                      To ensure a rapid and efficient transition from design to
-                      development, I planned to leverage modern AI-powered
-                      tools. This would streamline the handoff process, reduce
-                      ambiguity, and allow the engineering team to focus on
-                      building robust functionality faster.
+                      Create a scalable design system and platform that facilitates deep analysis, document management, and future integrations with legal practice management software and client data warehouses.
                     </p>
                   </div>
                 </div>
               </div>
-            </section>
 
-            {/* The Designs */}
-            <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">The Designs</h2>
+              {/* Full Width Image */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="image1.png"
+                    alt="Unified Litigation Intelligence Platform Design"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
 
-              {/* Dashboard/Home */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">Dashboard/Home</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  The homepage was designed as a powerful global search hub,
-                  serving as the user's primary entry point into the data. A
-                  legal professional's dashboard is an essential tool for
-                  managing their research and active cases effectively. It
-                  provides a comprehensive overview of their recent activity,
-                  saved searches, and critical case alerts. The key features I
-                  focussed on for this dashboard were immediate search access,
-                  quick navigation, and at-a-glance updates.
-                </p>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image1.png"
-                      alt="Dashboard/Home Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
+              {/* Reframing the problem */}
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+                {/* Left Column - Blank */}
+                <div></div>
+                
+                {/* Right Column */}
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
+                    <p>
+                      How might we enable legal professionals to access and analyze 2 billion court dockets with AI-powered insights in a unified, efficient platform?
+                    </p>
                   </div>
-                </motion.div>
+                  
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <p>
+                      Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              {/* Case & Docket Management */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Case & Docket Management
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  I designed the case management page with a very progressive
-                  disclosure approach. I introduced tabs for the users to toggle
-                  between the case docket, documents, parties, and analytics,
-                  allowing them to take actions and find information faster.
-                </p>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image2.png"
-                      alt="Case & Docket Management Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
+              {/* Full Width Image 2 */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="image2.png"
+                    alt="Unified Litigation Intelligence Platform Design"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Reframing the problem - Repeat 2 */}
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div></div>
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
+                    <p>
+                      How might we enable legal professionals to access and analyze 2 billion court dockets with AI-powered insights in a unified, efficient platform?
+                    </p>
                   </div>
-                </motion.div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <p>
+                      Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              {/* Search & Filter States */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Search & Filter States
-                </h3>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image3.png"
-                      alt="Search & Filter States Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
+              {/* Full Width Image 3 */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="image3.png"
+                    alt="Unified Litigation Intelligence Platform Design"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Reframing the problem - Repeat 3 */}
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div></div>
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
+                    <p>
+                      How might we enable legal professionals to access and analyze 2 billion court dockets with AI-powered insights in a unified, efficient platform?
+                    </p>
                   </div>
-                </motion.div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <p>
+                      Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              {/* Filter */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">Filter</h3>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image4.png"
-                      alt="Filter Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                </motion.div>
-              </div>
+              {/* Full Width Image 4 */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="image4.png"
+                    alt="Unified Litigation Intelligence Platform Design"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
 
-              {/* Case Details Page */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Case Details Page
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  The Case Details Page provides an in-depth view of individual
-                  cases, allowing legal professionals to manage and analyze them
-                  efficiently. The page focuses on the complete docket timeline,
-                  all associated documents, party details, and AI-powered
-                  insights for the user to review.
-                </p>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image1.png"
-                      alt="Case Details Page Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
+              {/* Reframing the problem - Repeat 4 */}
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div></div>
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
+                    <p>
+                      How might we enable legal professionals to access and analyze 2 billion court dockets with AI-powered insights in a unified, efficient platform?
+                    </p>
                   </div>
-                </motion.div>
-              </div>
-
-              {/* Docket States */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">Docket States</h3>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image2.png"
-                      alt="Docket States Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <p>
+                      Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
+                    </p>
                   </div>
-                </motion.div>
-              </div>
-
-              {/* Document & Entity Management */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Document & Entity Management
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  I wanted to design an effective document and entity management
-                  system that is crucial for ensuring research accuracy and
-                  optimizing workflows. So, I wanted to show detailed profiles
-                  for dockets, documents, attorneys, and judges. Also, I wanted
-                  to suggest related entities or cases that are doing well among
-                  other researchers.
-                </p>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image3.png"
-                      alt="Document & Entity Management Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Browse Page */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Browse Page (Entity Search)
-                </h3>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image4.png"
-                      alt="Browse Page Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Product Details Page */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Product Details Page (Attorney/Judge Profile)
-                </h3>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image1.png"
-                      alt="Product Details Page Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Analytics & Insights */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Analytics & Insights
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Analytics management is a crucial feature for surfacing trends
-                  and data-driven insights effectively. I created a
-                  well-structured analytics system that ensures transparency,
-                  improves research quality, and minimizes time spent on manual
-                  analysis. I designed a centralized analytics dashboard that
-                  allows users to track and manage all case-specific data in one
-                  place.
-                </p>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image2.png"
-                      alt="Analytics & Insights Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                </motion.div>
+                </div>
               </div>
             </section>
           </div>
@@ -648,30 +434,18 @@ const ExpandableModal = ({
 
                   {/* Description */}
                   <p className="text-base text-black opacity-80 leading-relaxed mb-6">
-                    Pin contextual comments directly on live websites for
-                    crystal-clear collaboration and accelerated team workflows.
-                    A revolutionary feedback system that eliminates scattered
-                    communication and streamlines the design-to-development
-                    handoff process.
+                    Pin contextual comments directly on live websites for crystal-clear collaboration and accelerated team workflows.
                   </p>
-
-                  {/* Action Buttons */}
-                  <div className="flex space-x-3">
-                    <button className="flex items-center bg-black hover:bg-gray-900 transition-colors text-white text-sm px-4 py-2 rounded-lg border border-gray-700">
-                      <i className="ri-external-link-line mr-2"></i>
-                      View Case Study
-                    </button>
-                  </div>
                 </div>
 
                 {/* Right Column - Scope of Work and Stack */}
                 <div className="flex flex-col">
-                  {/* Scope of Work */}
-                  <div className="mb-8">
+                  {/* Combined Scope of Work and Stack */}
+                  <div>
                     <h3 className="text-lg font-bold text-black mb-4">
                       Scope of work
                     </h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       <span className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
                         UX Design
                       </span>
@@ -688,12 +462,8 @@ const ExpandableModal = ({
                         Team Workflows
                       </span>
                     </div>
-                  </div>
 
-                  {/* Stack */}
-                  <div>
                     <h3 className="text-lg font-bold text-black mb-4">Stack</h3>
-
                     {/* Stack with Badge Style */}
                     <div className="flex flex-wrap gap-3">
                       <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
@@ -732,63 +502,150 @@ const ExpandableModal = ({
               </div>
             </motion.div>
 
+            {/* Placeholder Image for Documentation */}
+            <motion.div
+              className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px] mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.01 }}
+            >
+              <div className="w-full h-full flex items-center justify-center">
+                <img
+                  src="image1.png"
+                  alt="End Feedback Chaos Documentation"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+              </div>
+            </motion.div>
+
             {/* Introduction */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4">Introduction</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
-                <div>
-                  <p className="font-semibold mb-2">Product's Core Purpose:</p>
-                  <p>
-                    End Feedback Chaos is designed to revolutionize how teams
-                    collaborate on live websites, eliminating scattered feedback
-                    across multiple tools and platforms.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">Key Feature/Context:</p>
-                  <p>
-                    Designers, developers, and stakeholders can now pin comments
-                    directly on live websites, creating context-aware feedback
-                    that accelerates the entire design-to-development workflow.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">My Role and Process:</p>
-                  <p>
-                    As the lead designer, I conceptualized and designed the
-                    entire feedback system from scratch, focusing on seamless
-                    browser integration and intuitive user experience.
-                  </p>
-                </div>
+                <p>
+                  End Feedback Chaos is a revolutionary feedback system designed to eliminate scattered communication and streamline the design-to-development handoff process. This browser extension allows teams to pin contextual comments directly on live websites, creating crystal-clear collaboration and accelerated team workflows.
+                </p>
+                <p>
+                  As the lead designer, I conceptualized and designed the entire feedback system from scratch, focusing on seamless browser integration and intuitive user experience. The system enables designers, developers, and stakeholders to collaborate in real-time with context-aware feedback that accelerates the entire workflow.
+                </p>
               </div>
             </section>
 
             {/* Overview */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4">Overview</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+              <h2 className="text-lg font-bold mb-4">Overview</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700 leading-relaxed">
                 <div>
-                  <p className="font-semibold mb-2">The Action/Task:</p>
+                  <h3 className="font-semibold mb-2 text-lg">Why build this?</h3>
                   <p>
-                    Design a browser extension that allows teams to pin
-                    contextual comments directly on live websites, replacing
-                    scattered Slack messages and email threads.
+                    Traditional feedback methods create chaos—comments in Slack, emails, and various tools lose context. Teams spend hours trying to understand what needs to be changed and where. Designers, developers, and stakeholders struggle to communicate effectively, leading to miscommunication, delays, and frustration. There's no unified system where feedback is contextual and actionable.
                   </p>
                 </div>
                 <div>
-                  <p className="font-semibold mb-2">Why build this?:</p>
+                  <h3 className="font-semibold mb-2 text-lg">The goal</h3>
                   <p>
-                    Traditional feedback methods create chaos—comments in Slack,
-                    emails, and various tools lose context. Teams spend hours
-                    trying to understand what needs to be changed and where.
+                    Create an intuitive feedback system that pins comments exactly where they matter, with real-time collaboration features that streamline the entire design workflow. Enable teams to communicate contextually, eliminate scattered feedback, and accelerate the design-to-development handoff process.
                   </p>
                 </div>
-                <div>
-                  <p className="font-semibold mb-2">The goal:</p>
-                  <p>
-                    Create an intuitive feedback system that pins comments
-                    exactly where they matter, with real-time collaboration
-                    features that streamline the entire design workflow.
+              </div>
+            </section>
+
+            {/* Thinking Process */}
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Thinking Process</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              
+              <div className="mb-8">
+                <h3 className="font-semibold mb-4 text-lg">Things to consider</h3>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Before building the browser extension, there were a few points to consider that needs to be looked up on:
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
+                {/* Card 1 - Blue Gradient */}
+                <div 
+                  className="flex flex-col rounded-[20px] p-6"
+                  style={{
+                    minWidth: '310px',
+                    maxWidth: '980px',
+                    width: '100%',
+                    background: 'linear-gradient(96.12deg, #E3F2FD 29.3%, #BBDEFB 74.68%)'
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                      <i className="ri-message-3-line text-2xl text-white"></i>
+                    </div>
+                    <h4 className="text-lg font-bold text-gray-900">Contextual Feedback</h4>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Design a system where comments are pinned directly to specific elements on live websites, ensuring feedback is always contextual and actionable without losing visual context.
+                  </p>
+                </div>
+
+                {/* Card 2 - Green Gradient */}
+                <div 
+                  className="flex flex-col rounded-[20px] p-6"
+                  style={{
+                    minWidth: '310px',
+                    maxWidth: '980px',
+                    width: '100%',
+                    background: 'linear-gradient(96.12deg, #E8F5E9 29.3%, #C8E6C9 74.68%)'
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                      <i className="ri-team-line text-2xl text-white"></i>
+                    </div>
+                    <h4 className="text-lg font-bold text-gray-900">Real-time Collaboration</h4>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Enable seamless real-time collaboration where team members can see comments instantly, respond to feedback, and track resolution status across all pinned comments.
+                  </p>
+                </div>
+
+                {/* Card 3 - Orange Gradient */}
+                <div 
+                  className="flex flex-col rounded-[20px] p-6"
+                  style={{
+                    minWidth: '310px',
+                    maxWidth: '980px',
+                    width: '100%',
+                    background: 'linear-gradient(96.12deg, #FFF3E0 29.3%, #FFE0B2 74.68%)'
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
+                      <i className="ri-file-list-3-fill text-2xl text-white"></i>
+                    </div>
+                    <h4 className="text-lg font-bold text-gray-900">Workflow Integration</h4>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Create a system that integrates seamlessly into existing design and development workflows, eliminating the need to switch between multiple tools and platforms.
+                  </p>
+                </div>
+
+                {/* Card 4 - Pink Gradient */}
+                <div 
+                  className="flex flex-col rounded-[20px] p-6"
+                  style={{
+                    minWidth: '310px',
+                    maxWidth: '980px',
+                    width: '100%',
+                    background: 'linear-gradient(96.12deg, #FCE4EC 29.3%, #F8BBD0 74.68%)'
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center">
+                      <i className="ri-dashboard-3-line text-2xl text-white"></i>
+                    </div>
+                    <h4 className="text-lg font-bold text-gray-900">Status Tracking</h4>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Build a comprehensive status tracking system that allows teams to monitor feedback resolution, assign tasks, and maintain visibility across all design iterations.
                   </p>
                 </div>
               </div>
@@ -796,18 +653,19 @@ const ExpandableModal = ({
 
             {/* The Designs */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">The Designs</h2>
+              <h2 className="text-lg font-bold mb-4">The Designs</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
 
-              {/* Dashboard/Home */}
+              {/* Design 1: Comment Interface */}
               <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Comment Interface
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  The core comment interface allows users to pin feedback
-                  directly on any element of a live website with pixel-perfect
-                  precision.
-                </p>
+                <div className="mb-14 mt-14">
+                  <h3 className="text-lg font-semibold mb-3">
+                    1. Comment Interface
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    The core comment interface allows users to pin feedback directly on any element of a live website with pixel-perfect precision. This interface enables contextual feedback that eliminates confusion and accelerates the design-to-development handoff process.
+                  </p>
+                </div>
                 <motion.div
                   className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
                   initial={{ opacity: 0, y: 30 }}
@@ -826,16 +684,16 @@ const ExpandableModal = ({
                 </motion.div>
               </div>
 
-              {/* Real-time Collaboration */}
+              {/* Design 2: Real-time Collaboration */}
               <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Real-time Collaboration
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Team members can see comments in real-time, respond to
-                  feedback instantly, and track resolution status across all
-                  pinned comments.
-                </p>
+                <div className="mb-14 mt-14">
+                  <h3 className="text-lg font-semibold mb-3">
+                    2. Real-time Collaboration
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Team members can see comments in real-time, respond to feedback instantly, and track resolution status across all pinned comments. This creates a seamless collaboration experience where everyone stays in sync.
+                  </p>
+                </div>
                 <motion.div
                   className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
                   initial={{ opacity: 0, y: 30 }}
@@ -854,11 +712,16 @@ const ExpandableModal = ({
                 </motion.div>
               </div>
 
-              {/* Workflow Management */}
+              {/* Design 3: Workflow Management */}
               <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Workflow Management
-                </h3>
+                <div className="mb-14 mt-14">
+                  <h3 className="text-lg font-semibold mb-3">
+                    3. Workflow Management
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Comprehensive workflow management system that allows teams to organize feedback, assign tasks, and track progress across all design iterations. This ensures nothing falls through the cracks.
+                  </p>
+                </div>
                 <motion.div
                   className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
                   initial={{ opacity: 0, y: 30 }}
@@ -877,11 +740,16 @@ const ExpandableModal = ({
                 </motion.div>
               </div>
 
-              {/* Status Tracking */}
+              {/* Design 4: Status Tracking Dashboard */}
               <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Status Tracking Dashboard
-                </h3>
+                <div className="mb-14 mt-14">
+                  <h3 className="text-lg font-semibold mb-3">
+                    4. Status Tracking Dashboard
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Centralized dashboard for tracking all feedback status, resolution progress, and team activity. This provides complete visibility into the feedback workflow and ensures accountability.
+                  </p>
+                </div>
                 <motion.div
                   className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
                   initial={{ opacity: 0, y: 30 }}
@@ -899,12 +767,78 @@ const ExpandableModal = ({
                   </div>
                 </motion.div>
               </div>
+
+              {/* Image Carousel */}
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold mb-3 text-center">
+                  More Screens
+                </h3>
+                <div className="relative w-full max-w-[1400px] mx-auto overflow-hidden">
+                  <div className="flex gap-4 animate-scroll" style={{ width: 'fit-content' }}>
+                    {/* Duplicate images for seamless loop */}
+                    <div className="flex-shrink-0 w-[910px] h-[400px] rounded-xl overflow-hidden">
+                      <img src="saha2.png" alt="Screen 1" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="flex-shrink-0 w-[910px] h-[400px] rounded-xl overflow-hidden">
+                      <img src="Cyber.png" alt="Screen 2" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="flex-shrink-0 w-[910px] h-[400px] rounded-xl overflow-hidden">
+                      <img src="Design System.png" alt="Screen 3" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="flex-shrink-0 w-[910px] h-[400px] rounded-xl overflow-hidden">
+                      <img src="future.png" alt="Screen 4" className="w-full h-full object-cover" />
+                    </div>
+                    {/* Duplicate for seamless loop */}
+                    <div className="flex-shrink-0 w-[910px] h-[400px] rounded-xl overflow-hidden">
+                      <img src="saha2.png" alt="Screen 1" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="flex-shrink-0 w-[910px] h-[400px] rounded-xl overflow-hidden">
+                      <img src="Cyber.png" alt="Screen 2" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="flex-shrink-0 w-[910px] h-[400px] rounded-xl overflow-hidden">
+                      <img src="Design System.png" alt="Screen 3" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="flex-shrink-0 w-[910px] h-[400px] rounded-xl overflow-hidden">
+                      <img src="future.png" alt="Screen 4" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* User Testing & Impact */}
+              <section className="mb-12">
+                <h2 className="text-lg font-bold mb-4">User Testing & Impact</h2>
+                <div className="w-full h-px bg-gray-300 mb-6"></div>
+                
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Testing the Feedback System</h3>
+                    <p>
+                      I developed a prototype and shared it with design teams to gather initial feedback on how they experience contextual feedback on live websites. The goal was to understand how teams perceive real-time collaboration and how contextual feedback compares to traditional scattered communication methods.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Key Insights</h3>
+                    <p>
+                      The feedback revealed interesting insights about how contextual feedback fundamentally changes team collaboration. Users appreciated pinning comments directly on live websites, eliminating the need to describe locations or switch between tools. They found the real-time collaboration more efficient—seeing feedback instantly and responding in context, rather than searching through Slack threads or email chains. The system reduced miscommunication and accelerated the design-to-development handoff process significantly.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Thoughts on Impact</h3>
+                    <p>
+                      This exploration suggests a fundamental shift in design collaboration—from scattered feedback across multiple tools to contextual, actionable feedback directly on live websites. The future of design collaboration lies in creating systems that eliminate context loss and enable seamless real-time communication. This represents a new paradigm where feedback is always contextual, actionable, and integrated into the workflow, making collaboration feel more natural and efficient.
+                    </p>
+                  </div>
+                </div>
+              </section>
             </section>
           </div>
         );
       case "/process/mandal-minds":
         return (
-          <div className="text-black p-8 bg-white max-w-7xl mx-auto">
+          <div className="text-black p-0 bg-white w-full">
             {/* Project Header - Two Column Layout */}
             <motion.div
               className="mb-8 sm:mb-12"
@@ -936,24 +870,16 @@ const ExpandableModal = ({
                     with recruiters. Personalized placement recommendations
                     powered by AI matching algorithms.
                   </p>
-
-                  {/* Action Buttons */}
-                  <div className="flex space-x-3">
-                    <button className="flex items-center bg-black hover:bg-gray-900 transition-colors text-white text-sm px-4 py-2 rounded-lg border border-gray-700">
-                      <i className="ri-external-link-line mr-2"></i>
-                      View Case Study
-                    </button>
-                  </div>
                 </div>
 
                 {/* Right Column - Scope of Work and Stack */}
                 <div className="flex flex-col">
-                  {/* Scope of Work */}
-                  <div className="mb-8">
+                  {/* Combined Scope of Work and Stack */}
+                  <div>
                     <h3 className="text-lg font-bold text-black mb-4">
                       Scope of work
                     </h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       <span className="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">
                         UX Design
                       </span>
@@ -970,12 +896,8 @@ const ExpandableModal = ({
                         User Research
                       </span>
                     </div>
-                  </div>
 
-                  {/* Stack */}
-                  <div>
                     <h3 className="text-lg font-bold text-black mb-4">Stack</h3>
-
                     {/* Stack with Badge Style */}
                     <div className="flex flex-wrap gap-3">
                       <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
@@ -1014,179 +936,213 @@ const ExpandableModal = ({
               </div>
             </motion.div>
 
-            {/* Introduction */}
-            <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4">Introduction</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <div>
-                  <p className="font-semibold mb-2">Product's Core Purpose:</p>
-                  <p>
-                    Mandal Minds revolutionizes the hiring process by using AI
-                    to conduct customizable interviews that accurately validate
-                    candidate skills and match them with the right
-                    opportunities.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">Key Feature/Context:</p>
-                  <p>
-                    Candidates complete AI-powered interviews tailored to their
-                    field, while recruiters receive validated skill assessments
-                    and intelligent matching recommendations.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">My Role and Process:</p>
-                  <p>
-                    As the lead designer, I designed the entire interview flow,
-                    AI assessment interface, and recruiter matching system,
-                    focusing on reducing bias and improving placement accuracy.
-                  </p>
-                </div>
-              </div>
-            </section>
-
             {/* Overview */}
             <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-4">Overview</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <div>
-                  <p className="font-semibold mb-2">The Action/Task:</p>
-                  <p>
-                    Design an AI-driven hiring platform that conducts
-                    customizable interviews, validates skills in real-time, and
-                    connects candidates with recruiters through intelligent
-                    matching.
-                  </p>
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px] mb-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="mandal.png"
+                    alt="Mandal Minds Overview"
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
                 </div>
-                <div>
-                  <p className="font-semibold mb-2">Why build this?:</p>
-                  <p>
-                    Traditional hiring processes are slow, biased, and
-                    inefficient. Candidates struggle to demonstrate their skills
-                    effectively, while recruiters waste time on unqualified
-                    applicants.
-                  </p>
+              </motion.div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-gray-700 leading-relaxed">
+                {/* Left Column */}
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Problem</h3>
+                    <p>
+                      Slow, biased hiring processes.<br />
+                      Candidates struggle to demonstrate skills. Recruiters waste time on unqualified applicants.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Solution</h3>
+                    <p>
+                      AI-powered hiring ecosystem that assesses skills, eliminates bias,<br />
+                      and connects candidates with opportunities faster.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold mb-2">The goal:</p>
-                  <p>
-                    Create a streamlined hiring ecosystem where AI accurately
-                    assesses skills, eliminates bias, and connects the right
-                    candidates with the right opportunities faster than ever
-                    before.
-                  </p>
+
+                {/* Right Column */}
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding Challenges</h3>
+                    <p>
+                      Design an AI-driven hiring platform that conducts customizable interviews, validates skills in real-time, and connects candidates with recruiters through intelligent matching.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Key Objectives</h3>
+                    <p>
+                      Build an intelligent system that reduces hiring bias, accelerates the recruitment process, and ensures better candidate-recruiter matches through AI-powered assessments and matching algorithms.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Full Width Image */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="image1.png"
+                    alt="Mandal Minds Design"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Reframing the problem */}
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+                {/* Left Column - Blank */}
+                <div></div>
+                
+                {/* Right Column */}
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
+                    <p>
+                      How might we enable automotive inventory managers to place bulk parts orders with fewer staff and in less time?
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <p>
+                      Issuing parts, estimating prices, and negotiations were manually handled by inventory managers on paper slips. As orders increased, limited inventory visibility, limited staff availability, and the manual workflow led to frequent booking errors, miscommunication, and delayed order completion.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Full Width Image 2 */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="image2.png"
+                    alt="Mandal Minds Design"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Reframing the problem - Repeat 2 */}
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div></div>
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
+                    <p>
+                      How might we enable automotive inventory managers to place bulk parts orders with fewer staff and in less time?
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <p>
+                      Issuing parts, estimating prices, and negotiations were manually handled by inventory managers on paper slips. As orders increased, limited inventory visibility, limited staff availability, and the manual workflow led to frequent booking errors, miscommunication, and delayed order completion.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Full Width Image 3 */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="image3.png"
+                    alt="Mandal Minds Design"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Reframing the problem - Repeat 3 */}
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div></div>
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
+                    <p>
+                      How might we enable automotive inventory managers to place bulk parts orders with fewer staff and in less time?
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <p>
+                      Issuing parts, estimating prices, and negotiations were manually handled by inventory managers on paper slips. As orders increased, limited inventory visibility, limited staff availability, and the manual workflow led to frequent booking errors, miscommunication, and delayed order completion.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Full Width Image 4 */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="image4.png"
+                    alt="Mandal Minds Design"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Reframing the problem - Repeat 4 */}
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div></div>
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
+                    <p>
+                      How might we enable automotive inventory managers to place bulk parts orders with fewer staff and in less time?
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <p>
+                      Issuing parts, estimating prices, and negotiations were manually handled by inventory managers on paper slips. As orders increased, limited inventory visibility, limited staff availability, and the manual workflow led to frequent booking errors, miscommunication, and delayed order completion.
+                    </p>
+                  </div>
                 </div>
               </div>
             </section>
 
-            {/* The Designs */}
-            <section className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">The Designs</h2>
-
-              {/* AI Interview Interface */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  AI Interview Interface
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Customizable AI interviews adapt to each candidate's
-                  background, asking relevant questions that validate specific
-                  skills for their target roles.
-                </p>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image1.png"
-                      alt="AI Interview Interface Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Skill Assessment */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Real-time Skill Assessment
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  AI analyzes responses in real-time, providing instant feedback
-                  and generating comprehensive skill reports that help
-                  candidates understand their strengths and areas for
-                  improvement.
-                </p>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image2.png"
-                      alt="Skill Assessment Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Recruiter Matching */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Recruiter Matching Dashboard
-                </h3>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image3.png"
-                      alt="Recruiter Matching Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Candidate Profile */}
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-3">
-                  Personalized Candidate Profiles
-                </h3>
-                <motion.div
-                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="image4.png"
-                      alt="Candidate Profile Design"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                </motion.div>
-              </div>
-            </section>
           </div>
         );
       case "/process/shop-os":
@@ -1225,7 +1181,7 @@ const ExpandableModal = ({
                   <div className="flex space-x-3">
                     <button className="flex items-center bg-black hover:bg-gray-900 transition-colors text-white text-sm px-4 py-2 rounded-lg border border-gray-700">
                       <i className="ri-external-link-line mr-2"></i>
-                      View AI prototype
+                      View Prototype
                     </button>
                   </div>
                 </div>
@@ -1657,21 +1613,21 @@ const ExpandableModal = ({
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Testing the Agentic Experience</h3>
                     <p>
-                      I developed a prototype and tested the agentic experience with users to understand how AI agents reshape interaction patterns. Through user testing, I gathered feedback on how people interact with multiple AI agents, how they perceive agent-to-agent collaboration, and how natural language interfaces change traditional UX paradigms.
+                      I developed a prototype and shared it with a few people to gather initial feedback on how they experience AI agentic interactions. The goal was to understand how people perceive agent-to-agent collaboration and how natural language interfaces compare to traditional click-and-navigate systems.
                     </p>
                   </div>
                   
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Qualitative Results</h3>
+                    <h3 className="font-semibold mb-3 text-lg">Key Insights</h3>
                     <p>
-                      Users highlighted how AI agents fundamentally change how they approach tasks—no longer needing to navigate complex interfaces, but simply expressing intent and letting agents handle the workflow. They spoke about the efficiency of agentic systems compared to traditional interfaces, where agents autonomously execute multi-step processes. The testing revealed that users are ready for a new paradigm where AI agents work in the background, collaborating to fulfill user needs without constant intervention.
+                      The feedback revealed interesting insights about how future design can evolve into more intelligent intent-based systems rather than traditional click-and-navigate systems. Users appreciated expressing their intent naturally and letting agents handle complex workflows, rather than manually navigating through multiple screens and steps. They found the agentic approach more intuitive—simply stating what they need and watching agents collaborate to fulfill the request.
                     </p>
                   </div>
 
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Thoughts on Impact</h3>
                     <p>
-                      AI and agentic experiences are reshaping UX and product design fundamentally. We're seeing new ways of interaction patterns emerge—where conversation replaces navigation, where agents collaborate autonomously, and where the interface becomes an intelligent system that understands context and intent. This represents a shift from user-driven interfaces to agent-driven experiences, where the product anticipates needs and executes tasks proactively. The future of UX lies in designing for agentic ecosystems where multiple AI agents work together seamlessly, creating experiences that feel natural, intelligent, and effortless.
+                      This exploration suggests a fundamental shift in UX design—from interfaces that require users to learn navigation patterns to intelligent systems that understand intent and context. The future of design lies in creating agentic ecosystems where multiple AI agents work together seamlessly, moving beyond click-based interactions to intent-driven experiences. This represents a new paradigm where the interface becomes an intelligent system that anticipates needs and executes tasks proactively, making interactions feel more natural and effortless.
                     </p>
                   </div>
                 </div>
