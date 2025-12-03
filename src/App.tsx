@@ -2528,7 +2528,42 @@ function App() {
                         >
                           {/* Project Image - Full Height with Title Overlay */}
                           <div className="artasaka-card-image-full relative group overflow-hidden">
-                            {design.id === 7 ? (
+                            {design.id === 1 ? (
+                              /* Custom backdrop for "Enterprise Design System" card with blue/white gradient */
+                              <div
+                                className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative flex items-center justify-center"
+                                style={{
+                                  background: `linear-gradient(135deg, #3b82f6 0%, #60a5fa 30%, #93c5fd 60%, #dbeafe 80%, #ffffff 100%)`,
+                                }}
+                              >
+                                {/* Net mesh pattern - centered and fading out */}
+                                <div 
+                                  className="absolute inset-0"
+                                  style={{
+                                    backgroundImage: `
+                                      repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255,255,255,0.15) 50px, rgba(255,255,255,0.15) 51px),
+                                      repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.15) 50px, rgba(255,255,255,0.15) 51px)
+                                    `,
+                                    backgroundSize: '100% 100%',
+                                    backgroundPosition: 'center',
+                                    maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+                                    WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+                                  }}
+                                ></div>
+                                
+                                {/* Grid text in the middle with icons on both sides */}
+                                <div className="flex items-center justify-center gap-6 relative z-10">
+                                  {/* Left icon - Foundations */}
+                                  <i className="ri-layout-grid-fill text-5xl text-black"></i>
+                                  {/* Grid text */}
+                                  <h2 className="text-6xl font-bold text-black">
+                                    Grid
+                                  </h2>
+                                  {/* Right icon - Components */}
+                                  <i className="ri-stack-fill text-5xl text-black"></i>
+                                </div>
+                              </div>
+                            ) : design.id === 7 ? (
                               /* Custom backdrop for "Unified Litigation Intelligence Platform" card */
                               <div
                                 className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
