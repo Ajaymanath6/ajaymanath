@@ -518,18 +518,36 @@ function EnterpriseDesignSystemProcess() {
                 <span className="text-black">Workflows</span>
               </h2>
               {/* Figma → Cursor → Dev pipeline badges */}
-              <div className="mt-4 flex items-center gap-3 text-xs font-medium text-black/70">
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100">
-                  <i className="ri-figma-fill text-sm"></i>
-                  Figma
+              <div className="mt-4 flex items-center gap-2 text-xs font-medium text-black/70">
+                {/* Figma Badge */}
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200">
+                  <img 
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAA51BMVEUwMzwvMjovMjsmMToXMT1MNjh8OzSCSUlSPEHDRyf5Txz0Tg7/cmLNYVcfMTyqQyvyTh7xSxWxWFEJLDcuMTnKSCXXZVpTNTbzSwD/cmAzLx+tRkvdUXvSWUfRcG7QipqpZms9JyYuMDgsLTSDTs6iWf+nW/8AJAUAl8wAwP8tLzcmLil2SLWkVf8PhaYavP4jhrIvJikfLBupUP8AuO8vHhsGncktLjZCNVwaRkYqSFwrLDM2IEBwWbWDguAkHhAsLjYsLTUsJjITp20A1HsuEy0uIjIbk2UE2IgKz4MoS0ErLDQqODnoj8cFAAABZklEQVR4AaTMVQLCMBAE0N1JoO6O0/sfkqnLLy+eFfmHThvMDHytQ6AK2MuVHHIt3wpABRPj+RSEg8hgMgfjxE8pY4jyGKQqOrIpzUEqlOYgtPDPQXAISEtb7dvWFigBSDmAaVI/CII2DLuuC11TlgyXUk7M7f6g+vl6f76mL8ueQ/pR+atrLJAchmEA6Jn+pGpAPggzM7j/f89JOqZNTLsBuFmE7biI6IJ+tW/x4dHm+PSMnuehH3yLoSVEsSck71Ff6Q7t14jSkKLmqIWHmy0xRW5uoK9sJWYacvohUXiI6JUVW4kZXbqqm5boLr7rXyp2faZVRmuWDeM0M0sVBEHVa25ZpnomW7f9IPalz+jEilcF/UDbhRNHPsmAoQc1wEAs+1skNwD0IPYtrpPEaR2+oqgBwHgeO13nCAOw4QsoGgNc79u03UcAQ5qNIa+MQPt1XY2pzFdUZaqKHU9fN3yr6l9M9QI6YW0Sw7c5lAAAAABJRU5ErkJggg==" 
+                    alt="Figma" 
+                    className="w-4 h-4"
+                  />
+                  <span>Figma</span>
                 </span>
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100">
-                  <i className="ri-terminal-box-line text-sm"></i>
-                  Cursor
+                {/* Arrow */}
+                <i className="ri-arrow-right-line text-base text-black/50"></i>
+                {/* Cursor Badge */}
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200">
+                  <img 
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAb1BMVEUUEgsNCgAJBgAkIh1QT0o9OzYfHRgODAAYFg9FRD1ZWFNDQTw7OTRVVE8uLCVKSUQsKiMyMCobGRO8u7r09PTo6Ofh4N+BgX7///+hoJ3W1dLc29hoZ2PIx8R1dHCzsq5gX1tycW1tbGiXlpMAAABPX0V9AAAA0ElEQVR4Ab3RRYLEIAAAQYgnaNyDLP//4khcjzt9LRzwiyB8JMt2XO+e/SCMIoQwuDKEOCKEoE/0rBYlXyNozD6wh1g4xum3mCebQZRm+b4C+xsyVmbVVlFTuEPioHqhvGlcfEBCmJPO1Jb4hJ/Crsjapmn6GJ1x7Gtt595gN3Ttx0SMLiiVUiNK94yRHiZshdbsgM5IIzZaqaFDPljj3YLt34gc7DJ4Xrbv1KCwOf2mYcOguqJUAzM+OGcl0aBTHSUWuMvQTnEDHoLGQPD/vQEqLRggRsFNbQAAAABJRU5ErkJggg==" 
+                    alt="Cursor" 
+                    className="w-4 h-4"
+                  />
+                  <span>Cursor</span>
                 </span>
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100">
-                  <i className="ri-git-branch-line text-sm"></i>
-                  Dev
+                {/* Arrow */}
+                <i className="ri-arrow-right-line text-base text-black/50"></i>
+                {/* Dev Badge */}
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                  </svg>
+                  <span>Dev</span>
                 </span>
               </div>
             </div>
@@ -541,9 +559,6 @@ function EnterpriseDesignSystemProcess() {
               </p>
               <p className="text-[16px] leading-relaxed">
                 I wrote a script that scanned every page, found instances of components like buttons, and matched them against the JSON spec. The script counted how many variants existed, which styles were missing, and produced a clear report for developers to act on.
-              </p>
-              <p className="text-[16px] leading-relaxed">
-                For prototyping, we used the same system to generate interactive flows with our actual tech stack and version control. Developers could open a live, hosted prototype, click through real states, and implement with far fewer questions—the design–dev handoff felt almost 100% aligned.
               </p>
             </div>
 
@@ -605,6 +620,50 @@ function EnterpriseDesignSystemProcess() {
             </video>
           </motion.div>
 
+          {/* AI Prototyping Section */}
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 py-[120px]"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Grid 1: Title */}
+            <div className="text-black">
+              <h2 className="text-[34px] font-bold leading-tight">
+                <span style={{ color: '#005C87' }}>AI Prototyping</span>
+              </h2>
+            </div>
+
+            {/* Grid 2: Story Content */}
+            <div className="space-y-4 text-black max-w-2xl">
+              <p className="text-[16px] leading-relaxed">
+                For prototyping, we used the same system to generate interactive flows with our actual tech stack and version control. Developers could open a live, hosted prototype, click through real states, and implement with far fewer questions—the design–dev handoff felt almost 100% aligned.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Video Placeholder - AI Prototype */}
+          <motion.div
+            className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden mb-10"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <video
+              className="w-full h-auto rounded-2xl"
+              controls
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src="/AI Prototype.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
+
           {/* Conversation Bubbles Row - Both Designer and Developer */}
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 py-[60px] px-[120px] relative"
@@ -655,7 +714,7 @@ function EnterpriseDesignSystemProcess() {
             {/* Right: Developer Image with Conversation Bubble - Responding */}
             <div className="relative flex flex-col items-start">
               <img
-                src="developer.png"
+                src="devloper1.png"
                 alt="Developer"
                 className="w-24 h-24 rounded-lg object-cover relative z-0"
               />
