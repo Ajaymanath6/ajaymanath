@@ -1,11 +1,22 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { motion, Variants } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import 'remixicon/fonts/remixicon.css';
 import './App.css';
 import faceImg from './face.png';
 
 function EnterpriseDesignSystemProcess() {
+  const navigate = useNavigate();
+
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const handleCardClick = (link: string) => {
+    navigate(link);
+  };
+
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
       {/* Main content */}
@@ -574,7 +585,7 @@ function EnterpriseDesignSystemProcess() {
               </span>
               {/* Floating conversation overlay with arrow - appears on scroll, positioned to the left of image */}
               <motion.div
-                className="absolute right-28 top-1/2 transform -translate-y-1/2 z-10"
+                className="absolute right-28 top-0 z-10"
                 initial={{ opacity: 0, scale: 0.8, x: -20 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -591,7 +602,7 @@ function EnterpriseDesignSystemProcess() {
                     "I used Cursor to convert our Figma components into JSON specs. Then I wrote a script that scans pages and matches components against those specs, generating reports on what's missing or off."
                   </p>
                   {/* Arrow pointing right to my avatar */}
-                  <div className="absolute right-0 top-1/2 transform translate-x-full -translate-y-1/2">
+                  <div className="absolute right-0 top-4 transform translate-x-full">
                     <div 
                       className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px]"
                       style={{ borderLeftColor: '#f8f8f8' }}
@@ -745,6 +756,249 @@ function EnterpriseDesignSystemProcess() {
                       className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[8px]"
                       style={{ borderRightColor: "#f3f4f6" }}
                     ></div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Reflection Section */}
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 py-[120px]"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Grid 1: Title */}
+            <div className="text-black">
+              <h2 className="text-[34px] font-bold leading-tight" style={{ color: '#22c55e' }}>
+                Reflection
+              </h2>
+            </div>
+
+            {/* Grid 2: Reflection Content */}
+            <div className="space-y-4 text-black max-w-2xl">
+              <p className="text-[16px] leading-relaxed">
+                Building the design system for Courtbook taught me something fundamental: Design systems aren&apos;t built to limit creativity—they exist to protect it. When designers and developers share the same language, when components are documented and accessible, when drift is caught automatically, creativity can focus on solving real problems instead of reinventing buttons.
+              </p>
+              <p className="text-[16px] leading-relaxed">
+                The system became a bridge between design and engineering, a way to scale consistency across two product lines, and proof that thoughtful process can make teams more efficient, not less creative. The real win wasn&apos;t the design system itself—it was watching teams build faster, with more confidence, and with fewer questions.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* All Projects Section */}
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-10 py-[120px] border-t border-gray-200"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Grid 1: Title */}
+            <div className="text-black">
+              <h2 className="text-[34px] font-bold leading-tight">
+                All Projects
+              </h2>
+            </div>
+
+            {/* Grid 2: Project Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Unified Litigation Intelligence Platform */}
+              <motion.div
+                className="artasaka-card cursor-pointer"
+                style={{ height: "50vh" }}
+                variants={fadeInUp}
+                transition={{ delay: 0 }}
+                onClick={() => handleCardClick("/process/litigation-intelligence")}
+              >
+                <div className="artasaka-card-image-full relative group overflow-hidden">
+                  {/* Custom backdrop for "Unified Litigation Intelligence Platform" card */}
+                  <div
+                    className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
+                    style={{
+                      background: `
+                        radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 60%, rgba(134,239,172,0.4) 80%, rgba(20,107,133,0.7) 90%, #146b85 100%),
+                        linear-gradient(135deg, #146b85, #0f5f75)
+                      `,
+                    }}
+                  >
+                    {/* Unicourt SVG Logo at center */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <img
+                        src="unicourt.svg"
+                        alt="Unicourt Logo"
+                        className="h-24 w-auto opacity-90"
+                      />
+                    </div>
+                  </div>
+                  {/* Dark overlay that appears on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Title that appears on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-white text-xl font-bold leading-tight mb-2">
+                      Unified Litigation Intelligence Platform
+                    </h3>
+                    <p className="text-gray-200 text-sm">
+                      Delivering AI-powered access to 2 billion court dockets, analytics, and insights for legal innovation.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* End Feedback Chaos */}
+              <motion.div
+                className="artasaka-card cursor-pointer"
+                style={{ height: "50vh" }}
+                variants={fadeInUp}
+                transition={{ delay: 0.1 }}
+                onClick={() => handleCardClick("/process/feedback-collaboration")}
+              >
+                <div className="artasaka-card-image-full relative group overflow-hidden">
+                  {/* Aurora gradient backdrop for "End Feedback Chaos" card */}
+                  <div
+                    className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative overflow-hidden"
+                    style={{
+                      backgroundColor: "#fafafa",
+                    }}
+                  >
+                    {/* Blue aurora blob - top left */}
+                    <div
+                      className="absolute"
+                      style={{
+                        top: "-10%",
+                        left: "-10%",
+                        width: "500px",
+                        height: "500px",
+                        background:
+                          "radial-gradient(circle at center, rgba(147, 197, 253, 0.3) 0%, transparent 70%)",
+                        filter: "blur(120px)",
+                        opacity: 0.8,
+                      }}
+                    ></div>
+
+                    {/* Green aurora blob - top center behind logo */}
+                    <div
+                      className="absolute"
+                      style={{
+                        top: "-10%",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: "700px",
+                        height: "700px",
+                        background:
+                          "radial-gradient(circle at center, #10b981 0%, transparent 70%)",
+                        filter: "blur(120px)",
+                        opacity: 0.8,
+                      }}
+                    ></div>
+
+                    {/* NOA Thumb SVG scaled to card width */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 z-10">
+                      <img
+                        src="noathumb.svg"
+                        alt="Noa Thumbnail"
+                        className="w-full h-auto opacity-90"
+                      />
+                    </div>
+                  </div>
+                  {/* Dark overlay that appears on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Title that appears on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-white text-xl font-bold leading-tight mb-2">
+                      End Feedback Chaos
+                    </h3>
+                    <p className="text-gray-200 text-sm">
+                      Pin contextual comments directly on live websites for crystal-clear collaboration and accelerated team workflows.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Mandal Minds */}
+              <motion.div
+                className="artasaka-card cursor-pointer"
+                style={{ height: "50vh" }}
+                variants={fadeInUp}
+                transition={{ delay: 0.2 }}
+                onClick={() => handleCardClick("/process/mandal-minds")}
+              >
+                <div className="artasaka-card-image-full relative group overflow-hidden">
+                  {/* Custom backdrop for "Mandal Minds" card */}
+                  <div
+                    className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
+                    style={{
+                      background: `linear-gradient(to bottom, #EFEFFF, #FFE1F1, #FFF6F5)`,
+                    }}
+                  >
+                    {/* Mandal Logo at center */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <img
+                        src="mandal.png"
+                        alt="Mandal Logo"
+                        className="h-24 w-auto opacity-90"
+                      />
+                    </div>
+                  </div>
+                  {/* Dark overlay that appears on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Title that appears on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-white text-xl font-bold leading-tight mb-2">
+                      Mandal Minds: AI-Driven Hiring & Personalized Placement
+                    </h3>
+                    <p className="text-gray-200 text-sm">
+                      Customizable AI interviews validate skills, connecting you directly with recruiters for your dream job.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Shop OS */}
+              <motion.div
+                className="artasaka-card cursor-pointer"
+                style={{ height: "50vh" }}
+                variants={fadeInUp}
+                transition={{ delay: 0.3 }}
+                onClick={() => handleCardClick("/process/shop-os")}
+              >
+                <div className="artasaka-card-image-full relative group overflow-hidden">
+                  {/* Custom backdrop for "Shop OS" card with light green gradient */}
+                  <div
+                    className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
+                    style={{
+                      background: `linear-gradient(135deg, #FFFEF0 0%, #F1F8E9 30%, #E8F5E9 60%, #C8E6C9 80%, #A5D6A7 100%)`,
+                    }}
+                  >
+                    {/* Shop OS Logo and Text at center */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                      <div className="flex items-center justify-center gap-2 mb-3">
+                        <span className="text-6xl font-bold text-black leading-none">
+                          Shop
+                        </span>
+                        <div className="relative inline-flex items-center justify-center">
+                          <span className="text-6xl font-bold text-black leading-none">
+                            OS
+                          </span>
+                        </div>
+                      </div>
+                      <p className="text-base text-black opacity-70 font-medium">
+                        Welcome to Shop OS
+                      </p>
+                    </div>
+                  </div>
+                  {/* Dark overlay that appears on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Title that appears on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-white text-xl font-bold leading-tight mb-2">
+                      Shop OS: AI Agentic Native Ecosystem for Multi-Agent Workspace
+                    </h3>
+                    <p className="text-gray-200 text-sm">
+                      Intelligent OS ecosystem for agentic workflows everything related to shopping.
+                    </p>
                   </div>
                 </div>
               </motion.div>
