@@ -804,7 +804,7 @@ function EnterpriseDesignSystemProcess() {
             </div>
 
             {/* Grid 2: Project Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               {/* Unified Litigation Intelligence Platform */}
               <motion.div
                 className="artasaka-card cursor-pointer"
