@@ -36,26 +36,26 @@ function EnterpriseDesignSystemProcess() {
                 <h1 className="text-3xl sm:text-4xl font-bold text-black">
                   A Unified Design Language for Artemis
                 </h1>
-              </div>
+                    </div>
 
               {/* Right Column - Role and Timeline */}
               <div className="flex flex-col items-start lg:items-end">
                 <div className="flex flex-row gap-8">
-                  <div>
+                    <div>
                     <h3 className="text-sm font-semibold text-black opacity-60 mb-1">
                       Role
                     </h3>
                     <p className="text-base text-black">Lead Product designer</p>
-                  </div>
+              </div>
                   <div>
                     <h3 className="text-sm font-semibold text-black opacity-60 mb-1">
                       Timeline
                     </h3>
                     <p className="text-base text-black">2 Months</p>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
+                    </div>
+                  </div>
           </motion.div>
 
           {/* Typography Image with Blue/White Gradient Background */}
@@ -96,7 +96,7 @@ function EnterpriseDesignSystemProcess() {
                   minHeight: 'calc(100% - 80px)',
                 }}
               />
-            </div>
+              </div>
           </motion.div>
 
           {/* Intro Narrative + Character Conversation - 3 Grid Layout with Floating Conversation */}
@@ -110,10 +110,10 @@ function EnterpriseDesignSystemProcess() {
             {/* Grid 1: Title */}
             <div className="text-black">
               <h2 className="text-[34px] font-bold leading-tight">
-                Rebuilding a <span style={{ color: '#005C87' }}>Design Language</span>, Reuniting Teams
+                Rebuilding a <span style={{ color: '#2F55D9' }}>Design Language</span>, Reuniting Teams
               </h2>
             </div>
-
+            
             {/* Grid 2: Content */}
             <div className="space-y-4 text-black">
               <p className="text-base leading-relaxed">
@@ -134,8 +134,8 @@ function EnterpriseDesignSystemProcess() {
               <span className="mt-2 text-xs font-medium text-black/70">
                 Product Manager
               </span>
-            </div>
-
+              </div>
+              
             {/* Floating conversation overlay with arrow - appears on scroll, doesn't take grid space */}
             <motion.div
               className="absolute right-28 top-1/2 transform -translate-y-1/2 z-10"
@@ -160,47 +160,25 @@ function EnterpriseDesignSystemProcess() {
                     className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px]"
                     style={{ borderLeftColor: '#f8f8f8' }}
                   ></div>
-                </div>
               </div>
+            </div>
             </motion.div>
           </motion.div>
 
-          {/* Two Placeholder Images Grid */}
+          {/* Duplicate Design System Final Visual - Below Rebuilding a Design Language */}
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10"
+            className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden mt-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.01 }}
           >
-            <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.01 }}
-            >
-              <img
-                src="image2.png"
-                alt="Design System Visual 1"
-                className="w-full h-full object-cover rounded-2xl"
-              />
-            </motion.div>
-            <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              whileHover={{ scale: 1.01 }}
-            >
-              <img
-                src="image3.png"
-                alt="Design System Visual 2"
-                className="w-full h-full object-cover rounded-2xl"
-              />
-            </motion.div>
+            <img
+              src="show1.png"
+              alt="Design System Final Visual"
+              className="w-full h-auto object-contain rounded-2xl"
+            />
           </motion.div>
 
           {/* The Foundation Section */}
@@ -212,7 +190,7 @@ function EnterpriseDesignSystemProcess() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-[34px] font-bold text-black">
-              The <span style={{ color: '#005C87' }}>Foundation</span>
+              The <span style={{ color: '#2F55D9' }}>Foundation</span>
             </h2>
             <div className="space-y-6 text-black max-w-2xl">
               <p className="text-[16px] leading-relaxed">
@@ -221,11 +199,11 @@ function EnterpriseDesignSystemProcess() {
               <p className="text-[16px] leading-relaxed">
                 The only way forward was clear: build a system that could sync design and development in one unified flow.
               </p>
-            </div>
-          </motion.div>
+                </div>
+              </motion.div>
 
           {/* Two Placeholder Images Grid - Second Set */}
-          <motion.div
+              <motion.div 
             className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -233,47 +211,47 @@ function EnterpriseDesignSystemProcess() {
             transition={{ duration: 0.6 }}
           >
             <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.01 }}
+                whileHover={{ scale: 1.01 }}
             >
               <img
-                src="image4.png"
+                src="show1.png"
                 alt="Design System Visual 3"
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-auto object-contain rounded-2xl"
               />
-            </motion.div>
-            <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+              </motion.div>
+              <motion.div 
+              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              whileHover={{ scale: 1.01 }}
+                whileHover={{ scale: 1.01 }}
             >
               <img
-                src="image5.png"
+                src="show1.png"
                 alt="Design System Visual 4"
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-auto object-contain rounded-2xl"
               />
-            </motion.div>
+              </motion.div>
           </motion.div>
-
+            
           {/* Finding the Identity Section - 3 Grid Layout */}
-          <motion.div
+                    <motion.div 
             className="grid grid-cols-1 lg:grid-cols-3 gap-10 py-[120px] relative"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                    >
             {/* Grid 1: Title */}
             <div className="text-black">
               <h2 className="text-[34px] font-bold leading-tight">
-                Finding the Identity
+                Finding the <span style={{ color: '#2F55D9' }}>Identity</span>
               </h2>
             </div>
 
@@ -321,10 +299,10 @@ function EnterpriseDesignSystemProcess() {
                       className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px]"
                       style={{ borderLeftColor: '#f8f8f8' }}
                     ></div>
-                  </div>
-                </div>
+                            </div>
+                            </div>
               </motion.div>
-            </div>
+                          </div>
           </motion.div>
 
           {/* Redefining the look Section */}
@@ -336,118 +314,123 @@ function EnterpriseDesignSystemProcess() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-[34px] font-bold text-black">
-              <span style={{ color: '#005C87' }}>Redefining</span> the look
+              <span style={{ color: '#2F55D9' }}>Redefining</span> the look
             </h2>
-            <div className="space-y-6 text-black max-w-2xl">
+            <div className="space-y-10 text-black max-w-2xl">
               {/* Typography */}
               <div>
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100">
-                    <i className="ri-font-size text-lg text-[#005C87]"></i>
+                    <i className="ri-font-size text-lg text-[#2F55D9]"></i>
                   </span>
                   Typography
                 </h3>
                 <p className="text-[16px] leading-relaxed">
-                  We chose Open Sans as our primary typeface for its clarity and readability. It brings order to data-heavy screens and makes every label feel intentional, not default.
-                </p>
-              </div>
-
+                  We chose Lora for headings and IBM Plex for body text. Lora brings elegance and readability to our headings, while IBM Plex provides clarity and consistency for data-heavy screens, making every label feel intentional, not default.
+                          </p>
+                        </div>
+                        
               {/* Color System */}
               <div>
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100">
-                    <i className="ri-palette-line text-lg text-[#005C87]"></i>
+                    <i className="ri-palette-line text-lg text-[#2F55D9]"></i>
                   </span>
                   Color System
                 </h3>
                 <p className="text-[16px] leading-relaxed">
                   The color system was derived from our primary blue, expanded into a monochromatic scale for hierarchy and depth. This kept the interface cohesive while giving us enough range for states, emphasis, and data visualization.
                 </p>
-              </div>
-
+                        </div>
+                        
               {/* Iconography */}
               <div>
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100">
-                    <i className="ri-shapes-line text-lg text-[#005C87]"></i>
+                    <i className="ri-shapes-line text-lg text-[#2F55D9]"></i>
                   </span>
                   Iconography
                 </h3>
                 <p className="text-[16px] leading-relaxed">
                   We adopted Google Symbols and icon sets for consistency with familiar patterns and strong accessibility support. With these choices, the visual system feels modern, focused, and scalable across all surfaces.
                 </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Four Placeholder Images Grid - 2x2 Below Redefining */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                        </div>
+                      </div>
+                    </motion.div>
+                  
+          {/* Duplicate Design System Visual 8 - Below Redefining the look */}
+          <div className="mt-10 space-y-10">
+            {/* First Row - 2 Columns */}
+                  <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 gap-10"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.01 }}
             >
-              <img
-                src="saha2.png"
-                alt="Design System Visual 5"
-                className="w-full h-full object-cover rounded-2xl"
-              />
+              <motion.div
+                className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    whileHover={{ scale: 1.01 }}
+                  >
+                <img
+                  src="show8.png"
+                  alt="Design System Visual 8"
+                  className="w-full h-auto object-contain rounded-2xl"
+                />
+                  </motion.div>
+              <motion.div
+                className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <img
+                  src="show9.png"
+                  alt="Design System Visual 8"
+                  className="w-full h-auto object-contain rounded-2xl"
+                />
+              </motion.div>
             </motion.div>
+
+            {/* Second Row - 1 Column */}
             <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              whileHover={{ scale: 1.01 }}
-            >
-              <img
-                src="Cyber.png"
-                alt="Design System Visual 6"
-                className="w-full h-full object-cover rounded-2xl"
-              />
-            </motion.div>
-            <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+              className="grid grid-cols-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ scale: 1.01 }}
             >
-              <img
-                src="Design System.png"
-                alt="Design System Visual 7"
-                className="w-full h-full object-cover rounded-2xl"
-              />
+              <motion.div
+                className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img
+                  src="Icons.png"
+                  alt="Design System Visual 8"
+                  className="w-full h-auto object-contain rounded-2xl"
+                />
+              </motion.div>
             </motion.div>
-            <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              whileHover={{ scale: 1.01 }}
-            >
-              <img
-                src="future.png"
-                alt="Design System Visual 8"
-                className="w-full h-full object-cover rounded-2xl"
-              />
-            </motion.div>
-          </motion.div>
+                    </div>
 
-          {/* Four Placeholder Images Grid */}
-          {/* Removed extra image grid as requested */}
+          {/* Grid Rows Below Redefining the look */}
+          {/* First Row - 2 Columns */}
+                    <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      >
+            {/* Placeholder for 2 column items */}
+          </motion.div>
 
           {/* Title and Content Grid Section - Atomic Design System */}
           <motion.div
@@ -460,7 +443,7 @@ function EnterpriseDesignSystemProcess() {
             <h2 className="text-[34px] font-bold text-black leading-tight">
               Building
               <br />
-              <span style={{ color: '#005C87' }}>Scalable System</span>
+              <span style={{ color: '#2F55D9' }}>Scalable System</span>
             </h2>
             <div className="space-y-6 text-black">
               <p className="text-[16px] leading-relaxed">
@@ -468,63 +451,127 @@ function EnterpriseDesignSystemProcess() {
               </p>
               <p className="text-[16px] leading-relaxed">
                 Atoms became the basics (buttons, inputs, toggles), molecules combined them into forms and cards, and organisms grew into modals, tables, and layout patterns. Each piece was tokenized—color, typography, spacing, states—so everything was reusable, documented, and connected. Design stopped being a guessing game and became a shared language between design and engineering.
-              </p>
-            </div>
+                          </p>
+                        </div>
           </motion.div>
 
-          {/* One Big Placeholder Image */}
+          {/* Four Column Grid - Below Building Scalable System */}
           <motion.div
-            className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[800px] mt-10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            whileHover={{ scale: 1.01 }}
           >
-            <img
-              src="image5.png"
-              alt="Design System Final Visual"
-              className="w-full h-full object-cover rounded-2xl"
-            />
+            {/* Placeholder for grid items - can be filled with content later */}
+                      </motion.div>
+
+          {/* Four Placeholder Images Grid - 2x2 Below Redefining */}
+                  <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.div
+              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    whileHover={{ scale: 1.01 }}
+                  >
+              <img
+                src="show3.png"
+                alt="Design System Visual 5"
+                className="w-full h-auto object-contain rounded-2xl"
+              />
+                  </motion.div>
+            <motion.div
+              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ scale: 1.01 }}
+            >
+              <img
+                src="show4.png"
+                alt="Design System Visual 6"
+                className="w-full h-auto object-contain rounded-2xl"
+              />
+            </motion.div>
+            <motion.div
+              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ scale: 1.01 }}
+            >
+              <img
+                src="show5.png"
+                alt="Design System Visual 7"
+                className="w-full h-auto object-contain rounded-2xl"
+              />
+            </motion.div>
+            <motion.div
+              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ scale: 1.01 }}
+            >
+              <img
+                src="show6.png"
+                alt="Design System Visual 8"
+                className="w-full h-auto object-contain rounded-2xl"
+              />
+            </motion.div>
           </motion.div>
 
+          {/* Four Placeholder Images Grid */}
+          {/* Removed extra image grid as requested */}
+
           {/* Turnaround / Adoption Section - 2 Grid */}
-          <motion.div
+                    <motion.div 
             className="grid grid-cols-1 lg:grid-cols-2 gap-10 py-[120px]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      >
             {/* Grid 1: Title */}
             <div className="text-black">
               <h2 className="text-[34px] font-bold leading-tight">
                 <span className="text-black">Design</span>
                 <br />
-                <span style={{ color: '#005C87' }}>System Adoption</span>
+                <span style={{ color: '#2F55D9' }}>System Adoption</span>
               </h2>
-            </div>
-
+                        </div>
+                        
             {/* Grid 2: Story Content */}
             <div className="space-y-4 text-black max-w-2xl">
               <p className="text-[16px] leading-relaxed">
                 The next challenge wasn&apos;t designing components—it was helping people actually use them. So I gave simple demos to designers and developers on how to build with the design system components in their everyday work.
               </p>
-            </div>
-          </motion.div>
-
+                      </div>
+                    </motion.div>
+                  
           {/* AI Workflows Section - 3 Grid */}
-          <motion.div
+                    <motion.div 
             className="grid grid-cols-1 lg:grid-cols-3 gap-10 py-[120px] relative"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
           >
             {/* Grid 1: Title */}
             <div className="text-black">
               <h2 className="text-[34px] font-bold leading-tight">
-                <span style={{ color: '#005C87' }}>AI-powered</span>
+                <span style={{ color: '#2F55D9' }}>AI-powered</span>
                 <br />
                 <span className="text-black">Workflows</span>
               </h2>
@@ -560,8 +607,8 @@ function EnterpriseDesignSystemProcess() {
                   </svg>
                   <span>Dev</span>
                 </span>
-              </div>
-            </div>
+                      </div>
+                </div>
 
             {/* Grid 2: Story Content */}
             <div className="space-y-4 text-black max-w-2xl">
@@ -571,7 +618,7 @@ function EnterpriseDesignSystemProcess() {
               <p className="text-[16px] leading-relaxed">
                 I wrote a script that scanned every page, found instances of components like buttons, and matched them against the JSON spec. The script counted how many variants existed, which styles were missing, and produced a clear report for developers to act on.
               </p>
-            </div>
+                    </div>
 
             {/* Grid 3: My Avatar with Conversation Bubble - Explaining Cursor Workflow */}
             <div className="relative flex flex-col items-end justify-end text-right">
@@ -584,11 +631,11 @@ function EnterpriseDesignSystemProcess() {
                 Product Designer (Me)
               </span>
               {/* Floating conversation overlay with arrow - appears on scroll, positioned to the left of image */}
-              <motion.div
+                    <motion.div 
                 className="absolute right-28 top-0 z-10"
                 initial={{ opacity: 0, scale: 0.8, x: -20 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                viewport={{ once: true }}
+                      viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <div 
@@ -607,15 +654,15 @@ function EnterpriseDesignSystemProcess() {
                       className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px]"
                       style={{ borderLeftColor: '#f8f8f8' }}
                     ></div>
-                  </div>
-                </div>
+                            </div>
+                            </div>
               </motion.div>
-            </div>
+                            </div>
           </motion.div>
 
           {/* Video Placeholder - Design Checker */}
           <motion.div
-            className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden mb-10"
+            className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden mb-10 p-6 bg-gradient-to-br from-gray-50 to-gray-100"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -642,25 +689,25 @@ function EnterpriseDesignSystemProcess() {
             {/* Grid 1: Title */}
             <div className="text-black">
               <h2 className="text-[34px] font-bold leading-tight">
-                <span style={{ color: '#005C87' }}>AI Prototyping</span>
+                <span style={{ color: '#2F55D9' }}>AI Prototyping</span>
               </h2>
-            </div>
-
+                        </div>
+                        
             {/* Grid 2: Story Content */}
             <div className="space-y-4 text-black max-w-2xl">
               <p className="text-[16px] leading-relaxed">
                 For prototyping, we used the same system to generate interactive flows with our actual tech stack and version control. Developers could open a live, hosted prototype, click through real states, and implement with far fewer questions—the design–dev handoff felt almost 100% aligned.
               </p>
-            </div>
-          </motion.div>
-
+                      </div>
+                    </motion.div>
+                  
           {/* Video Placeholder - AI Prototype */}
-          <motion.div
-            className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden mb-10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+                    <motion.div 
+            className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden mb-10 p-6 bg-gradient-to-br from-gray-50 to-gray-100"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
           >
             <video
               className="w-full h-auto rounded-2xl"
@@ -673,14 +720,14 @@ function EnterpriseDesignSystemProcess() {
               <source src="/AI Prototype.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          </motion.div>
-
+                    </motion.div>
+                    
           {/* Conversation Bubbles Row - Both Designer and Developer */}
-          <motion.div
+                    <motion.div 
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 py-[60px] px-[120px] relative"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             {/* Left: My Avatar with Conversation Bubble - Asking */}
@@ -718,9 +765,9 @@ function EnterpriseDesignSystemProcess() {
                       style={{ borderLeftColor: "#f3f4f6" }}
                     ></div>
                   </div>
-                </div>
-              </motion.div>
-            </div>
+                      </div>
+                    </motion.div>
+                  </div>
 
             {/* Right: Developer Image with Conversation Bubble - Responding */}
             <div className="relative flex flex-col items-start">
@@ -756,18 +803,18 @@ function EnterpriseDesignSystemProcess() {
                       className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[8px]"
                       style={{ borderRightColor: "#f3f4f6" }}
                     ></div>
-                  </div>
                 </div>
+              </div>
               </motion.div>
             </div>
           </motion.div>
 
           {/* Reflection Section */}
-          <motion.div
+              <motion.div 
             className="grid grid-cols-1 lg:grid-cols-2 gap-10 py-[120px]"
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             {/* Grid 1: Title */}
@@ -775,7 +822,7 @@ function EnterpriseDesignSystemProcess() {
               <h2 className="text-[34px] font-bold leading-tight" style={{ color: '#22c55e' }}>
                 Reflection
               </h2>
-            </div>
+                  </div>
 
             {/* Grid 2: Reflection Content */}
             <div className="space-y-4 text-black max-w-2xl">
@@ -786,8 +833,8 @@ function EnterpriseDesignSystemProcess() {
                 The system became a bridge between design and engineering, a way to scale consistency across two product lines, and proof that thoughtful process can make teams more efficient, not less creative. The real win wasn&apos;t the design system itself—it was watching teams build faster, with more confidence, and with fewer questions.
               </p>
             </div>
-          </motion.div>
-
+              </motion.div>
+              
           {/* All Projects Section */}
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-10 py-[120px] border-t border-gray-200"
@@ -801,7 +848,7 @@ function EnterpriseDesignSystemProcess() {
               <h2 className="text-[34px] font-bold leading-tight">
                 All Projects
               </h2>
-            </div>
+                  </div>
 
             {/* Grid 2: Project Cards */}
             <div className="grid grid-cols-1 gap-6">
@@ -831,7 +878,7 @@ function EnterpriseDesignSystemProcess() {
                         alt="Unicourt Logo"
                         className="h-24 w-auto opacity-90"
                       />
-                    </div>
+                </div>
                   </div>
                   {/* Dark overlay that appears on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -846,9 +893,9 @@ function EnterpriseDesignSystemProcess() {
                   </div>
                 </div>
               </motion.div>
-
+              
               {/* End Feedback Chaos */}
-              <motion.div
+              <motion.div 
                 className="artasaka-card cursor-pointer"
                 style={{ height: "50vh" }}
                 variants={fadeInUp}
@@ -901,8 +948,8 @@ function EnterpriseDesignSystemProcess() {
                         alt="Noa Thumbnail"
                         className="w-full h-auto opacity-90"
                       />
-                    </div>
                   </div>
+                </div>
                   {/* Dark overlay that appears on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   {/* Title that appears on hover */}
@@ -916,9 +963,9 @@ function EnterpriseDesignSystemProcess() {
                   </div>
                 </div>
               </motion.div>
-
+              
               {/* Mandal Minds */}
-              <motion.div
+              <motion.div 
                 className="artasaka-card cursor-pointer"
                 style={{ height: "50vh" }}
                 variants={fadeInUp}
@@ -940,8 +987,8 @@ function EnterpriseDesignSystemProcess() {
                         alt="Mandal Logo"
                         className="h-24 w-auto opacity-90"
                       />
-                    </div>
                   </div>
+                </div>
                   {/* Dark overlay that appears on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   {/* Title that appears on hover */}
