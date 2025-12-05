@@ -204,26 +204,12 @@ function EnterpriseDesignSystemProcess() {
 
           {/* Two Placeholder Images Grid - Second Set */}
               <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10"
+            className="grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-10 mt-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
-            >
-              <img
-                src="show1.png"
-                alt="Design System Visual 3"
-                className="w-full h-auto object-contain rounded-2xl"
-              />
-              </motion.div>
               <motion.div 
               className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
@@ -238,6 +224,44 @@ function EnterpriseDesignSystemProcess() {
                 className="w-full h-auto object-contain rounded-2xl"
               />
               </motion.div>
+            {/* Product Designer Conversation Bubble - Second Column */}
+            <div className="relative flex flex-col items-end justify-center">
+              <img
+                src={faceImg}
+                alt="Product Designer"
+                className="w-24 h-24 rounded-lg object-cover relative z-0"
+              />
+              <span className="mt-2 text-xs font-medium text-black/70">
+                Product Designer (Me)
+              </span>
+              {/* Floating conversation overlay with arrow - appears on scroll, positioned just above image */}
+              <motion.div 
+                className="absolute right-28 bottom-full mb-1 z-10"
+                initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <div 
+                  className="relative rounded-lg p-4 shadow-xl max-w-[220px] border border-gray-200"
+                  style={{
+                    background: 'linear-gradient(135deg, #fefefe 0%, #f8f8f8 100%)',
+                    backdropFilter: 'blur(10px)',
+                  }}
+                >
+                  <p className="text-xs text-black leading-relaxed">
+                    "I used Cursor to convert our Figma components into JSON specs. Then I wrote a script that scans pages and matches components against those specs, generating reports on what's missing or off."
+                  </p>
+                  {/* Arrow pointing right to my avatar */}
+                  <div className="absolute right-0 bottom-4 transform translate-x-full">
+                    <div 
+                      className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px]"
+                      style={{ borderLeftColor: '#f8f8f8' }}
+                    ></div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
             
           {/* Finding the Identity Section - 3 Grid Layout */}
