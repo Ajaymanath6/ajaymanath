@@ -183,7 +183,7 @@ function EnterpriseDesignSystemProcess() {
 
           {/* The Foundation Section */}
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-10 py-[120px]"
+            className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 py-[120px]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -192,14 +192,47 @@ function EnterpriseDesignSystemProcess() {
             <h2 className="text-[34px] font-bold text-black">
               The <span style={{ color: '#2F55D9' }}>Foundation</span>
             </h2>
-            <div className="space-y-6 text-black max-w-2xl">
-              <p className="text-[16px] leading-relaxed">
-                I looked at our old app—designed 8 years ago with outdated Material Design, Angular components with heavy shadows, and inconsistent typography. We had won awards for best legal tech innovation, but our design didn't reflect that. It needed to speak to our modern approach to solving legal data challenges.
-              </p>
-              <p className="text-[16px] leading-relaxed">
-                The only way forward was clear: build a system that could sync design and development in one unified flow.
-              </p>
+            <div className="relative flex items-end justify-between">
+              {/* Floating conversation overlay with arrow - appears on scroll, positioned on left side */}
+              <motion.div
+                className="absolute left-0 -top-4 z-10"
+                initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <div 
+                  className="relative rounded-lg p-4 shadow-xl max-w-[450px] border border-gray-200"
+                  style={{
+                    background: 'linear-gradient(135deg, #fefefe 0%, #f8f8f8 100%)',
+                    backdropFilter: 'blur(10px)',
+                  }}
+                >
+                  <p className="text-xs text-black leading-relaxed">
+                    "After seeing the old designs—8 years of outdated Material Design, Angular components with heavy shadows, and inconsistent typography—I realized we had won awards for best legal tech innovation, but our design didn't reflect that. It needed to speak to our modern approach to solving legal data challenges. The only way forward was clear: build a system that could sync design and development in one unified flow."
+                  </p>
+                  {/* Arrow pointing right to my avatar */}
+                  <div className="absolute right-0 top-4 transform translate-x-full">
+                    <div 
+                      className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px]"
+                      style={{ borderLeftColor: '#f8f8f8' }}
+                    ></div>
+                  </div>
                 </div>
+              </motion.div>
+              
+              {/* Product Designer Image - Right Side */}
+              <div className="relative flex flex-col items-end justify-end text-right ml-auto">
+                <img
+                  src={faceImg}
+                  alt="Product Designer"
+                  className="w-24 h-24 rounded-lg object-cover relative z-0"
+                />
+                <span className="mt-2 text-xs font-medium text-black/70">
+                  Product Designer (Me)
+                </span>
+              </div>
+            </div>
               </motion.div>
 
           {/* Two Placeholder Images Grid - Second Set */}
@@ -234,9 +267,9 @@ function EnterpriseDesignSystemProcess() {
               <span className="mt-2 text-xs font-medium text-black/70">
                 Product Designer (Me)
               </span>
-              {/* Floating conversation overlay with arrow - appears on scroll, positioned just above image */}
+              {/* Conversation bubble attached to image - positioned below image */}
               <motion.div 
-                className="absolute right-28 bottom-full mb-1 z-10"
+                className="absolute right-28 top-[200px] z-10"
                 initial={{ opacity: 0, scale: 0.8, x: -20 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -250,10 +283,10 @@ function EnterpriseDesignSystemProcess() {
                   }}
                 >
                   <p className="text-xs text-black leading-relaxed">
-                    "I used Cursor to convert our Figma components into JSON specs. Then I wrote a script that scans pages and matches components against those specs, generating reports on what's missing or off."
+                    "I looked at our old app—designed 8 years ago with outdated Material Design, Angular components with heavy shadows, and inconsistent typography. We had won awards for best legal tech innovation, but our design didn't reflect that. It needed to speak to our modern approach to solving legal data challenges. The only way forward was clear: build a system that could sync design and development in one unified flow."
                   </p>
                   {/* Arrow pointing right to my avatar */}
-                  <div className="absolute right-0 bottom-4 transform translate-x-full">
+                  <div className="absolute right-0 top-4 transform translate-x-full">
                     <div 
                       className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px]"
                       style={{ borderLeftColor: '#f8f8f8' }}
