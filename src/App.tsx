@@ -247,17 +247,17 @@ const ExpandableModal = ({
 
               {/* Full Width Image 3 */}
               <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden min-h-[800px] mt-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.01 }}
               >
-                <div className="w-full h-full flex items-center justify-center p-4 overflow-hidden">
+                <div className="w-full min-h-full flex items-center justify-center p-4 overflow-hidden">
                   <video
                     src={`${process.env.PUBLIC_URL}/unicourtvideo1.mp4`}
-                    className="w-full h-auto object-contain rounded-2xl"
+                    className="w-full h-auto max-w-full object-contain rounded-2xl"
                     controls
                     autoPlay
                     loop
@@ -290,17 +290,17 @@ const ExpandableModal = ({
 
               {/* Full Width Image 4 */}
               <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden min-h-[800px] mt-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.01 }}
               >
-                <div className="w-full h-full flex items-center justify-center p-4 overflow-hidden">
+                <div className="w-full min-h-full flex items-center justify-center p-4 overflow-hidden">
                   <video
                     src={`${process.env.PUBLIC_URL}/unicourtvideo.mp4`}
-                    className="w-full h-auto object-contain rounded-2xl"
+                    className="w-full h-auto max-w-full object-contain rounded-2xl"
                     controls
                     autoPlay
                     loop
@@ -333,17 +333,17 @@ const ExpandableModal = ({
 
               {/* Video Section - Repeat 3 */}
               <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden min-h-[800px] mt-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.01 }}
               >
-                <div className="w-full h-full flex items-center justify-center p-4 overflow-hidden">
+                <div className="w-full min-h-full flex items-center justify-center p-4 overflow-hidden">
                   <video
                     src={`${process.env.PUBLIC_URL}/unicourtAlerts.mp4`}
-                    className="w-full h-auto object-contain rounded-2xl"
+                    className="w-full h-auto max-w-full object-contain rounded-2xl"
                     controls
                     autoPlay
                     loop
@@ -374,17 +374,21 @@ const ExpandableModal = ({
                 </div>
               </div>
 
-              {/* Placeholder Image */}
+              {/* Flow Image */}
               <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px] mb-8"
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden min-h-[600px] mb-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.01 }}
               >
-                <div className="w-full h-full flex items-center justify-center bg-gray-200 rounded-2xl">
-                  <div className="text-gray-400 text-lg">Placeholder Image</div>
+                <div className="w-full h-full flex items-center justify-center p-6 overflow-hidden">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/flow.png`}
+                    alt="User Workflow Flowchart"
+                    className="w-full h-auto max-w-full object-contain rounded-2xl"
+                  />
                 </div>
               </motion.div>
 
