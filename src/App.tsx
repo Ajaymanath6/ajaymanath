@@ -2529,11 +2529,11 @@ function App() {
                           {/* Project Image - Full Height with Title Overlay */}
                           <div className="artasaka-card-image-full relative group overflow-hidden">
                             {design.id === 1 ? (
-                              /* Custom backdrop for "Enterprise Design System" card with blue/white gradient */
+                              /* Custom backdrop for "Enterprise Design System" card with green/white gradient */
                               <div
                                 className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative flex items-center justify-center"
                                 style={{
-                                  background: `linear-gradient(135deg, #3b82f6 0%, #60a5fa 30%, #93c5fd 60%, #dbeafe 80%, #ffffff 100%)`,
+                                  background: `linear-gradient(135deg, #22c55e 0%, #4ade80 30%, #86efac 60%, #bbf7d0 80%, #ffffff 100%)`,
                                 }}
                               >
                                 {/* Net mesh pattern - centered and fading out */}

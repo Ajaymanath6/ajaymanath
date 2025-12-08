@@ -71,7 +71,7 @@ function EnterpriseDesignSystemProcess() {
             whileHover={{ scale: 1.01 }}
           >
             <div
-              className="absolute"
+              className="absolute rounded-2xl"
               style={{
                 top: '0',
                 left: '0',
