@@ -216,7 +216,7 @@ function EnterpriseDesignSystemProcess() {
                 whileHover={{ scale: 1.01 }}
             >
               <video
-                src="/Oldappui.mp4"
+                src={`${process.env.PUBLIC_URL}/Oldappui.mp4`}
                 className="w-full h-auto object-contain rounded-2xl"
                 controls
                 playsInline
@@ -699,7 +699,7 @@ function EnterpriseDesignSystemProcess() {
               controls
               playsInline
             >
-              <source src="/Design Cheker.mp4" type="video/mp4" />
+              <source src={`${process.env.PUBLIC_URL}/Design Cheker.mp4`} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </motion.div>
@@ -743,7 +743,7 @@ function EnterpriseDesignSystemProcess() {
               muted
               playsInline
             >
-              <source src="/AI Prototype.mp4" type="video/mp4" />
+              <source src={`${process.env.PUBLIC_URL}/AI Prototype.mp4`} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
                     </motion.div>
