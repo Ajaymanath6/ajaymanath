@@ -65,6 +65,7 @@ const ExpandableModal = ({
   contentData?: any;
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [currentImage, setCurrentImage] = useState('unicourt3.png');
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const { scrollTop } = e.currentTarget;
@@ -78,6 +79,16 @@ const ExpandableModal = ({
       onClose();
     }
   };
+
+  // Image swap effect for litigation intelligence page
+  useEffect(() => {
+    if (contentType === "/process/litigation-intelligence") {
+      const interval = setInterval(() => {
+        setCurrentImage(prev => prev === 'unicourt3.png' ? 'unicourt4.png' : 'unicourt3.png');
+      }, 2000);
+      return () => clearInterval(interval);
+    }
+  }, [contentType]);
 
   const renderContent = () => {
     switch (contentType) {
@@ -97,102 +108,20 @@ const ExpandableModal = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 px-9 pt-3">
                 {/* Left Column - Logo, Name, Description */}
                 <div className="flex flex-col items-start">
-                  {/* Logo and Project Name - Left Side */}
-                  <div className="flex items-start justify-between w-full mb-6">
-                    <div className="flex items-center">
-                      <div className="w-16 h-16 bg-teal-600 rounded-lg flex items-center justify-center mr-4">
-                        <i className="ri-scales-3-line text-2xl text-white"></i>
-                      </div>
-                      <div>
-                        <h1 className="text-3xl sm:text-4xl font-bold mb-1 text-black">
-                          Unified Litigation Intelligence Platform
-                        </h1>
-                      </div>
-                    </div>
+                  {/* Project Name */}
+                  <div className="w-full mb-6">
+                    <h1 className="text-[40px] font-bold mb-1 text-black">
+                      UniCourt
+                    </h1>
                   </div>
 
                   {/* Description */}
-                  <p className="text-base text-black opacity-80 leading-relaxed mb-6">
-                    Delivering AI-powered access to 2 billion court dockets, analytics, and insights for legal innovation.
-                  </p>
-                </div>
-
-                {/* Right Column - Scope of Work and Stack */}
-                <div className="flex flex-col">
-                  {/* Combined Scope of Work and Stack */}
-                  <div>
-                    <h3 className="text-lg font-bold text-black mb-4">
-                      Scope of work
-                    </h3>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      <span className="bg-orange-100 text-orange-800 text-sm px-3 py-1 rounded-full">
-                        UX Design
-                      </span>
-                      <span className="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full">
-                        Web Application
-                      </span>
-                      <span className="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">
-                        Design System
-                      </span>
-                      <span className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
-                        AI Integration
-                      </span>
-                      <span className="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
-                        Data Visualization
-                      </span>
-                      <span className="bg-pink-100 text-pink-800 text-sm px-3 py-1 rounded-full">
-                        User Research
-                      </span>
-                    </div>
-
-                    <h3 className="text-lg font-bold text-black mb-4">Stack</h3>
-                    {/* Stack with Badge Style */}
-                    <div className="flex flex-wrap gap-3">
-                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
-                        <img 
-                          src="https://cdn.simpleicons.org/figma/F24E1E" 
-                          alt="Figma" 
-                          className="w-6 h-6 mr-2 rounded-full object-contain"
-                        />
-                        <span className="text-black text-sm font-medium">
-                          Figma
-                        </span>
-                      </div>
-                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
-                        <img 
-                          src="https://cdn.simpleicons.org/designernews/2D72D9" 
-                          alt="Design Tokens" 
-                          className="w-6 h-6 mr-2 rounded-full object-contain"
-                        />
-                        <span className="text-black text-sm font-medium">
-                          Design Tokens
-                        </span>
-                      </div>
-                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
-                        <img 
-                          src="https://cdn.simpleicons.org/storybook/FF4785" 
-                          alt="Component Library" 
-                          className="w-6 h-6 mr-2 rounded-full object-contain"
-                        />
-                        <span className="text-black text-sm font-medium">
-                          Component Library
-                        </span>
-                      </div>
-                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
-                        <img 
-                          src="https://cdn.simpleicons.org/readthedocs/8CA1AF" 
-                          alt="Documentation" 
-                          className="w-6 h-6 mr-2 rounded-full object-contain"
-                        />
-                        <span className="text-black text-sm font-medium">
-                          Documentation
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-[16px] text-black opacity-80 leading-relaxed mb-6">
+                      I collaborated with engineers, product managers, and the product team to redesign the UniCourt webapp, a platform for accessing litigation data, analytics, and insights. I redesigned the main flows for users to search, filter, find, and track cases without getting overwhelmed with data. By making the data simple and accessible, showing only what's important, users were able to reduce their research time by 50%, completing tasks that previously took twice as long.
+                    </p>
                 </div>
               </div>
             </motion.div>
@@ -200,27 +129,29 @@ const ExpandableModal = ({
             {/* Overview */}
             <section className="mb-12">
               <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px] mb-8"
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden min-h-[600px] mb-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.01 }}
               >
-                <div className="w-full h-full flex items-center justify-center">
-                  <img
-                    src="image1.png"
-                    alt="Unified Litigation Intelligence Platform Overview"
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
+                <div className="w-full h-full flex items-center justify-center p-4 overflow-hidden">
+                  <div className="w-full h-full overflow-hidden rounded-2xl" style={{ paddingTop: '20px', marginTop: '-20px' }}>
+                    <img
+                      src={`${process.env.PUBLIC_URL}/Unicourt1.png`}
+                      alt="UniCourt Platform Overview"
+                      className="w-full h-auto object-contain rounded-2xl"
+                    />
+                  </div>
                 </div>
               </motion.div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-gray-700 leading-relaxed">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-gray-700 leading-relaxed px-8">
                 {/* Left Column */}
                 <div className="space-y-6">
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Problem</h3>
-                    <p>
+                    <h3 className="font-semibold mb-3 text-[14px]">Problem</h3>
+                    <p className="text-[14px]">
                       Legal professionals struggle with fragmented data access.<br />
                       Research workflows are slow and inefficient. Critical case insights remain hidden across multiple platforms.
                     </p>
@@ -237,8 +168,9 @@ const ExpandableModal = ({
                 {/* Right Column */}
                 <div className="space-y-6">
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding Challenges</h3>
-                    <p>
+                    <h3 className="font-semibold mb-3 text-[20px]">Understanding Challenges</h3>
+                    <h4 className="font-semibold mb-3 text-[32px]">Challenge</h4>
+                    <p className="text-[16px]">
                       Design a webapp that allows legal professionals to perform a unified, AI-powered search across all case data, including dockets, documents, courts, judges, and attorneys.
                     </p>
                   </div>
@@ -251,26 +183,8 @@ const ExpandableModal = ({
                 </div>
               </div>
 
-              {/* Full Width Image */}
-              <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
-              >
-                <div className="w-full h-full flex items-center justify-center">
-                  <img
-                    src="image1.png"
-                    alt="Unified Litigation Intelligence Platform Design"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
-
               {/* Reframing the problem */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16 px-8">
                 {/* Left Column - Blank */}
                 <div></div>
                 
@@ -303,9 +217,11 @@ const ExpandableModal = ({
               >
                 <div className="w-full h-full flex items-center justify-center">
                   <img
-                    src="image2.png"
+                    key={currentImage}
+                    src={`${process.env.PUBLIC_URL}/${currentImage}`}
                     alt="Unified Litigation Intelligence Platform Design"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-opacity duration-500"
+                    style={{ opacity: 1 }}
                   />
                 </div>
               </motion.div>
@@ -338,12 +254,18 @@ const ExpandableModal = ({
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.01 }}
               >
-                <div className="w-full h-full flex items-center justify-center">
-                  <img
-                    src="image3.png"
-                    alt="Unified Litigation Intelligence Platform Design"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-full h-full flex items-center justify-center p-4 overflow-hidden">
+                  <video
+                    src={`${process.env.PUBLIC_URL}/unicourtvideo1.mp4`}
+                    className="w-full h-auto object-contain rounded-2xl"
+                    controls
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </motion.div>
 
@@ -375,17 +297,23 @@ const ExpandableModal = ({
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.01 }}
               >
-                <div className="w-full h-full flex items-center justify-center">
-                  <img
-                    src="image4.png"
-                    alt="Unified Litigation Intelligence Platform Design"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-full h-full flex items-center justify-center p-4 overflow-hidden">
+                  <video
+                    src={`${process.env.PUBLIC_URL}/unicourtvideo.mp4`}
+                    className="w-full h-auto object-contain rounded-2xl"
+                    controls
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </motion.div>
 
               {/* Reframing the problem - Repeat 4 */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16 px-8">
                 <div></div>
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
@@ -402,6 +330,64 @@ const ExpandableModal = ({
                   </div>
                 </div>
               </div>
+
+              {/* Video Section - Repeat 3 */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center p-4 overflow-hidden">
+                  <video
+                    src={`${process.env.PUBLIC_URL}/unicourtAlerts.mp4`}
+                    className="w-full h-auto object-contain rounded-2xl"
+                    controls
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </motion.div>
+
+              {/* Reframing the problem - Final */}
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16 px-8">
+                <div></div>
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
+                    <p>
+                      How might we enable legal professionals to access and analyze 2 billion court dockets with AI-powered insights in a unified, efficient platform?
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <p>
+                      Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Placeholder Image */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px] mb-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center bg-gray-200 rounded-2xl">
+                  <div className="text-gray-400 text-lg">Placeholder Image</div>
+                </div>
+              </motion.div>
+
             </section>
           </div>
         );
@@ -2692,7 +2678,7 @@ function App() {
                               />
                             )}
                             {/* Dark overlay that appears on hover */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                             {/* Title that appears on hover */}
                             <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -2748,7 +2734,7 @@ function App() {
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                           {/* Dark overlay that appears on hover */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                           {/* Title that appears on hover */}
                           <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
