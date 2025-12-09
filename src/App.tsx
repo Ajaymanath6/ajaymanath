@@ -167,6 +167,10 @@ const ExpandableModal = ({
                       Business users can efficiently find cases, download documents, and use advanced filters, increasing platform usage and engagement while introducing opportunities for upselling premium products.
                     </p>
                   </div>
+                <div>
+                  <h3 className="font-semibold mb-3 text-[14px]">Organization</h3>
+                  <p className="text-[14px]">UniCourt</p>
+                </div>
                 </div>
 
                 {/* Right Column */}
