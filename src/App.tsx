@@ -128,81 +128,6 @@ const ExpandableModal = ({
 
             {/* Overview */}
             <section className="mb-12">
-              <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden min-h-[600px] mb-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
-              >
-                <div className="w-full h-full flex items-center justify-center p-4 overflow-hidden">
-                  <div className="w-full h-full overflow-hidden rounded-2xl" style={{ paddingTop: '20px', marginTop: '-20px' }}>
-                    <img
-                      src={`${process.env.PUBLIC_URL}/Unicourt1.png`}
-                      alt="UniCourt Platform Overview"
-                      className="w-full h-auto object-contain rounded-2xl"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-gray-700 leading-relaxed px-8 py-16">
-                {/* Left Column */}
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-[14px]">Problem</h3>
-                    <p className="text-[14px]">
-                    Data-heavy app with unclear hierarchy and missing alerts overwhelmed users trying to search, track, bookmark, and manage cases efficiently.
-                    </p>
-                  </div>
-                <div>
-                  <h3 className="font-semibold mb-3 text-[14px]">Solution</h3>
-                  <p className="text-[14px]">
-                    Clear hierarchy with progressive disclosure, configurable alerts, simpler navigation, and clean search that surfaces only relevant information when needed.
-                  </p>
-                </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-[14px]">Business KPI</h3>
-                    <p className="text-[14px]">
-                      Business users can efficiently find cases, download documents, and use advanced filters, increasing platform usage and engagement while introducing opportunities for upselling premium products.
-                    </p>
-                  </div>
-                <div>
-                  <h3 className="font-semibold mb-3 text-[14px]">Organization</h3>
-                  <p className="text-[14px]">UniCourt</p>
-                </div>
-                </div>
-
-                {/* Right Column */}
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-[20px]">Understanding Challenges</h3>
-                    <h3 className="font-semibold mt-8 mb-8 text-[32px] leading-tight">In data-heavy platforms, interfaces that feel "comprehensive" during early stages often affect user productivity later. Why?</h3>
-                    <div className="text-[16px] space-y-4 leading-relaxed">
-                      <p>
-                        Let me explain with an example.
-                      </p>
-                      <p>
-                        When building data-heavy platforms, it's common to surface all information at once to ensure nothing is missed. But what feels "comprehensive" during those early moments often comes back to affect user productivity and platform adoption.
-                      </p>
-                      <p>
-                        Because we forget to ask: are the interfaces actually usable?
-                      </p>
-                      <p>
-                        At UniCourt, legal professionals were relying on a web app that presented too much information simultaneously, with complex navigation and unclear hierarchy. Users needed to search cases, track, bookmark, and set alerts, but the alert feature was missing and the interface overwhelmed them with information, making it difficult to efficiently access and manage case data.
-                      </p>
-                      <div>
-                        <h4 className="font-semibold mb-3 text-[20px]">How did this affect Business?</h4>
-                        <p>
-                          With more case data and an influx of legal research needs, the data-heavy interface became slow and overwhelming, causing inefficient research workflows, missed case insights, and reduced user engagement affecting business growth and platform adoption.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
               {/* Full Width Image 2 */}
               <motion.div
                 className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
@@ -224,21 +149,56 @@ const ExpandableModal = ({
               </motion.div>
 
               {/* Reframing the problem - Repeat 2 */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div></div>
-                <div className="space-y-6 text-gray-700 leading-relaxed">
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-[35%_65%] gap-16 text-gray-700 leading-relaxed px-8 py-16">
+                {/* Left Column */}
+                <div className="space-y-6 pr-9">
                   <div>
-                    <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mt-8 mb-8 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
+                    <h3 className="font-semibold mb-3 text-[14px]">Problem</h3>
+                    <p className="text-[14px]">
+                      Data-heavy app with unclear hierarchy and missing alerts overwhelmed users trying to search, track, bookmark, and manage cases efficiently.
+                    </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
-                    <p>
-                      Legal research forced users to hop across tools for dockets, documents, and analytics. Overloaded filters, confusing navigation, dated UI, no later/history tabs, and detail cards stuffed with unnecessary data meant only a few results were visible—slowing research and burying insights.
+                    <h3 className="font-semibold mb-3 text-[14px]">Solution</h3>
+                    <p className="text-[14px]">
+                      Clear hierarchy with progressive disclosure, configurable alerts, simpler navigation, and clean search that surfaces only relevant information when needed.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-[14px]">Business KPI</h3>
+                    <p className="text-[14px]">
+                      Business users can efficiently find cases, download documents, and use advanced filters, increasing platform usage and engagement while introducing opportunities for upselling premium products.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-[14px]">Organization</h3>
+                    <p className="text-[14px]">UniCourt</p>
+                  </div>
+                </div>
+                <div className="space-y-6 text-gray-700 leading-relaxed pr-9 break-words max-w-full">
+                  <div>
+                    <h3 className="font-semibold mb-2 text-[20px]">Understanding Challenges</h3>
+                    <p className="mt-8 mb-8 text-[32px] leading-tight font-semibold">
+                      In data-heavy platforms, interfaces that feel "comprehensive" during early stages often affect user productivity later. Why?
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[16px] leading-relaxed mb-4">
+                      Let me explain with an example.
+                    </p>
+                    <p className="text-[16px] leading-relaxed">
+                      When building data-heavy platforms, it's common to surface all information at once to ensure nothing is missed. But what feels "comprehensive" during those early moments often comes back to affect user productivity and platform adoption.
+                    </p>
+                    <p className="text-[16px] leading-relaxed">
+                      Because we forget to ask: are the interfaces actually usable?
+                    </p>
+                    <p className="text-[16px] leading-relaxed">
+                      At UniCourt, legal professionals were relying on a web app that presented too much information simultaneously, with complex navigation and unclear hierarchy. Users needed to search cases, track, bookmark, and set alerts, but the alert feature was missing and the interface overwhelmed them with information, making it difficult to efficiently access and manage case data.
                     </p>
                   </div>
                 </div>
               </div>
+
 
               {/* Full Width Image 3 */}
               <motion.div
@@ -265,17 +225,51 @@ const ExpandableModal = ({
               </motion.div>
 
               {/* Reframing the problem - Repeat 3 */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div></div>
-                <div className="space-y-6 text-gray-700 leading-relaxed">
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-[35%_65%] gap-16 text-gray-700 leading-relaxed px-8 py-16">
+                {/* Left Column */}
+                <div className="space-y-6">
                   <div>
-                    <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mt-8 mb-8 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
+                    <h3 className="font-semibold mb-3 text-[14px]">Problem</h3>
+                    <p className="text-[14px]">
+                      Data-heavy app with unclear hierarchy and missing alerts overwhelmed users trying to search, track, bookmark, and manage cases efficiently.
+                    </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
-                    <p>
-                      Legal research forced users to hop across tools for dockets, documents, and analytics. Overloaded filters, confusing navigation, dated UI, no later/history tabs, and detail cards stuffed with unnecessary data meant only a few results were visible—slowing research and burying insights.
+                    <h3 className="font-semibold mb-3 text-[14px]">Solution</h3>
+                    <p className="text-[14px]">
+                      Clear hierarchy with progressive disclosure, configurable alerts, simpler navigation, and clean search that surfaces only relevant information when needed.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-[14px]">Business KPI</h3>
+                    <p className="text-[14px]">
+                      Business users can efficiently find cases, download documents, and use advanced filters, increasing platform usage and engagement while introducing opportunities for upselling premium products.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-[14px]">Organization</h3>
+                    <p className="text-[14px]">UniCourt</p>
+                  </div>
+                </div>
+                <div className="space-y-6 text-gray-700 leading-relaxed pr-9 break-words max-w-full">
+                  <div>
+                    <h3 className="font-semibold mb-2 text-[20px]">Understanding Challenges</h3>
+                    <p className="mt-8 mb-8 text-[32px] leading-tight font-semibold">
+                      In data-heavy platforms, interfaces that feel "comprehensive" during early stages often affect user productivity later. Why?
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[16px] leading-relaxed mb-4">
+                      Let me explain with an example.
+                    </p>
+                    <p className="text-[16px] leading-relaxed">
+                      When building data-heavy platforms, it's common to surface all information at once to ensure nothing is missed. But what feels "comprehensive" during those early moments often comes back to affect user productivity and platform adoption.
+                    </p>
+                    <p className="text-[16px] leading-relaxed">
+                      Because we forget to ask: are the interfaces actually usable?
+                    </p>
+                    <p className="text-[16px] leading-relaxed">
+                      At UniCourt, legal professionals were relying on a web app that presented too much information simultaneously, with complex navigation and unclear hierarchy. Users needed to search cases, track, bookmark, and set alerts, but the alert feature was missing and the interface overwhelmed them with information, making it difficult to efficiently access and manage case data.
                     </p>
                   </div>
                 </div>
@@ -305,22 +299,6 @@ const ExpandableModal = ({
                 </div>
               </motion.div>
 
-              {/* Reframing the problem - Repeat 4 */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16 px-8">
-                <div></div>
-                <div className="space-y-6 text-gray-700 leading-relaxed">
-                  <div>
-                    <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mt-8 mb-8 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
-                    <p>
-                      Legal research forced users to hop across tools for dockets, documents, and analytics. Overloaded filters, confusing navigation, dated UI, no later/history tabs, and detail cards stuffed with unnecessary data meant only a few results were visible—slowing research and burying insights.
-                    </p>
-                  </div>
-                </div>
-              </div>
 
               {/* Video Section - Repeat 3 */}
               <motion.div
@@ -346,22 +324,6 @@ const ExpandableModal = ({
                 </div>
               </motion.div>
 
-              {/* Reframing the problem - Final */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16 px-8">
-                <div></div>
-                <div className="space-y-6 text-gray-700 leading-relaxed">
-                  <div>
-                    <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mt-8 mb-8 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
-                    <p>
-                      Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
-                    </p>
-                  </div>
-                </div>
-              </div>
 
               {/* Flow Image */}
               <motion.div
@@ -372,7 +334,7 @@ const ExpandableModal = ({
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.01 }}
               >
-                <div className="w-full h-full flex items-center justify-center p-6 overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center py-6 px-9 overflow-hidden">
                   <img
                     src={`${process.env.PUBLIC_URL}/flow.png`}
                     alt="User Workflow Flowchart"
@@ -789,7 +751,7 @@ const ExpandableModal = ({
                 <h2 className="text-lg font-bold mb-4">User Testing & Impact</h2>
                 <div className="w-full h-px bg-gray-300 mb-6"></div>
                 
-                <div className="space-y-6 text-gray-700 leading-relaxed">
+                <div className="space-y-6 text-gray-700 leading-relaxed px-9">
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Testing the Feedback System</h3>
                     <p>
@@ -933,7 +895,7 @@ const ExpandableModal = ({
                   />
                 </div>
               </motion.div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-gray-700 leading-relaxed">
+              <div className="grid grid-cols-1 md:grid-cols-[35%_65%] gap-16 text-gray-700 leading-relaxed">
                 {/* Left Column */}
                 <div className="space-y-6">
                   <div>
@@ -1009,6 +971,26 @@ const ExpandableModal = ({
                   </div>
                 </div>
               </div>
+
+              {/* Overview Image */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden min-h-[600px] mb-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="w-full h-full flex items-center justify-center py-4 px-9 overflow-hidden">
+                  <div className="w-full h-full overflow-hidden rounded-2xl" style={{ paddingTop: '20px', marginTop: '-20px' }}>
+                    <img
+                      src={`${process.env.PUBLIC_URL}/Unicourt1.png`}
+                      alt="UniCourt Platform Overview"
+                      className="w-full h-auto object-contain rounded-2xl"
+                    />
+                  </div>
+                </div>
+              </motion.div>
 
               {/* Full Width Image 2 */}
               <motion.div
