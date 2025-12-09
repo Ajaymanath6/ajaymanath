@@ -177,7 +177,7 @@ const ExpandableModal = ({
                 <div className="space-y-6">
                   <div>
                     <h3 className="font-semibold mb-3 text-[20px]">Understanding Challenges</h3>
-                    <h3 className="font-semibold mb-3 text-[32px] leading-tight">In data-heavy platforms, interfaces that feel "comprehensive" during early stages often affect user productivity later. Why?</h3>
+                    <h3 className="font-semibold mt-8 mb-8 text-[32px] leading-tight">In data-heavy platforms, interfaces that feel "comprehensive" during early stages often affect user productivity later. Why?</h3>
                     <div className="text-[16px] space-y-4 leading-relaxed">
                       <p>
                         Let me explain with an example.
@@ -229,7 +229,7 @@ const ExpandableModal = ({
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
                     <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mb-3 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
+                    <h3 className="font-semibold mt-8 mb-8 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
@@ -270,7 +270,7 @@ const ExpandableModal = ({
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
                     <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mb-3 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
+                    <h3 className="font-semibold mt-8 mb-8 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
@@ -311,7 +311,7 @@ const ExpandableModal = ({
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
                     <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mb-3 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
+                    <h3 className="font-semibold mt-8 mb-8 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
@@ -352,7 +352,7 @@ const ExpandableModal = ({
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
                     <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mb-3 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
+                    <h3 className="font-semibold mt-8 mb-8 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
