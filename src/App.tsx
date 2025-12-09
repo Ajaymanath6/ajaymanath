@@ -230,7 +230,7 @@ const ExpandableModal = ({
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
                     <p>
-                      How might we enable legal professionals to access and analyze 2 billion court dockets with AI-powered insights in a unified, efficient platform?
+                      How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?
                     </p>
                   </div>
                   <div>
@@ -273,7 +273,7 @@ const ExpandableModal = ({
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
                     <p>
-                      How might we enable legal professionals to access and analyze 2 billion court dockets with AI-powered insights in a unified, efficient platform?
+                      How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?
                     </p>
                   </div>
                   <div>
@@ -316,7 +316,7 @@ const ExpandableModal = ({
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
                     <p>
-                      How might we enable legal professionals to access and analyze 2 billion court dockets with AI-powered insights in a unified, efficient platform?
+                      How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?
                     </p>
                   </div>
                   <div>
@@ -359,7 +359,7 @@ const ExpandableModal = ({
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
                     <p>
-                      How might we enable legal professionals to access and analyze 2 billion court dockets with AI-powered insights in a unified, efficient platform?
+                      How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?
                     </p>
                   </div>
                   <div>
