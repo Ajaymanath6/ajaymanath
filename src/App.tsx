@@ -228,6 +228,7 @@ const ExpandableModal = ({
                 <div></div>
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
+                    <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
                     <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
@@ -268,6 +269,7 @@ const ExpandableModal = ({
                 <div></div>
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
+                    <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
                     <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
@@ -308,6 +310,7 @@ const ExpandableModal = ({
                 <div></div>
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
+                    <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
                     <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
@@ -348,6 +351,7 @@ const ExpandableModal = ({
                 <div></div>
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
+                    <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
                     <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
