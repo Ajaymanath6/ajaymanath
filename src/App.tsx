@@ -177,7 +177,7 @@ const ExpandableModal = ({
                 <div className="space-y-6">
                   <div>
                     <h3 className="font-semibold mb-3 text-[20px]">Understanding Challenges</h3>
-                    <h4 className="font-semibold mb-3 text-[32px] leading-tight">In data-heavy platforms, interfaces that feel "comprehensive" during early stages often affect user productivity later. Why?</h4>
+                    <h3 className="font-semibold mb-3 text-[32px] leading-tight">In data-heavy platforms, interfaces that feel "comprehensive" during early stages often affect user productivity later. Why?</h3>
                     <div className="text-[16px] space-y-4 leading-relaxed">
                       <p>
                         Let me explain with an example.
