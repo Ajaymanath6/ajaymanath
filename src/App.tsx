@@ -228,10 +228,7 @@ const ExpandableModal = ({
                 <div></div>
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
-                    <p>
-                      How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?
-                    </p>
+                    <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
@@ -271,10 +268,7 @@ const ExpandableModal = ({
                 <div></div>
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
-                    <p>
-                      How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?
-                    </p>
+                    <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
@@ -314,10 +308,7 @@ const ExpandableModal = ({
                 <div></div>
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
-                    <p>
-                      How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?
-                    </p>
+                    <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
@@ -357,10 +348,7 @@ const ExpandableModal = ({
                 <div></div>
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
-                    <p>
-                      How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?
-                    </p>
+                    <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
