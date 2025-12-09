@@ -234,7 +234,7 @@ const ExpandableModal = ({
                   <div>
                     <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
                     <p>
-                      Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
+                      Legal research forced users to hop across tools for dockets, documents, and analytics. Overloaded filters, confusing navigation, dated UI, no later/history tabs, and detail cards stuffed with unnecessary data meant only a few results were visible—slowing research and burying insights.
                     </p>
                   </div>
                 </div>
@@ -275,7 +275,7 @@ const ExpandableModal = ({
                   <div>
                     <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
                     <p>
-                      Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
+                      Legal research forced users to hop across tools for dockets, documents, and analytics. Overloaded filters, confusing navigation, dated UI, no later/history tabs, and detail cards stuffed with unnecessary data meant only a few results were visible—slowing research and burying insights.
                     </p>
                   </div>
                 </div>
@@ -316,7 +316,7 @@ const ExpandableModal = ({
                   <div>
                     <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
                     <p>
-                      Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
+                      Legal research forced users to hop across tools for dockets, documents, and analytics. Overloaded filters, confusing navigation, dated UI, no later/history tabs, and detail cards stuffed with unnecessary data meant only a few results were visible—slowing research and burying insights.
                     </p>
                   </div>
                 </div>
