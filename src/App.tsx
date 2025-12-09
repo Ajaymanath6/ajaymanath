@@ -152,15 +152,22 @@ const ExpandableModal = ({
                   <div>
                     <h3 className="font-semibold mb-3 text-[14px]">Problem</h3>
                     <p className="text-[14px]">
-                      Legal professionals struggle with fragmented data access.<br />
-                      Research workflows are slow and inefficient. Critical case insights remain hidden across multiple platforms.
+                      The data-heavy web app overwhelmed users with complex navigation and unclear hierarchy. Users needed to search cases, track, bookmark, and set alerts without information overload.
+                      <br />
+                      The alert feature was missing from the old web app, and the existing interface presented too much information at once, making it difficult for legal professionals to efficiently access and manage case data.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Solution</h3>
-                    <p>
-                      AI-powered litigation intelligence platform that unifies access to 2 billion court dockets,<br />
-                      enabling comprehensive research and data-driven legal strategies.
+                    <p className="text-[14px]">
+                      A redesigned interface with clear information hierarchy and progressive disclosure. New alerts feature with customizable parameters, simplified navigation structure, and a clean search experience.
+                      <br />
+                      The redesign surfaces only relevant information when users need it, enabling efficient case management and task completion.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-3 text-[14px]">Business KPI</h3>
+                    <p className="text-[14px]">
+                      Business users can efficiently find cases, download documents, and use advanced filters, increasing platform usage and engagement while introducing opportunities for upselling premium products.
                     </p>
                   </div>
                 </div>
@@ -169,42 +176,31 @@ const ExpandableModal = ({
                 <div className="space-y-6">
                   <div>
                     <h3 className="font-semibold mb-3 text-[20px]">Understanding Challenges</h3>
-                    <h4 className="font-semibold mb-3 text-[32px]">Challenge</h4>
-                    <p className="text-[16px]">
-                      Design a webapp that allows legal professionals to perform a unified, AI-powered search across all case data, including dockets, documents, courts, judges, and attorneys.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Key Objectives</h3>
-                    <p>
-                      Create a scalable design system and platform that facilitates deep analysis, document management, and future integrations with legal practice management software and client data warehouses.
-                    </p>
+                    <h4 className="font-semibold mb-3 text-[32px] leading-tight">In data-heavy platforms, interfaces that feel "comprehensive" during early stages often affect user productivity later. Why?</h4>
+                    <div className="text-[16px] space-y-4 leading-relaxed">
+                      <p>
+                        Let me explain with an example.
+                      </p>
+                      <p>
+                        When building data-heavy platforms, it's common to surface all information at once to ensure nothing is missed. But what feels "comprehensive" during those early moments often comes back to affect user productivity and platform adoption.
+                      </p>
+                      <p>
+                        Because we forget to ask: are the interfaces actually usable?
+                      </p>
+                      <p>
+                        At UniCourt, legal professionals were relying on a web app that presented too much information simultaneously, with complex navigation and unclear hierarchy. Users needed to search cases, track, bookmark, and set alerts, but the alert feature was missing and the interface overwhelmed them with information, making it difficult to efficiently access and manage case data.
+                      </p>
+                      <div>
+                        <h4 className="font-semibold mb-3 text-[20px]">How did this affect Business?</h4>
+                        <p>
+                          With more case data and an influx of legal research needs, the data-heavy interface became slow and overwhelming, causing inefficient research workflows, missed case insights, and reduced user engagement affecting business growth and platform adoption.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Reframing the problem */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16 px-8">
-                {/* Left Column - Blank */}
-                <div></div>
-                
-                {/* Right Column */}
-                <div className="space-y-6 text-gray-700 leading-relaxed">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
-                    <p>
-                      How might we enable legal professionals to access and analyze 2 billion court dockets with AI-powered insights in a unified, efficient platform?
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
-                    <p>
-                      Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
-                    </p>
-                  </div>
-                </div>
-              </div>
 
               {/* Full Width Image 2 */}
               <motion.div
