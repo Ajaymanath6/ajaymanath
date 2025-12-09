@@ -229,10 +229,10 @@ const ExpandableModal = ({
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
                     <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
+                    <h3 className="font-semibold mb-3 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
                     <p>
                       Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
                     </p>
@@ -270,10 +270,10 @@ const ExpandableModal = ({
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
                     <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
+                    <h3 className="font-semibold mb-3 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
                     <p>
                       Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
                     </p>
@@ -311,10 +311,10 @@ const ExpandableModal = ({
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
                     <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
+                    <h3 className="font-semibold mb-3 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
                     <p>
                       Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
                     </p>
@@ -352,10 +352,10 @@ const ExpandableModal = ({
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <div>
                     <h3 className="font-semibold mb-2 text-[20px]">Reframing the problem (HMW)</h3>
-                    <h3 className="font-semibold mb-3 text-lg">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
+                    <h3 className="font-semibold mb-3 text-[32px] leading-tight">How might we design data-heavy platforms so early “comprehensive” interfaces stay usable and keep productivity high later?</h3>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
+                    <h3 className="font-semibold mb-3 text-[20px]">Understanding the existing workflow (JTBD)</h3>
                     <p>
                       Legal research was fragmented across multiple platforms and legacy systems. Legal professionals needed to switch between different tools to access dockets, documents, and case analytics, leading to inefficient workflows and missed insights.
                     </p>
