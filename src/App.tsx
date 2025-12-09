@@ -152,17 +152,13 @@ const ExpandableModal = ({
                   <div>
                     <h3 className="font-semibold mb-3 text-[14px]">Problem</h3>
                     <p className="text-[14px]">
-                      The data-heavy web app overwhelmed users with complex navigation and unclear hierarchy. Users needed to search cases, track, bookmark, and set alerts without information overload.
-                      <br />
-                      The alert feature was missing from the old web app, and the existing interface presented too much information at once, making it difficult for legal professionals to efficiently access and manage case data.
+                    Data-heavy app with unclear hierarchy and missing alerts overwhelmed users trying to search, track, bookmark, and manage cases efficiently.
                     </p>
                   </div>
                 <div>
                   <h3 className="font-semibold mb-3 text-[14px]">Solution</h3>
                   <p className="text-[14px]">
-                    A redesigned interface with clear information hierarchy and progressive disclosure. New alerts feature with customizable parameters, simplified navigation structure, and a clean search experience.
-                    <br />
-                    The redesign surfaces only relevant information when users need it, enabling efficient case management and task completion.
+                    Clear hierarchy with progressive disclosure, configurable alerts, simpler navigation, and clean search that surfaces only relevant information when needed.
                   </p>
                 </div>
                   <div>
