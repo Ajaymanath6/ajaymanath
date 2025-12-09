@@ -146,7 +146,7 @@ const ExpandableModal = ({
                   </div>
                 </div>
               </motion.div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-gray-700 leading-relaxed px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-gray-700 leading-relaxed px-8 py-16">
                 {/* Left Column */}
                 <div className="space-y-6">
                   <div>
