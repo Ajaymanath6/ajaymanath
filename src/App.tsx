@@ -189,11 +189,17 @@ const ExpandableModal = ({
                     <p className="text-[16px] leading-relaxed">
                       When building data-heavy platforms, it's common to surface all information at once to ensure nothing is missed. But what feels "comprehensive" during those early moments often comes back to affect user productivity and platform adoption.
                     </p>
-                    <p className="text-[16px] leading-relaxed">
+                    <p className="text-[16px] leading-relaxed pt-6 pb-6">
                       Because we forget to ask: are the interfaces actually usable?
                     </p>
                     <p className="text-[16px] leading-relaxed">
                       At UniCourt, legal professionals were relying on a web app that presented too much information simultaneously, with complex navigation and unclear hierarchy. Users needed to search cases, track, bookmark, and set alerts, but the alert feature was missing and the interface overwhelmed them with information, making it difficult to efficiently access and manage case data.
+                    </p>
+                    <h3 className="text-[26px] font-semibold mt-8 mb-4">
+                      How did this affect Business?
+                    </h3>
+                    <p className="text-[16px] leading-relaxed">
+                      The overwhelming interface led to decreased user productivity and increased frustration, causing legal professionals to spend more time navigating than finding information. This inefficiency resulted in reduced user engagement and potential churn as users sought alternative solutions. The missing alert feature and complex navigation meant users couldn't efficiently track cases or stay updated on important developments, leading to missed opportunities and decreased platform value. This impacted customer retention and limited opportunities for upselling premium features or expanding user subscriptions.
                     </p>
                   </div>
                 </div>
@@ -224,52 +230,23 @@ const ExpandableModal = ({
                 </div>
               </motion.div>
 
-              {/* Reframing the problem - Repeat 3 */}
+              {/* Two Column Grid Section */}
               <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-[35%_65%] gap-16 text-gray-700 leading-relaxed px-8 py-16">
                 {/* Left Column */}
                 <div className="space-y-6">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-[14px]">Problem</h3>
-                    <p className="text-[14px]">
-                      Data-heavy app with unclear hierarchy and missing alerts overwhelmed users trying to search, track, bookmark, and manage cases efficiently.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-[14px]">Solution</h3>
-                    <p className="text-[14px]">
-                      Clear hierarchy with progressive disclosure, configurable alerts, simpler navigation, and clean search that surfaces only relevant information when needed.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-[14px]">Business KPI</h3>
-                    <p className="text-[14px]">
-                      Business users can efficiently find cases, download documents, and use advanced filters, increasing platform usage and engagement while introducing opportunities for upselling premium products.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-[14px]">Organization</h3>
-                    <p className="text-[14px]">UniCourt</p>
-                  </div>
                 </div>
+                {/* Right Column */}
                 <div className="space-y-6 text-gray-700 leading-relaxed pr-9 break-words max-w-full">
                   <div>
-                    <h3 className="font-semibold mb-2 text-[20px]">Understanding Challenges</h3>
+                    <h3 className="font-semibold mb-3 text-[20px]">Reframing the problem (HMW)</h3>
                     <p className="mt-8 mb-8 text-[32px] leading-tight font-semibold">
-                      In data-heavy platforms, interfaces that feel "comprehensive" during early stages often affect user productivity later. Why?
+                      How might we enable legal professionals to efficiently search, track, and manage case data without overwhelming them with information?
                     </p>
                   </div>
                   <div>
-                    <p className="text-[16px] leading-relaxed mb-4">
-                      Let me explain with an example.
-                    </p>
+                    <h3 className="font-semibold text-[20px] py-4">Understanding the existing workflow (JTBD)</h3>
                     <p className="text-[16px] leading-relaxed">
-                      When building data-heavy platforms, it's common to surface all information at once to ensure nothing is missed. But what feels "comprehensive" during those early moments often comes back to affect user productivity and platform adoption.
-                    </p>
-                    <p className="text-[16px] leading-relaxed">
-                      Because we forget to ask: are the interfaces actually usable?
-                    </p>
-                    <p className="text-[16px] leading-relaxed">
-                      At UniCourt, legal professionals were relying on a web app that presented too much information simultaneously, with complex navigation and unclear hierarchy. Users needed to search cases, track, bookmark, and set alerts, but the alert feature was missing and the interface overwhelmed them with information, making it difficult to efficiently access and manage case data.
+                      Searching cases, tracking updates, bookmarking important cases, and monitoring case developments were manually handled by legal professionals through a web app that presented all information simultaneously. As case volumes increased, limited information hierarchy, missing alert features, and the overwhelming interface led to frequent navigation errors, missed case updates, and delayed case management, making it difficult to efficiently access and manage case data.
                     </p>
                   </div>
                 </div>
