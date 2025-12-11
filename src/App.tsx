@@ -737,77 +737,76 @@ const ExpandableModal = ({
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
-                {/* Card 1 - Blue Gradient */}
+                {/* Card 1 - Blue Background */}
                 <div 
-                  className="flex flex-col rounded-[20px] p-6"
+                  className="flex flex-col rounded-[20px] p-6 bg-blue-50"
                   style={{
                     minWidth: '310px',
                     maxWidth: '980px',
                     width: '100%',
-                    background: 'linear-gradient(96.12deg, #E3F2FD 29.3%, #BBDEFB 74.68%)'
                   }}
                 >
-                  <h4 className="text-lg font-bold text-gray-900 mb-4">Contextual Feedback</h4>
+                  <div className="flex items-center gap-3 mb-4">
+                    <i className="ri-message-3-line text-2xl text-blue-600"></i>
+                    <h4 className="text-lg font-bold text-gray-900">Contextual Feedback</h4>
+                  </div>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    Comments pinned directly to specific elements on live websites.
+                    Comments pinned directly to specific elements on live websites. Intuitive note interface allowing users to pin points anywhere.
                   </p>
                   <p className="text-gray-700 text-sm leading-relaxed mt-2">
-                    Intuitive note interface allowing users to pin points anywhere.
-                  </p>
-                  <p className="text-gray-700 text-sm leading-relaxed mt-2">
-                    Inspired by best commenting and note-taking experiences users know.
-                  </p>
-                  <p className="text-gray-700 text-sm leading-relaxed mt-2">
-                    Integration with project management tools reduces feedback loop time.
-                  </p>
-                  <p className="text-gray-700 text-sm leading-relaxed mt-2">
-                    Scalable note structure supports AI, video, and audio inputs.
+                    Integration with project management tools reduces feedback loop. Scalable structure supports AI, video, and audio inputs.
                   </p>
                 </div>
 
-                {/* Card 2 - Green Gradient */}
+                {/* Card 2 - Green Background */}
                 <div 
-                  className="flex flex-col rounded-[20px] p-6"
+                  className="flex flex-col rounded-[20px] p-6 bg-green-50"
                   style={{
                     minWidth: '310px',
                     maxWidth: '980px',
                     width: '100%',
-                    background: 'linear-gradient(96.12deg, #E8F5E9 29.3%, #C8E6C9 74.68%)'
                   }}
                 >
-                  <h4 className="text-lg font-bold text-gray-900 mb-4">Real-time Collaboration</h4>
+                  <div className="flex items-center gap-3 mb-4">
+                    <i className="ri-team-line text-2xl text-green-600"></i>
+                    <h4 className="text-lg font-bold text-gray-900">Real-time Collaboration</h4>
+                  </div>
                   <p className="text-gray-700 text-sm leading-relaxed">
                     Team members see comments instantly and respond to feedback in real-time.
                   </p>
                 </div>
 
-                {/* Card 3 - Orange Gradient */}
+                {/* Card 3 - Orange Background */}
                 <div 
-                  className="flex flex-col rounded-[20px] p-6"
+                  className="flex flex-col rounded-[20px] p-6 bg-orange-50"
                   style={{
                     minWidth: '310px',
                     maxWidth: '980px',
                     width: '100%',
-                    background: 'linear-gradient(96.12deg, #FFF3E0 29.3%, #FFE0B2 74.68%)'
                   }}
                 >
-                  <h4 className="text-lg font-bold text-gray-900 mb-4">Workflow Integration</h4>
+                  <div className="flex items-center gap-3 mb-4">
+                    <i className="ri-file-list-3-line text-2xl text-orange-600"></i>
+                    <h4 className="text-lg font-bold text-gray-900">Workflow Integration</h4>
+                  </div>
                   <p className="text-gray-700 text-sm leading-relaxed">
                     Integrates seamlessly into existing design and development workflows.
                   </p>
                 </div>
 
-                {/* Card 4 - Pink Gradient */}
+                {/* Card 4 - Pink Background */}
                 <div 
-                  className="flex flex-col rounded-[20px] p-6"
+                  className="flex flex-col rounded-[20px] p-6 bg-pink-50"
                   style={{
                     minWidth: '310px',
                     maxWidth: '980px',
                     width: '100%',
-                    background: 'linear-gradient(96.12deg, #FCE4EC 29.3%, #F8BBD0 74.68%)'
                   }}
                 >
-                  <h4 className="text-lg font-bold text-gray-900 mb-4">Status Tracking</h4>
+                  <div className="flex items-center gap-3 mb-4">
+                    <i className="ri-dashboard-3-line text-2xl text-pink-600"></i>
+                    <h4 className="text-lg font-bold text-gray-900">Status Tracking</h4>
+                  </div>
                   <p className="text-gray-700 text-sm leading-relaxed">
                     Teams monitor feedback resolution and assign tasks with full visibility.
                   </p>
