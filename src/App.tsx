@@ -135,14 +135,13 @@ const ExpandableModal = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
               >
                 <div className="w-full h-full flex items-center justify-center">
                   <img
                     key={currentImage}
                     src={`${process.env.PUBLIC_URL}/${currentImage}`}
                     alt="Unified Litigation Intelligence Platform Design"
-                    className="w-full h-full object-cover transition-opacity duration-500"
+                    className="w-full h-auto max-w-full object-contain transition-opacity duration-500"
                     style={{ opacity: 1 }}
                   />
                 </div>
@@ -207,13 +206,17 @@ const ExpandableModal = ({
 
 
               {/* Full Width Image 3 */}
+              <div className="mt-16 mb-4 px-8">
+                <p className="text-[16px] leading-relaxed text-gray-700 font-semibold">
+                  Search flow
+                </p>
+              </div>
               <motion.div
                 className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden min-h-[800px] mt-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
               >
                 <div className="w-full min-h-full flex items-center justify-center p-4 overflow-hidden">
                   <video
@@ -252,16 +255,92 @@ const ExpandableModal = ({
                 </div>
               </div>
 
-              {/* Full Width Image 4 */}
+              {/* Browser Video Section */}
               <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden min-h-[800px] mt-8"
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden min-h-[600px] mb-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
               >
-                <div className="w-full min-h-full flex items-center justify-center p-4 overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center py-6 px-9 overflow-hidden">
+                  <video
+                    src={`${process.env.PUBLIC_URL}/oldunicourt1.mp4`}
+                    className="w-full h-auto max-w-full object-contain rounded-2xl"
+                    controls
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </motion.div>
+
+              {/* Flow Chart Section */}
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden min-h-[600px] mb-8 mt-16"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="w-full h-full flex flex-col items-center justify-center py-6 px-9 overflow-hidden">
+                  <p className="text-[16px] leading-relaxed text-gray-700 mb-4 text-center">
+                    The new standardized flow guides users through case search, tracking, and management with progressive disclosure.
+                  </p>
+                  <img
+                    alt="User Workflow Flowchart"
+                    src={`${process.env.PUBLIC_URL}/flow.png`}
+                    className="w-full h-auto max-w-full object-contain rounded-2xl"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Two Column Grid Section */}
+              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-[35%_65%] gap-16 text-gray-700 leading-relaxed px-8 py-16">
+                {/* Left Column */}
+                <div className="space-y-6">
+                </div>
+                {/* Right Column */}
+                <div className="space-y-6 text-gray-700 leading-relaxed pr-9 break-words max-w-full">
+                  <div>
+                    <h3 className="font-semibold mb-3 text-[20px]">The Solution</h3>
+                    <p className="text-[16px] leading-relaxed mb-4">
+                      I standardized the user flow and redesigned the navigation system for a cleaner, more intuitive experience.
+                      The interface uses progressive disclosure—users see only the details they need to progress.
+                    </p>
+                    <p className="text-[16px] leading-relaxed mb-4">
+                      Additional actions remain hidden until users show intent, reducing cognitive load.
+                      This prevents information overload and makes the interface significantly more usable.
+                    </p>
+                    <p className="text-[16px] leading-relaxed mb-4">
+                      I introduced a new alert system with dedicated navigation options.
+                      Users can now easily create and search for alerts, addressing a critical missing feature.
+                    </p>
+                    <p className="text-[16px] leading-relaxed">
+                      Legal professionals can efficiently find cases, track updates, and manage their workflow.
+                      The clear hierarchy guides users without overwhelming them with unnecessary information.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Full Width Image 4 */}
+              <div className="mt-16 mb-4 px-8">
+                <p className="text-[16px] leading-relaxed text-gray-700 font-semibold">
+                  Search flow
+                </p>
+              </div>
+              <motion.div
+                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden min-h-[600px] mb-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="w-full h-full flex items-center justify-center py-6 px-9 overflow-hidden">
                   <video
                     src={`${process.env.PUBLIC_URL}/unicourtvideo.mp4`}
                     className="w-full h-auto max-w-full object-contain rounded-2xl"
@@ -276,15 +355,18 @@ const ExpandableModal = ({
                 </div>
               </motion.div>
 
-
               {/* Video Section - Repeat 3 */}
+              <div className="mt-16 mb-4 px-8">
+                <p className="text-[16px] leading-relaxed text-gray-700 font-semibold">
+                  Alerts flow
+                </p>
+              </div>
               <motion.div
                 className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden min-h-[800px] mt-8"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
               >
                 <div className="w-full min-h-full flex items-center justify-center p-4 overflow-hidden">
                   <video
@@ -301,22 +383,215 @@ const ExpandableModal = ({
                 </div>
               </motion.div>
 
-
-              {/* Flow Image */}
+              {/* All Projects Section */}
               <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden min-h-[600px] mb-8"
+                className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-10 py-[120px] border-t border-gray-200"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
               >
-                <div className="w-full h-full flex items-center justify-center py-6 px-9 overflow-hidden">
-                  <img
-                    src={`${process.env.PUBLIC_URL}/flow.png`}
-                    alt="User Workflow Flowchart"
-                    className="w-full h-auto max-w-full object-contain rounded-2xl"
-                  />
+                {/* Grid 1: Title */}
+                <div className="text-black">
+                  <h2 className="text-[34px] font-bold leading-tight">
+                    All Projects
+                  </h2>
+                </div>
+
+                {/* Grid 2: Project Cards */}
+                <div className="grid grid-cols-1 gap-6">
+                  {/* Enterprise Design System */}
+                  <motion.div
+                    className="artasaka-card cursor-pointer"
+                    style={{ height: "50vh" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0 }}
+                    onClick={() => {
+                      onClose();
+                      setTimeout(() => {
+                        window.location.hash = "/process/enterprise-design-system";
+                      }, 300);
+                    }}
+                  >
+                    <div className="artasaka-card-image-full relative group overflow-hidden">
+                      <div
+                        className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative flex items-center justify-center"
+                        style={{
+                          background: `linear-gradient(135deg, #22c55e 0%, #4ade80 30%, #86efac 60%, #bbf7d0 80%, #ffffff 100%)`,
+                        }}
+                      >
+                        {/* Net mesh pattern - centered and fading out */}
+                        <div 
+                          className="absolute inset-0"
+                          style={{
+                            backgroundImage: `
+                              repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255,255,255,0.15) 50px, rgba(255,255,255,0.15) 51px),
+                              repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.15) 50px, rgba(255,255,255,0.15) 51px)
+                            `,
+                            backgroundSize: '100% 100%',
+                            backgroundPosition: 'center',
+                            maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+                            WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+                          }}
+                        ></div>
+                        
+                        {/* Grid text in the middle with icons on both sides */}
+                        <div className="flex items-center justify-center gap-6 relative z-10">
+                          {/* Left icon - Foundations */}
+                          <i className="ri-layout-grid-fill text-5xl text-black"></i>
+                          {/* Grid text */}
+                          <h2 className="text-6xl font-bold text-black">
+                            Grid
+                          </h2>
+                          {/* Right icon - Components */}
+                          <i className="ri-stack-fill text-5xl text-black"></i>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-white text-xl font-bold leading-tight mb-2">
+                          Enterprise Design System
+                        </h3>
+                        <p className="text-gray-200 text-sm">
+                          A comprehensive design system with Figma documentation, components, and structure for multiple projects.
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* End Feedback Chaos */}
+                  <motion.div
+                    className="artasaka-card cursor-pointer"
+                    style={{ height: "50vh" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    onClick={() => {
+                      onClose();
+                      setTimeout(() => {
+                        window.location.hash = "/process/feedback-collaboration";
+                      }, 300);
+                    }}
+                  >
+                    <div className="artasaka-card-image-full relative group overflow-hidden">
+                      <div
+                        className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative overflow-hidden"
+                        style={{
+                          backgroundColor: "#fafafa",
+                        }}
+                      >
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 z-10">
+                          <img
+                            src={`${process.env.PUBLIC_URL}/noathumb.svg`}
+                            alt="Noa Thumbnail"
+                            className="w-full h-auto opacity-90"
+                          />
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-white text-xl font-bold leading-tight mb-2">
+                          End Feedback Chaos
+                        </h3>
+                        <p className="text-gray-200 text-sm">
+                          Pin contextual comments directly on live websites for crystal-clear collaboration and accelerated team workflows.
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Mandal Minds */}
+                  <motion.div
+                    className="artasaka-card cursor-pointer"
+                    style={{ height: "50vh" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    onClick={() => {
+                      onClose();
+                      setTimeout(() => {
+                        window.location.hash = "/process/mandal-minds";
+                      }, 300);
+                    }}
+                  >
+                    <div className="artasaka-card-image-full relative group overflow-hidden">
+                      <div
+                        className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
+                        style={{
+                          background: `linear-gradient(to bottom, #EFEFFF, #FFE1F1, #FFF6F5)`,
+                        }}
+                      >
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                          <img
+                            src={`${process.env.PUBLIC_URL}/mandal.png`}
+                            alt="Mandal Logo"
+                            className="h-24 w-auto opacity-90"
+                          />
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-white text-xl font-bold leading-tight mb-2">
+                          Mandal Minds: AI-Driven Hiring & Personalized Placement
+                        </h3>
+                        <p className="text-gray-200 text-sm">
+                          Customizable AI interviews validate skills, connecting you directly with recruiters for your dream job.
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Shop OS */}
+                  <motion.div
+                    className="artasaka-card cursor-pointer"
+                    style={{ height: "50vh" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    onClick={() => {
+                      onClose();
+                      setTimeout(() => {
+                        window.location.hash = "/process/shop-os";
+                      }, 300);
+                    }}
+                  >
+                    <div className="artasaka-card-image-full relative group overflow-hidden">
+                      <div
+                        className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
+                        style={{
+                          background: `linear-gradient(135deg, #FFFEF0 0%, #F1F8E9 30%, #E8F5E9 60%, #C8E6C9 80%, #A5D6A7 100%)`,
+                        }}
+                      >
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                          <div className="flex items-center justify-center gap-2 mb-3">
+                            <span className="text-6xl font-bold text-black leading-none">
+                              Shop
+                            </span>
+                            <span className="text-6xl font-bold text-black leading-none">
+                              OS
+                            </span>
+                          </div>
+                          <p className="text-base text-black opacity-70 font-medium">
+                            Welcome to Shop OS
+                          </p>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-white text-xl font-bold leading-tight mb-2">
+                          Shop OS: AI Agentic Native Ecosystem for Multi-Agent Workspace
+                        </h3>
+                        <p className="text-gray-200 text-sm">
+                          Intelligent OS ecosystem for agentic workflows everything related to shopping.
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
               </motion.div>
 
