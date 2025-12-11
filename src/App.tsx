@@ -3,8 +3,7 @@ import { motion, AnimatePresence, useAnimation, Variants } from "framer-motion";
 import "remixicon/fonts/remixicon.css";
 import "./App.css";
 import faceImg from "./face.png";
-import fullImg from "./full.jpg";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 // Import content components for modal
 import Process from "./Process";
@@ -2027,14 +2026,10 @@ const MobileMenu = ({
 function App() {
   const [activeTab, setActiveTab] = useState("Projects");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showInfo, setShowInfo] = useState(true);
-  const [showStory, setShowStory] = useState(true);
-  const [hoveredItems, setHoveredItems] = useState(false);
-  const [clickedCard, setClickedCard] = useState(false);
+  const [showStory] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
   const [modalData, setModalData] = useState(null);
-  const { isMobile } = useMobile();
 
   const location = useLocation();
 
@@ -2262,18 +2257,6 @@ function App() {
       });
   };
 
-  // Get page title based on active tab
-  const getPageTitle = () => {
-    switch (activeTab) {
-      case "Projects":
-        return "Projects";
-      case "Articles & Tutorials":
-        return "Design & Product Management Articles";
-      default:
-        return "Portfolio";
-    }
-  };
-
   // Click handler for links (both internal and external)
   const handleCardClick = (link?: string | null, data?: any) => {
     if (link) {
@@ -2302,17 +2285,6 @@ function App() {
 
     // Always treat as tab change - render content in right column instead of modal
     handleTabChange(item.name);
-  };
-
-  const handleImageClick = () => {
-    setClickedCard(!clickedCard);
-    if (!clickedCard) {
-      setShowInfo(true);
-      setTimeout(() => setShowStory(true), 800);
-    } else {
-      setShowStory(false);
-      setShowInfo(false);
-    }
   };
 
   // Function to format text with bold and colored industry highlights
