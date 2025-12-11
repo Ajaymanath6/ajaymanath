@@ -479,7 +479,10 @@ const ExpandableModal = ({
                       <div
                         className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative overflow-hidden"
                         style={{
-                          backgroundColor: "#fafafa",
+                          background: `
+                            radial-gradient(ellipse at top center, rgba(173, 216, 230, 0.4) 0%, rgba(240, 255, 240, 0.3) 40%, rgba(255, 255, 255, 0.6) 70%, #ffffff 100%),
+                            linear-gradient(to bottom, rgba(230, 255, 250, 0.2) 0%, #ffffff 100%)
+                          `,
                         }}
                       >
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 z-10">
