@@ -384,7 +384,7 @@ const ExpandableModal = ({
 
               {/* All Projects Section */}
               <motion.div
-                className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-10 py-[120px] border-t border-gray-200"
+                className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-10 py-[120px] px-8 border-t border-gray-200"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
