@@ -747,17 +747,21 @@ const ExpandableModal = ({
                     background: 'linear-gradient(96.12deg, #E3F2FD 29.3%, #BBDEFB 74.68%)'
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <i className="ri-message-3-line text-2xl text-white"></i>
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-900">Contextual Feedback</h4>
-                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-4">Contextual Feedback</h4>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    Design a system where comments are pinned directly to specific elements on live websites, ensuring feedback is always contextual and actionable without losing visual context. I made sure the note interface feels very intuitive, allowing users to pin points in any spot they want. I took inspiration from the best commenting and note-taking experiences that users are already familiar with, bringing that same familiarity to the extension.
+                    Comments pinned directly to specific elements on live websites.
                   </p>
-                  <p className="text-gray-700 text-sm leading-relaxed mt-4">
-                    The integration with project management tools was important, providing actual value in reducing the feedback loop mechanism. I designed the note structure to scale and encompass more features like AI rewriter, video, and audio inputs, ensuring the system can grow with user needs.
+                  <p className="text-gray-700 text-sm leading-relaxed mt-2">
+                    Intuitive note interface allowing users to pin points anywhere.
+                  </p>
+                  <p className="text-gray-700 text-sm leading-relaxed mt-2">
+                    Inspired by best commenting and note-taking experiences users know.
+                  </p>
+                  <p className="text-gray-700 text-sm leading-relaxed mt-2">
+                    Integration with project management tools reduces feedback loop time.
+                  </p>
+                  <p className="text-gray-700 text-sm leading-relaxed mt-2">
+                    Scalable note structure supports AI, video, and audio inputs.
                   </p>
                 </div>
 
@@ -771,14 +775,9 @@ const ExpandableModal = ({
                     background: 'linear-gradient(96.12deg, #E8F5E9 29.3%, #C8E6C9 74.68%)'
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
-                      <i className="ri-team-line text-2xl text-white"></i>
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-900">Real-time Collaboration</h4>
-                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-4">Real-time Collaboration</h4>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    Enable seamless real-time collaboration where team members can see comments instantly, respond to feedback, and track resolution status across all pinned comments.
+                    Team members see comments instantly and respond to feedback in real-time.
                   </p>
                 </div>
 
@@ -792,14 +791,9 @@ const ExpandableModal = ({
                     background: 'linear-gradient(96.12deg, #FFF3E0 29.3%, #FFE0B2 74.68%)'
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
-                      <i className="ri-file-list-3-fill text-2xl text-white"></i>
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-900">Workflow Integration</h4>
-                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-4">Workflow Integration</h4>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    Create a system that integrates seamlessly into existing design and development workflows, eliminating the need to switch between multiple tools and platforms.
+                    Integrates seamlessly into existing design and development workflows.
                   </p>
                 </div>
 
@@ -813,14 +807,9 @@ const ExpandableModal = ({
                     background: 'linear-gradient(96.12deg, #FCE4EC 29.3%, #F8BBD0 74.68%)'
                   }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center">
-                      <i className="ri-dashboard-3-line text-2xl text-white"></i>
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-900">Status Tracking</h4>
-                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-4">Status Tracking</h4>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    Build a comprehensive status tracking system that allows teams to monitor feedback resolution, assign tasks, and maintain visibility across all design iterations.
+                    Teams monitor feedback resolution and assign tasks with full visibility.
                   </p>
                 </div>
               </div>
