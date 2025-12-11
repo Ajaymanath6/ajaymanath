@@ -690,10 +690,10 @@ const ExpandableModal = ({
             <section className="mb-12">
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  Noa - Notes On Anything is a browser extension that allows users to pin and make notes on any website or webapp in the exact place they want, eliminating scattered communication and streamlining the design-to-development handoff process. The system integrates with favorite tools like Jira, Notion, and Todoist, enabling users to create tickets directly from notes on the surface of their critique without needing to go to Jira and make a ticket separately.
+                  <strong>Noa - Notes On Anything</strong> is a browser extension that allows users to <strong>pin and make notes</strong> on <strong>any website or webapp</strong> in the <strong>exact place</strong> they want, eliminating scattered communication and streamlining the design-to-development handoff process. The system integrates with favorite tools like <strong>Jira, Notion, and Todoist</strong>, enabling users to <strong>create tickets directly</strong> from notes on the surface of their critique without needing to go to Jira and make a ticket separately.
                 </p>
                 <p>
-                  This cuts the traditional workflow by 70%, allowing designers, developers, QA, and managers to easily give feedback, track progress, and create tickets and other actions all in one place. As the lead designer, I conceptualized and designed the entire feedback system from scratch, focusing on seamless browser integration and intuitive user experience that accelerates the entire collaboration workflow.
+                  This cuts the traditional workflow by <strong>70%</strong>, allowing <strong>designers, developers, QA, and managers</strong> to easily give feedback, track progress, and create tickets and other actions all in <strong>one place</strong>. As the lead designer, I conceptualized and designed the entire feedback system from scratch, focusing on seamless browser integration and intuitive user experience that accelerates the entire collaboration workflow.
                 </p>
               </div>
             </section>
@@ -704,7 +704,8 @@ const ExpandableModal = ({
               <div className="w-full h-px bg-gray-300 mb-6"></div>
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-black">
-                  Design a browser extension that allows teams to collaborate and give feedback directly on live websites
+                  Design a browser extension that allows<br />
+                  teams to collaborate and give feedback on live websites
                 </h3>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700 leading-relaxed">
