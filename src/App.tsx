@@ -493,8 +493,8 @@ const ExpandableModal = ({
                           />
                         </div>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-green-600/70 via-green-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-t from-green-600/70 via-green-500/30 to-transparent"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
                         <h3 className="text-white text-xl font-bold leading-tight mb-2">
                           End Feedback Chaos
                         </h3>
