@@ -700,7 +700,7 @@ const ExpandableModal = ({
 
             {/* Overview */}
             <section className="mb-12">
-              <h2 className="text-lg font-bold mb-4">Overview</h2>
+              <h2 className="text-lg font-bold mb-4 text-orange-600">Overview</h2>
               <div className="w-full h-px bg-gray-300 mb-6"></div>
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-green-600">
