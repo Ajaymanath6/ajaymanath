@@ -460,6 +460,82 @@ const ExpandableModal = ({
                     </div>
                   </motion.div>
 
+                  {/* End Feedback Chaos */}
+                  <motion.div
+                    className="artasaka-card cursor-pointer"
+                    style={{ height: "50vh" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    onClick={() => {
+                      onClose();
+                      setTimeout(() => {
+                        window.location.hash = "/process/feedback-collaboration";
+                      }, 300);
+                    }}
+                  >
+                    <div className="artasaka-card-image-full relative group overflow-hidden">
+                      <div
+                        className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative overflow-hidden"
+                        style={{
+                          backgroundColor: "#fafafa",
+                        }}
+                      >
+                        {/* Blue aurora blob - top left */}
+                        <div
+                          className="absolute"
+                          style={{
+                            top: "-10%",
+                            left: "-10%",
+                            width: "500px",
+                            height: "500px",
+                            background:
+                              "radial-gradient(circle at center, rgba(147, 197, 253, 0.3) 0%, transparent 70%)",
+                            filter: "blur(120px)",
+                            opacity: 0.8,
+                          }}
+                        ></div>
+
+                        {/* Green aurora blob - top center behind logo */}
+                        <div
+                          className="absolute"
+                          style={{
+                            top: "-10%",
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            width: "700px",
+                            height: "700px",
+                            background:
+                              "radial-gradient(circle at center, #10b981 0%, transparent 70%)",
+                            filter: "blur(120px)",
+                            opacity: 0.8,
+                          }}
+                        ></div>
+
+                        {/* NOA Thumb SVG scaled to card width */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 z-10">
+                          <img
+                            src={`${process.env.PUBLIC_URL}/noathumb.svg`}
+                            alt="Noa Thumbnail"
+                            className="w-full h-auto opacity-90"
+                          />
+                        </div>
+                      </div>
+                      {/* Dark overlay that appears on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      {/* Title that appears on hover */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-white text-xl font-bold leading-tight mb-2">
+                          End Feedback Chaos
+                        </h3>
+                        <p className="text-gray-200 text-sm">
+                          Pin contextual comments directly on live websites for crystal-clear collaboration and accelerated team workflows.
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
                   {/* Mandal Minds */}
                   <motion.div
                     className="artasaka-card cursor-pointer"
