@@ -690,10 +690,10 @@ const ExpandableModal = ({
             <section className="mb-12">
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  End Feedback Chaos is a revolutionary feedback system designed to eliminate scattered communication and streamline the design-to-development handoff process. This browser extension allows teams to pin contextual comments directly on live websites, creating crystal-clear collaboration and accelerated team workflows.
+                  Noa - Notes On Anything is a browser extension that allows users to pin and make notes on any website or webapp in the exact place they want, eliminating scattered communication and streamlining the design-to-development handoff process. The system integrates with favorite tools like Jira, Notion, and Todoist, enabling users to create tickets directly from notes on the surface of their critique without needing to go to Jira and make a ticket separately.
                 </p>
                 <p>
-                  As the lead designer, I conceptualized and designed the entire feedback system from scratch, focusing on seamless browser integration and intuitive user experience. The system enables designers, developers, and stakeholders to collaborate in real-time with context-aware feedback that accelerates the entire workflow.
+                  This cuts the traditional workflow by 70%, allowing designers, developers, QA, and managers to easily give feedback, track progress, and create tickets and other actions all in one place. As the lead designer, I conceptualized and designed the entire feedback system from scratch, focusing on seamless browser integration and intuitive user experience that accelerates the entire collaboration workflow.
                 </p>
               </div>
             </section>
