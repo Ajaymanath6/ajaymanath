@@ -1044,9 +1044,6 @@ const ExpandableModal = ({
                   {/* Logo and Project Name - Left Side */}
                   <div className="flex items-start justify-between w-full mb-6">
                     <div className="flex items-center">
-                      <div className="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
-                        <i className="ri-user-search-line text-2xl text-white"></i>
-                      </div>
                       <div>
                         <h1 className="text-3xl sm:text-4xl font-bold mb-1 text-black">
                           Mandal Minds
@@ -1064,31 +1061,10 @@ const ExpandableModal = ({
                   </p>
                 </div>
 
-                {/* Right Column - Scope of Work and Stack */}
+                {/* Right Column - Stack */}
                 <div className="flex flex-col">
-                  {/* Combined Scope of Work and Stack */}
+                  {/* Stack */}
                   <div>
-                    <h3 className="text-lg font-bold text-black mb-4">
-                      Scope of work
-                    </h3>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      <span className="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">
-                        UX Design
-                      </span>
-                      <span className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
-                        AI Interviews
-                      </span>
-                      <span className="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
-                        Skill Assessment
-                      </span>
-                      <span className="bg-orange-100 text-orange-800 text-sm px-3 py-1 rounded-full">
-                        Matchmaking
-                      </span>
-                      <span className="bg-pink-100 text-pink-800 text-sm px-3 py-1 rounded-full">
-                        User Research
-                      </span>
-                    </div>
-
                     <h3 className="text-lg font-bold text-black mb-4">Stack</h3>
                     {/* Stack with Badge Style */}
                     <div className="flex flex-wrap gap-3">
