@@ -726,7 +726,7 @@ const ExpandableModal = ({
 
             {/* Thinking Process */}
             <section className="mb-12">
-              <h2 className="text-lg font-bold mb-4">Thinking Process</h2>
+              <h2 className="text-lg font-bold mb-4 text-orange-600">Thinking Process</h2>
               <div className="w-full h-px bg-gray-300 mb-6"></div>
               
               <div className="mb-8">
@@ -825,7 +825,7 @@ const ExpandableModal = ({
 
             {/* The Designs */}
             <section className="mb-12">
-              <h2 className="text-lg font-bold mb-4">The Designs</h2>
+              <h2 className="text-lg font-bold mb-4 text-orange-600">The Designs</h2>
               <div className="w-full h-px bg-gray-300 mb-6"></div>
 
               {/* Design 1: Comment Interface */}
@@ -979,7 +979,7 @@ const ExpandableModal = ({
 
               {/* User Testing & Impact */}
               <section className="mb-12">
-                <h2 className="text-lg font-bold mb-4">User Testing & Impact</h2>
+                <h2 className="text-lg font-bold mb-4 text-orange-600">User Testing & Impact</h2>
                 <div className="w-full h-px bg-gray-300 mb-6"></div>
                 
                 <div className="space-y-6 text-gray-700 leading-relaxed px-9">
