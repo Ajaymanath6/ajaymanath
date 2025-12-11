@@ -703,7 +703,7 @@ const ExpandableModal = ({
               <h2 className="text-lg font-bold mb-4">Overview</h2>
               <div className="w-full h-px bg-gray-300 mb-6"></div>
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-black">
+                <h3 className="text-2xl font-bold text-green-600">
                   Design a browser extension that allows<br />
                   teams to collaborate and give feedback on live websites
                 </h3>
