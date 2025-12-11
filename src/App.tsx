@@ -647,6 +647,11 @@ const ExpandableModal = ({
                   {/* Project Name */}
                   <div className="flex items-start justify-between w-full mb-6">
                     <div className="flex items-center">
+                      <img
+                        src={`${process.env.PUBLIC_URL}/noa.png`}
+                        alt="Noa"
+                        className="w-16 h-16 mr-4 object-contain"
+                      />
                       <div>
                         <h1 className="text-3xl sm:text-4xl font-bold mb-1 text-black">
                           Noa - Notes On Anything
@@ -674,8 +679,8 @@ const ExpandableModal = ({
             >
               <div className="w-full h-full flex items-center justify-center">
                 <img
-                  src="image1.png"
-                  alt="End Feedback Chaos Documentation"
+                  src={`${process.env.PUBLIC_URL}/noa1.png`}
+                  alt="Noa"
                   className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
