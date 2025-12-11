@@ -754,7 +754,10 @@ const ExpandableModal = ({
                     <h4 className="text-lg font-bold text-gray-900">Contextual Feedback</h4>
                   </div>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    Design a system where comments are pinned directly to specific elements on live websites, ensuring feedback is always contextual and actionable without losing visual context.
+                    Design a system where comments are pinned directly to specific elements on live websites, ensuring feedback is always contextual and actionable without losing visual context. I made sure the note interface feels very intuitive, allowing users to pin points in any spot they want. I took inspiration from the best commenting and note-taking experiences that users are already familiar with, bringing that same familiarity to the extension.
+                  </p>
+                  <p className="text-gray-700 text-sm leading-relaxed mt-4">
+                    The integration with project management tools was important, providing actual value in reducing the feedback loop mechanism. I designed the note structure to scale and encompass more features like AI rewriter, video, and audio inputs, ensuring the system can grow with user needs.
                   </p>
                 </div>
 
