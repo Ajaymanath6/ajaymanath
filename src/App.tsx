@@ -641,18 +641,15 @@ const ExpandableModal = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-                {/* Left Column - Logo, Name, Description */}
+              <div>
+                {/* Project Name and Description */}
                 <div className="flex flex-col items-start">
-                  {/* Logo and Project Name - Left Side */}
+                  {/* Project Name */}
                   <div className="flex items-start justify-between w-full mb-6">
                     <div className="flex items-center">
-                      <div className="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mr-4">
-                        <i className="ri-message-3-line text-2xl text-white"></i>
-                      </div>
                       <div>
                         <h1 className="text-3xl sm:text-4xl font-bold mb-1 text-black">
-                          End Feedback Chaos
+                          Noa - Notes On Anything
                         </h1>
                       </div>
                     </div>
@@ -662,68 +659,6 @@ const ExpandableModal = ({
                   <p className="text-base text-black opacity-80 leading-relaxed mb-6">
                     Pin contextual comments directly on live websites for crystal-clear collaboration and accelerated team workflows.
                   </p>
-                </div>
-
-                {/* Right Column - Scope of Work and Stack */}
-                <div className="flex flex-col">
-                  {/* Combined Scope of Work and Stack */}
-                  <div>
-                    <h3 className="text-lg font-bold text-black mb-4">
-                      Scope of work
-                    </h3>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      <span className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
-                        UX Design
-                      </span>
-                      <span className="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">
-                        Browser Extension
-                      </span>
-                      <span className="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
-                        Real-time Collaboration
-                      </span>
-                      <span className="bg-orange-100 text-orange-800 text-sm px-3 py-1 rounded-full">
-                        API Integration
-                      </span>
-                      <span className="bg-pink-100 text-pink-800 text-sm px-3 py-1 rounded-full">
-                        Team Workflows
-                      </span>
-                    </div>
-
-                    <h3 className="text-lg font-bold text-black mb-4">Stack</h3>
-                    {/* Stack with Badge Style */}
-                    <div className="flex flex-wrap gap-3">
-                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
-                        <img 
-                          src="https://cdn.simpleicons.org/figma/F24E1E" 
-                          alt="Figma" 
-                          className="w-6 h-6 mr-2 rounded-full object-contain"
-                        />
-                        <span className="text-black text-sm font-medium">
-                          Figma
-                        </span>
-                      </div>
-                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
-                        <img 
-                          src="https://cdn.simpleicons.org/react/61DAFB" 
-                          alt="React" 
-                          className="w-6 h-6 mr-2 rounded-full object-contain"
-                        />
-                        <span className="text-black text-sm font-medium">
-                          React
-                        </span>
-                      </div>
-                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
-                        <img 
-                          src="https://cdn.simpleicons.org/readthedocs/8CA1AF" 
-                          alt="Documentation" 
-                          className="w-6 h-6 mr-2 rounded-full object-contain"
-                        />
-                        <span className="text-black text-sm font-medium">
-                          Documentation
-                        </span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </motion.div>
