@@ -521,6 +521,13 @@ const ExpandableModal = ({
                             className="w-full h-auto opacity-90"
                           />
                         </div>
+                        
+                        {/* Coming Soon Badge */}
+                        <div className="absolute top-4 right-4 z-20">
+                          <span className="px-3 py-1.5 bg-orange-500 text-white rounded-full text-xs sm:text-sm font-semibold shadow-lg">
+                            Coming Soon
+                          </span>
+                        </div>
                       </div>
                       {/* Dark overlay that appears on hover */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -815,7 +822,70 @@ const ExpandableModal = ({
             </section>
 
             {/* The Designs */}
-            <section className="mb-12">
+            <section className="mb-12 relative">
+              {/* Backdrop Blur Overlay with Text */}
+              <div 
+                className="absolute inset-0 z-50 flex items-start justify-center rounded-2xl pt-16"
+                style={{
+                  backdropFilter: 'blur(25px)',
+                  WebkitBackdropFilter: 'blur(25px)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.1)',
+                }}
+              >
+                <div className="text-center px-8 space-y-6">
+                  <div className="flex items-center justify-center gap-4 mb-4">
+                    <motion.i 
+                      className="ri-lightbulb-flash-line text-4xl sm:text-5xl text-orange-500"
+                      initial={{ opacity: 1, scale: 1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                    ></motion.i>
+                    <motion.i 
+                      className="ri-heart-3-line text-4xl sm:text-5xl text-pink-500"
+                      initial={{ opacity: 1, scale: 1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                    ></motion.i>
+                    <motion.i 
+                      className="ri-rocket-line text-4xl sm:text-5xl text-blue-500"
+                      initial={{ opacity: 1, scale: 1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                    ></motion.i>
+                  </div>
+                  
+                  <div className="space-y-6 max-w-4xl mx-auto">
+                    <p 
+                      className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 leading-relaxed text-left"
+                      style={{ fontFamily: "'Lora', serif" }}
+                    >
+                      I'm a product designer who stumbled upon a problem that needed solving.
+                    </p>
+                    
+                    <p 
+                      className="text-lg sm:text-xl md:text-2xl font-normal text-gray-700 leading-relaxed text-left"
+                      style={{ fontFamily: "'Lora', serif" }}
+                    >
+                      This is my first product—built from zero to one. I designed the solution, then prototyped it with AI and Cursor to bring the exact experience we envisioned to life. This project marks my journey from product designer to product builder.
+                    </p>
+                    
+                    <p 
+                      className="text-lg sm:text-xl md:text-2xl font-normal text-gray-700 leading-relaxed text-left"
+                      style={{ fontFamily: "'Lora', serif" }}
+                    >
+                      Hoping to launch by January 1st. I found 3 devs to help me make it scale and secure. This project taught me a lot about product management, managing the team, road map, and all those things.
+                    </p>
+                    
+                    <div className="flex items-center gap-3 mt-4">
+                      <i className="ri-time-line text-2xl text-orange-500"></i>
+                      <span className="text-lg sm:text-xl font-semibold text-gray-800">Coming Soon</span>
+                      <i className="ri-calendar-line text-2xl text-orange-500"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
               <h2 className="text-lg font-bold mb-4 text-orange-600">The Designs</h2>
               <div className="w-full h-px bg-gray-300 mb-6"></div>
 
@@ -2761,6 +2831,13 @@ function App() {
                                     alt="Noa Thumbnail"
                                     className="w-full h-auto opacity-90"
                                   />
+                                </div>
+                                
+                                {/* Coming Soon Badge */}
+                                <div className="absolute top-4 right-4 z-20">
+                                  <span className="px-3 py-1.5 bg-orange-500 text-white rounded-full text-xs sm:text-sm font-semibold shadow-lg">
+                                    Coming Soon
+                                  </span>
                                 </div>
                               </div>
                             ) : design.id === 9 ? (

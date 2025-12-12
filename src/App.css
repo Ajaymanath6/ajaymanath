@@ -4,6 +4,8 @@
 
 /* Import Open Sans Font */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+/* Import Lora Font */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 
 body {
   font-family: 'Open Sans', 'PingFang SC', Arial, sans-serif;
