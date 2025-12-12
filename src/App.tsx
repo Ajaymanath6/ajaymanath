@@ -839,7 +839,7 @@ const ExpandableModal = ({
                 >
                   <div className="w-full h-full flex items-center justify-center">
                     <img
-                      src="image1.png"
+                      src="/noa2.png"
                       alt="Comment Interface Design"
                       className="w-full h-full object-cover rounded-2xl"
                     />
@@ -867,7 +867,7 @@ const ExpandableModal = ({
                 >
                   <div className="w-full h-full flex items-center justify-center">
                     <img
-                      src="image2.png"
+                      src="/image2.png"
                       alt="Real-time Collaboration Design"
                       className="w-full h-full object-cover rounded-2xl"
                     />
@@ -895,7 +895,7 @@ const ExpandableModal = ({
                 >
                   <div className="w-full h-full flex items-center justify-center">
                     <img
-                      src="image3.png"
+                      src="/noa3.png"
                       alt="Workflow Management Design"
                       className="w-full h-full object-cover rounded-2xl"
                     />
@@ -923,7 +923,7 @@ const ExpandableModal = ({
                 >
                   <div className="w-full h-full flex items-center justify-center">
                     <img
-                      src="image4.png"
+                      src="/image4.png"
                       alt="Status Tracking Dashboard Design"
                       className="w-full h-full object-cover rounded-2xl"
                     />
