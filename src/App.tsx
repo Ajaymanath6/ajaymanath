@@ -3024,7 +3024,7 @@ function App() {
     },
     {
       name: "Process",
-      icon: "ri-swap-2-fill",
+      icon: "ri-compasses-2-fill",
       href: "#process",
       isPage: false,
     },
