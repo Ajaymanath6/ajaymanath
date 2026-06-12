@@ -3555,7 +3555,7 @@ function App() {
                               design.id === 12 ||
                               design.id === 13 ? (
                               <img
-                                src={design.image}
+                                src={`${process.env.PUBLIC_URL}/${design.image}`}
                                 alt={design.title}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               />
@@ -3597,7 +3597,7 @@ function App() {
                               </div>
                             ) : (
                               <img
-                                src={design.image}
+                                src={`${process.env.PUBLIC_URL}/${design.image}`}
                                 alt={design.title}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               />
