@@ -2,12 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import "remixicon/fonts/remixicon.css";
 
-const processIcons = [
-  { icon: "ri-emotion-line", color: "text-rose-500", label: "Empathize" },
-  { icon: "ri-focus-3-line", color: "text-violet-500", label: "Define" },
-  { icon: "ri-lightbulb-flash-line", color: "text-amber-500", label: "Ideate" },
-  { icon: "ri-artboard-line", color: "text-sky-500", label: "Prototype" },
-  { icon: "ri-test-tube-line", color: "text-emerald-500", label: "Test" },
+const playIcons = [
+  { icon: "ri-brush-line", color: "text-rose-500", label: "Art" },
+  { icon: "ri-movie-2-line", color: "text-violet-500", label: "Film" },
+  { icon: "ri-music-2-line", color: "text-amber-500", label: "Music" },
+  { icon: "ri-camera-lens-line", color: "text-sky-500", label: "Photo" },
+  { icon: "ri-palette-line", color: "text-emerald-500", label: "Experiments" },
 ];
 
 function Process() {
@@ -20,7 +20,7 @@ function Process() {
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center justify-center gap-4 sm:gap-6 mb-8 flex-wrap">
-          {processIcons.map((item, index) => (
+          {playIcons.map((item, index) => (
             <motion.div
               key={item.label}
               className="flex flex-col items-center gap-2"
@@ -36,17 +36,18 @@ function Process() {
           ))}
         </div>
 
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-          Design Methodology
-        </h2>
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <i className="ri-play-circle-fill text-4xl text-orange-500"></i>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Play</h2>
+        </div>
         <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed">
-          My full design process walkthrough — from research to shipped product — is on the way.
+          I&apos;ll be adding my creative work here later — side projects, experiments, and things I make for fun.
         </p>
 
         <div className="inline-flex items-center gap-3 px-5 py-3 bg-orange-50 border border-orange-200 rounded-full">
           <i className="ri-time-line text-xl text-orange-500"></i>
           <span className="text-base font-semibold text-gray-800">Coming Soon</span>
-          <i className="ri-calendar-line text-xl text-orange-500"></i>
+          <i className="ri-sparkling-2-line text-xl text-orange-500"></i>
         </div>
       </motion.div>
     </div>

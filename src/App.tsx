@@ -3023,9 +3023,9 @@ function App() {
       isPage: false,
     },
     {
-      name: "Process",
-      icon: "ri-compasses-2-fill",
-      href: "#process",
+      name: "Play",
+      icon: "ri-play-circle-fill",
+      href: "#play",
       isPage: false,
     },
     {
@@ -3811,17 +3811,17 @@ function App() {
                 </motion.div>
               </div>
 
-              {/* Process Tab Content */}
+              {/* Play Tab Content */}
               <div
                 className={`tab-content ${
-                  activeTab === "Process" ? "active" : ""
+                  activeTab === "Play" ? "active" : ""
                 }`}
               >
                 <motion.div
                   className="space-y-5"
                   variants={staggerContainer}
                   initial="hidden"
-                  animate={activeTab === "Process" ? "visible" : "hidden"}
+                  animate={activeTab === "Play" ? "visible" : "hidden"}
                 >
                   <Process />
                 </motion.div>
