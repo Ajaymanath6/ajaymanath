@@ -51,6 +51,34 @@ const MobileProvider: React.FC<{ children: React.ReactNode }> = ({
 // Export a separate MobileProvider for use in index.tsx
 export const MobileContextProvider = MobileProvider;
 
+const CaseStudyImagePlaceholder = ({
+  label,
+  description,
+}: {
+  label: string;
+  description?: string;
+}) => (
+  <motion.div
+    className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    whileHover={{ scale: 1.01 }}
+  >
+    <div className="w-full h-full flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-300 m-6 rounded-xl bg-white/50">
+      <i className="ri-image-add-line text-5xl text-gray-400 mb-4"></i>
+      <p className="text-sm font-mono font-semibold text-gray-600">{label}</p>
+      {description && (
+        <p className="text-xs text-gray-500 mt-2 text-center max-w-md">
+          {description}
+        </p>
+      )}
+      <p className="text-xs text-gray-400 mt-4">Replace with your screenshot</p>
+    </div>
+  </motion.div>
+);
+
 // Expandable Modal Component
 const ExpandableModal = ({
   isOpen,
@@ -140,7 +168,7 @@ const ExpandableModal = ({
                     key={currentImage}
                     src={`${process.env.PUBLIC_URL}/${currentImage}`}
                     alt="Unified Litigation Intelligence Platform Design"
-                    className="w-full h-auto max-w-full object-contain transition-opacity duration-500"
+                    className="w-full h-full object-cover transition-opacity duration-500"
                     style={{ opacity: 1 }}
                   />
                 </div>
@@ -292,7 +320,7 @@ const ExpandableModal = ({
                   <img
                     alt="User Workflow Flowchart"
                     src={`${process.env.PUBLIC_URL}/flow.png`}
-                    className="w-full h-auto max-w-full object-contain rounded-2xl"
+                    className="w-full flex-1 min-h-0 object-cover rounded-2xl"
                   />
                 </div>
               </motion.div>
@@ -543,48 +571,6 @@ const ExpandableModal = ({
                     </div>
                   </motion.div>
 
-                  {/* Mandal Minds */}
-                  <motion.div
-                    className="artasaka-card cursor-pointer"
-                    style={{ height: "50vh" }}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    onClick={() => {
-                      onClose();
-                      setTimeout(() => {
-                        window.location.hash = "/process/mandal-minds";
-                      }, 300);
-                    }}
-                  >
-                    <div className="artasaka-card-image-full relative group overflow-hidden">
-                      <div
-                        className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
-                        style={{
-                          background: `linear-gradient(to bottom, #EFEFFF, #FFE1F1, #FFF6F5)`,
-                        }}
-                      >
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                          <img
-                            src={`${process.env.PUBLIC_URL}/mandal.png`}
-                            alt="Mandal Logo"
-                            className="h-24 w-auto opacity-90"
-                          />
-                        </div>
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 className="text-white text-xl font-bold leading-tight mb-2">
-                          Mandal Minds: AI-Driven Hiring & Personalized Placement
-                        </h3>
-                        <p className="text-gray-200 text-sm">
-                          Customizable AI interviews validate skills, connecting you directly with recruiters for your dream job.
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-
                   {/* Shop OS */}
                   <motion.div
                     className="artasaka-card cursor-pointer"
@@ -592,7 +578,7 @@ const ExpandableModal = ({
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}
+                    transition={{ delay: 0.2 }}
                     onClick={() => {
                       onClose();
                       setTimeout(() => {
@@ -1067,311 +1053,6 @@ const ExpandableModal = ({
                 </div>
               </section>
             </section>
-          </div>
-        );
-      case "/process/mandal-minds":
-        return (
-          <div className="text-black p-0 bg-white w-full">
-            {/* Project Header - Two Column Layout */}
-            <motion.div
-              className="mb-8 sm:mb-12"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-                {/* Left Column - Logo, Name, Description */}
-                <div className="flex flex-col items-start">
-                  {/* Logo and Project Name - Left Side */}
-                  <div className="flex items-start justify-between w-full mb-6">
-                    <div className="flex items-center">
-                      <div>
-                        <h1 className="text-3xl sm:text-4xl font-bold mb-1 text-black">
-                          Mandal Minds
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-base text-black opacity-80 leading-relaxed mb-6">
-                    AI-driven hiring platform that validates skills through
-                    customizable interviews and connects candidates directly
-                    with recruiters. Personalized placement recommendations
-                    powered by AI matching algorithms.
-                  </p>
-                </div>
-
-                {/* Right Column - Stack */}
-                <div className="flex flex-col">
-                  {/* Stack */}
-                  <div>
-                    <h3 className="text-lg font-bold text-black mb-4">Stack</h3>
-                    {/* Stack with Badge Style */}
-                    <div className="flex flex-wrap gap-3">
-                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
-                        <img 
-                          src="https://cdn.simpleicons.org/figma/F24E1E" 
-                          alt="Figma" 
-                          className="w-6 h-6 mr-2 rounded-full object-contain"
-                        />
-                        <span className="text-black text-sm font-medium">
-                          Figma
-                        </span>
-                      </div>
-                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
-                        <img 
-                          src="https://cdn.simpleicons.org/openai/412991" 
-                          alt="AI/ML" 
-                          className="w-6 h-6 mr-2 rounded-full object-contain"
-                        />
-                        <span className="text-black text-sm font-medium">
-                          AI/ML
-                        </span>
-                      </div>
-                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
-                        <img 
-                          src="https://cdn.simpleicons.org/readthedocs/8CA1AF" 
-                          alt="Documentation" 
-                          className="w-6 h-6 mr-2 rounded-full object-contain"
-                        />
-                        <span className="text-black text-sm font-medium">
-                          Documentation
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Overview */}
-            <section className="mb-12">
-              <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px] mb-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
-              >
-                <div className="w-full h-full flex items-center justify-center">
-                  <img
-                    src="mandal.png"
-                    alt="Mandal Minds Overview"
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
-                </div>
-              </motion.div>
-              <div className="grid grid-cols-1 md:grid-cols-[35%_65%] gap-16 text-gray-700 leading-relaxed">
-                {/* Left Column */}
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Problem</h3>
-                    <p>
-                      Slow, biased hiring processes.<br />
-                      Candidates struggle to demonstrate skills. Recruiters waste time on unqualified applicants.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Solution</h3>
-                    <p>
-                      AI-powered hiring ecosystem that assesses skills, eliminates bias,<br />
-                      and connects candidates with opportunities faster.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Right Column */}
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding Challenges</h3>
-                    <p>
-                      Design an AI-driven hiring platform that conducts customizable interviews, validates skills in real-time, and connects candidates with recruiters through intelligent matching.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Key Objectives</h3>
-                    <p>
-                      Build an intelligent system that reduces hiring bias, accelerates the recruitment process, and ensures better candidate-recruiter matches through AI-powered assessments and matching algorithms.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Full Width Image */}
-              <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
-              >
-                <div className="w-full h-full flex items-center justify-center">
-                  <img
-                    src="image1.png"
-                    alt="Mandal Minds Design"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
-
-              {/* Reframing the problem */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
-                {/* Left Column - Blank */}
-                <div></div>
-                
-                {/* Right Column */}
-                <div className="space-y-6 text-gray-700 leading-relaxed">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
-                    <p>
-                      How might we enable automotive inventory managers to place bulk parts orders with fewer staff and in less time?
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
-                    <p>
-                      Issuing parts, estimating prices, and negotiations were manually handled by inventory managers on paper slips. As orders increased, limited inventory visibility, limited staff availability, and the manual workflow led to frequent booking errors, miscommunication, and delayed order completion.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Overview Image */}
-              <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden min-h-[600px] mb-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
-              >
-                <div className="w-full h-full flex items-center justify-center py-4 px-9 overflow-hidden">
-                  <div className="w-full h-full overflow-hidden rounded-2xl" style={{ paddingTop: '20px', marginTop: '-20px' }}>
-                    <img
-                      src={`${process.env.PUBLIC_URL}/Unicourt1.png`}
-                      alt="UniCourt Platform Overview"
-                      className="w-full h-auto object-contain rounded-2xl"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Full Width Image 2 */}
-              <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
-              >
-                <div className="w-full h-full flex items-center justify-center">
-                  <img
-                    src="image2.png"
-                    alt="Mandal Minds Design"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
-
-              {/* Reframing the problem - Repeat 2 */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div></div>
-                <div className="space-y-6 text-gray-700 leading-relaxed">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
-                    <p>
-                      How might we enable automotive inventory managers to place bulk parts orders with fewer staff and in less time?
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
-                    <p>
-                      Issuing parts, estimating prices, and negotiations were manually handled by inventory managers on paper slips. As orders increased, limited inventory visibility, limited staff availability, and the manual workflow led to frequent booking errors, miscommunication, and delayed order completion.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Full Width Image 3 */}
-              <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
-              >
-                <div className="w-full h-full flex items-center justify-center">
-                  <img
-                    src="image3.png"
-                    alt="Mandal Minds Design"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
-
-              {/* Reframing the problem - Repeat 3 */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div></div>
-                <div className="space-y-6 text-gray-700 leading-relaxed">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
-                    <p>
-                      How might we enable automotive inventory managers to place bulk parts orders with fewer staff and in less time?
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
-                    <p>
-                      Issuing parts, estimating prices, and negotiations were manually handled by inventory managers on paper slips. As orders increased, limited inventory visibility, limited staff availability, and the manual workflow led to frequent booking errors, miscommunication, and delayed order completion.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Full Width Image 4 */}
-              <motion.div
-                className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden h-[800px] mt-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.01 }}
-              >
-                <div className="w-full h-full flex items-center justify-center">
-                  <img
-                    src="image4.png"
-                    alt="Mandal Minds Design"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
-
-              {/* Reframing the problem - Repeat 4 */}
-              <div className="mt-16 mb-16 grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div></div>
-                <div className="space-y-6 text-gray-700 leading-relaxed">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Reframing the problem (HMW)</h3>
-                    <p>
-                      How might we enable automotive inventory managers to place bulk parts orders with fewer staff and in less time?
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-lg">Understanding the existing workflow (JTBD)</h3>
-                    <p>
-                      Issuing parts, estimating prices, and negotiations were manually handled by inventory managers on paper slips. As orders increased, limited inventory visibility, limited staff availability, and the manual workflow led to frequent booking errors, miscommunication, and delayed order completion.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
           </div>
         );
       case "/process/shop-os":
@@ -1864,6 +1545,1116 @@ const ExpandableModal = ({
             </section>
           </div>
         );
+      case "/process/carno":
+        return (
+          <div className="text-black p-8 bg-white max-w-7xl mx-auto">
+            <motion.div
+              className="mb-8 sm:mb-12"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+                <div className="flex flex-col items-start">
+                  <div className="flex items-center mb-6">
+                    <div
+                      className="w-16 h-16 rounded-lg flex items-center justify-center mr-4"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #ea580c, #fb923c)",
+                      }}
+                    >
+                      <span className="text-2xl font-bold text-white">C</span>
+                    </div>
+                    <h1 className="text-3xl sm:text-4xl font-bold text-black">
+                      Carno
+                    </h1>
+                  </div>
+                  <p className="text-base text-black opacity-80 leading-relaxed mb-6">
+                    Carno is a personal health project I built while following a
+                    carnivore elimination diet under metabolic doctor guidance.
+                    After a year of wheezing and coughing that turned out to be
+                    an asthma variant, I needed to track what I ate, how I felt,
+                    and share structured reports—not manage everything over
+                    WhatsApp. I designed and built a ChatGPT-style experience
+                    with meal logging, symptom check-ins, and LLM-generated
+                    summaries my doctor could actually use.
+                  </p>
+                </div>
+                <div className="flex flex-col">
+                  <div className="mb-8">
+                    <h3 className="text-lg font-bold text-black mb-4">
+                      Scope of work
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="bg-orange-100 text-orange-800 text-sm px-3 py-1 rounded-full">
+                        UX Design
+                      </span>
+                      <span className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
+                        UI Design
+                      </span>
+                      <span className="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">
+                        Chat Interface
+                      </span>
+                      <span className="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
+                        Calorie Tracking
+                      </span>
+                      <span className="bg-pink-100 text-pink-800 text-sm px-3 py-1 rounded-full">
+                        LLM Reports
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-black mb-4">Stack</h3>
+                    <div className="flex flex-wrap gap-3">
+                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
+                        <img
+                          src="https://cdn.simpleicons.org/figma/F24E1E"
+                          alt="Figma"
+                          className="w-6 h-6 mr-2 rounded-full object-contain"
+                        />
+                        <span className="text-black text-sm font-medium">
+                          Figma
+                        </span>
+                      </div>
+                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
+                        <img
+                          src="https://cdn.simpleicons.org/openai/412991"
+                          alt="LLM"
+                          className="w-6 h-6 mr-2 rounded-full object-contain"
+                        />
+                        <span className="text-black text-sm font-medium">
+                          LLM / AI Chat
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="mb-12">
+              <motion.div
+                className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <video
+                  className="w-full h-full object-cover rounded-2xl"
+                  src={`${process.env.PUBLIC_URL}/Carno_Image_1_Hero.webm`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  aria-label="Hero — Carno chat home / daily tracking overview"
+                />
+              </motion.div>
+            </div>
+
+            <section className="mb-12">
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  Doctors prescribed symptom management, but I wanted to find
+                  root causes. A metabolic doctor put me on a carnivore
+                  elimination diet and asked me to log everything I ate and how
+                  it affected me—because sudden diet changes can cause early,
+                  uncomfortable states that need monitoring.
+                </p>
+                <p>
+                  For two months, tracking calories and weekly summaries over
+                  WhatsApp became the real problem. Existing calorie apps
+                  couldn&apos;t match the flexibility I needed, so I built Carno.
+                </p>
+              </div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Overview</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700 leading-relaxed">
+                <div>
+                  <h3 className="font-semibold mb-2 text-lg">Problem</h3>
+                  <p>
+                    Logging every meal, symptom, and feeling across a strict
+                    elimination diet is tedious. Doctors need reliable trends;
+                    patients need low-friction input during an already difficult
+                    health period. WhatsApp threads and generic trackers break
+                    down quickly.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2 text-lg">Outcome</h3>
+                  <p>
+                    A conversational tracker: log food in natural language,
+                    get calories against a 2500 kcal baseline, receive timed
+                    symptom prompts, and generate day/week summaries shareable
+                    with your doctor via LLM-powered reports.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Thinking Process</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                I researched existing calorie trackers, patient food diaries,
+                and how people already use ChatGPT—then validated what had to be
+                different for elimination-diet monitoring.
+              </p>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700 leading-relaxed">
+                <li>
+                  <strong>Timing matters:</strong> symptoms after meals need a
+                  ~1.5 hour gap so insulin response and real discomfort show up.
+                </li>
+                <li>
+                  <strong>Natural input:</strong> &quot;400g chicken&quot; or
+                  &quot;7 eggs&quot; should work—not rigid food database flows.
+                </li>
+                <li>
+                  <strong>Corrections:</strong> users must delete wrong entries
+                  and restart without breaking the day&apos;s log.
+                </li>
+                <li>
+                  <strong>Doctor-readable output:</strong> summaries must work
+                  for 4 days, 1 week, or any custom range—not just daily totals.
+                </li>
+                <li>
+                  <strong>Familiar AI UX:</strong> chat-first reduces learning
+                  curve when people already expect ChatGPT-style interaction.
+                </li>
+              </ul>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Solution</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+
+              <div className="mb-8">
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold mb-3">
+                    1. Meal logging in chat
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Users type what they eat before eating—e.g. one plate of
+                    chicken, 400g chicken, one banana, or 7 eggs. A built-in
+                    calorie calculator parses the input, shows a visual
+                    representation of the food, and records intake against the
+                    daily 2500 kcal target. Preloaded examples cover common
+                    carnivore foods: animal proteins, dairy, and limited fruits.
+                  </p>
+                </div>
+                <motion.div
+                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <video
+                    className="w-full h-full object-cover rounded-2xl"
+                    src={`${process.env.PUBLIC_URL}/Carno_Image_2_MealLoggingChat.webm`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    aria-label="Chat meal input, calorie calculation, food visuals"
+                  />
+                </motion.div>
+              </div>
+
+              <div className="mb-8">
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold mb-3">
+                    2. Symptom check-in (~1.5 hrs later)
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    When users return to chat after eating, Carno asks about
+                    bloating, energy, gas, and other symptoms—plus free-form
+                    notes (e.g. muscle cramps on a new diet). Users can note if
+                    they had the same meal yesterday. Readings are saved;
+                    wrong entries can be deleted to start fresh.
+                  </p>
+                </div>
+                <motion.div
+                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <video
+                    className="w-full h-full object-cover rounded-2xl"
+                    src={`${process.env.PUBLIC_URL}/Carno_Image_3_SymptomCheckIn.webm`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    aria-label="Post-meal symptom prompts and notes"
+                  />
+                </motion.div>
+              </div>
+
+              <div className="mb-8">
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold mb-3">
+                    3. Daily summary
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    End of day, users tap Summary to generate how they felt
+                    across meals that day—whether 3 meals or more. Summaries can
+                    be created manually or automatically at midnight and stored
+                    per day.
+                  </p>
+                </div>
+                <motion.div
+                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <video
+                    className="w-full h-full object-cover rounded-2xl"
+                    src={`${process.env.PUBLIC_URL}/Carno_Image_4_DailySummary.webm`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    aria-label="Daily summary generation and meal recap"
+                  />
+                </motion.div>
+              </div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Reporting &amp; Impact</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                The Reports page lets users build LLM summaries for any period—4
+                days, one week, or a custom range—and share them with their
+                doctor. This turns scattered meal + symptom logs into a robust
+                tracking and reporting system that&apos;s easy for the patient
+                and clear for clinical follow-up during diet transitions.
+              </p>
+              <motion.div
+                className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <img
+                  src={`${process.env.PUBLIC_URL}/Carno_Image_5_ReportsShare.png`}
+                  alt="Reports page, period selection, share with doctor"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+              </motion.div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">User Testing &amp; Impact</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <div>
+                  <h3 className="font-semibold mb-3 text-lg">
+                    Testing the conversational tracking experience
+                  </h3>
+                  <p>
+                    I used Carno daily during my elimination diet and shared the
+                    prototype with a few people managing similar health
+                    tracking needs. The goal was to learn whether a ChatGPT-style
+                    flow could replace rigid food diaries and WhatsApp logs—and
+                    whether timed symptom check-ins felt helpful rather than
+                    burdensome after meals.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-3 text-lg">Key Insights</h3>
+                  <p>
+                    Natural-language meal input (&quot;400g chicken,&quot;
+                    &quot;7 eggs&quot;) lowered friction compared to tapping
+                    through database screens. The ~1.5 hour symptom prompt made
+                    sense once users understood it reflected how the body
+                    responds after eating—not immediately at the table. LLM
+                    summaries for custom date ranges were valued most by anyone
+                    sharing progress with a clinician; scattered notes became
+                    something a doctor could scan in minutes.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-3 text-lg">
+                    Thoughts on Impact
+                  </h3>
+                  <p>
+                    Carno points to a shift in health UX—from forms and
+                    spreadsheets to intent-driven logging where the system
+                    calculates, reminds, and reports. For elimination diets and
+                    metabolic care, the interface becomes a guide through an
+                    uncomfortable transition: less cognitive load on the
+                    patient, clearer signal for the doctor, and a path from
+                    anecdotal &quot;I felt bad&quot; to structured, shareable
+                    evidence over time.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        );
+      case "/process/mapmy-gig":
+        return (
+          <div className="text-black p-8 bg-white max-w-7xl mx-auto">
+            <motion.div
+              className="mb-8 sm:mb-12"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+                <div className="flex flex-col items-start">
+                  <div className="flex items-center mb-6">
+                    <div
+                      className="w-16 h-16 rounded-lg flex items-center justify-center mr-4"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #44403c, #92400e)",
+                      }}
+                    >
+                      <i className="ri-map-pin-2-fill text-2xl text-white"></i>
+                    </div>
+                    <h1 className="text-3xl sm:text-4xl font-bold text-black">
+                      MapMy Gig
+                    </h1>
+                  </div>
+                  <p className="text-base text-black opacity-80 leading-relaxed mb-6">
+                    MapMy Gig reimagines job hunting as a map-first, playful
+                    experience—especially for non-tech roles and local startup
+                    jobs in your area. Instead of scrolling endless lists and
+                    hunting for the right career page, jobs appear as teardrop
+                    pins you can explore, zoom into, and apply to directly. I
+                    designed the flows for discovery, job detail, resume upload
+                    with parsing, and suggestions to make local gig search feel
+                    interactive and fun.
+                  </p>
+                </div>
+                <div className="flex flex-col">
+                  <div className="mb-8">
+                    <h3 className="text-lg font-bold text-black mb-4">
+                      Scope of work
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="bg-amber-100 text-amber-900 text-sm px-3 py-1 rounded-full">
+                        UX Design
+                      </span>
+                      <span className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
+                        UI Design
+                      </span>
+                      <span className="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
+                        Map Interface
+                      </span>
+                      <span className="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">
+                        Resume Parsing
+                      </span>
+                      <span className="bg-orange-100 text-orange-800 text-sm px-3 py-1 rounded-full">
+                        Gamified Browse
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-black mb-4">Stack</h3>
+                    <div className="flex flex-wrap gap-3">
+                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
+                        <img
+                          src="https://cdn.simpleicons.org/figma/F24E1E"
+                          alt="Figma"
+                          className="w-6 h-6 mr-2 rounded-full object-contain"
+                        />
+                        <span className="text-black text-sm font-medium">
+                          Figma
+                        </span>
+                      </div>
+                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
+                        <span className="text-black text-sm font-medium px-1">
+                          Mobile Design
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="mb-12">
+              <motion.div
+                className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <video
+                  className="w-full h-full object-cover rounded-2xl"
+                  src={`${process.env.PUBLIC_URL}/MapMyGig_Image_1_Hero.webm`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  aria-label="Hero — map view with job pins overview"
+                />
+              </motion.div>
+            </div>
+
+            <section className="mb-12">
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  Traditional job boards optimize for keyword search and long
+                  lists—not for how people actually look for work nearby.
+                  Non-tech and startup roles are often buried; applicants waste
+                  time opening listings only to chase the real apply link on
+                  another site.
+                </p>
+                <p>
+                  MapMy Gig treats geography as the primary lens: see what&apos;s
+                  around you, explore like a map app, and apply without the
+                  friction of a separate search-and-hunt loop.
+                </p>
+              </div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Overview</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700 leading-relaxed">
+                <div>
+                  <h3 className="font-semibold mb-2 text-lg">Problem</h3>
+                  <p>
+                    Local and non-tech job seekers struggle to discover
+                    opportunities in their area. List-based UIs hide proximity,
+                    feel repetitive, and force extra steps to reach the actual
+                    application page.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2 text-lg">Outcome</h3>
+                  <p>
+                    A gamified, map-native job browser: teardrop pins on a map,
+                    zoom and tap for details, one-tap apply to the host career
+                    page, plus resume upload with auto-parsing and tailored
+                    suggestions.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Thinking Process</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                I looked at how people use maps for discovery (food, events,
+                rides) versus how job boards present information—and asked what
+                would make local gig hunting feel lighter and more exploratory.
+              </p>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700 leading-relaxed">
+                <li>
+                  <strong>Map = context:</strong> distance and density of roles
+                  matter as much as title and salary.
+                </li>
+                <li>
+                  <strong>Reduce apply friction:</strong> deep-link straight to
+                  the job&apos;s career page—no inner-page archaeology.
+                </li>
+                <li>
+                  <strong>Resume as input:</strong> upload once, parse
+                  automatically, surface suggestions aligned to the gig.
+                </li>
+                <li>
+                  <strong>Engagement without gimmicks:</strong> playful
+                  teardrop pins and smooth zoom interactions—not noisy game
+                  mechanics that distract from applying.
+                </li>
+              </ul>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Solution</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+
+              <div className="mb-8">
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold mb-3">
+                    1. Map browse with teardrop pins
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Jobs render as teardrop markers on a map. Users pan and zoom
+                    to explore their area—an interactive, spatial alternative to
+                    endless scroll lists. The experience is designed to feel
+                    more like discovery than database search.
+                  </p>
+                </div>
+                <motion.div
+                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <video
+                    className="w-full h-full object-cover rounded-2xl"
+                    src={`${process.env.PUBLIC_URL}/MapMyGig_Image_2_MapPinsBrowse.webm`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    aria-label="Map with teardrop job pins, zoom and pan"
+                  />
+                </motion.div>
+              </div>
+
+              <div className="mb-8">
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold mb-3">
+                    2. Job detail &amp; direct apply
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Tap a pin to open full job details—role, company, location,
+                    and key requirements. Apply goes directly to the website
+                    career page where the job was posted, so users don&apos;t
+                    search for the real application link separately.
+                  </p>
+                </div>
+                <motion.div
+                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <video
+                    className="w-full h-full object-cover rounded-2xl"
+                    src={`${process.env.PUBLIC_URL}/MapMyGig_Image_3_JobDetailApply.webm`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    aria-label="Job detail sheet and apply CTA"
+                  />
+                </motion.div>
+              </div>
+
+              <div className="mb-8">
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold mb-3">
+                    3. Resume upload &amp; parsing
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Users upload a resume; the platform parses it automatically
+                    and offers suggestions to strengthen applications for the
+                    roles they&apos;re viewing—reducing repetitive form filling
+                    across local listings.
+                  </p>
+                </div>
+                <motion.div
+                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <video
+                    className="w-full h-full object-cover rounded-2xl"
+                    src={`${process.env.PUBLIC_URL}/MapMyGig_Image_4_ResumeUploadParsing.webm`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    aria-label="Resume upload, parsing, suggestions"
+                  />
+                </motion.div>
+              </div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Reporting &amp; Impact</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                MapMy Gig connects local opportunity density with a UX pattern
+                people already understand from maps—making non-tech and startup
+                job search faster to scan, more engaging to browse, and simpler
+                to act on. The goal is fewer dead-end clicks and more
+                applications that actually reach the right employer page.
+              </p>
+              <motion.div
+                className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <img
+                  src={`${process.env.PUBLIC_URL}/MapMyGig_Image_5_GamifiedFlow.png`}
+                  alt="MapMy Gig product overview — map-first job discovery, quick apply, AI resume parsing, and local matches"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+              </motion.div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">User Testing &amp; Impact</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <div>
+                  <h3 className="font-semibold mb-3 text-lg">
+                    Testing the map-first job hunt
+                  </h3>
+                  <p>
+                    I shared an interactive prototype with job seekers looking
+                    for local and non-tech roles. The goal was to compare
+                    map-based discovery (zoom, pan, tap pins) against familiar
+                    list-and-filter job boards—and to see whether direct apply
+                    links and resume parsing reduced the usual hunt for the
+                    &quot;real&quot; application page.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-3 text-lg">Key Insights</h3>
+                  <p>
+                    Participants grasped opportunity density faster on a map than
+                    in long scroll lists. Teardrop pins and light gamification
+                    made browsing feel exploratory rather than transactional.
+                    One-tap apply to the host career page removed a common
+                    pain point; resume upload with parsing was seen as a time
+                    saver when applying to multiple nearby gigs in one session.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-3 text-lg">
+                    Thoughts on Impact
+                  </h3>
+                  <p>
+                    MapMy Gig suggests local job search can borrow from how we
+                    already explore the world spatially—maps for restaurants,
+                    events, rides—instead of forcing every role into a generic
+                    feed. The impact is fewer dead-end clicks, quicker
+                    orientation to what&apos;s actually near you, and a more
+                    engaging path from curiosity to application for startup and
+                    non-tech work that list UIs often bury.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        );
+      case "/process/promptject":
+        return (
+          <div className="text-black p-8 bg-white max-w-7xl mx-auto">
+            <motion.div
+              className="mb-8 sm:mb-12"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+                <div className="flex flex-col items-start">
+                  <div className="flex items-center mb-6">
+                    <div
+                      className="w-16 h-16 rounded-lg flex items-center justify-center mr-4"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #7dd3fc, #38bdf8)",
+                      }}
+                    >
+                      <i className="ri-code-box-line text-2xl text-white"></i>
+                    </div>
+                    <h1 className="text-3xl sm:text-4xl font-bold text-black">
+                      Promptject
+                    </h1>
+                  </div>
+                  <p className="text-base text-black opacity-80 leading-relaxed mb-6">
+                    Promptject is a UI creation engine I built to replace the
+                    broken Figma-to-dev handoff. Designers prompt components
+                    against their configured theme system; the engine outputs
+                    proper code—not mockups—and publishes to a company-wide
+                    catalog where developers search, preview in real code, copy,
+                    or inject components directly from Cursor or VS Code. LangChain
+                    keeps generation efficient; agents can connect to the design
+                    system and autonomously pick components for new projects.
+                  </p>
+                </div>
+                <div className="flex flex-col">
+                  <div className="mb-8">
+                    <h3 className="text-lg font-bold text-black mb-4">
+                      Scope of work
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="bg-sky-100 text-sky-900 text-sm px-3 py-1 rounded-full">
+                        UI Design
+                      </span>
+                      <span className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
+                        UX Design
+                      </span>
+                      <span className="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">
+                        Design System Architecture
+                      </span>
+                      <span className="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">
+                        Prompt-to-Code
+                      </span>
+                      <span className="bg-teal-100 text-teal-800 text-sm px-3 py-1 rounded-full">
+                        Catalog Library
+                      </span>
+                      <span className="bg-orange-100 text-orange-800 text-sm px-3 py-1 rounded-full">
+                        Agent Integration
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-black mb-4">Stack</h3>
+                    <div className="flex flex-wrap gap-3">
+                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
+                        <img
+                          src="https://cdn.simpleicons.org/figma/F24E1E"
+                          alt="Figma"
+                          className="w-6 h-6 mr-2 rounded-full object-contain"
+                        />
+                        <span className="text-black text-sm font-medium">
+                          Figma
+                        </span>
+                      </div>
+                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
+                        <span className="text-black text-sm font-medium px-1">
+                          LangChain
+                        </span>
+                      </div>
+                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
+                        <img
+                          src="https://api.iconify.design/simple-icons:cursor.svg?color=%23000000"
+                          alt="Cursor"
+                          className="w-6 h-6 mr-2 rounded-full object-contain"
+                          onError={(e) => {
+                            e.currentTarget.src =
+                              "https://cdn.simpleicons.org/vscode/007ACC";
+                          }}
+                        />
+                        <span className="text-black text-sm font-medium">
+                          Cursor / VS Code
+                        </span>
+                      </div>
+                      <div className="flex items-center bg-gray-100 rounded-full px-3 py-2">
+                        <span className="text-black text-sm font-medium px-1">
+                          Theme System
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="mb-12">
+              <motion.div
+                className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <video
+                  className="w-full h-full object-cover rounded-2xl"
+                  src={`${process.env.PUBLIC_URL}/jetuntro.webm`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  aria-label="Promptject canvas and design system overview"
+                />
+              </motion.div>
+            </div>
+
+            <section className="mb-12">
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  The old workflow was familiar: designers build in Figma, write
+                  every prop and state, hand files to developers—and developers
+                  still ask where components live, which page is new, which was
+                  updated, and how projections map to production. Discoverability
+                  and handoff friction ate time on both sides.
+                </p>
+                <p>
+                  Maintaining pitch-perfect Figma projections that stay in sync
+                  with code was unsustainable. I planned a UI design system
+                  architecture that could solve handoff, discoverability, and
+                  dev-readiness together—and built Promptject as the engine
+                  behind it.
+                </p>
+              </div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Overview</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700 leading-relaxed">
+                <div>
+                  <h3 className="font-semibold mb-2 text-lg">Problem</h3>
+                  <p>
+                    Figma-only handoffs create three gaps: designers over-spec
+                    yet devs still need clarification; components and pages are
+                    hard to find without asking the designer every time; and
+                    keeping Figma projections accurate for implementation is
+                    slow and brittle.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2 text-lg">Outcome</h3>
+                  <p>
+                    A prompt-to-component engine where designers generate
+                    theme-aligned code on a canvas, publish to a searchable
+                    catalog, and devs self-serve—preview, copy, or inject into
+                    their codebase with themes synced locally. Handoff friction
+                    drops toward zero; the catalog grows autonomously as work
+                    ships.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Thinking Process</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Instead of patching handoff with more Figma documentation, I
+                treated the design system as runtime infrastructure—code-first,
+                discoverable, and agent-ready.
+              </p>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700 leading-relaxed">
+                <li>
+                  <strong>Handoff:</strong> output must be production code using
+                  the team&apos;s theme classes—not redlines devs reinterpret.
+                </li>
+                <li>
+                  <strong>Discoverability:</strong> a public catalog beats
+                  Slack threads; search, preview, and copy from one source of
+                  truth.
+                </li>
+                <li>
+                  <strong>Dev readiness:</strong> components render correctly
+                  with configured tokens; injection into Cursor/VS Code must
+                  respect local theme sync.
+                </li>
+                <li>
+                  <strong>Efficiency:</strong> LangChain orchestration reduces
+                  token use during UI generation vs. naive single-shot prompts.
+                </li>
+                <li>
+                  <strong>Agents:</strong> connect agents to the DS so they can
+                  fetch components and decide placement in other projects.
+                </li>
+              </ul>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Solution</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+
+              <div className="mb-8">
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold mb-3">
+                    1. Prompt-to-component canvas
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Designers describe the component they need against the
+                    design system they have configured. Promptject generates
+                    styling and proper code that reflects theme classes and
+                    tokens—not a static mock. Work happens on a canvas where
+                    output is immediately inspectable as real UI.
+                  </p>
+                </div>
+                <motion.div
+                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <video
+                    className="w-full h-full object-cover rounded-2xl"
+                    src={`${process.env.PUBLIC_URL}/promptject-prompt-canvas.webm`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    aria-label="Prompt canvas, theme-aware component generation"
+                  />
+                </motion.div>
+              </div>
+
+              <div className="mb-8">
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold mb-3">
+                    2. Publish + catalog library
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Finished components publish to a company-wide catalog.
+                    Developers search for a component or full page UI, see it
+                    rendered in actual code—not Figma screenshots—and copy the
+                    implementation. The catalog builds up autonomously as
+                    designers ship, replacing ad-hoc Figma file archaeology.
+                  </p>
+                </div>
+                <motion.div
+                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <video
+                    className="w-full h-full object-cover rounded-2xl"
+                    src={`${process.env.PUBLIC_URL}/promptject-catalog-library.webm`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    aria-label="Catalog search, live code preview, copy code"
+                  />
+                </motion.div>
+              </div>
+
+              <div className="mb-8">
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold mb-3">
+                    3. Dev injection (Cursor / VS Code)
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    If a dev knows the component name, they can prompt it in
+                    Cursor or VS Code and inject it wherever the cursor sits—with
+                    theme configuration synced to their local project. The engine
+                    renders components correctly in context, closing the loop
+                    between catalog and codebase without a designer in the middle.
+                  </p>
+                </div>
+                <motion.div
+                  className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <video
+                    className="w-full h-full object-cover rounded-2xl"
+                    src={`${process.env.PUBLIC_URL}/promptject-dev-code-inject.webm`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    aria-label="IDE injection, component name prompt, theme sync"
+                  />
+                </motion.div>
+              </div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">Reporting &amp; Impact</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                LangChain-backed generation keeps UI creation token-efficient.
+                The catalog grows as a byproduct of normal design work—no separate
+                documentation sprint. Handoff to devs approaches elimination:
+                discoverable, copy-ready, inject-ready components. As
+                agent-as-a-service, Promptject lets connected agents pull from
+                the design system and decide where components belong in new
+                projects—far faster than the traditional Figma → questions →
+                rebuild cycle.
+              </p>
+              <motion.div
+                className="w-full max-w-[1400px] mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <img
+                  src={`${process.env.PUBLIC_URL}/promptject-agent-integration.png`}
+                  alt="Agent connected to DS, autonomous component placement"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+              </motion.div>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-lg font-bold mb-4">User Testing &amp; Impact</h2>
+              <div className="w-full h-px bg-gray-300 mb-6"></div>
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <div>
+                  <h3 className="font-semibold mb-3 text-lg">
+                    Testing the prompt-to-code workflow
+                  </h3>
+                  <p>
+                    I ran the engine with designers and developers who lived
+                    the old Figma handoff pain. The goal was to see whether
+                    prompt-generated, theme-aligned code could replace spec
+                    docs—and whether the catalog plus IDE injection removed the
+                    &quot;where is this component?&quot; loop without adding new
+                    tooling overhead.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-3 text-lg">Key Insights</h3>
+                  <p>
+                    Developers valued live code preview over Figma links—they
+                    could trust what they copied. Designers liked prompting
+                    against an existing theme instead of re-documenting props.
+                    Catalog search cut repeated Slack questions; injection by
+                    component name in Cursor felt natural to teams already using
+                    AI-assisted coding. LangChain orchestration kept generation
+                    fast enough for iterative canvas work.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-3 text-lg">
+                    Thoughts on Impact
+                  </h3>
+                  <p>
+                    Promptject reframes design systems from static libraries in
+                    Figma to living infrastructure—generated, published,
+                    discovered, and injected as code. Agent hooks mean the same
+                    DS can serve human designers and autonomous agents building
+                    new surfaces. The impact is a pipeline where handoff isn&apos;t
+                    optimized—it&apos;s removed—and discoverability becomes a product
+                    feature, not a meeting.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        );
       case "/article/prototyping-with-custom-design-systems":
       case "/article/automating-design-system-testing":
       case "/article/future-of-design-ai-interfaces":
@@ -2086,15 +2877,6 @@ function App() {
       tools: ["Collaboration Tools", "Live Website Comments", "Team Workflows"],
     },
     {
-      id: 9,
-      title: "Mandal Minds: AI-Driven Hiring & Personalized Placement",
-      image: "mandal.png",
-      link: "/process/mandal-minds",
-      metrics:
-        "Customizable AI interviews validate skills, connecting you directly with recruiters for your dream job.",
-      tools: ["AI Interviews", "Skill Validation", "Recruiter Matching"],
-    },
-    {
       id: 10,
       title: "Shop OS: AI Agentic Native Ecosystem for Multi-Agent Workspace",
       image: "shopos.png",
@@ -2102,6 +2884,32 @@ function App() {
       metrics:
         "Intelligent OS ecosystem for agentic workflows everything related to shopping.",
       tools: ["Agentic Workflows", "Shopping Intelligence", "OS Ecosystem"],
+    },
+    {
+      id: 11,
+      title: "Carno",
+      image: "",
+      link: "/process/carno",
+      metrics: "UX and product design for the Carno platform.",
+      tools: ["UX Design", "UI Design", "Product Design"],
+    },
+    {
+      id: 12,
+      title: "MapMy Gig",
+      image: "",
+      link: "/process/mapmy-gig",
+      metrics:
+        "Discover and map local gigs with a clear, location-first experience.",
+      tools: ["UX Design", "UI Design", "Mobile Design"],
+    },
+    {
+      id: 13,
+      title: "Promptject",
+      image: "",
+      link: "/process/promptject",
+      metrics:
+        "Prompt-to-component UI engine that eliminates Figma handoff and builds a live design system catalog.",
+      tools: ["Design Systems", "LangChain", "Dev Handoff", "AI Agents"],
     },
   ];
 
@@ -2840,23 +3648,6 @@ function App() {
                                   </span>
                                 </div>
                               </div>
-                            ) : design.id === 9 ? (
-                              /* Custom backdrop for "Mandal Minds" card */
-                              <div
-                                className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
-                                style={{
-                                  background: `linear-gradient(to bottom, #EFEFFF, #FFE1F1, #FFF6F5)`,
-                                }}
-                              >
-                                {/* Mandal Logo at center */}
-                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                                  <img
-                                    src="mandal.png"
-                                    alt="Mandal Logo"
-                                    className="h-24 w-auto opacity-90"
-                                  />
-                                </div>
-                              </div>
                             ) : design.id === 10 ? (
                               /* Custom backdrop for "Shop OS" card with light green gradient */
                               <div
@@ -2891,6 +3682,51 @@ function App() {
                                   <p className="text-base text-black opacity-70 font-medium">
                                     Welcome to Shop OS
                                   </p>
+                                </div>
+                              </div>
+                            ) : design.id === 11 ? (
+                              /* Custom backdrop for "Carno" card with orange gradient */
+                              <div
+                                className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative flex items-center justify-center"
+                                style={{
+                                  background: `linear-gradient(135deg, #c2410c 0%, #ea580c 35%, #f97316 65%, #fb923c 85%, #fdba74 100%)`,
+                                }}
+                              >
+                                <div className="text-center relative z-10">
+                                  <h2 className="text-6xl font-bold text-white leading-none">
+                                    Carno
+                                  </h2>
+                                </div>
+                              </div>
+                            ) : design.id === 12 ? (
+                              /* Custom backdrop for "MapMy Gig" card with brown gradient */
+                              <div
+                                className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative flex items-center justify-center"
+                                style={{
+                                  background: `linear-gradient(135deg, #292524 0%, #44403c 25%, #57534e 45%, #78350f 70%, #92400e 100%)`,
+                                }}
+                              >
+                                <div className="text-center relative z-10">
+                                  <h2 className="text-6xl font-bold text-white leading-none mb-3">
+                                    MapMy
+                                  </h2>
+                                  <p className="text-2xl font-semibold text-white/90">
+                                    Gig
+                                  </p>
+                                </div>
+                              </div>
+                            ) : design.id === 13 ? (
+                              /* Custom backdrop for "Promptject" card with light sky-blue gradient */
+                              <div
+                                className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative flex items-center justify-center"
+                                style={{
+                                  background: `linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 30%, #bae6fd 60%, #7dd3fc 85%, #38bdf8 100%)`,
+                                }}
+                              >
+                                <div className="text-center relative z-10">
+                                  <h2 className="text-6xl font-bold text-slate-900 leading-none">
+                                    Promptject
+                                  </h2>
                                 </div>
                               </div>
                             ) : (

@@ -167,7 +167,7 @@ function EnterpriseDesignSystemProcess() {
 
           {/* Duplicate Design System Final Visual - Below Rebuilding a Design Language */}
           <motion.div
-            className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden mt-10"
+            className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px] mt-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -177,7 +177,7 @@ function EnterpriseDesignSystemProcess() {
             <img
               src="show1.png"
               alt="Design System Final Visual"
-              className="w-full h-auto object-contain rounded-2xl"
+              className="w-full h-full object-cover rounded-2xl"
             />
           </motion.div>
 
@@ -217,7 +217,7 @@ function EnterpriseDesignSystemProcess() {
             >
               <video
                 src={`${process.env.PUBLIC_URL}/Oldappui.mp4`}
-                className="w-full h-auto object-contain rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl"
                 controls
                 playsInline
                 loop
@@ -395,7 +395,7 @@ function EnterpriseDesignSystemProcess() {
               transition={{ duration: 0.6 }}
             >
               <motion.div
-                className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+                className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -405,11 +405,11 @@ function EnterpriseDesignSystemProcess() {
                 <img
                   src="show8.png"
                   alt="Design System Visual 8"
-                  className="w-full h-auto object-contain rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl"
                 />
                   </motion.div>
               <motion.div
-                className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+                className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -419,7 +419,7 @@ function EnterpriseDesignSystemProcess() {
                 <img
                   src="show9.png"
                   alt="Design System Visual 8"
-                  className="w-full h-auto object-contain rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl"
                 />
               </motion.div>
             </motion.div>
@@ -433,14 +433,14 @@ function EnterpriseDesignSystemProcess() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <motion.div
-                className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+                className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.3 }}
               >
                 <img
                   src="Icons.png"
                   alt="Design System Visual 8"
-                  className="w-full h-auto object-contain rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl"
                 />
               </motion.div>
             </motion.div>
@@ -501,7 +501,7 @@ function EnterpriseDesignSystemProcess() {
             transition={{ duration: 0.6 }}
           >
             <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -511,11 +511,11 @@ function EnterpriseDesignSystemProcess() {
               <img
                 src="show3.png"
                 alt="Design System Visual 5"
-                className="w-full h-auto object-contain rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl"
               />
                   </motion.div>
             <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -525,11 +525,11 @@ function EnterpriseDesignSystemProcess() {
               <img
                 src="show4.png"
                 alt="Design System Visual 6"
-                className="w-full h-auto object-contain rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl"
               />
             </motion.div>
             <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -539,11 +539,11 @@ function EnterpriseDesignSystemProcess() {
               <img
                 src="show5.png"
                 alt="Design System Visual 7"
-                className="w-full h-auto object-contain rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl"
               />
             </motion.div>
             <motion.div
-              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden p-6"
+              className="w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden h-[600px]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -553,7 +553,7 @@ function EnterpriseDesignSystemProcess() {
               <img
                 src="show6.png"
                 alt="Design System Visual 8"
-                className="w-full h-auto object-contain rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl"
               />
             </motion.div>
           </motion.div>
@@ -990,51 +990,12 @@ function EnterpriseDesignSystemProcess() {
                 </div>
               </motion.div>
               
-              {/* Mandal Minds */}
-              <motion.div 
-                className="artasaka-card cursor-pointer"
-                style={{ height: "50vh" }}
-                variants={fadeInUp}
-                transition={{ delay: 0.2 }}
-                onClick={() => handleCardClick("/process/mandal-minds")}
-              >
-                <div className="artasaka-card-image-full relative group overflow-hidden">
-                  {/* Custom backdrop for "Mandal Minds" card */}
-                  <div
-                    className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
-                    style={{
-                      background: `linear-gradient(to bottom, #EFEFFF, #FFE1F1, #FFF6F5)`,
-                    }}
-                  >
-                    {/* Mandal Logo at center */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <img
-                        src="mandal.png"
-                        alt="Mandal Logo"
-                        className="h-24 w-auto opacity-90"
-                      />
-                  </div>
-                </div>
-                  {/* Dark overlay that appears on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  {/* Title that appears on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-white text-xl font-bold leading-tight mb-2">
-                      Mandal Minds: AI-Driven Hiring & Personalized Placement
-                    </h3>
-                    <p className="text-gray-200 text-sm">
-                      Customizable AI interviews validate skills, connecting you directly with recruiters for your dream job.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
               {/* Shop OS */}
               <motion.div
                 className="artasaka-card cursor-pointer"
                 style={{ height: "50vh" }}
                 variants={fadeInUp}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.2 }}
                 onClick={() => handleCardClick("/process/shop-os")}
               >
                 <div className="artasaka-card-image-full relative group overflow-hidden">
