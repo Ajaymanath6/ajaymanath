@@ -504,58 +504,15 @@ const ExpandableModal = ({
                     }}
                   >
                     <div className="artasaka-card-image-full relative group overflow-hidden">
-                      <div
-                        className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative overflow-hidden"
-                        style={{
-                          backgroundColor: "#fafafa",
-                        }}
-                      >
-                        {/* Blue aurora blob - top left */}
-                        <div
-                          className="absolute"
-                          style={{
-                            top: "-10%",
-                            left: "-10%",
-                            width: "500px",
-                            height: "500px",
-                            background:
-                              "radial-gradient(circle at center, rgba(147, 197, 253, 0.3) 0%, transparent 70%)",
-                            filter: "blur(120px)",
-                            opacity: 0.8,
-                          }}
-                        ></div>
-
-                        {/* Green aurora blob - top center behind logo */}
-                        <div
-                          className="absolute"
-                          style={{
-                            top: "-10%",
-                            left: "50%",
-                            transform: "translateX(-50%)",
-                            width: "700px",
-                            height: "700px",
-                            background:
-                              "radial-gradient(circle at center, #10b981 0%, transparent 70%)",
-                            filter: "blur(120px)",
-                            opacity: 0.8,
-                          }}
-                        ></div>
-
-                        {/* NOA Thumb SVG scaled to card width */}
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 z-10">
-                          <img
-                            src={`${process.env.PUBLIC_URL}/noathumb.svg`}
-                            alt="Noa Thumbnail"
-                            className="w-full h-auto opacity-90"
-                          />
-                        </div>
-                        
-                        {/* Coming Soon Badge */}
-                        <div className="absolute top-4 right-4 z-20">
-                          <span className="px-3 py-1.5 bg-orange-500 text-white rounded-full text-xs sm:text-sm font-semibold shadow-lg">
-                            Coming Soon
-                          </span>
-                        </div>
+                      <img
+                        src={`${process.env.PUBLIC_URL}/noa-card.png`}
+                        alt="End Feedback Chaos"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 right-4 z-20">
+                        <span className="px-3 py-1.5 bg-orange-500 text-white rounded-full text-xs sm:text-sm font-semibold shadow-lg">
+                          Coming Soon
+                        </span>
                       </div>
                       {/* Dark overlay that appears on hover */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -2870,7 +2827,7 @@ function App() {
     {
       id: 8,
       title: "End Feedback Chaos",
-      image: "noathumb.png",
+      image: "noa-card.png",
       link: "/process/feedback-collaboration",
       metrics:
         "Pin contextual comments directly on live websites for crystal-clear collaboration and accelerated team workflows.",
@@ -2888,7 +2845,7 @@ function App() {
     {
       id: 11,
       title: "Carno",
-      image: "",
+      image: "carno-card.png",
       link: "/process/carno",
       metrics: "UX and product design for the Carno platform.",
       tools: ["UX Design", "UI Design", "Product Design"],
@@ -2896,7 +2853,7 @@ function App() {
     {
       id: 12,
       title: "MapMy Gig",
-      image: "",
+      image: "mapmygig-card.png",
       link: "/process/mapmy-gig",
       metrics:
         "Discover and map local gigs with a clear, location-first experience.",
@@ -2905,7 +2862,7 @@ function App() {
     {
       id: 13,
       title: "Promptject",
-      image: "",
+      image: "promptject-card.png",
       link: "/process/promptject",
       metrics:
         "Prompt-to-component UI engine that eliminates Figma handoff and builds a live design system catalog.",
@@ -3593,61 +3550,15 @@ function App() {
                                   />
                                 </div>
                               </div>
-                            ) : design.id === 8 ? (
-                              /* Aurora gradient backdrop for "End Feedback Chaos" card */
-                              <div
-                                className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative overflow-hidden"
-                                style={{
-                                  backgroundColor: "#fafafa",
-                                }}
-                              >
-                                {/* Blue aurora blob - top left */}
-                                <div
-                                  className="absolute"
-                                  style={{
-                                    top: "-10%",
-                                    left: "-10%",
-                                    width: "500px",
-                                    height: "500px",
-                                    background:
-                                      "radial-gradient(circle at center, rgba(147, 197, 253, 0.3) 0%, transparent 70%)",
-                                    filter: "blur(120px)",
-                                    opacity: 0.8,
-                                  }}
-                                ></div>
-
-                                {/* Green aurora blob - top center behind logo */}
-                                <div
-                                  className="absolute"
-                                  style={{
-                                    top: "-10%",
-                                    left: "50%",
-                                    transform: "translateX(-50%)",
-                                    width: "700px",
-                                    height: "700px",
-                                    background:
-                                      "radial-gradient(circle at center, #10b981 0%, transparent 70%)",
-                                    filter: "blur(120px)",
-                                    opacity: 0.8,
-                                  }}
-                                ></div>
-
-                                {/* NOA Thumb SVG scaled to card width */}
-                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 z-10">
-                                  <img
-                                    src="noathumb.svg"
-                                    alt="Noa Thumbnail"
-                                    className="w-full h-auto opacity-90"
-                                  />
-                                </div>
-                                
-                                {/* Coming Soon Badge */}
-                                <div className="absolute top-4 right-4 z-20">
-                                  <span className="px-3 py-1.5 bg-orange-500 text-white rounded-full text-xs sm:text-sm font-semibold shadow-lg">
-                                    Coming Soon
-                                  </span>
-                                </div>
-                              </div>
+                            ) : design.id === 8 ||
+                              design.id === 11 ||
+                              design.id === 12 ||
+                              design.id === 13 ? (
+                              <img
+                                src={design.image}
+                                alt={design.title}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
                             ) : design.id === 10 ? (
                               /* Custom backdrop for "Shop OS" card with light green gradient */
                               <div
@@ -3682,51 +3593,6 @@ function App() {
                                   <p className="text-base text-black opacity-70 font-medium">
                                     Welcome to Shop OS
                                   </p>
-                                </div>
-                              </div>
-                            ) : design.id === 11 ? (
-                              /* Custom backdrop for "Carno" card with orange gradient */
-                              <div
-                                className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative flex items-center justify-center"
-                                style={{
-                                  background: `linear-gradient(135deg, #c2410c 0%, #ea580c 35%, #f97316 65%, #fb923c 85%, #fdba74 100%)`,
-                                }}
-                              >
-                                <div className="text-center relative z-10">
-                                  <h2 className="text-6xl font-bold text-white leading-none">
-                                    Carno
-                                  </h2>
-                                </div>
-                              </div>
-                            ) : design.id === 12 ? (
-                              /* Custom backdrop for "MapMy Gig" card with brown gradient */
-                              <div
-                                className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative flex items-center justify-center"
-                                style={{
-                                  background: `linear-gradient(135deg, #292524 0%, #44403c 25%, #57534e 45%, #78350f 70%, #92400e 100%)`,
-                                }}
-                              >
-                                <div className="text-center relative z-10">
-                                  <h2 className="text-6xl font-bold text-white leading-none mb-3">
-                                    MapMy
-                                  </h2>
-                                  <p className="text-2xl font-semibold text-white/90">
-                                    Gig
-                                  </p>
-                                </div>
-                              </div>
-                            ) : design.id === 13 ? (
-                              /* Custom backdrop for "Promptject" card with light sky-blue gradient */
-                              <div
-                                className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative flex items-center justify-center"
-                                style={{
-                                  background: `linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 30%, #bae6fd 60%, #7dd3fc 85%, #38bdf8 100%)`,
-                                }}
-                              >
-                                <div className="text-center relative z-10">
-                                  <h2 className="text-6xl font-bold text-slate-900 leading-none">
-                                    Promptject
-                                  </h2>
                                 </div>
                               </div>
                             ) : (
