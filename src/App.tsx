@@ -3,7 +3,8 @@ import { motion, AnimatePresence, useAnimation, Variants } from "framer-motion";
 import "remixicon/fonts/remixicon.css";
 import "./App.css";
 import faceImg from "./face.png";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { RESUME_URL, isModalRoute } from "./constants";
 
 // Import content components for modal
 import Process from "./Process";
@@ -85,11 +86,13 @@ const ExpandableModal = ({
   onClose,
   contentType,
   contentData,
+  onNavigate,
 }: {
   isOpen: boolean;
   onClose: () => void;
   contentType: string;
   contentData?: any;
+  onNavigate: (path: string) => void;
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [currentImage, setCurrentImage] = useState('unicourt3.png');
@@ -435,12 +438,7 @@ const ExpandableModal = ({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0 }}
-                    onClick={() => {
-                      onClose();
-                      setTimeout(() => {
-                        window.location.hash = "/process/enterprise-design-system";
-                      }, 300);
-                    }}
+                    onClick={() => onNavigate("/process/enterprise-design-system")}
                   >
                     <div className="artasaka-card-image-full relative group overflow-hidden">
                       <div
@@ -496,12 +494,7 @@ const ExpandableModal = ({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    onClick={() => {
-                      onClose();
-                      setTimeout(() => {
-                        window.location.hash = "/process/feedback-collaboration";
-                      }, 300);
-                    }}
+                    onClick={() => onNavigate("/process/feedback-collaboration")}
                   >
                     <div className="artasaka-card-image-full relative group overflow-hidden">
                       <img
@@ -536,12 +529,7 @@ const ExpandableModal = ({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    onClick={() => {
-                      onClose();
-                      setTimeout(() => {
-                        window.location.hash = "/process/shop-os";
-                      }, 300);
-                    }}
+                    onClick={() => onNavigate("/process/shop-os")}
                   >
                     <div className="artasaka-card-image-full relative group overflow-hidden">
                       <div
@@ -2797,6 +2785,7 @@ function App() {
   const [modalData, setModalData] = useState(null);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Animation controls
   const controls = useAnimation();
@@ -3039,16 +3028,33 @@ function App() {
       });
   };
 
+  // Sync modal with URL — e.g. #/process/carno opens the Carno case study
+  useEffect(() => {
+    const path = location.pathname;
+    if (isModalRoute(path)) {
+      setModalContent(path);
+      setModalData(null);
+      setModalOpen(true);
+    } else if (path === "/") {
+      setModalOpen(false);
+      setModalContent("");
+      setModalData(null);
+    }
+  }, [location.pathname]);
+
+  const openModal = (link: string, data?: any) => {
+    setModalContent(link);
+    setModalData(data ?? null);
+    setModalOpen(true);
+    navigate(link);
+  };
+
   // Click handler for links (both internal and external)
   const handleCardClick = (link?: string | null, data?: any) => {
     if (link) {
       if (link.startsWith("/")) {
-        // Internal navigation - open in modal
-        setModalContent(link);
-        setModalData(data);
-        setModalOpen(true);
+        openModal(link, data);
       } else {
-        // External link
         window.open(link, "_blank");
       }
     }
@@ -3059,6 +3065,9 @@ function App() {
     setModalOpen(false);
     setModalContent("");
     setModalData(null);
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
   };
 
   // Function to handle tab changes or navigation
@@ -3195,9 +3204,10 @@ function App() {
 
                       <div className="mt-4 sm:mt-6 flex justify-start space-x-4">
                         <motion.a
-                          href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link"
+                          href={RESUME_URL}
                           target="_blank"
                           rel="noopener noreferrer"
+                          download="Ajay-Manath-Resume.pdf"
                           className="text-white text-xs sm:text-sm bg-black border border-black rounded-full px-4 py-2 flex items-center hover:bg-gray-800 transition-all"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
@@ -3237,9 +3247,10 @@ function App() {
 
                       <div className="mt-4 sm:mt-6 flex justify-start space-x-4">
                         <motion.a
-                          href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link"
+                          href={RESUME_URL}
                           target="_blank"
                           rel="noopener noreferrer"
+                          download="Ajay-Manath-Resume.pdf"
                           className="text-white text-xs sm:text-sm bg-black border border-black rounded-full px-4 py-2 flex items-center hover:bg-gray-800 transition-all"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
@@ -3719,6 +3730,7 @@ function App() {
         onClose={handleCloseModal}
         contentType={modalContent}
         contentData={modalData}
+        onNavigate={openModal}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import fullImg from "./full.jpg";
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import 'remixicon/fonts/remixicon.css';
+import { RESUME_URL } from './constants';
 import './App.css';
 
 function About() {
@@ -308,9 +308,10 @@ function About() {
                   
                 <div className="mt-6 sm:mt-8 flex justify-center">
                   <motion.a 
-                    href="https://drive.google.com/file/d/1gn-B1XpCOImjmRdAIimFgtW9_Sb5jdI8/view?usp=drive_link"
+                    href={RESUME_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    download="Ajay-Manath-Resume.pdf"
                     className="text-white text-xs sm:text-sm bg-transparent border border-white border-opacity-20 rounded-full px-4 py-2 flex items-center"
                     whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
                     whileTap={{ scale: 0.95 }}
