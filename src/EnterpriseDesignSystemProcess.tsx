@@ -878,48 +878,6 @@ function EnterpriseDesignSystemProcess() {
 
             {/* Grid 2: Project Cards */}
             <div className="grid grid-cols-1 gap-6">
-              {/* Unified Litigation Intelligence Platform */}
-              <motion.div
-                className="artasaka-card cursor-pointer"
-                style={{ height: "50vh" }}
-                variants={fadeInUp}
-                transition={{ delay: 0 }}
-                onClick={() => handleCardClick("/process/litigation-intelligence")}
-              >
-                <div className="artasaka-card-image-full relative group overflow-hidden">
-                  {/* Custom backdrop for "Unified Litigation Intelligence Platform" card */}
-                  <div
-                    className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
-                    style={{
-                      background: `
-                        radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 60%, rgba(134,239,172,0.4) 80%, rgba(20,107,133,0.7) 90%, #146b85 100%),
-                        linear-gradient(135deg, #146b85, #0f5f75)
-                      `,
-                    }}
-                  >
-                    {/* Unicourt SVG Logo at center */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <img
-                        src="unicourt.svg"
-                        alt="Unicourt Logo"
-                        className="h-24 w-auto opacity-90"
-                      />
-                </div>
-                  </div>
-                  {/* Dark overlay that appears on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  {/* Title that appears on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-white text-xl font-bold leading-tight mb-2">
-                      Unified Litigation Intelligence Platform
-                    </h3>
-                    <p className="text-gray-200 text-sm">
-                      Delivering AI-powered access to 2 billion court dockets, analytics, and insights for legal innovation.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-              
               {/* End Feedback Chaos */}
               <motion.div 
                 className="artasaka-card cursor-pointer"
@@ -985,53 +943,6 @@ function EnterpriseDesignSystemProcess() {
                     </h3>
                     <p className="text-gray-200 text-sm">
                       Pin contextual comments directly on live websites for crystal-clear collaboration and accelerated team workflows.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-              
-              {/* Shop OS */}
-              <motion.div
-                className="artasaka-card cursor-pointer"
-                style={{ height: "50vh" }}
-                variants={fadeInUp}
-                transition={{ delay: 0.2 }}
-                onClick={() => handleCardClick("/process/shop-os")}
-              >
-                <div className="artasaka-card-image-full relative group overflow-hidden">
-                  {/* Custom backdrop for "Shop OS" card with light green gradient */}
-                  <div
-                    className="w-full h-full transition-transform duration-500 group-hover:scale-105 relative"
-                    style={{
-                      background: `linear-gradient(135deg, #FFFEF0 0%, #F1F8E9 30%, #E8F5E9 60%, #C8E6C9 80%, #A5D6A7 100%)`,
-                    }}
-                  >
-                    {/* Shop OS Logo and Text at center */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-                      <div className="flex items-center justify-center gap-2 mb-3">
-                        <span className="text-6xl font-bold text-black leading-none">
-                          Shop
-                        </span>
-                        <div className="relative inline-flex items-center justify-center">
-                          <span className="text-6xl font-bold text-black leading-none">
-                            OS
-                          </span>
-                        </div>
-                      </div>
-                      <p className="text-base text-black opacity-70 font-medium">
-                        Welcome to Shop OS
-                      </p>
-                    </div>
-                  </div>
-                  {/* Dark overlay that appears on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  {/* Title that appears on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-white text-xl font-bold leading-tight mb-2">
-                      Shop OS: AI Agentic Native Ecosystem for Multi-Agent Workspace
-                    </h3>
-                    <p className="text-gray-200 text-sm">
-                      Intelligent OS ecosystem for agentic workflows everything related to shopping.
                     </p>
                   </div>
                 </div>
